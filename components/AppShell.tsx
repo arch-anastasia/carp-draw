@@ -9,14 +9,13 @@ import {
   Coins,
   Folder,
   Home,
-  Image as ImageIcon,
+  FileSpreadsheet,
   LogOut,
   Menu,
   PanelLeftClose,
   PenTool,
   Settings,
   Sparkles,
-  X,
 } from "lucide-react";
 import { BrandLogo } from "./BrandLogo";
 
@@ -28,18 +27,22 @@ const navItems = [
     icon: Sparkles,
   },
   {
-    href: "/app/drawing-to-photo",
-    label: "Drawing to Photo",
-    icon: ImageIcon,
+    href: "/app/model-to-drawing",
+    label: "3D Model to Drawing",
+    icon: Box,
   },
-  { href: "/app/photo-to-3d", label: "Photo to 3D CAD", icon: Box },
+  {
+    href: "/app/create-specification",
+    label: "Create Specification",
+    icon: FileSpreadsheet,
+  },
 ];
 
 const pathLabels: Record<string, string> = {
   "/app": "Home",
   "/app/photo-to-drawing": "Photo to Drawing",
-  "/app/drawing-to-photo": "Drawing to Photo",
-  "/app/photo-to-3d": "Photo to 3D CAD",
+  "/app/model-to-drawing": "3D Model to Drawing",
+  "/app/create-specification": "Create Specification",
   "/app/projects": "Projects",
   "/app/settings": "Settings",
   "/app/plans": "Plans",

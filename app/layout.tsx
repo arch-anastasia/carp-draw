@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-interface-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-interface-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -31,33 +32,34 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: baseUrl,
     title: {
-      default: "CarpDraw AI — Product Images to Technical Drawings",
+      default: "CarpDraw AI — References to Technical Drawings",
       template: "%s | CarpDraw AI",
     },
     description:
-      "Turn product photos and sketches into clear technical drawings, product renders and editable 3D concepts with an assisted AI workflow.",
+      "Create technical drawings from photos and 3D models, then prepare structured product specifications in one guided workspace.",
     keywords: [
       "AI technical drawing",
       "photo to CAD",
       "product drawing",
-      "3D CAD concept",
+      "3D model to drawing",
+      "product specification",
       "CarpDraw AI",
     ],
     icons: {
-      icon: "/brand/carpdraw-logo.png",
-      shortcut: "/brand/carpdraw-logo.png",
-      apple: "/brand/carpdraw-logo.png",
+      icon: "/favicon.png",
+      shortcut: "/favicon.png",
+      apple: "/brand/carpdraw-logo-orange.png",
     },
     openGraph: {
       type: "website",
       locale: "en_US",
       siteName: "CarpDraw AI",
-      title: "CarpDraw AI — From photo to production-ready drawing",
+      title: "CarpDraw AI — From reference to production-ready drawing",
       description:
-        "A focused AI workspace for technical drawings, product renders and 3D CAD concepts.",
+        "A focused workspace for photo-to-drawing, 3D-to-drawing and product specification workflows.",
       images: [
         {
-          url: new URL("/og.png", baseUrl).toString(),
+          url: new URL("/og-v2.png", baseUrl).toString(),
           width: 1536,
           height: 1024,
           alt: "CarpDraw AI technical drawing workspace",
@@ -69,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "CarpDraw AI",
       description:
         "Turn a product photo into a clear, editable technical workflow.",
-      images: [new URL("/og.png", baseUrl).toString()],
+      images: [new URL("/og-v2.png", baseUrl).toString()],
     },
   };
 }
@@ -82,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${plexMono.variable} antialiased`}
       >
         <a className="skip-link" href="#main-content">
           Skip to content

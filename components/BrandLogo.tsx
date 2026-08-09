@@ -13,10 +13,10 @@ export function BrandLogo({ href = "/", compact = false }: BrandLogoProps) {
       aria-label="CarpDraw AI home"
     >
       <img
-        src="/brand/carpdraw-logo.png"
+        src="/brand/carpdraw-logo-orange.png"
         alt="CarpDraw AI"
-        width={2048}
-        height={688}
+        width={2000}
+        height={2000}
       />
     </Link>
   );

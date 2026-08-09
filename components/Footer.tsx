@@ -7,8 +7,8 @@ const footerGroups = [
     title: "Create",
     links: [
       ["/app/photo-to-drawing", "Photo to Drawing"],
-      ["/app/drawing-to-photo", "Drawing to Photo"],
-      ["/app/photo-to-3d", "Photo to 3D CAD"],
+      ["/app/model-to-drawing", "3D Model to Drawing"],
+      ["/app/create-specification", "Create Specification"],
     ],
   },
   {

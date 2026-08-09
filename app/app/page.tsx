@@ -1,34 +1,41 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Box, Image as ImageIcon, Sparkles } from "lucide-react";
-import { TechnicalVisual } from "@/components/TechnicalVisual";
+import {
+  ArrowRight,
+  Box,
+  FileSpreadsheet,
+  Sparkles,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Workspace",
-  description: "CarpDraw AI creation workspace.",
+  description: "CarpDraw AI technical documentation workspace.",
 };
 
 const creationModes = [
   {
     href: "/app/photo-to-drawing",
     title: "Photo to Drawing",
-    copy: "Turn a product photo or sketch into a structured technical sheet.",
+    copy: "Turn a product photo or sketch into a structured technical drawing.",
     icon: Sparkles,
-    label: "DRAWING / 01",
+    image: "/examples/step-photo.webp",
+    label: "PHOTO / 01",
   },
   {
-    href: "/app/drawing-to-photo",
-    title: "Drawing to Photo",
-    copy: "Transform a technical reference into a presentation-ready render.",
-    icon: ImageIcon,
-    label: "RENDER / 02",
-  },
-  {
-    href: "/app/photo-to-3d",
-    title: "Photo to 3D CAD",
-    copy: "Prepare a photo reference for an editable 3D model concept.",
+    href: "/app/model-to-drawing",
+    title: "3D Model to Drawing",
+    copy: "Upload a 3D model and prepare clear orthographic drawing views.",
     icon: Box,
-    label: "MODEL / 03",
+    image: "/examples/step-drawing.webp",
+    label: "MODEL / 02",
+  },
+  {
+    href: "/app/create-specification",
+    title: "Create Specification",
+    copy: "Organize dimensions, materials, notes and outputs in one specification.",
+    icon: FileSpreadsheet,
+    image: "/examples/hero-workflow.webp",
+    label: "SPEC / 03",
   },
 ];
 
@@ -44,14 +51,17 @@ export default function WorkspaceHomePage() {
         </p>
       </div>
       <div className="creation-grid">
-        {creationModes.map(({ href, title, copy, icon: Icon, label }) => (
+        {creationModes.map(({ href, title, copy, icon: Icon, image, label }) => (
           <Link className="creation-card" href={href} key={href}>
             <div className="creation-card-top">
               <Icon size={19} aria-hidden="true" />
               <span>{title}</span>
               <ArrowRight size={18} aria-hidden="true" />
             </div>
-            <TechnicalVisual label={label} />
+            <div className="creation-image">
+              <img src={image} alt="" />
+              <span>{label}</span>
+            </div>
             <p>{copy}</p>
           </Link>
         ))}
@@ -59,7 +69,7 @@ export default function WorkspaceHomePage() {
       <Link className="try-banner" href="/app/photo-to-drawing">
         <div>
           <span>New workflow</span>
-          <p>Photo or sketch to dimensioned drawing concept</p>
+          <p>Photo or sketch to dimensioned technical drawing</p>
         </div>
         <strong>
           Try Drawing <span>V2</span>
@@ -76,9 +86,12 @@ export default function WorkspaceHomePage() {
             View all <ArrowRight size={15} aria-hidden="true" />
           </Link>
         </div>
-        <Link className="project-card" href="/app/projects">
-          <TechnicalVisual label="SAMPLE / A3" />
-          <strong>First furniture concept</strong>
+        <Link className="project-card project-card-image" href="/app/projects">
+          <img
+            src="/examples/example-kitchen-drawing.webp"
+            alt="Kitchen technical drawing example"
+          />
+          <strong>Kitchen specification set</strong>
           <span>Updated today</span>
         </Link>
       </section>

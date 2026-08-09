@@ -12,57 +12,60 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
+  Box,
   Check,
   CirclePlus,
   CloudUpload,
   FileImage,
+  FileSpreadsheet,
   Ruler,
   RotateCcw,
 } from "lucide-react";
 import { TechnicalVisual } from "./TechnicalVisual";
 
-type WorkflowMode = "drawing" | "render" | "model";
+export type WorkflowMode = "drawing" | "modelDrawing" | "specification";
 
 const workflowCopy = {
   drawing: {
-    newLabel: "New generation",
+    newLabel: "New drawing",
     title: "Upload a product photo",
     subtitle: "A single, clear view of the object works best.",
     prompt: "Drop, paste or click to upload a product photo",
     resultTitle: "Drawing concept ready",
-    resultCopy:
-      "Your technical sheet structure is prepared for review and export.",
-    steps: ["Upload", "Measure", "Setup", "Result"],
+    resultCopy: "Your technical sheet structure is prepared for review and export.",
+    steps: ["Upload", "Measure", "Review", "Result"],
+    accept: ".jpg,.jpeg,.png,.webp,.heic,.heif,image/*",
+    formats: "JPG, PNG, HEIC or WebP · up to 15 MB",
+    extensions: ["jpg", "jpeg", "png", "webp", "heic", "heif"],
+    maxMb: 15,
   },
-  render: {
-    newLabel: "New render",
-    title: "Upload a technical drawing",
-    subtitle: "A clean 2D drawing with orthographic views works best.",
-    prompt: "Drop, paste or click to upload a technical drawing",
-    resultTitle: "Render brief ready",
-    resultCopy:
-      "Your drawing has been organized into a presentation render brief.",
-    steps: ["Upload", "Setup", "Render"],
+  modelDrawing: {
+    newLabel: "New model drawing",
+    title: "Upload a 3D model",
+    subtitle: "Use a clean model with correctly grouped geometry.",
+    prompt: "Drop or click to upload a 3D model",
+    resultTitle: "Model drawing brief ready",
+    resultCopy: "Orthographic views and sheet settings are prepared for production.",
+    steps: ["Upload", "Views", "Review", "Result"],
+    accept: ".skp,.3ds,.obj,.dwg",
+    formats: "SKP, 3DS, OBJ or DWG · up to 50 MB",
+    extensions: ["skp", "3ds", "obj", "dwg"],
+    maxMb: 50,
   },
-  model: {
-    newLabel: "New model",
-    title: "Upload an object photo",
-    subtitle: "A three-quarter view with clear edges works best.",
-    prompt: "Drop, paste or click to upload an object photo",
-    resultTitle: "3D concept ready",
-    resultCopy:
-      "Your reference has been prepared for an editable CAD modeling stage.",
-    steps: ["Upload", "Setup", "Model"],
+  specification: {
+    newLabel: "New specification",
+    title: "Upload your project reference",
+    subtitle: "Add a drawing, model or product image as the source.",
+    prompt: "Drop, paste or click to upload a project reference",
+    resultTitle: "Specification draft ready",
+    resultCopy: "The project information is organized into a structured specification.",
+    steps: ["Upload", "Details", "Review", "Result"],
+    accept: ".jpg,.jpeg,.png,.webp,.pdf,.skp,.3ds,.obj,.dwg,.dxf",
+    formats: "Image, PDF, SKP, 3DS, OBJ, DWG or DXF · up to 50 MB",
+    extensions: ["jpg", "jpeg", "png", "webp", "pdf", "skp", "3ds", "obj", "dwg", "dxf"],
+    maxMb: 50,
   },
-};
-
-const acceptedTypes = [
-  "image/jpeg",
-  "image/png",
-  "image/webp",
-  "image/heic",
-  "image/heif",
-];
+} as const;
 
 export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
   const copy = workflowCopy[mode];
@@ -74,6 +77,8 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
   const [unit, setUnit] = useState("mm");
   const [dimension, setDimension] = useState("");
   const [style, setStyle] = useState("clean");
+  const [projectName, setProjectName] = useState("");
+  const [material, setMaterial] = useState("");
 
   const activeStep = useMemo(
     () => Math.min(stage, copy.steps.length - 1),
@@ -82,21 +87,18 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
 
   const processFile = (nextFile?: File) => {
     if (!nextFile) return;
-    const extension = nextFile.name.split(".").pop()?.toLowerCase();
-    const typeOk =
-      acceptedTypes.includes(nextFile.type) ||
-      extension === "heic" ||
-      extension === "heif";
-    if (!typeOk) {
-      setError("Use a JPG, PNG, HEIC or WebP image.");
+    const extension = nextFile.name.split(".").pop()?.toLowerCase() || "";
+    if (!(copy.extensions as readonly string[]).includes(extension)) {
+      setError(`Supported formats: ${copy.extensions.join(", ").toUpperCase()}.`);
       return;
     }
-    if (nextFile.size > 15 * 1024 * 1024) {
-      setError("The file is larger than 15 MB.");
+    if (nextFile.size > copy.maxMb * 1024 * 1024) {
+      setError(`The file is larger than ${copy.maxMb} MB.`);
       return;
     }
+
     if (previewUrl) URL.revokeObjectURL(previewUrl);
-    setPreviewUrl(URL.createObjectURL(nextFile));
+    setPreviewUrl(nextFile.type.startsWith("image/") ? URL.createObjectURL(nextFile) : null);
     setFile(nextFile);
     setError("");
   };
@@ -107,6 +109,8 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
     setPreviewUrl(null);
     setStage(0);
     setDimension("");
+    setProjectName("");
+    setMaterial("");
     setError("");
     if (inputRef.current) inputRef.current.value = "";
   };
@@ -125,15 +129,15 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
 
   const handleContinue = () => {
     if (stage === 0 && !file) {
-      setError("Choose an image before continuing.");
+      setError("Choose a file before continuing.");
       return;
     }
-    if (
-      stage === 1 &&
-      mode === "drawing" &&
-      (!dimension || Number(dimension) <= 0)
-    ) {
+    if (stage === 1 && mode === "drawing" && (!dimension || Number(dimension) <= 0)) {
       setError("Add one valid reference measurement.");
+      return;
+    }
+    if (stage === 1 && mode === "specification" && !projectName.trim()) {
+      setError("Add a project or product name.");
       return;
     }
     setError("");
@@ -141,12 +145,15 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
   };
 
   const finalStage = stage >= copy.steps.length - 1;
+  const setupTitle =
+    mode === "drawing"
+      ? "Add one reliable measurement"
+      : mode === "modelDrawing"
+        ? "Choose the required drawing views"
+        : "Add the specification details";
 
   return (
-    <div
-      className="workflow-page"
-      onPaste={(event) => processFile(event.clipboardData.files[0])}
-    >
+    <div className="workflow-page" onPaste={(event) => processFile(event.clipboardData.files[0])}>
       <div className="workflow-toolbar">
         <button className="text-button new-workflow" type="button" onClick={reset}>
           <CirclePlus size={18} aria-hidden="true" />
@@ -155,13 +162,7 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
         <ol className="workflow-steps" aria-label="Progress">
           {copy.steps.map((step, index) => (
             <li
-              className={
-                index === activeStep
-                  ? "is-active"
-                  : index < activeStep
-                    ? "is-complete"
-                    : ""
-              }
+              className={index === activeStep ? "is-active" : index < activeStep ? "is-complete" : ""}
               key={step}
               aria-current={index === activeStep ? "step" : undefined}
             >
@@ -193,30 +194,27 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
               <input
                 ref={inputRef}
                 type="file"
-                accept=".jpg,.jpeg,.png,.webp,.heic,.heif,image/*"
+                accept={copy.accept}
                 hidden
-                onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                  processFile(event.target.files?.[0])
-                }
+                onChange={(event: ChangeEvent<HTMLInputElement>) => processFile(event.target.files?.[0])}
               />
               {previewUrl ? (
                 <img src={previewUrl} alt="Selected upload preview" />
+              ) : file ? (
+                <div className="uploaded-file-card" aria-hidden="true">
+                  <Box size={52} />
+                  <span>{file.name.split(".").pop()?.toUpperCase()}</span>
+                </div>
               ) : (
                 <div className="upload-cards" aria-hidden="true">
                   <span />
-                  <span>
-                    <FileImage size={34} />
-                  </span>
+                  <span>{mode === "modelDrawing" ? <Box size={34} /> : mode === "specification" ? <FileSpreadsheet size={34} /> : <FileImage size={34} />}</span>
                   <span />
                 </div>
               )}
               <CloudUpload size={34} aria-hidden="true" />
               <strong>{file ? file.name : copy.prompt}</strong>
-              <small>
-                {file
-                  ? `${(file.size / 1024 / 1024).toFixed(2)} MB · click to replace`
-                  : "JPG, PNG, HEIC or WebP · up to 15 MB"}
-              </small>
+              <small>{file ? `${(file.size / 1024 / 1024).toFixed(2)} MB · click to replace` : copy.formats}</small>
             </div>
           </>
         ) : null}
@@ -224,30 +222,25 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
         {stage === 1 ? (
           <>
             <div className="workflow-heading">
-              <span className="eyebrow">
-                Step 02 · {mode === "drawing" ? "Measure" : "Setup"}
-              </span>
-              <h1>
-                {mode === "drawing"
-                  ? "Add one reliable measurement"
-                  : "Choose the output direction"}
-              </h1>
-              <p>
-                {mode === "drawing"
-                  ? "A known size gives the drawing a meaningful scale."
-                  : "These choices become the brief for the next production step."}
-              </p>
+              <span className="eyebrow">Step 02 · {copy.steps[1]}</span>
+              <h1>{setupTitle}</h1>
+              <p>These choices form the technical brief for the next production step.</p>
             </div>
             <div className="setup-grid">
               <div className="setup-preview">
-                {previewUrl ? (
-                  <img src={previewUrl} alt="Uploaded source" />
+                {previewUrl ? <img src={previewUrl} alt="Uploaded source" /> : (
+                  <div className="setup-file-preview">
+                    <Box size={58} aria-hidden="true" />
+                    <strong>{file?.name}</strong>
+                  </div>
+                )}
+                {mode === "drawing" ? (
+                  <div className="measure-line" aria-hidden="true">
+                    <span />
+                    <span />
+                    <p>{dimension || "—"} {unit}</p>
+                  </div>
                 ) : null}
-                <div className="measure-line" aria-hidden="true">
-                  <span />
-                  <span />
-                  <p>{dimension || "—"} {unit}</p>
-                </div>
               </div>
               <div className="setup-form">
                 {mode === "drawing" ? (
@@ -256,79 +249,61 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
                       <label htmlFor="dimension">Known dimension</label>
                       <div className="dimension-input">
                         <Ruler size={18} aria-hidden="true" />
-                        <input
-                          id="dimension"
-                          type="number"
-                          min="0.1"
-                          step="0.1"
-                          value={dimension}
-                          onChange={(event) => setDimension(event.target.value)}
-                          placeholder="e.g. 450"
-                        />
-                        <select
-                          aria-label="Measurement unit"
-                          value={unit}
-                          onChange={(event) => setUnit(event.target.value)}
-                        >
-                          <option value="mm">mm</option>
-                          <option value="cm">cm</option>
-                          <option value="in">in</option>
+                        <input id="dimension" type="number" min="0.1" step="0.1" value={dimension} onChange={(event) => setDimension(event.target.value)} placeholder="e.g. 450" />
+                        <select aria-label="Measurement unit" value={unit} onChange={(event) => setUnit(event.target.value)}>
+                          <option value="mm">mm</option><option value="cm">cm</option><option value="in">in</option>
                         </select>
                       </div>
                     </div>
                     <div className="form-field">
                       <label htmlFor="drawing-style">Drawing standard</label>
-                      <select
-                        id="drawing-style"
-                        value={style}
-                        onChange={(event) => setStyle(event.target.value)}
-                      >
-                        <option value="clean">Clean orthographic set</option>
-                        <option value="fabrication">Fabrication sheet</option>
-                        <option value="assembly">Assembly overview</option>
+                      <select id="drawing-style" value={style} onChange={(event) => setStyle(event.target.value)}>
+                        <option value="clean orthographic set">Clean orthographic set</option>
+                        <option value="fabrication sheet">Fabrication sheet</option>
+                        <option value="assembly overview">Assembly overview</option>
+                      </select>
+                    </div>
+                  </>
+                ) : mode === "modelDrawing" ? (
+                  <>
+                    <div className="form-field">
+                      <label htmlFor="view-set">Drawing view set</label>
+                      <select id="view-set" value={style} onChange={(event) => setStyle(event.target.value)}>
+                        <option value="front side and plan views">Front, side and plan views</option>
+                        <option value="orthographic and isometric views">Orthographic + isometric</option>
+                        <option value="assembly and detail views">Assembly + detail views</option>
+                      </select>
+                    </div>
+                    <div className="form-field">
+                      <label htmlFor="model-units">Model units</label>
+                      <select id="model-units" value={unit} onChange={(event) => setUnit(event.target.value)}>
+                        <option value="mm">Millimetres</option><option value="cm">Centimetres</option><option value="in">Inches</option>
                       </select>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className="form-field">
-                      <label htmlFor="output-style">Output style</label>
-                      <select
-                        id="output-style"
-                        value={style}
-                        onChange={(event) => setStyle(event.target.value)}
-                      >
-                        {mode === "render" ? (
-                          <>
-                            <option value="clean">Clean studio render</option>
-                            <option value="material">Material study</option>
-                            <option value="context">Interior context</option>
-                          </>
-                        ) : (
-                          <>
-                            <option value="clean">Editable solid concept</option>
-                            <option value="surface">Surface model concept</option>
-                            <option value="assembly">Assembly breakdown</option>
-                          </>
-                        )}
-                      </select>
+                      <label htmlFor="project-name">Project or product name</label>
+                      <input id="project-name" value={projectName} onChange={(event) => setProjectName(event.target.value)} placeholder="e.g. Living room shelving" />
                     </div>
                     <div className="form-field">
-                      <label htmlFor="notes">Optional notes</label>
-                      <textarea
-                        id="notes"
-                        rows={4}
-                        placeholder="Add material, finish or modeling notes..."
-                      />
+                      <label htmlFor="material">Primary material</label>
+                      <input id="material" value={material} onChange={(event) => setMaterial(event.target.value)} placeholder="e.g. Oak veneer, 30 mm" />
+                    </div>
+                    <div className="form-field">
+                      <label htmlFor="specification-type">Specification type</label>
+                      <select id="specification-type" value={style} onChange={(event) => setStyle(event.target.value)}>
+                        <option value="manufacturing specification">Manufacturing specification</option>
+                        <option value="materials and finishes schedule">Materials and finishes schedule</option>
+                        <option value="project handover document">Project handover document</option>
+                      </select>
                     </div>
                   </>
                 )}
                 <div className="setup-note">
                   <strong>Preview mode</strong>
-                  <p>
-                    Files remain in this browser. A production AI/CAD service
-                    can be connected later.
-                  </p>
+                  <p>Files remain in this browser. Production conversion and storage can be connected to a backend later.</p>
                 </div>
               </div>
             </div>
@@ -343,18 +318,13 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
               <p>Confirm the source and output intent before the result stage.</p>
             </div>
             <div className="review-panel">
-              <TechnicalVisual label={`${mode.toUpperCase()} / REVIEW`} />
+              <TechnicalVisual label={`${mode === "modelDrawing" ? "MODEL" : mode.toUpperCase()} / REVIEW`} />
               <div>
-                <strong>Source</strong>
-                <p>{file?.name}</p>
-                <strong>Output direction</strong>
-                <p>{style.replace("-", " ")}</p>
-                {mode === "drawing" ? (
-                  <>
-                    <strong>Reference measurement</strong>
-                    <p>{dimension} {unit}</p>
-                  </>
-                ) : null}
+                <strong>Source</strong><p>{file?.name}</p>
+                <strong>Output direction</strong><p>{style}</p>
+                {mode === "drawing" ? <><strong>Reference measurement</strong><p>{dimension} {unit}</p></> : null}
+                {mode === "modelDrawing" ? <><strong>Model units</strong><p>{unit}</p></> : null}
+                {mode === "specification" ? <><strong>Project</strong><p>{projectName}</p><strong>Material</strong><p>{material || "Not specified"}</p></> : null}
               </div>
             </div>
           </>
@@ -362,55 +332,23 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
 
         {finalStage ? (
           <div className="workflow-result">
-            <div className="result-check">
-              <Check size={28} aria-hidden="true" />
-            </div>
+            <div className="result-check"><Check size={28} aria-hidden="true" /></div>
             <span className="eyebrow">Preview complete</span>
             <h1>{copy.resultTitle}</h1>
             <p>{copy.resultCopy}</p>
             <TechnicalVisual label="CARPDRAW / READY" />
             <div className="result-actions">
-              <button className="secondary-button" type="button" onClick={reset}>
-                <RotateCcw size={16} aria-hidden="true" />
-                Start another
-              </button>
-              <Link className="primary-button" href="/app/projects">
-                Save to projects
-                <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+              <button className="secondary-button" type="button" onClick={reset}><RotateCcw size={16} aria-hidden="true" />Start another</button>
+              <Link className="primary-button" href="/app/projects">Save to projects<ArrowRight size={16} aria-hidden="true" /></Link>
             </div>
           </div>
         ) : null}
 
-        {error ? (
-          <p className="workflow-error error-text" role="alert">
-            {error}
-          </p>
-        ) : null}
+        {error ? <p className="workflow-error error-text" role="alert">{error}</p> : null}
         {!finalStage ? (
           <div className="workflow-actions">
-            {stage > 0 ? (
-              <button
-                className="secondary-button"
-                type="button"
-                onClick={() => {
-                  setError("");
-                  setStage((current) => current - 1);
-                }}
-              >
-                <ArrowLeft size={16} aria-hidden="true" />
-                Back
-              </button>
-            ) : null}
-            <button
-              className="primary-button"
-              type="button"
-              onClick={handleContinue}
-              disabled={stage === 0 && !file}
-            >
-              Continue
-              <ArrowRight size={16} aria-hidden="true" />
-            </button>
+            {stage > 0 ? <button className="secondary-button" type="button" onClick={() => { setError(""); setStage((current) => current - 1); }}><ArrowLeft size={16} aria-hidden="true" />Back</button> : null}
+            <button className="primary-button" type="button" onClick={handleContinue} disabled={stage === 0 && !file}>Continue<ArrowRight size={16} aria-hidden="true" /></button>
           </div>
         ) : null}
       </section>

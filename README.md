@@ -2,7 +2,7 @@
 
 A responsive multi-page interface for an AI-assisted product documentation
 platform. The project includes a public marketing site and a working application
-preview for photo-to-drawing, drawing-to-photo and photo-to-3D workflows.
+preview for Photo to Drawing, 3D Model to Drawing and Create Specification workflows.
 
 ## Stack
 

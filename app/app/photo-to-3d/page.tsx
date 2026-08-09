@@ -1,11 +1,5 @@
-import type { Metadata } from "next";
-import { UploadWorkflow } from "@/components/UploadWorkflow";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Photo to 3D CAD",
-  description: "Prepare an editable 3D CAD concept from an object photo.",
-};
-
-export default function PhotoTo3DPage() {
-  return <UploadWorkflow mode="model" />;
+export default function LegacyPhotoTo3DPage() {
+  redirect("/app/create-specification");
 }

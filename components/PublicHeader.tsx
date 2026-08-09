@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   Box,
   ChevronDown,
-  FileImage,
+  FileSpreadsheet,
   Menu,
   PenTool,
   X,
@@ -21,16 +21,16 @@ const productLinks = [
     icon: PenTool,
   },
   {
-    href: "/app/drawing-to-photo",
-    label: "Drawing to Photo",
-    copy: "Create presentation-ready renders",
-    icon: FileImage,
+    href: "/app/model-to-drawing",
+    label: "3D Model to Drawing",
+    copy: "Turn 3D files into drawing sheets",
+    icon: Box,
   },
   {
-    href: "/app/photo-to-3d",
-    label: "Photo to 3D CAD",
-    copy: "Prepare an editable model concept",
-    icon: Box,
+    href: "/app/create-specification",
+    label: "Create Specification",
+    copy: "Build a structured product specification",
+    icon: FileSpreadsheet,
   },
 ];
 

@@ -10,9 +10,9 @@ const faqItems = [
       "Upload a clear photo, set at least one known measurement and choose the output views. The interface then prepares a structured drawing concept with dimensions and export options.",
   },
   {
-    question: "Which image formats can I upload?",
+    question: "Which image and 3D formats can I upload?",
     answer:
-      "The current interface accepts JPG, PNG, HEIC and WebP files up to 15 MB. The demo keeps files in your browser and does not send them to a server.",
+      "Photo to Drawing accepts JPG, PNG, HEIC and WebP. The 3D Model to Drawing workflow accepts SKP, 3DS, OBJ and DWG files up to 50 MB.",
   },
   {
     question: "Can I use sketches as an input?",
@@ -20,9 +20,9 @@ const faqItems = [
       "Yes. High-contrast hand sketches and scanned line drawings work well as a starting point, especially when one reliable dimension is provided.",
   },
   {
-    question: "Which outputs are planned?",
+    question: "What can I create in the workspace?",
     answer:
-      "The product is designed around PDF, SVG, DXF and DWG drawing workflows, plus an editable 3D concept route. Production export requires a CAD processing backend.",
+      "The workspace includes Photo to Drawing, 3D Model to Drawing and Create Specification. Production PDF, DXF and DWG generation requires a CAD processing backend.",
   },
   {
     question: "Do I need previous CAD experience?",

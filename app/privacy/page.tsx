@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <PublicHeader />
       <main id="main-content" className="legal-page section-pad">
         <article className="container-shell">
-          <span className="eyebrow">Last updated July 29, 2026</span>
+          <span className="eyebrow">Last updated August 9, 2026</span>
           <h1 className="section-title">Privacy Policy</h1>
           <p className="legal-lead">
             This policy describes the intended privacy approach for the
@@ -32,8 +32,8 @@ export default function PrivacyPage() {
           <section>
             <h2>2. How information is used</h2>
             <p>
-              Production data would be used to provide drawing, render and
-              model workflows, manage accounts, respond to support requests and
+              Production data would be used to provide photo-to-drawing,
+              model-to-drawing and specification workflows, manage accounts, respond to support requests and
               improve service reliability. Data should not be sold.
             </p>
           </section>

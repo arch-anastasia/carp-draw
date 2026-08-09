@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CirclePlus } from "lucide-react";
-import { TechnicalVisual } from "@/components/TechnicalVisual";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -15,7 +14,7 @@ export default function ProjectsPage() {
         <div>
           <span className="eyebrow">Workspace library</span>
           <h1>Projects</h1>
-          <p>Your saved drawings, render briefs and model concepts.</p>
+          <p>Your saved drawings, model drawing briefs and specifications.</p>
         </div>
         <Link className="primary-button" href="/app/photo-to-drawing">
           <CirclePlus size={17} aria-hidden="true" />
@@ -24,9 +23,11 @@ export default function ProjectsPage() {
       </div>
       <div className="projects-grid">
         <article className="project-library-card">
-          <TechnicalVisual label="FURNITURE / A3" />
+          <div className="project-library-image">
+            <img src="/examples/example-kitchen-drawing.webp" alt="Kitchen technical drawing" />
+          </div>
           <div>
-            <h2>First furniture concept</h2>
+            <h2>Kitchen specification set</h2>
             <p>Technical drawing · Updated today</p>
           </div>
           <Link href="/app/photo-to-drawing">
@@ -37,7 +38,7 @@ export default function ProjectsPage() {
         <Link className="new-project-card" href="/app/photo-to-drawing">
           <CirclePlus size={28} aria-hidden="true" />
           <strong>Create another project</strong>
-          <span>Start from a photo or sketch</span>
+          <span>Start from a photo, model or reference file</span>
         </Link>
       </div>
     </div>

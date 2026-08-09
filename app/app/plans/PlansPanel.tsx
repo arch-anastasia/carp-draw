@@ -11,8 +11,9 @@ const plans = [
     features: [
       [true, "40 creation credits / month"],
       [true, "PDF and SVG project briefs"],
-      [true, "Drawing to render previews"],
-      [false, "Photo to 3D CAD processing"],
+      [true, "Photo to Drawing workflow"],
+      [false, "3D Model to Drawing processing"],
+      [true, "Basic specification drafts"],
       [false, "Team review tools"],
     ] as const,
   },
@@ -24,8 +25,9 @@ const plans = [
     features: [
       [true, "250 creation credits / month"],
       [true, "PDF, SVG and DXF workflows"],
-      [true, "Drawing to render previews"],
-      [true, "Photo to 3D CAD processing"],
+      [true, "Photo to Drawing workflow"],
+      [true, "3D Model to Drawing processing"],
+      [true, "Advanced product specifications"],
       [true, "Priority review and support"],
     ] as const,
   },
