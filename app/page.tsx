@@ -65,6 +65,15 @@ const examples = [
   { image: "/examples/example-bunk-drawing.webp", title: "Bunk construction drawing", type: "DRAWING" },
 ];
 
+const projectBrands = [
+  { name: "ABB", logo: "/brands/abb.svg", href: "https://global.abb/" },
+  { name: "EGGER", logo: "/brands/egger.svg", href: "https://www.egger.com/en/" },
+  { name: "Blum", logo: "/brands/blum.png", href: "https://www.blum.com/" },
+  { name: "Hettich", logo: "/brands/hettich.svg", href: "https://www.hettich.com/" },
+  { name: "Häfele", logo: "/brands/hafele.svg", href: "https://www.hafele.com/" },
+  { name: "Kronospan", logo: "/brands/kronospan.svg", href: "https://kronospan.com/" },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -109,6 +118,30 @@ export default function HomePage() {
           <div className="container-shell">
             <p>Designed for practical product teams</p>
             <div><span>Furniture studios</span><span>Interior teams</span><span>Independent makers</span><span>Fabrication teams</span><span>Design educators</span></div>
+          </div>
+        </section>
+
+        <section className="brand-partners" aria-labelledby="brand-partners-title">
+          <div className="container-shell">
+            <div className="brand-partners-heading">
+              <span className="eyebrow">Project network</span>
+              <h2 id="brand-partners-title">Brands and systems across our furniture projects.</h2>
+              <p>Materials, hardware and manufacturing technologies referenced throughout our project workflows.</p>
+            </div>
+            <div className="brand-logo-grid">
+              {projectBrands.map((brand) => (
+                <a
+                  className="brand-logo-link"
+                  href={brand.href}
+                  key={brand.name}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Visit ${brand.name} website`}
+                >
+                  <img src={brand.logo} alt={`${brand.name} logo`} />
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
