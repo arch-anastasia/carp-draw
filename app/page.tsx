@@ -87,7 +87,6 @@ export default function HomePage() {
               <div><strong>PDF · DXF · DWG</strong><span>workflow ready</span></div>
             </div>
             <div className="hero-product-frame">
-              <div className="browser-bar"><span /><span /><span /><p>carpdraw.ai/workspace</p></div>
               <div className="hero-media-placeholder">
                 <video
                   autoPlay
