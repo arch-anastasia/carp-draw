@@ -26,7 +26,7 @@ const steps = [
     title: "Upload your reference",
     copy: "Add a clear product photo, hand sketch or project image. The guided workspace keeps the source and technical decisions together.",
     label: "INPUT / PHOTO",
-    image: "/examples/step-photo.webp",
+    image: "/examples/shelving-interior.webp",
     alt: "Interior reference image for a fitted shelving project",
   },
   {
@@ -35,8 +35,8 @@ const steps = [
     title: "Define scale and intent",
     copy: "Set one reliable measurement, select the drawing views and clarify what the workshop or project team needs to receive.",
     label: "MEASURE / MM",
-    image: "/examples/hero-workflow.webp",
-    alt: "Reference interior paired with a dimensioned technical drawing",
+    image: "/examples/shelving-measurement.webp",
+    alt: "Interior shelving reference with guided dimension controls",
   },
   {
     number: "03",
@@ -44,8 +44,8 @@ const steps = [
     title: "Review the technical output",
     copy: "Check dimensions, notes and views before preparing a drawing set or a structured product specification.",
     label: "OUTPUT / DRAWING",
-    image: "/examples/step-drawing.webp",
-    alt: "Dimensioned technical drawing of custom shelving",
+    image: "/examples/shelving-technical-sheet.webp",
+    alt: "Completed technical drawing and specification for custom shelving",
   },
 ];
 
@@ -59,9 +59,10 @@ const testimonials = [
 ];
 
 const examples = [
-  { image: "/examples/shelving-interior.webp", title: "Shelving interior reference", type: "REFERENCE" },
-  { image: "/examples/shelving-measurement.webp", title: "Guided measurement setup", type: "MEASURE" },
-  { image: "/examples/shelving-technical-sheet.webp", title: "Shelving technical sheet", type: "DRAWING" },
+  { image: "/examples/example-kitchen.webp", title: "Kitchen reference", type: "PHOTO" },
+  { image: "/examples/example-kitchen-drawing.webp", title: "Kitchen drawing set", type: "DRAWING" },
+  { image: "/examples/example-bunk.webp", title: "Bunk room concept", type: "REFERENCE" },
+  { image: "/examples/example-bunk-drawing.webp", title: "Bunk construction drawing", type: "DRAWING" },
 ];
 
 export default function HomePage() {
