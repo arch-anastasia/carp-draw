@@ -59,10 +59,9 @@ const testimonials = [
 ];
 
 const examples = [
-  { image: "/examples/example-kitchen.webp", title: "Kitchen reference", type: "PHOTO" },
-  { image: "/examples/example-kitchen-drawing.webp", title: "Kitchen drawing set", type: "DRAWING" },
-  { image: "/examples/example-bunk.webp", title: "Bunk room concept", type: "REFERENCE" },
-  { image: "/examples/example-bunk-drawing.webp", title: "Bunk construction drawing", type: "DRAWING" },
+  { image: "/examples/shelving-interior.webp", title: "Shelving interior reference", type: "REFERENCE" },
+  { image: "/examples/shelving-measurement.webp", title: "Guided measurement setup", type: "MEASURE" },
+  { image: "/examples/shelving-technical-sheet.webp", title: "Shelving technical sheet", type: "DRAWING" },
 ];
 
 export default function HomePage() {

@@ -2935,7 +2935,12 @@ textarea,
   object-fit: cover;
 }
 
-.examples-grid figure:nth-child(even) img {
+.examples-grid figure:last-child {
+  grid-column: 1 / -1;
+}
+
+.examples-grid figure:last-child img {
+  height: 560px;
   padding: 22px;
   object-fit: contain;
 }
@@ -3065,6 +3070,15 @@ textarea,
 
   .examples-grid img {
     height: 340px;
+  }
+
+  .examples-grid figure:last-child {
+    grid-column: auto;
+  }
+
+  .examples-grid figure:last-child img {
+    height: 340px;
+    padding: 10px;
   }
 }
 
