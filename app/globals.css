@@ -931,6 +931,11 @@ textarea,
   font-size: 0.82rem;
 }
 
+.step-index > span {
+  font-size: 1.64rem;
+  line-height: 1;
+}
+
 .step-copy h3 {
   margin: 20px 0 14px;
   font-size: clamp(1.8rem, 3vw, 3rem);
