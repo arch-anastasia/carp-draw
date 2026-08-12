@@ -34,7 +34,7 @@ const creationModes = [
     title: "Create Specification",
     copy: "Organize dimensions, materials, notes and outputs in one specification.",
     icon: FileSpreadsheet,
-    image: "/examples/hero-workflow.webp",
+    image: "/examples/create-specification-text-workflow-v2.webp",
     label: "SPEC / 03",
   },
 ];
