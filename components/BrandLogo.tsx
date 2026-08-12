@@ -15,8 +15,8 @@ export function BrandLogo({ href = "/", compact = false }: BrandLogoProps) {
       <img
         src="/brand/carpdraw-logo-orange.png"
         alt="CarpDraw AI"
-        width={2000}
-        height={2000}
+        width={1396}
+        height={257}
       />
     </Link>
   );
