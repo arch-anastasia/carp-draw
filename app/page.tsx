@@ -89,8 +89,18 @@ export default function HomePage() {
             <div className="hero-product-frame">
               <div className="browser-bar"><span /><span /><span /><p>carpdraw.ai/workspace</p></div>
               <div className="hero-media-placeholder">
-                <img src="/examples/hero-workflow.webp" alt="Interior reference paired with its technical drawing" />
-                <span>Animation preview · replacement video coming soon</span>
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster="/examples/hero-workflow.webp"
+                  aria-label="CarpDraw AI workflow animation"
+                >
+                  <source src="/video/carpdraw-workflow.mp4" type="video/mp4" />
+                </video>
+                <span>CarpDraw workflow animation</span>
               </div>
             </div>
           </div>
