@@ -59,10 +59,17 @@ const testimonials = [
 ];
 
 const examples = [
-  { image: "/examples/example-kitchen.webp", title: "Kitchen reference", type: "PHOTO" },
-  { image: "/examples/example-kitchen-drawing.webp", title: "Kitchen drawing set", type: "DRAWING" },
-  { image: "/examples/example-bunk.webp", title: "Bunk room concept", type: "REFERENCE" },
-  { image: "/examples/example-bunk-drawing.webp", title: "Bunk construction drawing", type: "DRAWING" },
+  { image: "/examples/gallery/oak-sideboard-reference.webp", title: "Oak sideboard reference", type: "PHOTO", format: "portrait", kind: "photo" },
+  { image: "/examples/example-kitchen.webp", title: "Kitchen cabinetry reference", type: "PHOTO", format: "tall", kind: "photo" },
+  { image: "/examples/gallery/lounge-chair-reference.webp", title: "Lounge chair reference", type: "PHOTO", format: "portrait", kind: "photo" },
+  { image: "/examples/example-kitchen-drawing.webp", title: "Kitchen cabinetry drawing", type: "DRAWING", format: "landscape", kind: "drawing" },
+  { image: "/examples/gallery/oak-sideboard-drawing.webp", title: "Oak sideboard drawing set", type: "DRAWING", format: "portrait", kind: "drawing" },
+  { image: "/examples/shelving-interior.webp", title: "Library shelving reference", type: "PHOTO", format: "landscape", kind: "photo" },
+  { image: "/examples/shelving-measurement.webp", title: "Shelving measurement study", type: "MEASURE", format: "square", kind: "photo" },
+  { image: "/examples/shelving-technical-sheet.webp", title: "Built-in shelving drawing", type: "DRAWING", format: "landscape", kind: "drawing" },
+  { image: "/examples/example-bunk.webp", title: "Built-in bunk reference", type: "PHOTO", format: "portrait", kind: "photo" },
+  { image: "/examples/gallery/lounge-chair-drawing.webp", title: "Lounge chair drawing set", type: "DRAWING", format: "portrait", kind: "drawing" },
+  { image: "/examples/example-bunk-drawing.webp", title: "Bunk construction drawing", type: "DRAWING", format: "landscape", kind: "drawing" },
 ];
 
 const projectBrands = [
@@ -165,14 +172,20 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="examples-section section-pad">
-          <div className="container-shell">
-            <div className="section-heading-row">
-              <div><span className="eyebrow">Project examples</span><h2 className="section-title">References and drawings in one visual language.</h2></div>
-              <p className="section-copy">These examples show how product imagery and technical sheets can sit together in a clear project record.</p>
+        <section className="examples-section section-pad" aria-labelledby="furniture-gallery-title">
+          <div className="container-shell examples-container">
+            <div className="examples-intro">
+              <span className="eyebrow">Furniture projects</span>
+              <h2 className="section-title" id="furniture-gallery-title">Furniture references and drawings, side by side.</h2>
+              <p className="section-copy">Original furniture concepts arranged as a growing studio wall — from the first visual reference to measured, workshop-ready documentation.</p>
             </div>
             <div className="examples-grid">
-              {examples.map((example) => <figure key={example.title}><img src={example.image} alt={example.title} /><figcaption><strong>{example.title}</strong><span>{example.type}</span></figcaption></figure>)}
+              {examples.map((example) => (
+                <figure className={`example-card example-card--${example.format} example-card--${example.kind}`} key={example.title}>
+                  <img src={example.image} alt={example.title} loading="lazy" decoding="async" />
+                  <figcaption><span>{example.type}</span><strong>{example.title}</strong></figcaption>
+                </figure>
+              ))}
             </div>
           </div>
         </section>
