@@ -59,17 +59,17 @@ const testimonials = [
 ];
 
 const examples = [
-  { image: "/examples/gallery/oak-sideboard-reference.webp", title: "Oak sideboard reference", type: "PHOTO", format: "portrait", kind: "photo" },
-  { image: "/examples/example-kitchen.webp", title: "Kitchen cabinetry reference", type: "PHOTO", format: "tall", kind: "photo" },
-  { image: "/examples/gallery/lounge-chair-reference.webp", title: "Lounge chair reference", type: "PHOTO", format: "portrait", kind: "photo" },
-  { image: "/examples/example-kitchen-drawing.webp", title: "Kitchen cabinetry drawing", type: "DRAWING", format: "landscape", kind: "drawing" },
-  { image: "/examples/gallery/oak-sideboard-drawing.webp", title: "Oak sideboard drawing set", type: "DRAWING", format: "portrait", kind: "drawing" },
-  { image: "/examples/shelving-interior.webp", title: "Library shelving reference", type: "PHOTO", format: "landscape", kind: "photo" },
-  { image: "/examples/shelving-measurement.webp", title: "Shelving measurement study", type: "MEASURE", format: "square", kind: "photo" },
-  { image: "/examples/shelving-technical-sheet.webp", title: "Built-in shelving drawing", type: "DRAWING", format: "landscape", kind: "drawing" },
-  { image: "/examples/example-bunk.webp", title: "Built-in bunk reference", type: "PHOTO", format: "portrait", kind: "photo" },
-  { image: "/examples/gallery/lounge-chair-drawing.webp", title: "Lounge chair drawing set", type: "DRAWING", format: "portrait", kind: "drawing" },
-  { image: "/examples/example-bunk-drawing.webp", title: "Bunk construction drawing", type: "DRAWING", format: "landscape", kind: "drawing" },
+  { image: "/examples/gallery/bathroom-walnut-reference.webp", title: "Walnut bathroom vanity", type: "BATHROOM", format: "tall", kind: "photo", position: "center" },
+  { image: "/examples/gallery/kitchen-cabinetry-drawing.webp", title: "Fitted kitchen drawing set", type: "DRAWING", format: "wide", kind: "drawing", position: "center" },
+  { image: "/examples/gallery/kitchen-island-reference.webp", title: "Kitchen island shelving", type: "KITCHEN", format: "portrait", kind: "photo", position: "center" },
+  { image: "/examples/gallery/bathroom-travertine-reference.webp", title: "Travertine bathroom cabinetry", type: "BATHROOM", format: "square", kind: "photo", position: "center" },
+  { image: "/examples/gallery/oak-sideboard-reference.webp", title: "Oak cabinet reference", type: "CABINET", format: "landscape", kind: "photo", position: "center" },
+  { image: "/examples/gallery/bathroom-walnut-drawing.webp", title: "Bathroom vanity drawing set", type: "DRAWING", format: "wide", kind: "drawing", position: "center" },
+  { image: "/examples/gallery/kitchen-cabinetry-reference.webp", title: "Contrasting kitchen cabinetry", type: "KITCHEN", format: "tall", kind: "photo", position: "center" },
+  { image: "/examples/gallery/kitchen-detail-reference.webp", title: "Kitchen display niche detail", type: "DETAIL", format: "portrait", kind: "photo", position: "center" },
+  { image: "/examples/gallery/oak-sideboard-drawing.webp", title: "Oak cabinet drawing set", type: "DRAWING", format: "wide", kind: "drawing", position: "center" },
+  { image: "/examples/example-kitchen.webp", title: "Compact fitted kitchen", type: "KITCHEN", format: "portrait", kind: "photo", position: "center" },
+  { image: "/examples/example-kitchen-drawing.webp", title: "Kitchen elevation and details", type: "DRAWING", format: "wide", kind: "drawing", position: "center" },
 ];
 
 const projectBrands = [
@@ -182,7 +182,7 @@ export default function HomePage() {
             <div className="examples-grid">
               {examples.map((example) => (
                 <figure className={`example-card example-card--${example.format} example-card--${example.kind}`} key={example.title}>
-                  <img src={example.image} alt={example.title} loading="lazy" decoding="async" />
+                  <img src={example.image} alt={example.title} loading="lazy" decoding="async" style={{ objectPosition: example.position }} />
                   <figcaption><span>{example.type}</span><strong>{example.title}</strong></figcaption>
                 </figure>
               ))}
