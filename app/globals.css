@@ -3031,109 +3031,128 @@ textarea,
 
 .examples-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  grid-auto-flow: dense;
-  grid-auto-rows: 72px;
-  gap: 16px;
+  gap: clamp(52px, 7vw, 92px);
 }
 
-.examples-grid figure {
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  border: 1px solid var(--line);
-  background: #f4f4f4;
-  box-shadow: 0 9px 26px rgba(1, 1, 1, 0.035);
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+.example-pair {
+  display: grid;
+  gap: 18px;
 }
 
-.examples-grid img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  object-fit: cover;
-  transition: transform 320ms ease;
-}
-
-.example-card--portrait {
-  grid-row: span 5;
-}
-
-.example-card--tall {
-  grid-row: span 7;
-}
-
-.example-card--square {
-  grid-row: span 4;
-}
-
-.example-card--landscape {
-  grid-row: span 3;
-}
-
-.example-card--wide {
-  grid-column: span 2;
-  grid-row: span 5;
-}
-
-.example-card--drawing img {
-  padding: clamp(8px, 0.8vw, 14px);
-  background: #fff;
-  object-fit: contain;
-}
-
-.examples-grid figcaption {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  left: 10px;
+.example-pair-heading {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 6px;
-  padding: 8px 10px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 8px 24px rgba(1, 1, 1, 0.08);
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 180ms ease, transform 180ms ease;
-  backdrop-filter: blur(9px);
+  align-items: flex-start;
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
 }
 
-.examples-grid figcaption strong {
-  overflow: hidden;
-  font-size: 0.74rem;
-  font-weight: 560;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.examples-grid figcaption span {
-  flex: 0 0 auto;
-  color: var(--blue);
+.example-pair-heading > span {
+  color: var(--orange);
   font-family: var(--font-interface-mono);
-  font-size: 0.61rem;
+  font-size: 0.76rem;
   letter-spacing: 0.08em;
 }
 
-.examples-grid figure:hover,
-.examples-grid figure:focus-within {
-  border-color: #cfcfcf;
-  box-shadow: 0 14px 34px rgba(1, 1, 1, 0.08);
-  transform: translateY(-2px);
+.example-pair-heading h3 {
+  margin: 0;
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  font-weight: 560;
+  letter-spacing: -0.025em;
 }
 
-.examples-grid figure:hover img {
-  transform: scale(1.015);
+.example-pair-heading p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
-.examples-grid figure:hover figcaption,
-.examples-grid figure:focus-within figcaption {
-  opacity: 1;
-  transform: translateY(0);
+.example-pair-media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.example-card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  background: #f2f2f2;
+  box-shadow: 0 9px 26px rgba(1, 1, 1, 0.035);
+}
+
+.example-card--photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.drawing-sheet {
+  position: absolute;
+  inset: clamp(10px, 1.1vw, 18px);
+  overflow: hidden;
+  border: 1px solid #171717;
+  background: #fff;
+}
+
+.drawing-sheet-art {
+  display: block;
+  width: 100%;
+  height: calc(100% - 42px);
+  padding: clamp(8px, 1vw, 18px);
+  object-fit: contain;
+}
+
+.drawing-sheet-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 42px;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #171717;
+  padding: 7px 12px;
+  background: #fff;
+}
+
+.drawing-sheet-footer img {
+  display: block;
+  width: clamp(96px, 10vw, 142px);
+  height: auto;
+  max-height: 27px;
+  object-fit: contain;
+}
+
+.example-card figcaption {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 24px rgba(1, 1, 1, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.example-card figcaption strong {
+  font-size: 0.7rem;
+  font-weight: 560;
+}
+
+.example-card figcaption span {
+  color: var(--orange);
+  font-family: var(--font-interface-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
 }
 
 .feedback-disclaimer {
@@ -3236,9 +3255,7 @@ textarea,
   }
 
   .examples-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 52px;
-    gap: 10px;
+    gap: 48px;
   }
 
   .examples-container {
@@ -3249,59 +3266,22 @@ textarea,
     margin-bottom: 40px;
   }
 
-  .examples-grid figure {
-    border-radius: 7px;
+  .example-pair-media {
+    grid-template-columns: 1fr;
   }
 
-  .example-card--portrait {
-    grid-row: span 5;
+  .example-card figcaption {
+    right: 7px;
+    bottom: 7px;
   }
 
-  .example-card--tall {
-    grid-row: span 6;
+  .drawing-sheet-art {
+    height: calc(100% - 36px);
   }
 
-  .example-card--square {
-    grid-row: span 4;
-  }
-
-  .example-card--landscape {
-    grid-row: span 3;
-  }
-
-  .example-card--wide {
-    grid-column: span 2;
-    grid-row: span 5;
-  }
-
-  .examples-grid figcaption {
-    right: 6px;
-    bottom: 6px;
-    left: 6px;
-    display: none;
-  }
-
-}
-
-@media (min-width: 761px) and (max-width: 1120px) {
-  .examples-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-auto-rows: 64px;
-  }
-}
-
-@media (min-width: 1121px) and (max-width: 1460px) {
-  .examples-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-auto-rows: 68px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .examples-grid figure,
-  .examples-grid img,
-  .examples-grid figcaption {
-    transition: none;
+  .drawing-sheet-footer {
+    height: 36px;
+    padding: 6px 9px;
   }
 }
 

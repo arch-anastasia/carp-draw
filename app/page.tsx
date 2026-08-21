@@ -59,17 +59,46 @@ const testimonials = [
 ];
 
 const examples = [
-  { image: "/examples/gallery/bathroom-walnut-reference.webp", title: "Walnut bathroom vanity", type: "BATHROOM", format: "tall", kind: "photo", position: "center" },
-  { image: "/examples/gallery/kitchen-cabinetry-drawing.webp", title: "Fitted kitchen drawing set", type: "DRAWING", format: "wide", kind: "drawing", position: "center" },
-  { image: "/examples/gallery/kitchen-island-reference.webp", title: "Kitchen island shelving", type: "KITCHEN", format: "portrait", kind: "photo", position: "center" },
-  { image: "/examples/gallery/bathroom-travertine-reference.webp", title: "Travertine bathroom cabinetry", type: "BATHROOM", format: "square", kind: "photo", position: "center" },
-  { image: "/examples/gallery/oak-sideboard-reference.webp", title: "Oak cabinet reference", type: "CABINET", format: "landscape", kind: "photo", position: "center" },
-  { image: "/examples/gallery/bathroom-walnut-drawing.webp", title: "Bathroom vanity drawing set", type: "DRAWING", format: "wide", kind: "drawing", position: "center" },
-  { image: "/examples/gallery/kitchen-cabinetry-reference.webp", title: "Contrasting kitchen cabinetry", type: "KITCHEN", format: "tall", kind: "photo", position: "center" },
-  { image: "/examples/gallery/kitchen-detail-reference.webp", title: "Kitchen display niche detail", type: "DETAIL", format: "portrait", kind: "photo", position: "center" },
-  { image: "/examples/gallery/oak-sideboard-drawing.webp", title: "Oak cabinet drawing set", type: "DRAWING", format: "wide", kind: "drawing", position: "center" },
-  { image: "/examples/example-kitchen.webp", title: "Compact fitted kitchen", type: "KITCHEN", format: "portrait", kind: "photo", position: "center" },
-  { image: "/examples/example-kitchen-drawing.webp", title: "Kitchen elevation and details", type: "DRAWING", format: "wide", kind: "drawing", position: "center" },
+  {
+    code: "01",
+    title: "Oak sideboard",
+    summary: "Product reference paired with clean measured cabinet views.",
+    photo: "/examples/gallery/oak-sideboard-reference.webp",
+    photoAlt: "Oak sideboard reference photograph",
+    photoPosition: "center 58%",
+    drawing: "/examples/gallery/oak-sideboard-line-drawing.webp",
+    drawingAlt: "Black and white technical drawing of the oak sideboard",
+  },
+  {
+    code: "02",
+    title: "Fitted kitchen",
+    summary: "Kitchen cabinetry translated into a simple drawing set.",
+    photo: "/examples/gallery/kitchen-cabinetry-reference.webp",
+    photoAlt: "Fitted kitchen cabinetry reference photograph",
+    photoPosition: "center 55%",
+    drawing: "/examples/gallery/kitchen-cabinetry-line-drawing.webp",
+    drawingAlt: "Black and white technical drawing of the fitted kitchen",
+  },
+  {
+    code: "03",
+    title: "Walnut bathroom vanity",
+    summary: "Vanity, mirror cabinet and counter shown as matching views.",
+    photo: "/examples/gallery/bathroom-walnut-reference.webp",
+    photoAlt: "Walnut bathroom vanity reference photograph",
+    photoPosition: "center 58%",
+    drawing: "/examples/gallery/bathroom-walnut-line-drawing.webp",
+    drawingAlt: "Black and white technical drawing of the walnut bathroom vanity",
+  },
+  {
+    code: "04",
+    title: "Travertine double vanity",
+    summary: "The missing bathroom drawing completed from the reference.",
+    photo: "/examples/gallery/bathroom-travertine-reference.webp",
+    photoAlt: "Travertine double vanity reference photograph",
+    photoPosition: "center 57%",
+    drawing: "/examples/gallery/bathroom-travertine-line-drawing.webp",
+    drawingAlt: "Black and white technical drawing of the travertine double vanity",
+  },
 ];
 
 const projectBrands = [
@@ -175,16 +204,33 @@ export default function HomePage() {
         <section className="examples-section section-pad" aria-labelledby="furniture-gallery-title">
           <div className="container-shell examples-container">
             <div className="examples-intro">
-              <span className="eyebrow">Furniture projects</span>
-              <h2 className="section-title" id="furniture-gallery-title">Furniture references and drawings, side by side.</h2>
-              <p className="section-copy">Original furniture concepts arranged as a growing studio wall — from the first visual reference to measured, workshop-ready documentation.</p>
+              <span className="eyebrow">Project examples</span>
+              <h2 className="section-title" id="furniture-gallery-title">References and technical drawings, side by side.</h2>
+              <p className="section-copy">Each kitchen, bathroom and furniture reference is paired with its own clean black-and-white drawing set.</p>
             </div>
             <div className="examples-grid">
               {examples.map((example) => (
-                <figure className={`example-card example-card--${example.format} example-card--${example.kind}`} key={example.title}>
-                  <img src={example.image} alt={example.title} loading="lazy" decoding="async" style={{ objectPosition: example.position }} />
-                  <figcaption><span>{example.type}</span><strong>{example.title}</strong></figcaption>
-                </figure>
+                <article className="example-pair" key={example.code}>
+                  <div className="example-pair-heading">
+                    <span>{example.code}</span>
+                    <div><h3>{example.title}</h3><p>{example.summary}</p></div>
+                  </div>
+                  <div className="example-pair-media">
+                    <figure className="example-card example-card--photo">
+                      <img src={example.photo} alt={example.photoAlt} loading="lazy" decoding="async" style={{ objectPosition: example.photoPosition }} />
+                      <figcaption><span>REFERENCE PHOTO</span><strong>{example.title}</strong></figcaption>
+                    </figure>
+                    <figure className="example-card example-card--drawing">
+                      <div className="drawing-sheet">
+                        <img className="drawing-sheet-art" src={example.drawing} alt={example.drawingAlt} loading="lazy" decoding="async" />
+                        <div className="drawing-sheet-footer" aria-hidden="true">
+                          <img src="/brand/carpdraw-logo-orange.png" alt="" />
+                        </div>
+                      </div>
+                      <figcaption><span>TECHNICAL DRAWING</span><strong>Measured views</strong></figcaption>
+                    </figure>
+                  </div>
+                </article>
               ))}
             </div>
           </div>

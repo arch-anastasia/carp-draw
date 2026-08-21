@@ -56,11 +56,6 @@ export function AppShell({ children }: { children: ReactNode }) {
   const profileRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setSidebarOpen(false);
-    setProfileOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       if (
         profileRef.current &&
@@ -97,6 +92,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 className={isActive(href) ? "is-active" : ""}
                 href={href}
                 key={href}
+                onClick={() => setSidebarOpen(false)}
               >
                 <Icon size={19} aria-hidden="true" />
                 {label}
@@ -108,13 +104,14 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link
               className={isActive("/app/projects") ? "is-active" : ""}
               href="/app/projects"
+              onClick={() => setSidebarOpen(false)}
             >
               <Folder size={19} aria-hidden="true" />
               All Projects
             </Link>
           </div>
         </nav>
-        <Link className="primary-button app-credits-button" href="/app/plans">
+        <Link className="primary-button app-credits-button" href="/app/plans" onClick={() => setSidebarOpen(false)}>
           <Coins size={17} aria-hidden="true" />
           Get more credits
         </Link>
@@ -161,11 +158,11 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <small>arch.anastasia.ivanova@gmail.com</small>
                   </div>
                 </div>
-                <Link href="/app/settings" role="menuitem">
+                <Link href="/app/settings" role="menuitem" onClick={() => setProfileOpen(false)}>
                   <Settings size={17} aria-hidden="true" />
                   Settings
                 </Link>
-                <Link href="/app/plans" role="menuitem">
+                <Link href="/app/plans" role="menuitem" onClick={() => setProfileOpen(false)}>
                   <Coins size={17} aria-hidden="true" />
                   Plans
                 </Link>
