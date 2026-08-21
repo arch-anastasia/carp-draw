@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1396 257" role="img" aria-labelledby="title">
+  <title id="title">CarpDraw AI</title>
+  <g transform="translate(8 8) scale(1.075)">
+    <path
+      fill="#010101"
+      d="M66 10h148v144l-64 64H52c-25.4 0-42-16.6-42-42V69c0-6.4 2.3-11.9 6.6-16.6l38.6-37.8C58.4 11.5 61.8 10 66 10Z"
+    />
+    <path
+      fill="#fff"
+      d="M38 63c0-7.2 5.8-13 13-13h101v144H54c-9.5 0-16-6.5-16-16V63Z"
+    />
+    <rect x="38" y="108" width="55" height="6" fill="#010101" />
+    <rect x="93" y="99" width="73" height="24" fill="#010101" />
+  </g>
+  <text x="274" y="190" fill="#010101" font-family="Century Gothic, Futura, Arial, sans-serif" font-size="172" font-weight="400" letter-spacing="-10">CarpDraw</text>
+  <text x="1100" y="190" fill="#010101" font-family="Century Gothic, Futura, Arial, sans-serif" font-size="172" font-weight="400">.</text>
+  <text x="1144" y="190" fill="#ff8004" font-family="Century Gothic, Futura, Arial, sans-serif" font-size="172" font-weight="400" letter-spacing="-9">ai</text>
+</svg>

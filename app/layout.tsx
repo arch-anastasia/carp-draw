@@ -48,7 +48,7 @@ export async function generateMetadata(): Promise<Metadata> {
     icons: {
       icon: "/favicon.png",
       shortcut: "/favicon.png",
-      apple: "/brand/carpdraw-logo-orange.png",
+      apple: "/brand/carpdraw-mark-refined.png",
     },
     openGraph: {
       type: "website",
