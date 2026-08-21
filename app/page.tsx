@@ -224,7 +224,7 @@ export default function HomePage() {
                       <div className="drawing-sheet">
                         <img className="drawing-sheet-art" src={example.drawing} alt={example.drawingAlt} loading="lazy" decoding="async" />
                         <div className="drawing-sheet-footer" aria-hidden="true">
-                          <img src="/brand/carpdraw-logo-refined.png" alt="" />
+                          <img src="/brand/carpdraw-logo-orange.png" alt="" />
                         </div>
                       </div>
                       <figcaption><span>TECHNICAL DRAWING</span><strong>Measured views</strong></figcaption>
