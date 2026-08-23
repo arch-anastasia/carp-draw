@@ -41,8 +41,8 @@ test("includes the updated brand and workflow assets", async () => {
   assert.match(landing, /hero-workflow\.webp/);
   assert.match(workspace, /model-to-drawing/);
   assert.match(workspace, /create-specification/);
-  assert.match(measurementTool, /Selected furniture/);
-  assert.match(measurementTool, /data-handle/);
+  assert.match(measurementTool, /Furniture lasso selection/);
+  assert.match(measurementTool, /lasso-selection/);
 
   await Promise.all([
     access(new URL("../public/brand/carpdraw-logo-orange.png", import.meta.url)),

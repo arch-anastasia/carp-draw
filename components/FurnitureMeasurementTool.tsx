@@ -3,26 +3,26 @@
 import {
   KeyboardEvent,
   PointerEvent as ReactPointerEvent,
+  useMemo,
   useRef,
   useState,
 } from "react";
-import { RotateCcw } from "lucide-react";
+import { Move, PenTool, RotateCcw } from "lucide-react";
 
-type Selection = {
+type Point = {
   x: number;
   y: number;
-  width: number;
-  height: number;
 };
 
-type DragMode = "draw" | "move" | "nw" | "ne" | "sw" | "se";
+type ToolMode = "lasso" | "move";
 
-type DragState = {
-  mode: DragMode;
-  startX: number;
-  startY: number;
-  initial: Selection;
-};
+type Interaction =
+  | { mode: "draw" }
+  | {
+      mode: "move";
+      start: Point;
+      initialPoints: Point[];
+    };
 
 type FurnitureMeasurementToolProps = {
   imageUrl: string;
@@ -31,17 +31,69 @@ type FurnitureMeasurementToolProps = {
   unit: string;
 };
 
-const defaultSelection: Selection = {
-  x: 14,
-  y: 17,
-  width: 72,
-  height: 66,
-};
-
-const minimumSize = 12;
+const defaultPoints: Point[] = [
+  { x: 18, y: 25 },
+  { x: 29, y: 18 },
+  { x: 58, y: 16 },
+  { x: 78, y: 23 },
+  { x: 86, y: 41 },
+  { x: 82, y: 67 },
+  { x: 68, y: 79 },
+  { x: 39, y: 83 },
+  { x: 20, y: 73 },
+  { x: 13, y: 50 },
+];
 
 const clamp = (value: number, minimum: number, maximum: number) =>
   Math.min(Math.max(value, minimum), maximum);
+
+const getBounds = (points: Point[]) => {
+  const xs = points.map((point) => point.x);
+  const ys = points.map((point) => point.y);
+  const minX = Math.min(...xs);
+  const maxX = Math.max(...xs);
+  const minY = Math.min(...ys);
+  const maxY = Math.max(...ys);
+
+  return {
+    minX,
+    maxX,
+    minY,
+    maxY,
+    width: maxX - minX,
+    height: maxY - minY,
+  };
+};
+
+const isInsidePolygon = (point: Point, polygon: Point[]) => {
+  let inside = false;
+
+  for (let index = 0, previous = polygon.length - 1; index < polygon.length; previous = index++) {
+    const currentPoint = polygon[index];
+    const previousPoint = polygon[previous];
+    const intersects =
+      currentPoint.y > point.y !== previousPoint.y > point.y &&
+      point.x <
+        ((previousPoint.x - currentPoint.x) * (point.y - currentPoint.y)) /
+          (previousPoint.y - currentPoint.y) +
+          currentPoint.x;
+
+    if (intersects) inside = !inside;
+  }
+
+  return inside;
+};
+
+const translatePoints = (points: Point[], deltaX: number, deltaY: number) => {
+  const bounds = getBounds(points);
+  const safeDeltaX = clamp(deltaX, -bounds.minX, 100 - bounds.maxX);
+  const safeDeltaY = clamp(deltaY, -bounds.minY, 100 - bounds.maxY);
+
+  return points.map((point) => ({
+    x: point.x + safeDeltaX,
+    y: point.y + safeDeltaY,
+  }));
+};
 
 export function FurnitureMeasurementTool({
   imageUrl,
@@ -50,15 +102,21 @@ export function FurnitureMeasurementTool({
   unit,
 }: FurnitureMeasurementToolProps) {
   const canvasRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef<DragState | null>(null);
-  const [selection, setSelection] = useState<Selection>(defaultSelection);
+  const interactionRef = useRef<Interaction | null>(null);
+  const [points, setPoints] = useState<Point[]>(defaultPoints);
+  const [toolMode, setToolMode] = useState<ToolMode>("lasso");
+  const [isDrawing, setIsDrawing] = useState(false);
+
+  const bounds = useMemo(() => getBounds(points.length ? points : defaultPoints), [points]);
+  const pointList = points.map((point) => `${point.x},${point.y}`).join(" ");
 
   const pointFromEvent = (event: ReactPointerEvent<HTMLDivElement>) => {
-    const bounds = canvasRef.current?.getBoundingClientRect();
-    if (!bounds) return { x: 0, y: 0 };
+    const canvasBounds = canvasRef.current?.getBoundingClientRect();
+    if (!canvasBounds) return { x: 0, y: 0 };
+
     return {
-      x: clamp(((event.clientX - bounds.left) / bounds.width) * 100, 0, 100),
-      y: clamp(((event.clientY - bounds.top) / bounds.height) * 100, 0, 100),
+      x: clamp(((event.clientX - canvasBounds.left) / canvasBounds.width) * 100, 0, 100),
+      y: clamp(((event.clientY - canvasBounds.top) / canvasBounds.height) * 100, 0, 100),
     };
   };
 
@@ -66,130 +124,88 @@ export function FurnitureMeasurementTool({
     const target = event.target as HTMLElement;
     if (target.closest("[data-measurement-control]")) return;
 
-    event.preventDefault();
     const point = pointFromEvent(event);
-    const handle = target.closest<HTMLElement>("[data-handle]")?.dataset
-      .handle as DragMode | undefined;
+    if (toolMode === "move" && !isInsidePolygon(point, points)) return;
 
-    dragRef.current = {
-      mode: handle ?? "draw",
-      startX: point.x,
-      startY: point.y,
-      initial: selection,
-    };
+    event.preventDefault();
+    event.currentTarget.setPointerCapture(event.pointerId);
 
-    if (!handle) {
-      setSelection({ x: point.x, y: point.y, width: 0, height: 0 });
+    if (toolMode === "lasso") {
+      interactionRef.current = { mode: "draw" };
+      setPoints([point]);
+      setIsDrawing(true);
+      return;
     }
 
-    event.currentTarget.setPointerCapture(event.pointerId);
+    interactionRef.current = {
+      mode: "move",
+      start: point,
+      initialPoints: points,
+    };
   };
 
   const updateInteraction = (event: ReactPointerEvent<HTMLDivElement>) => {
-    const drag = dragRef.current;
-    if (!drag) return;
+    const interaction = interactionRef.current;
+    if (!interaction) return;
 
     const point = pointFromEvent(event);
-    const deltaX = point.x - drag.startX;
-    const deltaY = point.y - drag.startY;
-    const right = drag.initial.x + drag.initial.width;
-    const bottom = drag.initial.y + drag.initial.height;
 
-    if (drag.mode === "draw") {
-      setSelection({
-        x: Math.min(drag.startX, point.x),
-        y: Math.min(drag.startY, point.y),
-        width: Math.abs(point.x - drag.startX),
-        height: Math.abs(point.y - drag.startY),
+    if (interaction.mode === "draw") {
+      setPoints((currentPoints) => {
+        const previousPoint = currentPoints[currentPoints.length - 1];
+        if (!previousPoint) return [point];
+
+        const distance = Math.hypot(point.x - previousPoint.x, point.y - previousPoint.y);
+        return distance >= 0.75 ? [...currentPoints, point] : currentPoints;
       });
       return;
     }
 
-    if (drag.mode === "move") {
-      setSelection({
-        ...drag.initial,
-        x: clamp(drag.initial.x + deltaX, 0, 100 - drag.initial.width),
-        y: clamp(drag.initial.y + deltaY, 0, 100 - drag.initial.height),
-      });
-      return;
-    }
-
-    if (drag.mode === "nw") {
-      const x = clamp(point.x, 0, right - minimumSize);
-      const y = clamp(point.y, 0, bottom - minimumSize);
-      setSelection({ x, y, width: right - x, height: bottom - y });
-      return;
-    }
-
-    if (drag.mode === "ne") {
-      const y = clamp(point.y, 0, bottom - minimumSize);
-      setSelection({
-        x: drag.initial.x,
-        y,
-        width: clamp(point.x - drag.initial.x, minimumSize, 100 - drag.initial.x),
-        height: bottom - y,
-      });
-      return;
-    }
-
-    if (drag.mode === "sw") {
-      const x = clamp(point.x, 0, right - minimumSize);
-      setSelection({
-        x,
-        y: drag.initial.y,
-        width: right - x,
-        height: clamp(point.y - drag.initial.y, minimumSize, 100 - drag.initial.y),
-      });
-      return;
-    }
-
-    setSelection({
-      x: drag.initial.x,
-      y: drag.initial.y,
-      width: clamp(point.x - drag.initial.x, minimumSize, 100 - drag.initial.x),
-      height: clamp(point.y - drag.initial.y, minimumSize, 100 - drag.initial.y),
-    });
+    setPoints(
+      translatePoints(
+        interaction.initialPoints,
+        point.x - interaction.start.x,
+        point.y - interaction.start.y,
+      ),
+    );
   };
 
   const endInteraction = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (!dragRef.current) return;
-    dragRef.current = null;
-    event.currentTarget.releasePointerCapture(event.pointerId);
-    setSelection((current) => {
-      if (current.width >= minimumSize && current.height >= minimumSize) {
-        return current;
-      }
-      return defaultSelection;
-    });
+    const interaction = interactionRef.current;
+    if (!interaction) return;
+
+    interactionRef.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    if (interaction.mode === "draw") {
+      setIsDrawing(false);
+      setPoints((currentPoints) => {
+        if (currentPoints.length < 4) return defaultPoints;
+        const currentBounds = getBounds(currentPoints);
+        return currentBounds.width >= 5 && currentBounds.height >= 5
+          ? currentPoints
+          : defaultPoints;
+      });
+    }
   };
 
   const handleKeyboard = (event: KeyboardEvent<HTMLDivElement>) => {
-    const movement = event.shiftKey ? 2 : 1;
-    const resize = event.altKey;
-    if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) {
-      return;
-    }
+    if (toolMode !== "move") return;
+    if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
 
     event.preventDefault();
-    setSelection((current) => {
-      if (resize) {
-        const widthDelta = event.key === "ArrowLeft" ? -movement : event.key === "ArrowRight" ? movement : 0;
-        const heightDelta = event.key === "ArrowUp" ? -movement : event.key === "ArrowDown" ? movement : 0;
-        return {
-          ...current,
-          width: clamp(current.width + widthDelta, minimumSize, 100 - current.x),
-          height: clamp(current.height + heightDelta, minimumSize, 100 - current.y),
-        };
-      }
+    const movement = event.shiftKey ? 2 : 1;
+    const deltaX = event.key === "ArrowLeft" ? -movement : event.key === "ArrowRight" ? movement : 0;
+    const deltaY = event.key === "ArrowUp" ? -movement : event.key === "ArrowDown" ? movement : 0;
+    setPoints((currentPoints) => translatePoints(currentPoints, deltaX, deltaY));
+  };
 
-      const xDelta = event.key === "ArrowLeft" ? -movement : event.key === "ArrowRight" ? movement : 0;
-      const yDelta = event.key === "ArrowUp" ? -movement : event.key === "ArrowDown" ? movement : 0;
-      return {
-        ...current,
-        x: clamp(current.x + xDelta, 0, 100 - current.width),
-        y: clamp(current.y + yDelta, 0, 100 - current.height),
-      };
-    });
+  const resetSelection = () => {
+    setPoints(defaultPoints);
+    setToolMode("lasso");
+    setIsDrawing(false);
   };
 
   const calloutWidth = widthValue ? `${widthValue} ${unit}` : `Width · ${unit}`;
@@ -197,8 +213,12 @@ export function FurnitureMeasurementTool({
 
   return (
     <div
-      className="measurement-canvas"
+      className={`measurement-canvas is-${toolMode}`}
       ref={canvasRef}
+      tabIndex={0}
+      role="application"
+      aria-label="Furniture lasso selection. Choose Lasso and draw around the furniture. Choose Move to reposition the closed contour."
+      onKeyDown={handleKeyboard}
       onPointerDown={beginInteraction}
       onPointerMove={updateInteraction}
       onPointerUp={endInteraction}
@@ -207,74 +227,83 @@ export function FurnitureMeasurementTool({
       <img src={imageUrl} alt="Uploaded furniture reference" draggable={false} />
       <div className="measurement-canvas-shade" aria-hidden="true" />
 
-      <div
-        className="furniture-selection"
-        style={{
-          left: `${selection.x}%`,
-          top: `${selection.y}%`,
-          width: `${selection.width}%`,
-          height: `${selection.height}%`,
-        }}
+      <svg
+        className="lasso-overlay"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-hidden="true"
       >
-        <div
-          className="furniture-selection-body"
-          data-handle="move"
-          tabIndex={0}
-          role="group"
-          aria-label="Selected furniture area. Use arrow keys to move it. Hold Alt and use arrow keys to resize it."
-          onKeyDown={handleKeyboard}
+        {isDrawing ? (
+          <polyline className="lasso-selection is-drawing" points={pointList} />
+        ) : (
+          <polygon className="lasso-selection" points={pointList} />
+        )}
+      </svg>
+
+      {!isDrawing && (
+        <>
+          <div
+            className="dimension-guide dimension-guide-width"
+            style={{
+              left: `${bounds.minX}%`,
+              top: `${Math.max(4, bounds.minY - 8)}%`,
+              width: `${bounds.width}%`,
+            }}
+            aria-hidden="true"
+          >
+            <span className="dimension-cap" />
+            <strong>{calloutWidth}</strong>
+            <span className="dimension-cap" />
+          </div>
+
+          <div
+            className="dimension-guide dimension-guide-height"
+            style={{
+              left: `${Math.max(4, bounds.minX - 7)}%`,
+              top: `${bounds.minY}%`,
+              height: `${bounds.height}%`,
+            }}
+            aria-hidden="true"
+          >
+            <span className="dimension-cap" />
+            <strong>{calloutHeight}</strong>
+            <span className="dimension-cap" />
+          </div>
+        </>
+      )}
+
+      <div className="lasso-toolbar" data-measurement-control>
+        <button
+          className={`lasso-tool-button${toolMode === "lasso" ? " is-active" : ""}`}
+          type="button"
+          aria-pressed={toolMode === "lasso"}
+          onClick={() => setToolMode("lasso")}
         >
-          <span>Selected furniture</span>
-        </div>
-        {(["nw", "ne", "sw", "se"] as const).map((handle) => (
-          <button
-            className={`selection-handle selection-handle-${handle}`}
-            data-handle={handle}
-            type="button"
-            aria-label={`Resize selection from ${handle.toUpperCase()} corner`}
-            key={handle}
-          />
-        ))}
+          <PenTool size={15} aria-hidden="true" />
+          Lasso
+        </button>
+        <button
+          className={`lasso-tool-button${toolMode === "move" ? " is-active" : ""}`}
+          type="button"
+          aria-pressed={toolMode === "move"}
+          onClick={() => setToolMode("move")}
+        >
+          <Move size={15} aria-hidden="true" />
+          Move
+        </button>
+        <button className="lasso-tool-button" type="button" onClick={resetSelection}>
+          <RotateCcw size={15} aria-hidden="true" />
+          Reset
+        </button>
       </div>
 
-      <div
-        className="dimension-guide dimension-guide-width"
-        style={{
-          left: `${selection.x}%`,
-          top: `${Math.max(3, selection.y - 8)}%`,
-          width: `${selection.width}%`,
-        }}
-        aria-hidden="true"
-      >
-        <span className="dimension-cap" />
-        <strong>{calloutWidth}</strong>
-        <span className="dimension-cap" />
+      <div className="lasso-status" data-measurement-control aria-live="polite">
+        {isDrawing
+          ? "Keep drawing around the furniture"
+          : toolMode === "lasso"
+            ? "Draw a freehand contour around one item"
+            : "Drag inside the contour to move it"}
       </div>
-
-      <div
-        className="dimension-guide dimension-guide-height"
-        style={{
-          left: `${Math.max(3, selection.x - 7)}%`,
-          top: `${selection.y}%`,
-          height: `${selection.height}%`,
-        }}
-        aria-hidden="true"
-      >
-        <span className="dimension-cap" />
-        <strong>{calloutHeight}</strong>
-        <span className="dimension-cap" />
-      </div>
-
-      <button
-        className="selection-reset"
-        type="button"
-        data-measurement-control
-        onPointerDown={(event) => event.stopPropagation()}
-        onClick={() => setSelection(defaultSelection)}
-      >
-        <RotateCcw size={14} aria-hidden="true" />
-        Reset selection
-      </button>
     </div>
   );
 }

@@ -260,8 +260,8 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
                     <div className="selection-guidance">
                       <span><Move size={18} aria-hidden="true" /></span>
                       <div>
-                        <strong>Select one furniture item</strong>
-                        <p>Drag a new box around the item, then move it or resize it from the corner points.</p>
+                        <strong>Outline one furniture item</strong>
+                        <p>Choose Lasso and draw continuously around the furniture. The contour closes when you release.</p>
                       </div>
                     </div>
                     <div className="measurement-fields">

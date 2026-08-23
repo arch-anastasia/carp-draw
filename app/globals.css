@@ -2265,6 +2265,98 @@ textarea,
   display: none;
 }
 
+.measurement-canvas.is-move {
+  cursor: move;
+}
+
+.measurement-canvas:focus-visible {
+  outline: 3px solid rgba(255, 128, 4, 0.32);
+  outline-offset: 3px;
+}
+
+.lasso-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.lasso-selection {
+  fill: rgba(255, 128, 4, 0.14);
+  stroke: var(--blue);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 3px 8px rgba(1, 1, 1, 0.14));
+}
+
+.lasso-selection.is-drawing {
+  fill: none;
+  stroke-dasharray: 7 5;
+}
+
+.lasso-toolbar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(1, 1, 1, 0.16);
+  border-radius: 9px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 7px 24px rgba(1, 1, 1, 0.12);
+}
+
+.lasso-tool-button {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 10px;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 0.7rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.lasso-tool-button:hover {
+  background: var(--surface);
+}
+
+.lasso-tool-button.is-active {
+  background: var(--foreground);
+  color: #fff;
+}
+
+.lasso-status {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 6;
+  max-width: calc(100% - 24px);
+  border: 1px solid rgba(1, 1, 1, 0.13);
+  border-radius: 7px;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--foreground);
+  font-size: 0.69rem;
+  font-weight: 620;
+  box-shadow: 0 5px 18px rgba(1, 1, 1, 0.09);
+}
+
 .furniture-selection {
   position: absolute;
   z-index: 3;
