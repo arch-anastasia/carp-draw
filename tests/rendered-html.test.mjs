@@ -30,11 +30,12 @@ test("server-renders the CarpDraw landing page", async () => {
 });
 
 test("includes the updated brand and workflow assets", async () => {
-  const [layout, landing, workspace, measurementTool] = await Promise.all([
+  const [layout, landing, workspace, measurementTool, projectsOrganizer] = await Promise.all([
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/FurnitureMeasurementTool.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/ProjectsOrganizer.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.match(layout, /og-v2\.png/);
@@ -43,6 +44,8 @@ test("includes the updated brand and workflow assets", async () => {
   assert.match(workspace, /create-specification/);
   assert.match(measurementTool, /Furniture lasso selection/);
   assert.match(measurementTool, /lasso-selection/);
+  assert.match(projectsOrganizer, /Project folders/);
+  assert.match(projectsOrganizer, /Move .* to folder/);
 
   await Promise.all([
     access(new URL("../public/brand/carpdraw-logo-orange.png", import.meta.url)),
