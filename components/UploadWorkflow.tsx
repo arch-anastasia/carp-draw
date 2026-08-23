@@ -18,9 +18,11 @@ import {
   CloudUpload,
   FileImage,
   FileSpreadsheet,
+  Move,
   Ruler,
   RotateCcw,
 } from "lucide-react";
+import { FurnitureMeasurementTool } from "./FurnitureMeasurementTool";
 import { TechnicalVisual } from "./TechnicalVisual";
 
 export type WorkflowMode = "drawing" | "modelDrawing" | "specification";
@@ -75,7 +77,9 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
   const [stage, setStage] = useState(0);
   const [error, setError] = useState("");
   const [unit, setUnit] = useState("mm");
-  const [dimension, setDimension] = useState("");
+  const [widthValue, setWidthValue] = useState("");
+  const [heightValue, setHeightValue] = useState("");
+  const [depthValue, setDepthValue] = useState("");
   const [style, setStyle] = useState("clean");
   const [projectName, setProjectName] = useState("");
   const [material, setMaterial] = useState("");
@@ -108,7 +112,9 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
     setFile(null);
     setPreviewUrl(null);
     setStage(0);
-    setDimension("");
+    setWidthValue("");
+    setHeightValue("");
+    setDepthValue("");
     setProjectName("");
     setMaterial("");
     setError("");
@@ -132,8 +138,12 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
       setError("Choose a file before continuing.");
       return;
     }
-    if (stage === 1 && mode === "drawing" && (!dimension || Number(dimension) <= 0)) {
-      setError("Add one valid reference measurement.");
+    if (
+      stage === 1 &&
+      mode === "drawing" &&
+      (!widthValue || Number(widthValue) <= 0 || !heightValue || Number(heightValue) <= 0)
+    ) {
+      setError("Add valid width and height measurements.");
       return;
     }
     if (stage === 1 && mode === "specification" && !projectName.trim()) {
@@ -147,7 +157,7 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
   const finalStage = stage >= copy.steps.length - 1;
   const setupTitle =
     mode === "drawing"
-      ? "Add one reliable measurement"
+      ? "Select furniture & set real dimensions"
       : mode === "modelDrawing"
         ? "Choose the required drawing views"
         : "Add the specification details";
@@ -224,36 +234,64 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
             <div className="workflow-heading">
               <span className="eyebrow">Step 02 · {copy.steps[1]}</span>
               <h1>{setupTitle}</h1>
-              <p>These choices form the technical brief for the next production step.</p>
+              <p>{mode === "drawing" ? "Frame the furniture item and enter the measurements you know in the real world." : "These choices form the technical brief for the next production step."}</p>
             </div>
-            <div className="setup-grid">
-              <div className="setup-preview">
-                {previewUrl ? <img src={previewUrl} alt="Uploaded source" /> : (
-                  <div className="setup-file-preview">
-                    <Box size={58} aria-hidden="true" />
-                    <strong>{file?.name}</strong>
-                  </div>
-                )}
-                {mode === "drawing" ? (
-                  <div className="measure-line" aria-hidden="true">
-                    <span />
-                    <span />
-                    <p>{dimension || "—"} {unit}</p>
-                  </div>
-                ) : null}
-              </div>
+            <div className={`setup-grid${mode === "drawing" ? " measurement-grid" : ""}`}>
+              {mode === "drawing" && previewUrl ? (
+                <FurnitureMeasurementTool
+                  imageUrl={previewUrl}
+                  widthValue={widthValue}
+                  heightValue={heightValue}
+                  unit={unit}
+                />
+              ) : (
+                <div className="setup-preview">
+                  {previewUrl ? <img src={previewUrl} alt="Uploaded source" /> : (
+                    <div className="setup-file-preview">
+                      <Box size={58} aria-hidden="true" />
+                      <strong>{file?.name}</strong>
+                    </div>
+                  )}
+                </div>
+              )}
               <div className="setup-form">
                 {mode === "drawing" ? (
                   <>
-                    <div className="form-field">
-                      <label htmlFor="dimension">Known dimension</label>
-                      <div className="dimension-input">
-                        <Ruler size={18} aria-hidden="true" />
-                        <input id="dimension" type="number" min="0.1" step="0.1" value={dimension} onChange={(event) => setDimension(event.target.value)} placeholder="e.g. 450" />
-                        <select aria-label="Measurement unit" value={unit} onChange={(event) => setUnit(event.target.value)}>
-                          <option value="mm">mm</option><option value="cm">cm</option><option value="in">in</option>
-                        </select>
+                    <div className="selection-guidance">
+                      <span><Move size={18} aria-hidden="true" /></span>
+                      <div>
+                        <strong>Select one furniture item</strong>
+                        <p>Drag a new box around the item, then move it or resize it from the corner points.</p>
                       </div>
+                    </div>
+                    <div className="measurement-fields">
+                      <div className="form-field">
+                        <label htmlFor="furniture-width">Width</label>
+                        <div className="dimension-input compact-dimension-input">
+                          <Ruler size={17} aria-hidden="true" />
+                          <input id="furniture-width" type="number" min="0.1" step="0.1" value={widthValue} onChange={(event) => setWidthValue(event.target.value)} placeholder="2000" inputMode="decimal" />
+                        </div>
+                      </div>
+                      <div className="form-field">
+                        <label htmlFor="furniture-height">Height</label>
+                        <div className="dimension-input compact-dimension-input">
+                          <Ruler size={17} aria-hidden="true" />
+                          <input id="furniture-height" type="number" min="0.1" step="0.1" value={heightValue} onChange={(event) => setHeightValue(event.target.value)} placeholder="850" inputMode="decimal" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-field">
+                      <label htmlFor="furniture-depth">Depth <span>optional</span></label>
+                      <div className="dimension-input compact-dimension-input">
+                        <Ruler size={18} aria-hidden="true" />
+                        <input id="furniture-depth" type="number" min="0.1" step="0.1" value={depthValue} onChange={(event) => setDepthValue(event.target.value)} placeholder="450" inputMode="decimal" />
+                      </div>
+                    </div>
+                    <div className="form-field">
+                      <label htmlFor="measurement-unit">Measurement unit</label>
+                      <select id="measurement-unit" value={unit} onChange={(event) => setUnit(event.target.value)}>
+                        <option value="mm">Millimetres (mm)</option><option value="cm">Centimetres (cm)</option><option value="in">Inches (in)</option>
+                      </select>
                     </div>
                     <div className="form-field">
                       <label htmlFor="drawing-style">Drawing standard</label>
@@ -322,7 +360,7 @@ export function UploadWorkflow({ mode }: { mode: WorkflowMode }) {
               <div>
                 <strong>Source</strong><p>{file?.name}</p>
                 <strong>Output direction</strong><p>{style}</p>
-                {mode === "drawing" ? <><strong>Reference measurement</strong><p>{dimension} {unit}</p></> : null}
+                {mode === "drawing" ? <><strong>Furniture dimensions</strong><p>{widthValue} × {heightValue}{depthValue ? ` × ${depthValue}` : ""} {unit}</p></> : null}
                 {mode === "modelDrawing" ? <><strong>Model units</strong><p>{unit}</p></> : null}
                 {mode === "specification" ? <><strong>Project</strong><p>{projectName}</p><strong>Material</strong><p>{material || "Not specified"}</p></> : null}
               </div>
