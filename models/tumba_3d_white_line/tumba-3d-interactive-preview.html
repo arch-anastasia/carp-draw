@@ -1,0 +1,1683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Tumba 3D Preview</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Tumba 3D Preview" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Tumba 3D Preview&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress {
+  display: flex;
+  height: 6px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 6px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;tumba-3d-preview&quot; aria-label=&quot;Интерактивный 3D-предпросмотр тумбы&quot;&gt;
+  &lt;h2&gt;3D‑предпросмотр&lt;/h2&gt;
+  &lt;div class=&quot;viz-controls&quot; aria-label=&quot;Управление видом&quot;&gt;
+    &lt;label class=&quot;form-label&quot; for=&quot;tumba-view-select&quot;&gt;Ракурс&lt;/label&gt;
+    &lt;select class=&quot;form-select&quot; id=&quot;tumba-view-select&quot; data-view-select&gt;
+      &lt;option value=&quot;perspective&quot;&gt;3/4&lt;/option&gt;
+      &lt;option value=&quot;front&quot;&gt;Фасад&lt;/option&gt;
+      &lt;option value=&quot;top&quot;&gt;Сверху&lt;/option&gt;
+      &lt;option value=&quot;left&quot;&gt;Слева&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;button class=&quot;btn&quot; type=&quot;button&quot; aria-pressed=&quot;false&quot; data-auto-rotate&gt;Автовращение&lt;/button&gt;
+    &lt;div class=&quot;form-check form-switch&quot;&gt;
+      &lt;input class=&quot;form-check-input&quot; id=&quot;tumba-dimensions-toggle&quot; type=&quot;checkbox&quot; checked data-dimensions-toggle&gt;
+      &lt;label class=&quot;form-check-label&quot; for=&quot;tumba-dimensions-toggle&quot;&gt;Габариты&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card tumba-stage&quot;&gt;
+    &lt;canvas role=&quot;img&quot; aria-label=&quot;Белая линейная 3D-модель тумбы с габаритами 1800 на 600 на 800 миллиметров; модель можно вращать и приближать&quot;&gt;&lt;/canvas&gt;
+    &lt;div class=&quot;tumba-loading text-small text-muted&quot; aria-live=&quot;polite&quot;&gt;Загрузка 3D‑сцены…&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;text-small text-muted tumba-hint&quot;&gt;Мышь — вращение · колесо — масштаб&lt;/div&gt;
+  &lt;span class=&quot;tumba-surface-probe&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;tumba-line-probe&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;tumba-scene-probe&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;tumba-dimension-probe&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+  #tumba-3d-preview {
+    width: 100%;
+  }
+
+  #tumba-3d-preview .tumba-stage {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+  }
+
+  #tumba-3d-preview canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+  }
+
+  #tumba-3d-preview .tumba-loading {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  #tumba-3d-preview .tumba-hint {
+    margin-top: 8px;
+    padding-inline: 12px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  #tumba-3d-preview .tumba-surface-probe,
+  #tumba-3d-preview .tumba-line-probe,
+  #tumba-3d-preview .tumba-scene-probe,
+  #tumba-3d-preview .tumba-dimension-probe {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  #tumba-3d-preview .tumba-surface-probe {
+    color: light-dark(var(--background), var(--foreground));
+  }
+
+  #tumba-3d-preview .tumba-line-probe {
+    color: light-dark(var(--foreground), var(--background));
+  }
+
+  #tumba-3d-preview .tumba-scene-probe {
+    color: var(--card);
+  }
+
+  #tumba-3d-preview .tumba-dimension-probe {
+    color: light-dark(var(--foreground), var(--background));
+  }
+
+  @media (max-width: 520px) {
+    #tumba-3d-preview .tumba-stage {
+      height: 390px;
+    }
+  }
+&lt;/style&gt;
+
+&lt;script type=&quot;importmap&quot;&gt;
+  {
+    &quot;imports&quot;: {
+      &quot;three&quot;: &quot;https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js&quot;,
+      &quot;three/addons/&quot;: &quot;https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/&quot;
+    }
+  }
+&lt;/script&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import * as THREE from &quot;three&quot;;
+  import { OrbitControls } from &quot;three/addons/controls/OrbitControls.js&quot;;
+
+  const root = document.getElementById(&quot;tumba-3d-preview&quot;);
+  const canvas = root.querySelector(&quot;canvas&quot;);
+  const stage = root.querySelector(&quot;.tumba-stage&quot;);
+  const loading = root.querySelector(&quot;.tumba-loading&quot;);
+  const viewSelect = root.querySelector(&quot;[data-view-select]&quot;);
+  const rotateButton = root.querySelector(&quot;[data-auto-rotate]&quot;);
+  const dimensionsToggle = root.querySelector(&quot;[data-dimensions-toggle]&quot;);
+  const surfaceProbe = root.querySelector(&quot;.tumba-surface-probe&quot;);
+  const lineProbe = root.querySelector(&quot;.tumba-line-probe&quot;);
+  const sceneProbe = root.querySelector(&quot;.tumba-scene-probe&quot;);
+  const dimensionProbe = root.querySelector(&quot;.tumba-dimension-probe&quot;);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(34, 1, 0.01, 100);
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+
+  const controls = new OrbitControls(camera, canvas);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.07;
+  controls.minDistance = 1.8;
+  controls.maxDistance = 8;
+  controls.maxPolarAngle = Math.PI * 0.92;
+  controls.target.set(0, 0.4, 0);
+
+  const cabinet = new THREE.Group();
+  cabinet.name = &quot;tumba-white-line-model&quot;;
+  scene.add(cabinet);
+
+  let surfaceMaterial;
+  let lineMaterial;
+  let dimensionGroup;
+  let activeView = &quot;perspective&quot;;
+
+  function resolvedColor(element) {
+    return getComputedStyle(element).color;
+  }
+
+  function applyTheme() {
+    const surfaceColor = new THREE.Color(resolvedColor(surfaceProbe));
+    const lineColor = new THREE.Color(resolvedColor(lineProbe));
+    const sceneColor = new THREE.Color(resolvedColor(sceneProbe));
+    scene.background = sceneColor;
+    if (surfaceMaterial) surfaceMaterial.color.copy(surfaceColor);
+    if (lineMaterial) lineMaterial.color.copy(lineColor);
+    if (dimensionGroup) rebuildDimensions();
+  }
+
+  applyTheme();
+  surfaceMaterial = new THREE.MeshBasicMaterial({
+    color: new THREE.Color(resolvedColor(surfaceProbe)),
+    side: THREE.FrontSide,
+    toneMapped: false
+  });
+  lineMaterial = new THREE.LineBasicMaterial({
+    color: new THREE.Color(resolvedColor(lineProbe)),
+    transparent: false
+  });
+
+  const hiddenOutlineParts = new Set([
+    &quot;rear_panel&quot;,
+    &quot;main_bottom_panel&quot;,
+    &quot;right_bottom_panel&quot;,
+    &quot;upper_drawer_box&quot;,
+    &quot;lower_drawer_box&quot;
+  ]);
+
+  function addBox(name, x0, depth0, z0, x1, depth1, z1) {
+    const sizeX = (x1 - x0) / 1000;
+    const sizeY = (z1 - z0) / 1000;
+    const sizeZ = (depth1 - depth0) / 1000;
+    const geometry = new THREE.BoxGeometry(sizeX, sizeY, sizeZ);
+    const mesh = new THREE.Mesh(geometry, surfaceMaterial);
+    mesh.name = name;
+    mesh.position.set(
+      (x0 + x1) / 2000 - 0.9,
+      (z0 + z1) / 2000,
+      0.3 - (depth0 + depth1) / 2000
+    );
+    cabinet.add(mesh);
+
+    if (!hiddenOutlineParts.has(name)) {
+      const edges = new THREE.EdgesGeometry(geometry, 15);
+      const lines = new THREE.LineSegments(edges, lineMaterial);
+      lines.name = `${name}_linework`;
+      lines.position.copy(mesh.position);
+      lines.renderOrder = 2;
+      cabinet.add(lines);
+    }
+  }
+
+  addBox(&quot;plinth&quot;, 60, 50, 0, 1740, 560, 35);
+  addBox(&quot;left_side_panel&quot;, 0, 0, 35, 20, 600, 800);
+  addBox(&quot;right_side_panel&quot;, 1780, 0, 35, 1800, 600, 800);
+  addBox(&quot;rear_panel&quot;, 20, 580, 35, 1780, 600, 780);
+  addBox(&quot;module_divider&quot;, 1280, 20, 35, 1300, 580, 780);
+  addBox(&quot;main_bottom_panel&quot;, 20, 20, 35, 1280, 580, 55);
+  addBox(&quot;right_bottom_panel&quot;, 1300, 20, 35, 1780, 580, 55);
+  addBox(&quot;upper_front_panel&quot;, 20, 0, 640, 1280, 20, 800);
+  addBox(&quot;upper_drawer_front&quot;, 20, 0, 177, 1280, 20, 323);
+  addBox(&quot;lower_drawer_front&quot;, 20, 0, 37, 1280, 20, 173);
+  addBox(&quot;right_full_height_door&quot;, 1304, 0, 39, 1778, 20, 796);
+  addBox(&quot;upper_drawer_box&quot;, 40, 22, 185, 1260, 550, 315);
+  addBox(&quot;lower_drawer_box&quot;, 40, 22, 45, 1260, 550, 165);
+  addBox(&quot;niche_ceiling&quot;, 20, 20, 620, 1280, 580, 640);
+  addBox(&quot;niche_floor&quot;, 20, 20, 325, 1280, 580, 345);
+  addBox(&quot;niche_back_lining&quot;, 20, 570, 325, 1280, 580, 640);
+  addBox(&quot;niche_shelf&quot;, 30, 18, 475, 1270, 570, 485);
+  addBox(&quot;niche_shelf_front_edge&quot;, 30, 12, 475, 1270, 22, 485);
+  addBox(&quot;niche_upper_trim&quot;, 30, 12, 622, 1270, 24, 632);
+  addBox(&quot;niche_light_strip&quot;, 40, 20, 624, 1260, 26, 629);
+  addBox(&quot;top_front_rim&quot;, 0, 0, 780, 1800, 20, 800);
+  addBox(&quot;top_back_rim&quot;, 0, 580, 780, 1800, 600, 800);
+  addBox(&quot;top_left_rim&quot;, 0, 20, 780, 20, 580, 800);
+  addBox(&quot;top_right_rim&quot;, 1780, 20, 780, 1800, 580, 800);
+  addBox(&quot;main_top_surface&quot;, 20, 20, 780, 1300, 580, 798);
+  addBox(&quot;cavity_left_rim&quot;, 1300, 20, 780, 1330, 580, 798);
+  addBox(&quot;cavity_right_rim&quot;, 1770, 20, 780, 1780, 580, 798);
+  addBox(&quot;cavity_front_rim&quot;, 1330, 20, 780, 1770, 30, 798);
+  addBox(&quot;cavity_back_rim&quot;, 1330, 570, 780, 1770, 580, 798);
+  addBox(&quot;cavity_floor&quot;, 1330, 30, 690, 1770, 570, 710);
+  addBox(&quot;cavity_left_wall&quot;, 1330, 30, 710, 1350, 570, 780);
+  addBox(&quot;cavity_right_wall&quot;, 1750, 30, 710, 1770, 570, 780);
+  addBox(&quot;cavity_front_wall&quot;, 1350, 30, 710, 1750, 50, 780);
+  addBox(&quot;cavity_back_wall&quot;, 1350, 550, 710, 1750, 570, 780);
+  addBox(&quot;cavity_rear_rail&quot;, 1350, 515, 752, 1750, 525, 766);
+  addBox(&quot;cavity_inner_rail&quot;, 1350, 490, 738, 1750, 500, 752);
+  addBox(&quot;cavity_light_bar&quot;, 1360, 503, 754, 1740, 511, 762);
+
+  function addDimensionLine(group, material, first, second) {
+    const geometry = new THREE.BufferGeometry().setFromPoints([first, second]);
+    const line = new THREE.Line(geometry, material);
+    line.renderOrder = 10;
+    group.add(line);
+  }
+
+  function addDimensionLineWithGaps(group, material, start, end, gapCenters, gapLength) {
+    const direction = end.clone().sub(start);
+    const totalLength = direction.length();
+    direction.normalize();
+    const intervals = gapCenters
+      .map((center) =&gt; {
+        const distance = center.clone().sub(start).dot(direction);
+        return [
+          Math.max(0, distance - gapLength / 2),
+          Math.min(totalLength, distance + gapLength / 2)
+        ];
+      })
+      .sort((first, second) =&gt; first[0] - second[0]);
+    let cursor = 0;
+    intervals.forEach(([gapStart, gapEnd]) =&gt; {
+      if (gapStart &gt; cursor) {
+        addDimensionLine(
+          group,
+          material,
+          start.clone().addScaledVector(direction, cursor),
+          start.clone().addScaledVector(direction, gapStart)
+        );
+      }
+      cursor = Math.max(cursor, gapEnd);
+    });
+    if (cursor &lt; totalLength) {
+      addDimensionLine(
+        group,
+        material,
+        start.clone().addScaledVector(direction, cursor),
+        end
+      );
+    }
+  }
+
+  function addDimensionTick(group, material, point, lineDirection) {
+    const tickLength = 0.07;
+    const perpendicular = Math.abs(lineDirection.y) &gt; 0.9
+      ? new THREE.Vector3(1, 0, 0)
+      : new THREE.Vector3(0, 1, 0);
+    const tickDirection = lineDirection.clone().add(perpendicular).normalize();
+    const halfTick = tickDirection.multiplyScalar(tickLength / 2);
+    addDimensionLine(
+      group,
+      material,
+      point.clone().sub(halfTick),
+      point.clone().add(halfTick)
+    );
+  }
+
+  function addDimensionLabel(group, text, position, color, scale = 0.42, rotation = 0) {
+    const labelCanvas = document.createElement(&quot;canvas&quot;);
+    labelCanvas.width = 320;
+    labelCanvas.height = 80;
+    const context = labelCanvas.getContext(&quot;2d&quot;);
+    context.clearRect(0, 0, labelCanvas.width, labelCanvas.height);
+    context.font = &quot;500 32px sans-serif&quot;;
+    context.textAlign = &quot;center&quot;;
+    context.textBaseline = &quot;middle&quot;;
+    context.fillStyle = color;
+    context.fillText(text, labelCanvas.width / 2, labelCanvas.height / 2);
+    const texture = new THREE.CanvasTexture(labelCanvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.needsUpdate = true;
+    const material = new THREE.SpriteMaterial({
+      map: texture,
+      transparent: true,
+      depthTest: false,
+      depthWrite: false,
+      toneMapped: false,
+      rotation
+    });
+    const label = new THREE.Sprite(material);
+    label.position.copy(position);
+    label.scale.set(scale, scale / 4, 1);
+    label.renderOrder = 12;
+    group.add(label);
+  }
+
+  function addOverallDimension(group, lineMaterial, start, end, extensionPairs, label, labelPosition, color, labelRotation = 0) {
+    addDimensionLine(group, lineMaterial, start, end);
+    extensionPairs.forEach(([first, second]) =&gt; addDimensionLine(group, lineMaterial, first, second));
+    const direction = end.clone().sub(start).normalize();
+    addDimensionTick(group, lineMaterial, start, direction);
+    addDimensionTick(group, lineMaterial, end, direction);
+    addDimensionLabel(group, label, labelPosition, color, 0.3, labelRotation);
+  }
+
+  function addChainDimension(group, material, points, extensionOrigins, labels, labelPositions, color, labelRotation = 0) {
+    const direction = points.at(-1).clone().sub(points[0]).normalize();
+    addDimensionLine(group, material, points[0], points.at(-1));
+    points.forEach((point) =&gt; addDimensionTick(group, material, point, direction));
+    extensionOrigins.forEach((origin, index) =&gt; {
+      const overrun = points[index].clone().sub(origin).normalize().multiplyScalar(0.025);
+      addDimensionLine(group, material, origin, points[index].clone().add(overrun));
+    });
+    labels.forEach((label, index) =&gt; {
+      addDimensionLabel(group, label, labelPositions[index], color, 0.3, labelRotation);
+    });
+  }
+
+  function updateDimensionVisibility() {
+    dimensionGroup.visible = dimensionsToggle.checked;
+    const frontDetails = dimensionGroup.getObjectByName(&quot;front-detail-dimensions&quot;);
+    const depthDimension = dimensionGroup.getObjectByName(&quot;depth-dimension&quot;);
+    if (frontDetails) frontDetails.visible = activeView === &quot;front&quot;;
+    if (depthDimension) depthDimension.visible = activeView !== &quot;front&quot;;
+  }
+
+  function rebuildDimensions() {
+    dimensionGroup.traverse((child) =&gt; {
+      if (child.geometry) child.geometry.dispose();
+      if (child.material?.map) child.material.map.dispose();
+      if (child.material) child.material.dispose();
+    });
+    dimensionGroup.clear();
+    const color = resolvedColor(dimensionProbe);
+    const lineMaterial = new THREE.LineBasicMaterial({
+      color: new THREE.Color(color),
+      depthTest: false,
+      depthWrite: false,
+      transparent: false
+    });
+    addOverallDimension(
+      dimensionGroup,
+      lineMaterial,
+      new THREE.Vector3(-0.9, -0.19, 0.31),
+      new THREE.Vector3(0.9, -0.19, 0.31),
+      [
+        [new THREE.Vector3(-0.9, -0.015, 0.31), new THREE.Vector3(-0.9, -0.215, 0.31)],
+        [new THREE.Vector3(0.9, -0.015, 0.31), new THREE.Vector3(0.9, -0.215, 0.31)]
+      ],
+      &quot;1800&quot;,
+      new THREE.Vector3(0, -0.155, 0.31),
+      color
+    );
+
+    addOverallDimension(
+      dimensionGroup,
+      lineMaterial,
+      new THREE.Vector3(-1.1, 0, 0.31),
+      new THREE.Vector3(-1.1, 0.8, 0.31),
+      [
+        [new THREE.Vector3(-0.915, 0, 0.31), new THREE.Vector3(-1.125, 0, 0.31)],
+        [new THREE.Vector3(-0.915, 0.8, 0.31), new THREE.Vector3(-1.125, 0.8, 0.31)]
+      ],
+      &quot;800&quot;,
+      new THREE.Vector3(-1.145, 0.4, 0.31),
+      color,
+      Math.PI / 2
+    );
+
+    const depthDimension = new THREE.Group();
+    depthDimension.name = &quot;depth-dimension&quot;;
+    dimensionGroup.add(depthDimension);
+    addOverallDimension(
+      depthDimension,
+      lineMaterial,
+      new THREE.Vector3(1.06, 0.8, 0.3),
+      new THREE.Vector3(1.06, 0.8, -0.3),
+      [
+        [new THREE.Vector3(0.9, 0.8, 0.3), new THREE.Vector3(1.06, 0.8, 0.3)],
+        [new THREE.Vector3(0.9, 0.8, -0.3), new THREE.Vector3(1.06, 0.8, -0.3)]
+      ],
+      &quot;600&quot;,
+      new THREE.Vector3(1.18, 0.86, 0),
+      color
+    );
+
+    const frontDetails = new THREE.Group();
+    frontDetails.name = &quot;front-detail-dimensions&quot;;
+    dimensionGroup.add(frontDetails);
+
+    addChainDimension(
+      frontDetails,
+      lineMaterial,
+      [
+        new THREE.Vector3(-0.9, -0.075, 0.31),
+        new THREE.Vector3(0.4, -0.075, 0.31),
+        new THREE.Vector3(0.9, -0.075, 0.31)
+      ],
+      [
+        new THREE.Vector3(-0.9, -0.015, 0.31),
+        new THREE.Vector3(0.4, -0.015, 0.31),
+        new THREE.Vector3(0.9, -0.015, 0.31)
+      ],
+      [&quot;1300&quot;, &quot;500&quot;],
+      [
+        new THREE.Vector3(-0.25, -0.04, 0.31),
+        new THREE.Vector3(0.65, -0.04, 0.31)
+      ],
+      color
+    );
+
+    addChainDimension(
+      frontDetails,
+      lineMaterial,
+      [
+        new THREE.Vector3(1.04, 0, 0.31),
+        new THREE.Vector3(1.04, 0.325, 0.31),
+        new THREE.Vector3(1.04, 0.64, 0.31),
+        new THREE.Vector3(1.04, 0.8, 0.31)
+      ],
+      [
+        new THREE.Vector3(0.915, 0, 0.31),
+        new THREE.Vector3(0.915, 0.325, 0.31),
+        new THREE.Vector3(0.915, 0.64, 0.31),
+        new THREE.Vector3(0.915, 0.8, 0.31)
+      ],
+      [&quot;325&quot;, &quot;315&quot;, &quot;160&quot;],
+      [
+        new THREE.Vector3(1.0, 0.1625, 0.31),
+        new THREE.Vector3(1.0, 0.4825, 0.31),
+        new THREE.Vector3(1.0, 0.72, 0.31)
+      ],
+      color,
+      Math.PI / 2
+    );
+    updateDimensionVisibility();
+  }
+
+  dimensionGroup = new THREE.Group();
+  dimensionGroup.name = &quot;overall-dimensions&quot;;
+  scene.add(dimensionGroup);
+  rebuildDimensions();
+
+  scene.add(new THREE.HemisphereLight(resolvedColor(surfaceProbe), resolvedColor(sceneProbe), 2.15));
+  const keyLight = new THREE.DirectionalLight(resolvedColor(surfaceProbe), 3.1);
+  keyLight.position.set(-3.2, 4.5, 4.0);
+  scene.add(keyLight);
+  const fillLight = new THREE.DirectionalLight(resolvedColor(surfaceProbe), 1.35);
+  fillLight.position.set(3.2, 1.8, 2.0);
+  scene.add(fillLight);
+
+  const initialPosition = new THREE.Vector3(-2.0, 1.38, 2.3);
+  function setView(viewName) {
+    activeView = viewName;
+    const compactScale = stage.getBoundingClientRect().width &lt; 520 ? 1.7 : 1;
+    controls.autoRotate = false;
+    rotateButton.setAttribute(&quot;aria-pressed&quot;, &quot;false&quot;);
+    camera.up.set(0, 1, 0);
+    if (viewName === &quot;front&quot;) camera.position.set(0, 0.42, 3.25 * compactScale);
+    else if (viewName === &quot;top&quot;) {
+      camera.position.set(0, 3.55 * compactScale, 0.001);
+      camera.up.set(0, 0, -1);
+    } else if (viewName === &quot;left&quot;) camera.position.set(-3.05 * compactScale, 0.42, 0);
+    else camera.position.copy(initialPosition).multiplyScalar(compactScale);
+    controls.target.set(0, 0.4, 0);
+    controls.update();
+    updateDimensionVisibility();
+  }
+  setView(&quot;perspective&quot;);
+
+  viewSelect.addEventListener(&quot;change&quot;, () =&gt; setView(viewSelect.value));
+  rotateButton.addEventListener(&quot;click&quot;, () =&gt; {
+    controls.autoRotate = !controls.autoRotate;
+    controls.autoRotateSpeed = 1.6;
+    rotateButton.setAttribute(&quot;aria-pressed&quot;, String(controls.autoRotate));
+  });
+  dimensionsToggle.addEventListener(&quot;change&quot;, () =&gt; {
+    updateDimensionVisibility();
+  });
+
+  function resize() {
+    const rect = stage.getBoundingClientRect();
+    const width = Math.max(1, Math.round(rect.width));
+    const height = Math.max(1, Math.round(rect.height));
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  }
+  const resizeObserver = new ResizeObserver(resize);
+  resizeObserver.observe(stage);
+  resize();
+
+  const themeObserver = new MutationObserver(applyTheme);
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: [&quot;class&quot;, &quot;style&quot;, &quot;data-theme&quot;] });
+
+  loading.style.display = &quot;none&quot;;
+
+  function animate() {
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  }
+  animate();
+&lt;/script&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>

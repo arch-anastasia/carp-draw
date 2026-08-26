@@ -1,0 +1,17 @@
+# Materials for the 1:1 cabinet model
+
+newmtl WhiteMatte
+Ka 0.246250 0.246250 0.245000
+Kd 0.985000 0.985000 0.980000
+Ks 0.000000 0.000000 0.000000
+Ns 24.000
+d 1.0
+illum 2
+
+newmtl LineDark
+Ka 0.008750 0.008750 0.008750
+Kd 0.035000 0.035000 0.035000
+Ks 0.000000 0.000000 0.000000
+Ns 2.000
+d 1.0
+illum 2

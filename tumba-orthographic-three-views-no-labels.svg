@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2860" height="1850" viewBox="0 0 2860 1850">
+  <title>Три ортогональных вида тумбы без надписей</title>
+  <desc>Фасад, вид сверху и вид слева без видимых подписей и размерных обозначений. Общий габарит модели 1800 на 600 на 800 миллиметров.</desc>
+  <defs>
+    <style>
+      .object {
+        fill: none;
+        stroke: #111;
+        stroke-width: 2;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+        vector-effect: non-scaling-stroke;
+      }
+    </style>
+  </defs>
+
+  <rect width="2860" height="1850" fill="#fff"/>
+
+  <!-- Вид сверху. Передняя сторона внизу. -->
+  <g id="top-view" class="object" aria-label="Вид сверху">
+    <rect x="140" y="170" width="1800" height="600"/>
+    <rect x="160" y="190" width="1760" height="560"/>
+    <line x1="1290" y1="190" x2="1290" y2="750"/>
+    <rect x="1320" y="200" width="320" height="540"/>
+    <rect x="1340" y="220" width="280" height="500"/>
+    <rect x="1620" y="220" width="10" height="500"/>
+    <rect x="1636" y="230" width="8" height="480"/>
+  </g>
+
+  <!-- Фасад. -->
+  <g id="front-view" class="object" aria-label="Фасад">
+    <rect x="140" y="920" width="1800" height="765"/>
+    <line x1="160" y1="920" x2="160" y2="1685"/>
+    <line x1="1270" y1="920" x2="1270" y2="1685"/>
+    <line x1="1290" y1="920" x2="1290" y2="1685"/>
+    <line x1="160" y1="1080" x2="1290" y2="1080"/>
+    <line x1="170" y1="1092" x2="1260" y2="1092"/>
+    <line x1="170" y1="1100" x2="1260" y2="1100"/>
+    <line x1="170" y1="1235" x2="1260" y2="1235"/>
+    <line x1="170" y1="1245" x2="1260" y2="1245"/>
+    <line x1="160" y1="1375" x2="1270" y2="1375"/>
+    <line x1="160" y1="1395" x2="1270" y2="1395"/>
+    <line x1="160" y1="1545" x2="1270" y2="1545"/>
+    <rect x="200" y="1685" width="1680" height="35"/>
+  </g>
+
+  <!-- Вид слева. -->
+  <g id="left-view" class="object" aria-label="Вид слева">
+    <rect x="2100" y="920" width="600" height="765"/>
+    <rect x="2150" y="1685" width="510" height="35"/>
+  </g>
+</svg>
