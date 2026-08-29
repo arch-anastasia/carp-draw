@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'feat/**'
+      - 'fix/**'
+      - 'laravel-rewrite'
+  pull_request:
+    branches: [main]
+  workflow_call:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, pdo_sqlite, gd, intl
+          coverage: none
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      # Built first: Blade tests read the Vite manifest.
+      - name: Build assets
+        run: npm run build
+
+      - name: Pint
+        run: ./vendor/bin/pint --test
+
+      - name: TypeScript
+        run: npx vue-tsc --noEmit
+
+      - name: ESLint
+        run: npx eslint resources/js --quiet
+
+      - name: Vitest
+        run: npx vitest run
+
+      - name: PHPUnit
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          php artisan test --compact
+        env:
+          DRAWING_PROVIDER: fake
+          GEMINI_API_KEY: ''
+          OPENAI_API_KEY: ''
+
+  larastan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: PHPStan
+        run: ./vendor/bin/phpstan analyse --no-progress --memory-limit=1G

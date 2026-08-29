@@ -1,3 +1,0 @@
-[2m14:46:59[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m [33mwarning: client component dependency is inconsistently optimized. It's recommended to add the dependency to 'optimizeDeps.exclude'.[39m
-  Plugin: [35mrsc:use-client[39m
-  File: [36mC:/Users/archa/OneDrive/Documents/New project/node_modules/lucide-react/dist/esm/Icon.mjs?v=0ff84390[39m
