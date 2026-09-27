@@ -7,7 +7,10 @@ use App\Models\Subscription;
 use App\Models\SubscriptionItem;
 use App\Services\Drawing\ImageProvider;
 use App\Services\Drawing\ProviderRegistry;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
@@ -45,6 +48,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        RateLimiter::for('content-api', fn (Request $request) => Limit::perMinute((int) config('blog.api.throttle', 60))->by(hash('sha256', (string) $request->bearerToken())));
         // Cashier uses UUID-keyed models like every other application table.
         Cashier::useSubscriptionModel(Subscription::class);
         Cashier::useSubscriptionItemModel(SubscriptionItem::class);

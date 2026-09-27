@@ -1,0 +1,2 @@
+<x-seo title="Our Writers" description="Meet the writers behind CarpDraw's furniture and technical drawing guides." :noindex="true" schema-type="CollectionPage" />
+<x-layouts.marketing><main id="main-content" class="container-shell blog-page"><a href="{{ route('marketing.blog.index') }}">All guides</a><h1>Our writers</h1><div class="blog-grid">@foreach ($authors as $author)<article class="blog-card"><h2><a href="{{ $author->authorUrl() }}">{{ $author->name }}</a></h2><p>{{ $author->bio }}</p></article>@endforeach</div></main></x-layouts.marketing>

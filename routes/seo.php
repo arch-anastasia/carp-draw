@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use App\Services\CanonicalUrl;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Sitemap;
@@ -22,7 +23,7 @@ Route::get('/sitemap.xml', function () {
     foreach (Route::getRoutes()->getRoutes() as $route) {
         $name = $route->getName() ?? '';
 
-        if (! str_starts_with($name, 'marketing.') || ! in_array('GET', $route->methods(), true)) {
+        if (! str_starts_with($name, 'marketing.') || in_array($name, ['marketing.privacy', 'marketing.contact', 'marketing.blog.authors'], true) || ! in_array('GET', $route->methods(), true)) {
             continue;
         }
 
@@ -43,6 +44,19 @@ Route::get('/sitemap.xml', function () {
         );
     }
 
+    Post::query()->published()->with('cover')->orderBy('id')->chunk(500, function ($posts) use ($sitemap): void {
+        foreach ($posts as $post) {
+            $url = Url::create($post->url())->setPriority(0.7)->setChangeFrequency('monthly');
+            if ($post->displayedUpdatedAt()) {
+                $url->setLastModificationDate($post->displayedUpdatedAt());
+            }
+            if ($post->coverImageUrl()) {
+                $url->addImage($post->coverImageUrl(), $post->cover->alt ?? $post->title, $post->title);
+            }
+            $sitemap->add($url);
+        }
+    });
+
     return $sitemap->toResponse(request());
 })->name('seo.sitemap');
 
@@ -54,34 +68,18 @@ Route::get('/robots.txt', function () {
      */
     $aiCrawlers = ['GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'PerplexityBot', 'ClaudeBot', 'Google-Extended'];
 
-    $lines = [
-        'User-agent: *',
-        'Allow: /',
-        '',
-        'Disallow: /app',
-        'Disallow: /billing',
-        'Disallow: /admin',
-        'Disallow: /signin',
-        'Disallow: /signup',
-        'Disallow: /signout',
-        'Disallow: /auth',
-        'Disallow: /forgot-password',
-        'Disallow: /reset-password',
-        'Disallow: /set-password',
-        'Disallow: /magic-link',
-        'Disallow: /stripe',
-        'Disallow: /health',
-        'Disallow: /up',
-        '',
-    ];
-
-    foreach ($aiCrawlers as $crawler) {
+    $privatePaths = ['/app', '/billing', '/admin', '/api', '/signin', '/signup', '/signout', '/auth', '/forgot-password', '/reset-password', '/set-password', '/magic-link', '/stripe', '/health', '/up'];
+    $lines = [];
+    foreach (array_merge(['*'], $aiCrawlers) as $crawler) {
         $lines[] = 'User-agent: '.$crawler;
         $lines[] = 'Allow: /';
+        foreach ($privatePaths as $path) {
+            $lines[] = 'Disallow: '.$path;
+        }
         $lines[] = '';
     }
-
-    $lines[] = 'Sitemap: '.config('app.url').'/sitemap.xml';
+    $lines[] = 'Sitemap: '.rtrim(config('app.url'), '/').'/sitemap.xml';
+    $lines[] = '# AI information: '.rtrim(config('app.url'), '/').'/llms.txt';
 
     return response(implode("\n", $lines)."\n", 200, ['Content-Type' => 'text/plain']);
 })->name('seo.robots');
@@ -100,6 +98,7 @@ Route::get('/llms.txt', function () {
         '## Pages',
         '',
         "- [Home]({$origin}/): what the workspace does and how the three workflows fit together",
+        "- [Journal]({$origin}/blog): furniture planning and technical drawing guides",
         "- [Contact]({$origin}/contact): reach the team",
         "- [Privacy]({$origin}/privacy): how uploads and account data are handled",
         '',

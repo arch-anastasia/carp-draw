@@ -8,6 +8,7 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\PinUrlRoot;
 use App\Http\Middleware\RedirectTrailingSlash;
 use App\Http\Middleware\ResetSeoState;
+use App\Http\Middleware\VerifyContentApiToken;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -24,6 +25,8 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
         then: function () {
+            Route::group([], base_path('routes/api.php'));
+            Route::middleware('web')->group(base_path('routes/blog.php'));
             Route::middleware('web')
                 ->group(base_path('routes/auth.php'));
 
@@ -89,6 +92,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->alias([
             'is_admin' => IsAdmin::class,
+            'content.api' => VerifyContentApiToken::class,
             'anonymous' => AnonymousOnly::class,
         ]);
     })
@@ -100,6 +104,7 @@ return Application::configure(basePath: dirname(__DIR__))
          * rather than the crash behind it.
          */
         Integration::handles($exceptions);
+        $exceptions->shouldRenderJsonWhen(fn (Request $request, Throwable $e) => $request->is('api/*') || $request->expectsJson());
 
         $exceptions->dontFlash(['file', 'password', 'password_confirmation', 'current_password']);
 
@@ -121,6 +126,12 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $exceptions->respond(function (Response $response, Throwable $exception, Request $request) {
             $status = $response->getStatusCode();
+            if ($request->is('api/*')) {
+                $response->headers->set('Cache-Control', 'private, no-store');
+                $response->headers->set('X-Robots-Tag', 'noindex, nofollow');
+
+                return $response;
+            }
 
             /*
              * 500/503/403 render the Inertia error page outside local/testing.

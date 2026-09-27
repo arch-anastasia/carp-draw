@@ -120,7 +120,8 @@ class MarketingPagesTest extends TestCase
         // The sitemap's <loc> values are absolute and match the canonicals.
         $sitemap = $this->get('/sitemap.xml')->getContent();
         $this->assertStringContainsString('<loc>http://localhost/</loc>', $sitemap);
-        $this->assertStringContainsString('<loc>http://localhost/contact</loc>', $sitemap);
+        $this->assertStringNotContainsString('<loc>http://localhost/contact</loc>', $sitemap);
+        $this->assertStringContainsString('<loc>http://localhost/blog</loc>', $sitemap);
         $this->assertStringNotContainsString('<loc>/', $sitemap);
     }
 
@@ -133,7 +134,7 @@ class MarketingPagesTest extends TestCase
 
         $this->get('/sitemap.xml')
             ->assertOk()
-            ->assertSee('/contact');
+            ->assertSee('/blog')->assertDontSee('/contact');
 
         $this->get('/llms.txt')
             ->assertOk()

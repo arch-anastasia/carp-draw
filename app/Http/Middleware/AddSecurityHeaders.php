@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\PreviewAccess;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,10 @@ class AddSecurityHeaders
     {
         $response = $next($request);
 
+        if ($request->is('api/*', 'admin/*') || ($request->is('blog', 'blog/*') && (app(PreviewAccess::class)->granted($request) || $request->query('v') === 'draft'))) {
+            $response->headers->set('X-Robots-Tag', 'noindex, nofollow');
+            $response->headers->set('Cache-Control', 'private, no-store');
+        }
         $response->headers->set('X-Content-Type-Options', 'nosniff');
         $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
         $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
@@ -40,6 +45,11 @@ class AddSecurityHeaders
         $scriptSrc = ["'self'"];
         $styleSrc = ["'self'", "'unsafe-inline'"];
         $imgSrc = ["'self'", 'data:', 'blob:'];
+        $imgSrc[] = 'https://i.ytimg.com';
+        $editorialUrl = config('filesystems.disks.'.config('filesystems.runtime_images').'.url');
+        if ($editorialUrl && parse_url($editorialUrl, PHP_URL_HOST)) {
+            $imgSrc[] = parse_url($editorialUrl, PHP_URL_SCHEME).'://'.parse_url($editorialUrl, PHP_URL_HOST);
+        }
         $fontSrc = ["'self'", 'data:'];
         $connectSrc = ["'self'"];
         $mediaSrc = ["'self'"];
@@ -92,6 +102,7 @@ class AddSecurityHeaders
             'connect-src '.implode(' ', array_unique($connectSrc)),
             'media-src '.implode(' ', array_unique($mediaSrc)),
             'worker-src '.implode(' ', array_unique($workerSrc)),
+            'frame-src https://www.youtube-nocookie.com',
             "object-src 'none'",
             "base-uri 'self'",
             "form-action 'self'",

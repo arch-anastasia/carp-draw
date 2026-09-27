@@ -25,6 +25,7 @@
         [
             'title' => 'Company',
             'links' => [
+                [route('marketing.blog.index'), 'Journal'],
                 [route('marketing.contact'), 'Contact'],
                 [route('marketing.privacy'), 'Privacy Policy'],
                 ['/#faq', 'FAQ'],

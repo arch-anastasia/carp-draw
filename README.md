@@ -84,3 +84,43 @@ CI (`.github/workflows/ci.yml`) runs all of the above.
 The previous Next.js interface preview lives in git history (branch `main`
 before `laravel-rewrite`). Design source material — generated 3D models,
 drawing-style presets, Python export scripts — is kept in `design-reference/`.
+
+## Journal and publishing API
+
+The editorial system is adapted from HairstyleAtlas (`afea2a3`), with CarpDraw
+branding and calls to action. No hairstyle catalog, try-on, onboarding, customer
+data, articles, or secrets are copied.
+
+- Public journal: `/blog`; category hubs: `/blog/{slug}`; writers:
+  `/blog/authors/{username}`. Drafts/scheduled posts are private; killed posts
+  return 410. Scheduled posts become public when their publication time arrives.
+- Admins: `/admin/posts`, `/admin/categories`, `/admin/authors`; the Editorial
+  navigation item and on-article toolbar provide editing, revisions, scheduling,
+  publishing, image uploads/cropping, and retirement. Ordinary accounts cannot edit.
+- API: set `BLOG_API_TOKEN`, then send `Authorization: Bearer <token>` to
+  `/api/v1/blog/context` first. It documents accepted fields, Markdown directives,
+  FAQ requirements, image limits, vocabulary, and all endpoints. Without a token
+  configured the API is closed. Never put the token in a URL or browser bundle.
+- `/api/v1/blog/posts`: GET lists/filter/search; POST creates; GET/PATCH/PUT by
+  slug or UUID reads/updates; DELETE delists without deleting the record.
+  `.../{slug}/preview` returns private, noindex HTML. `POST /api/v1/blog/images`
+  accepts raster bytes (multipart or base64), re-encodes WebP and returns media
+  metadata; it never fetches a remote URL or local filesystem path.
+- `RUNTIME_IMAGES_DISK` defaults to `public`. Use `php artisan storage:link`
+  when using that disk; production storage must persist across releases. A
+  configured public object-storage disk can be selected instead.
+- Optional `INDEXNOW_KEY` enables publication notifications through the existing
+  queue. `php artisan blog:indexnow --dry-run` previews a backfill; omit the flag
+  only when you intend to notify search engines. Future-dated posts are already
+  exposed automatically by the public queries/sitemap when due; the backfill
+  command can notify IndexNow after that time.
+- SEO: only public articles enter the image sitemap; category/writer/search
+  archives are noindex, draft previews are private/no-store, duplicate journal
+  pagination redirects, and reader counts never change editorial dates. Articles
+  emit Article, BreadcrumbList and content-derived FAQ/HowTo structured data.
+
+For an approved rollout, build assets, run the four additive migrations, configure
+persistent image storage and the optional publishing token, then restart queue
+workers. No content is seeded automatically and no scheduler is required to make
+scheduled posts visible. The source changes alone do not configure live tokens or
+publish articles.

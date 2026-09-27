@@ -7,3 +7,5 @@
 
 /* CarpDraw design system (fonts, tokens, all semantic component classes) */
 @import './carpdraw.css';
+
+@import './blog.css';

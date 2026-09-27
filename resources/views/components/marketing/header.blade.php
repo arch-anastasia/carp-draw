@@ -39,6 +39,7 @@
             </div>
             <a class="nav-link" href="/#workflow">Workflow</a>
             <a class="nav-link" href="{{ route('billing.index') }}">Pricing</a>
+            <a class="nav-link" href="{{ route('marketing.blog.index') }}">Journal</a>
             <a class="nav-link" href="{{ route('marketing.contact') }}">Contact</a>
         </nav>
         <div class="public-actions">

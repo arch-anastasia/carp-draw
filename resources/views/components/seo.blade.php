@@ -2,6 +2,8 @@
     'title',
     'description' => null,
     'image' => null,
+    'imageWidth' => null,
+    'imageHeight' => null,
     'imageAlt' => null,
     'noindex' => false,
     'canonical' => null,
@@ -55,18 +57,25 @@
     }
 
     /*
-     * Social art. Dimensions are declared rather than left for the scraper to
-     * discover: without them the first share of a URL renders as a bare link
-     * while the crawler fetches the file, which is exactly the share that
-     * matters. The default card is 1200x630 - see config/seo.php.
+     * Social art. Known dimensions avoid a bare-link first share while the
+     * crawler measures the file, so the default card declares its configured
+     * size and callers can declare an override's real size. Unknown dimensions
+     * are omitted: making the crawler measure is safer than making it crop to
+     * a guessed box. The default card is 1200x630 - see config/seo.php.
      */
     $socialImage = $image
         ?: $canonicalService->origin().'/'.ltrim(config('seo.social_image.path'), '/');
     $socialImageAlt = $imageAlt ?? $description ?? config('branding.tagline');
 
+    $socialImageDimensions = $imageWidth !== null && $imageHeight !== null
+        ? ['width' => (int) $imageWidth, 'height' => (int) $imageHeight]
+        : ($image ? [] : [
+            'width' => config('seo.social_image.width'),
+            'height' => config('seo.social_image.height'),
+        ]);
+
     OpenGraph::addImage($socialImage, [
-        'width' => config('seo.social_image.width'),
-        'height' => config('seo.social_image.height'),
+        ...$socialImageDimensions,
         'alt' => $socialImageAlt,
     ]);
     TwitterCard::setImage($socialImage);
@@ -76,7 +85,7 @@
      * Canonical URL. Built from APP_URL rather than the request host:
      * url()->current() echoes whatever Host (or forwarded host) the request
      * arrived on, so a stray alias, staging domain or bare IP would mint
-     * canonicals endorsing itself. Trailing slashes are normalised away to
+     * canonicals endorsing itself. Trailing slashes are normalized away to
      * match the redirect in App\Http\Middleware\RedirectTrailingSlash.
      */
     $canonicalUrl = $canonical ?? $canonicalService->for();
@@ -121,7 +130,7 @@
      * which is what turns a pile of disconnected blocks into one graph.
      */
     /*
-     * Entities are decoded on the way in. A title written "Cuts &amp; Colours"
+     * Entities are decoded on the way in. A title written "Cuts &amp; Colors"
      * is correct inside <title> and og:title, which are HTML - but a JSON-LD
      * block is opaque to the HTML parser, so the entity would reach a crawler
      * as the literal five characters rather than an ampersand.

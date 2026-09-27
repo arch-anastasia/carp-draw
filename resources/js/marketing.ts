@@ -1,3 +1,4 @@
+import { initImageGalleries, initYoutubeFacades, initArticleOutline } from './blog/media'
 /**
  * CarpDraw marketing bundle.
  *
@@ -564,6 +565,9 @@ function init(): void {
      * take the rest of the page down with it.
      */
     const features: Array<[string, () => void]> = [
+        ['blog_gallery', initImageGalleries],
+        ['blog_outline', initArticleOutline],
+        ['blog_video', initYoutubeFacades],
         ['product_dropdown', initProductDropdown],
         ['mobile_nav', initMobileNav],
         ['auth_modal', initAuthModal],
@@ -585,4 +589,8 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init, { once: true })
 } else {
     init()
+}
+
+if (document.querySelector('[data-blog-editor]')) {
+    void import('./blog/inlineEditor').then(({ initBlogEditor }) => initBlogEditor())
 }

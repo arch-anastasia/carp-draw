@@ -1,0 +1,1 @@
+<x-blog.article-cta />

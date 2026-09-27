@@ -141,6 +141,10 @@ const signOut = () => {
                         All Projects
                     </Link>
                 </div>
+                <Link v-if="user?.is_admin" href="/admin/posts" class="app-nav-link" @click="sidebarOpen = false">
+                    <PenTool :size="19" aria-hidden="true" />
+                    Editorial
+                </Link>
             </nav>
             <Link
                 class="primary-button app-credits-button"
