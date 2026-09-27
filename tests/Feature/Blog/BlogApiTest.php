@@ -616,11 +616,13 @@ class BlogApiTest extends TestCase
         Http::fake(['api.indexnow.org/indexnow' => Http::response(status: 200)]);
         config()->set('blog.indexnow.key', 'indexnow-test-key');
 
-        (new SubmitPostToIndexNow('https://hairstyleatlas.com/blog/french-crop'))->handle();
+        config(['app.url' => 'https://carpdraw.com']);
+        $post = Post::factory()->create(['slug' => 'chair-guide']);
+        (new SubmitPostToIndexNow('https://carpdraw.com/blog/chair-guide'))->handle();
 
         Http::assertSent(fn ($request): bool => $request->url() === 'https://api.indexnow.org/indexnow'
-            && $request['host'] === 'hairstyleatlas.com'
+            && $request['host'] === 'carpdraw.com'
             && $request['key'] === 'indexnow-test-key'
-            && $request['urlList'] === ['https://hairstyleatlas.com/blog/french-crop']);
+            && $request['urlList'] === ['https://carpdraw.com/blog/chair-guide']);
     }
 }

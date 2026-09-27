@@ -28,7 +28,7 @@ class UpdatePostInlineRequest extends FormRequest
              * `nullable` and blank both mean "derive it from the title" -
              * the same reading the admin form gives an empty slug field.
              */
-            'slug' => ['sometimes', 'nullable', 'string', 'max:200'],
+            'slug' => ['sometimes', 'nullable', 'string', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'max:200'],
             'target_keyword' => ['sometimes', 'nullable', 'string', 'max:200'],
             'secondary_keywords' => ['sometimes', 'nullable', 'array'],
             'secondary_keywords.*' => ['string', 'max:200'],
@@ -40,6 +40,7 @@ class UpdatePostInlineRequest extends FormRequest
                 [new HasFaqSection],
             )],
             'cover_image_path' => ['sometimes', 'nullable', 'string', 'max:255'],
+            'cover_image_alt' => ['sometimes', 'nullable', 'string', 'max:500'],
             'meta_title' => ['sometimes', 'nullable', 'string', 'max:255'],
             'meta_description' => ['sometimes', 'nullable', 'string', 'max:300'],
             'audience' => ['sometimes', 'nullable', 'string', 'max:100'],
@@ -141,6 +142,10 @@ class UpdatePostInlineRequest extends FormRequest
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator): void {
+            if ($validator->errors()->isNotEmpty()) {
+                return;
+            }
+
             if ($this->article()?->isKilled() && filled($this->input('published_at'))) {
                 $validator->errors()->add('published_at', 'This post is killed. Un-kill it before publishing.');
             }

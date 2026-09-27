@@ -25,7 +25,7 @@ class SubmitPostToIndexNow implements ShouldQueue
 
         $slug = rawurldecode(basename((string) parse_url($this->url, PHP_URL_PATH)));
 
-        if (Post::query()->killed()->where('slug', $slug)->exists()) {
+        if (! Post::query()->published()->where('slug', $slug)->exists()) {
             return;
         }
 

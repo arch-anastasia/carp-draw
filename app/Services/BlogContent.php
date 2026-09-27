@@ -760,6 +760,7 @@ class BlogContent
                 default => 'mx-auto my-8 w-full',
             };
             $dimensions = $this->dimensions($url);
+            $sizeAttributes = $dimensions ? ' width="'.$dimensions[0].'" height="'.$dimensions[1].'"' : '';
             $webpSrcset = $this->srcset($url, 'webp');
             $avifSrcset = $this->srcset($url, 'avif');
             $sources = ($avifSrcset ? '<source type="image/avif" srcset="'.e($avifSrcset).'">' : '')
@@ -779,7 +780,7 @@ class BlogContent
             $wrapped = $caption !== '' || $tryable;
             $imgClass = $wrapped ? 'block w-full rounded-box' : $class;
 
-            $picture = '<picture>'.$sources.'<img '.$attributes.' src="'.e($url).'" class="'.$imgClass.' border border-base-300" loading="lazy" decoding="async" width="'.$dimensions[0].'" height="'.$dimensions[1].'" sizes="(min-width: 768px) 768px, 100vw"'.$viewer.'></picture>';
+            $picture = '<picture>'.$sources.'<img '.$attributes.' src="'.e($url).'" class="'.$imgClass.' border border-base-300" loading="lazy" decoding="async"'.$sizeAttributes.' sizes="(min-width: 768px) 768px, 100vw"'.$viewer.'></picture>';
 
             $offer = $tryable
                 ? '<a class="blog-figure-try blog-try-button blog-try-bottom-right" href="'.e(route('marketing.home')).'" data-track-cta="blog_prose_image" data-track-cta-variant="figure">Create a drawing</a>'
@@ -845,20 +846,32 @@ class BlogContent
         return $items === [] ? null : implode(', ', $items);
     }
 
-    /** @return array{int, int} */
-    private function dimensions(string $url): array
+    /** @return array{int, int}|null */
+    private function dimensions(string $url): ?array
     {
+        $media = Media::query()->whereIn('url', [$url, $this->absoluteMediaUrl($url), $this->storedMediaUrl($url)])->first();
+        if ($media?->width && $media->height) {
+            return [$media->width, $media->height];
+        }
+        $host = parse_url($url, PHP_URL_HOST);
+        if ($host && $host !== parse_url(config('app.url'), PHP_URL_HOST)) {
+            return null;
+        }
         $path = parse_url($url, PHP_URL_PATH);
-
-        if (is_string($path) && str_starts_with($path, '/storage/')) {
-            $local = storage_path('app/public/'.substr($path, 9));
-            $size = is_file($local) ? @getimagesize($local) : false;
-
+        if (! is_string($path)) {
+            return null;
+        }
+        $root = str_starts_with($path, '/storage/') ? storage_path('app/public') : public_path();
+        $relative = str_starts_with($path, '/storage/') ? substr($path, 9) : ltrim($path, '/');
+        $local = realpath($root.'/'.$relative);
+        $base = realpath($root);
+        if ($local && $base && str_starts_with($local, $base.DIRECTORY_SEPARATOR) && is_file($local)) {
+            $size = @getimagesize($local);
             if (is_array($size)) {
                 return [(int) $size[0], (int) $size[1]];
             }
         }
 
-        return [1200, 800];
+        return null;
     }
 }

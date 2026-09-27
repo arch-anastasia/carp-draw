@@ -13,7 +13,7 @@
 
     <div class="min-w-0">
         <p class="text-[15px] text-base-content">
-            @if ($author->authorUrl())
+            @if ($author->profile_is_published && $author->authorUrl())
                 <a href="{{ $author->authorUrl() }}" class="underline underline-offset-4">{{ $author->name }}</a>
             @else
                 {{ $author->name }}

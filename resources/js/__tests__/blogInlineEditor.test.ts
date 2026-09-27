@@ -93,6 +93,7 @@ function render(): void {
         </div>
 
         <h1 data-blog-editor-title>The Taper</h1>
+        <div data-blog-editor-cover-empty hidden>Add a cover</div>
         <img data-blog-editor-cover src="/storage/blog/cover.webp" alt="A taper">
 
         <div data-article-body data-blog-editor-body>
@@ -398,6 +399,57 @@ describe('a save', () => {
 })
 
 describe('the cover', () => {
+    it('can add a first cover, edit it, remove it and add it again', async () => {
+        document.querySelector('[data-blog-editor-cover]')!.remove()
+        const slot = document.querySelector<HTMLElement>('[data-blog-editor-cover-empty]')!
+        slot.hidden = false
+        fetchMock.mockImplementation(() => Promise.resolve({
+            ok: true, status: 200, json: () => Promise.resolve({data: {
+                id: 'new-cover', url: '/storage/blog/new.webp', alt: 'Oak chair',
+                width: 800, height: 600, mime: 'image/webp', bytes: 100, markdown: '',
+            }}),
+        }))
+        for (let attempt = 0; attempt < 2; attempt++) {
+            slot.click()
+            const fileInput = document.querySelector<HTMLInputElement>('input[type="file"]')!
+            Object.defineProperty(fileInput, 'files', {value: [new File(['test'], 'chair.webp', {type: 'image/webp'})]})
+            fileInput.dispatchEvent(new Event('change'))
+            await vi.waitFor(() => expect(document.querySelector('[data-blog-editor-cover]')).not.toBeNull())
+            expect(slot.hidden).toBe(true)
+            const cover = document.querySelector<HTMLImageElement>('[data-blog-editor-cover]')!
+            expect(cover.width).toBe(800)
+            cover.dispatchEvent(new MouseEvent('contextmenu', {bubbles: true}))
+            const remove = Array.from(document.querySelectorAll<HTMLButtonElement>('.blog-image-menu button'))
+                .find((item) => item.textContent === 'Remove cover')!
+            expect(remove).toBeDefined()
+            remove.click()
+            expect(document.querySelector('[data-blog-editor-cover]')).toBeNull()
+            expect(slot.hidden).toBe(false)
+        }
+    })
+
+    it('sends edited cover alt text with the save', async () => {
+        document.querySelector('[data-blog-editor-cover]')!.dispatchEvent(
+            new MouseEvent('contextmenu', { bubbles: true })
+        )
+        const altButton = Array.from(document.querySelectorAll<HTMLButtonElement>('.blog-image-menu button'))
+            .find((item) => item.textContent === 'Alt text…')
+        expect(altButton).toBeDefined()
+        altButton!.click()
+        const input = document.querySelector<HTMLInputElement>('#blog-dialog-alt')!
+        input.value = 'Oak chair with a curved back'
+        const confirm = Array.from(document.querySelectorAll<HTMLButtonElement>('.dialog-actions button'))
+            .find((item) => item.textContent === 'Save')!
+        confirm.click()
+        await vi.waitFor(() => expect(button('data-editor-save').disabled).toBe(false))
+        button('data-editor-save').click()
+        await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
+        expect(requestBody()).toEqual({
+            cover_image_path: '/storage/blog/cover.webp',
+            cover_image_alt: 'Oak chair with a curved back',
+        })
+    })
+
     it('leaves the page and the article together', async () => {
         ;(document.querySelector('[data-editor-panel-open="seo"]') as HTMLButtonElement).click()
 
@@ -409,6 +461,7 @@ describe('the cover', () => {
         remove!.click()
 
         expect(document.querySelector('[data-blog-editor-cover]')).toBeNull()
+        expect(document.querySelector<HTMLElement>('[data-blog-editor-cover-empty]')?.hidden).toBe(false)
 
         button('data-editor-save').click()
         await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))

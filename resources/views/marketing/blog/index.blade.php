@@ -1,5 +1,7 @@
 <x-seo title="Furniture & Technical Drawing Guides" description="Practical guides to furniture planning, technical drawings and product specifications from CarpDraw." :noindex="$search !== '' || request()->has('page')" schema-type="CollectionPage" />
 <x-layouts.marketing>
+<x-schema.breadcrumb :items="[['name' => 'Journal']]" />
+<x-schema.collection-page :posts="$schemaPosts" />
 <main id="main-content" class="container-shell blog-page">
     <span class="eyebrow">CarpDraw Journal</span><h1>Plan it. Draw it. Build it.</h1>
     <p>Furniture planning, drawings and specifications, explained.</p>

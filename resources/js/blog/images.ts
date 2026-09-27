@@ -71,11 +71,7 @@ export function attachImageMenus(context: ImageContext): void {
 
     const cover = document.querySelector<HTMLImageElement>('[data-blog-editor-cover]')
 
-    cover?.addEventListener('contextmenu', (event) => {
-        event.preventDefault()
-        context.startEditing()
-        openMenu(event.clientX, event.clientY, coverMenu(context, cover))
-    })
+    if (cover) attachCoverMenu(context, cover)
 
     const empty = document.querySelector<HTMLButtonElement>('[data-blog-editor-cover-empty]')
 
@@ -91,6 +87,15 @@ export function attachImageMenus(context: ImageContext): void {
                 context.setCover(uploaded)
             }
         })
+    })
+}
+
+/** Newly uploaded covers need the same controls as server-rendered covers. */
+export function attachCoverMenu(context: ImageContext, cover: HTMLImageElement): void {
+    cover.addEventListener('contextmenu', (event) => {
+        event.preventDefault()
+        context.startEditing()
+        openMenu(event.clientX, event.clientY, coverMenu(context, cover))
     })
 }
 
@@ -220,8 +225,8 @@ function coverMenu(context: ImageContext, cover: HTMLImageElement): MenuItem[] {
                         alt,
                         markdown: '',
                         mime: null,
-                        width: null,
-                        height: null,
+                        width: Number(cover.getAttribute('width')) || null,
+                        height: Number(cover.getAttribute('height')) || null,
                         bytes: null,
                     })
                 })

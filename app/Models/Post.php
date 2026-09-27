@@ -150,19 +150,28 @@ class Post extends Model
          * while a draft or scheduled row moved into the past announces the
          * one moment its public URL starts answering.
          */
+        static::updated(function (self $post): void {
+            if ($post->wasChanged('slug') && $post->getOriginal('published_at')?->lessThanOrEqualTo(now()) && $post->getOriginal('killed_at') === null) {
+                PostSlugRedirect::query()->updateOrCreate(
+                    ['slug' => $post->getOriginal('slug')], ['post_id' => $post->id]
+                );
+            }
+        });
+
         static::saved(function (self $post): void {
-            if ($post->wasChanged(['killed_at', 'published_at'])) {
+            $justCreated = $post->wasRecentlyCreated && $post->getOriginal('id') === null;
+            if ($justCreated || $post->wasChanged(['killed_at', 'published_at', 'slug', 'title', 'excerpt', 'cover_media_id'])) {
                 Cache::forget('discover.feed.v3');
             }
 
-            if ($post->isKilled() || ! config('blog.indexnow.enabled') || ! $post->wasChanged('published_at')) {
+            if ($post->isKilled() || ! config('blog.indexnow.enabled') || (! $justCreated && ! $post->wasChanged(['published_at', 'slug']))) {
                 return;
             }
 
-            $previouslyPublished = $post->getOriginal('published_at')?->isPast() ?? false;
+            $previouslyPublished = ! $justCreated && ($post->getOriginal('published_at')?->lessThanOrEqualTo(now()) ?? false);
 
-            if (! $previouslyPublished && $post->isPublished()) {
-                SubmitPostToIndexNow::dispatch($post->url());
+            if ((! $previouslyPublished || $post->wasChanged('slug')) && $post->isPublished()) {
+                SubmitPostToIndexNow::dispatch($post->url())->afterCommit();
             }
         });
     }
@@ -348,7 +357,7 @@ class Post extends Model
 
     public function isPublished(): bool
     {
-        return ! $this->isKilled() && $this->published_at !== null && $this->published_at->isPast();
+        return ! $this->isKilled() && $this->published_at !== null && $this->published_at->lessThanOrEqualTo(now());
     }
 
     public function isScheduled(): bool

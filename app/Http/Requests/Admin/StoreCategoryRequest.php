@@ -21,7 +21,7 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:100'],
-            'slug' => ['nullable', 'string', 'max:120'],
+            'slug' => ['nullable', 'string', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'max:120'],
             'title' => ['nullable', 'string', 'max:200'],
             'description' => ['nullable', 'string', 'max:500'],
             'audience' => ['nullable', 'string', 'max:100'],
@@ -31,6 +31,10 @@ class StoreCategoryRequest extends FormRequest
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator): void {
+            if ($validator->errors()->isNotEmpty()) {
+                return;
+            }
+
             $slug = trim((string) $this->input('slug'));
 
             if ($slug !== '' && Category::blogSlugTaken($slug)) {

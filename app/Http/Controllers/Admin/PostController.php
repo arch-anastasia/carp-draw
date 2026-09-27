@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -69,9 +70,11 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request): RedirectResponse
     {
-        $post = Post::query()->create($this->attributes($request));
-        $post->syncAuthors($request->validated('authors', []));
-        $post->categories()->sync($request->validated('categories', []));
+        DB::transaction(function () use ($request): void {
+            $post = Post::query()->create($this->attributes($request));
+            $post->syncAuthors($request->validated('authors') ?? []);
+            $post->categories()->sync($request->validated('categories') ?? []);
+        });
 
         return redirect()->route('admin.posts.index')->with('success', 'Post created.');
     }
@@ -123,9 +126,11 @@ class PostController extends Controller
 
     public function update(UpdatePostRequest $request, Post $post): RedirectResponse
     {
-        $post->update($this->attributes($request));
-        $post->syncAuthors($request->validated('authors', []));
-        $post->categories()->sync($request->validated('categories', []));
+        DB::transaction(function () use ($request, $post): void {
+            $post->update($this->attributes($request));
+            $post->syncAuthors($request->validated('authors') ?? []);
+            $post->categories()->sync($request->validated('categories') ?? []);
+        });
 
         return redirect()->route('admin.posts.index')->with('success', 'Post updated.');
     }
@@ -172,15 +177,17 @@ class PostController extends Controller
 
     public function updateInline(UpdatePostInlineRequest $request, Post $post, BlogEditorContext $context): JsonResponse
     {
-        $post->update($this->attributes($request));
+        DB::transaction(function () use ($request, $post): void {
+            $post->update($this->attributes($request));
 
-        if ($request->has('authors')) {
-            $post->syncAuthors($request->validated('authors') ?? []);
-        }
+            if ($request->has('authors')) {
+                $post->syncAuthors($request->validated('authors') ?? []);
+            }
 
-        if ($request->has('categories')) {
-            $post->categories()->sync($request->validated('categories') ?? []);
-        }
+            if ($request->has('categories')) {
+                $post->categories()->sync($request->validated('categories') ?? []);
+            }
+        });
 
         $post->refresh();
 
@@ -217,10 +224,16 @@ class PostController extends Controller
          * than making the form know about media ids.
          */
         if (array_key_exists('cover_image_path', $attributes)) {
-            $attributes['cover_media_id'] = Media::forUrl($attributes['cover_image_path'])?->id;
+            $media = Media::forUrl($attributes['cover_image_path']);
+            if ($media !== null && array_key_exists('cover_image_alt', $attributes)) {
+                $media->update(['alt' => $attributes['cover_image_alt']]);
+            }
+            $attributes['cover_media_id'] = $media?->id;
 
             unset($attributes['cover_image_path']);
         }
+
+        unset($attributes['cover_image_alt']);
 
         return $attributes;
     }

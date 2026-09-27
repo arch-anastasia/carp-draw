@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostRevision;
+use App\Models\PostSlugRedirect;
 use App\Services\PreviewAccess;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
@@ -64,7 +65,6 @@ class BlogController extends Controller
             'schemaPosts' => $startHere
                 ->merge($sections->flatMap(fn (array $section) => $section['posts']))
                 ->unique('id')
-                ->sortByDesc('published_at')
                 ->values(),
             'startHere' => $startHere,
             'sections' => $sections,
@@ -192,7 +192,7 @@ class BlogController extends Controller
         return collect($sections->all());
     }
 
-    public function entry(Request $request, string $slug): View
+    public function entry(Request $request, string $slug): View|RedirectResponse
     {
         $category = Category::query()->where('slug', $slug)->first();
 
@@ -201,6 +201,14 @@ class BlogController extends Controller
         }
 
         $post = Post::query()->where('slug', $slug)->first();
+        if ($post === null) {
+            $redirect = PostSlugRedirect::query()->find($slug);
+            $target = $redirect ? Post::query()->find($redirect->post_id) : null;
+            abort_if($target?->isKilled(), 410);
+            if ($target?->isPublished()) {
+                return redirect()->to($target->url(), 301);
+            }
+        }
         abort_if($post?->isKilled(), 410);
 
         $access = app(PreviewAccess::class);

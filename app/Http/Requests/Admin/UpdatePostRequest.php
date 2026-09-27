@@ -23,7 +23,7 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:200'],
-            'slug' => ['nullable', 'string', 'max:200'],
+            'slug' => ['nullable', 'string', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'max:200'],
             'target_keyword' => ['nullable', 'string', 'max:200'],
             'secondary_keywords' => ['nullable', 'array'],
             'secondary_keywords.*' => ['string', 'max:200'],
@@ -46,6 +46,7 @@ class UpdatePostRequest extends FormRequest
                 [new HasFaqSection],
             )],
             'cover_image_path' => ['nullable', 'string', 'max:255'],
+            'cover_image_alt' => ['sometimes', 'nullable', 'string', 'max:500'],
             'meta_title' => ['nullable', 'string', 'max:255'],
             'meta_description' => ['nullable', 'string', 'max:300'],
             'audience' => ['nullable', 'string', 'max:100'],
@@ -72,6 +73,10 @@ class UpdatePostRequest extends FormRequest
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator): void {
+            if ($validator->errors()->isNotEmpty()) {
+                return;
+            }
+
             if ($this->route('post')?->isKilled() && filled($this->input('published_at'))) {
                 $validator->errors()->add('published_at', 'This post is killed. Un-kill it before publishing.');
             }

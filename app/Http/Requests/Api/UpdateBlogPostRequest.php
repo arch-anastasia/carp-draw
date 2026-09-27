@@ -55,6 +55,7 @@ class UpdateBlogPostRequest extends BlogPostRequest
             'cta_text' => $blogPost->cta_text,
             'cta_url' => $blogPost->cta_url,
             'published_at' => $blogPost->published_at?->toIso8601String(),
+            'dated_at' => $blogPost->dated_at?->toIso8601String(),
             'killed_at' => $blogPost->killed_at?->toIso8601String(),
             'killed_reason' => $blogPost->killed_reason,
             'authors' => $blogPost->authors->pluck('username')->all(),

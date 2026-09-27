@@ -70,7 +70,7 @@
         @if ($people->isNotEmpty())
             @foreach ($people as $index => $person)
                 @if ($index > 0){{ $index === $last ? ' and ' : ', ' }}@endif
-                @if ($linked && $person->authorUrl())
+                @if ($linked && $person->profile_is_published && $person->authorUrl())
                     <a href="{{ $person->authorUrl() }}" class="text-base-content/70 underline underline-offset-4 transition-colors hover:text-base-content">{{ $person->name }}</a>
                 @else
                     <span class="text-base-content/70">{{ $person->name }}</span>

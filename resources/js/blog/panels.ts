@@ -323,13 +323,15 @@ function buildSeo(panel: HTMLElement, context: PanelContext): void {
     )
 
     section(panel, 'Cover image')
+    const pending = context.pending()
+    const coverUrl = pending.cover_image_path === undefined ? post.coverUrl : pending.cover_image_path
 
     const cover = document.createElement('div')
     cover.className = 'panel-field'
 
     const note = document.createElement('p')
     note.className = 'panel-help'
-    note.textContent = post.coverUrl
+    note.textContent = coverUrl
         ? 'Right-click the cover on the page to crop it or change its alt text.'
         : 'No cover. The article shares without a picture until it has one.'
     cover.appendChild(note)
@@ -338,7 +340,7 @@ function buildSeo(panel: HTMLElement, context: PanelContext): void {
     actions.className = 'panel-actions'
 
     actions.appendChild(
-        button(post.coverUrl ? 'Replace cover' : 'Upload cover', () => {
+        button(coverUrl ? 'Replace cover' : 'Upload cover', () => {
             void chooseFile().then((file) => {
                 if (file !== null) {
                     void context.uploadCover(file)
@@ -347,7 +349,7 @@ function buildSeo(panel: HTMLElement, context: PanelContext): void {
         })
     )
 
-    if (post.coverUrl) {
+    if (coverUrl) {
         actions.appendChild(button('Remove cover', () => context.removeCover(), 'destructive'))
     }
 

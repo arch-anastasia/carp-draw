@@ -25,7 +25,7 @@
  */
 
 import { readBlocks, serializeBody, blockGroupOf, type BlockSnapshot } from './htmlToMarkdown'
-import { attachImageMenus, chooseFile } from './images'
+import { attachImageMenus, attachCoverMenu, chooseFile, type ImageContext } from './images'
 import { openDialog, promptDialog } from './dialog'
 import { icon, type IconName } from './icons'
 import { closeMenu } from './menu'
@@ -181,14 +181,7 @@ class Editor {
             this.refreshButtons()
         })
 
-        attachImageMenus({
-            body: this.body,
-            upload: (file, alt) => this.upload(file, alt),
-            markBodyDirty: () => this.markBody(),
-            setCover: (image) => this.setCover(image),
-            startEditing: () => this.setEditing(true),
-            notify: (message, tone) => this.notify(message, tone),
-        })
+        attachImageMenus(this.imageContext())
 
         this.attachFaq()
         this.attachFormatBar()
@@ -777,8 +770,24 @@ class Editor {
 
     /* ------------------------------------------------------------- covers */
 
+    private imageContext(): ImageContext {
+        return {
+            body: this.body,
+            upload: (file, alt) => this.upload(file, alt),
+            markBodyDirty: () => this.markBody(),
+            setCover: (image) => this.setCover(image),
+            startEditing: () => this.setEditing(true),
+            notify: (message, tone) => this.notify(message, tone),
+        }
+    }
+
     private setCover(image: UploadedImage | null): void {
         this.pending.cover_image_path = image === null ? null : image.url
+        if (image === null) {
+            delete this.pending.cover_image_alt
+        } else {
+            this.pending.cover_image_alt = image.alt
+        }
 
         const existing = document.querySelector<HTMLImageElement>('[data-blog-editor-cover]')
         const slot = document.querySelector<HTMLElement>('[data-blog-editor-cover-empty]')
@@ -798,6 +807,13 @@ class Editor {
         if (existing !== null) {
             existing.src = image.url
             existing.removeAttribute('srcset')
+            if (image.width && image.height) {
+                existing.width = image.width
+                existing.height = image.height
+            } else {
+                existing.removeAttribute('width')
+                existing.removeAttribute('height')
+            }
 
             if (image.alt !== null && image.alt !== '') {
                 existing.alt = image.alt
@@ -807,10 +823,14 @@ class Editor {
             created.setAttribute('data-blog-editor-cover', '')
             created.src = image.url
             created.alt = image.alt ?? ''
-            created.width = image.width ?? 1200
-            created.height = image.height ?? 800
+            if (image.width && image.height) {
+                created.width = image.width
+                created.height = image.height
+            }
             created.className = 'mt-8 aspect-[3/2] w-full rounded-box object-cover'
-            slot.replaceWith(created)
+            attachCoverMenu(this.imageContext(), created)
+            slot.insertAdjacentElement('afterend', created)
+            slot.hidden = true
         }
 
         this.refreshButtons()

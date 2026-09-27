@@ -25,7 +25,7 @@ abstract class BlogPostRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:200'],
-            'slug' => ['nullable', 'string', 'max:200'],
+            'slug' => ['nullable', 'string', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'max:200'],
             'target_keyword' => ['nullable', 'string', 'max:200'],
             'secondary_keywords' => ['nullable', 'array'],
             'secondary_keywords.*' => ['string', 'max:200'],
@@ -37,7 +37,7 @@ abstract class BlogPostRequest extends FormRequest
             'authors' => ['nullable', 'array'],
             'authors.*' => [
                 'string',
-                Rule::exists('authors', 'username'),
+                Rule::exists('authors', 'username')->whereNull('deleted_at'),
             ],
 
             'excerpt' => ['nullable', 'string', 'max:500'],
@@ -94,6 +94,7 @@ abstract class BlogPostRequest extends FormRequest
 
             /* Null keeps it a draft, a past time publishes, a future one schedules. */
             'published_at' => ['nullable', 'date'],
+            'dated_at' => ['nullable', 'date'],
             'killed_at' => ['nullable', 'date'],
             'killed_reason' => ['nullable', 'string', 'max:255'],
 
@@ -105,6 +106,10 @@ abstract class BlogPostRequest extends FormRequest
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator): void {
+            if ($validator->errors()->isNotEmpty()) {
+                return;
+            }
+
             if (filled($this->input('published_at')) && ($this->existingPost()?->isKilled() || filled($this->input('killed_at')))) {
                 $validator->errors()->add('published_at', 'This post is killed. Un-kill it in a separate request before publishing.');
             }

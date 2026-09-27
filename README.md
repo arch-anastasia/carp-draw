@@ -99,7 +99,8 @@ data, articles, or secrets are copied.
   publishing, image uploads/cropping, and retirement. Ordinary accounts cannot edit.
 - API: set `BLOG_API_TOKEN`, then send `Authorization: Bearer <token>` to
   `/api/v1/blog/context` first. It documents accepted fields, Markdown directives,
-  FAQ requirements, image limits, vocabulary, and all endpoints. Without a token
+  FAQ requirements, image limits, vocabulary, and all endpoints. The `dated_at`
+  field round-trips the editorial modification date; omitted fields stay unchanged. Without a token
   configured the API is closed. Never put the token in a URL or browser bundle.
 - `/api/v1/blog/posts`: GET lists/filter/search; POST creates; GET/PATCH/PUT by
   slug or UUID reads/updates; DELETE delists without deleting the record.
@@ -114,12 +115,12 @@ data, articles, or secrets are copied.
   only when you intend to notify search engines. Future-dated posts are already
   exposed automatically by the public queries/sitemap when due; the backfill
   command can notify IndexNow after that time.
-- SEO: only public articles enter the image sitemap; category/writer/search
+- SEO: only public articles enter the image sitemap; published article slug changes keep a direct 301 from old URLs (reserved against reuse); category/writer/search
   archives are noindex, draft previews are private/no-store, duplicate journal
   pagination redirects, and reader counts never change editorial dates. Articles
   emit Article, BreadcrumbList and content-derived FAQ/HowTo structured data.
 
-For an approved rollout, build assets, run the four additive migrations, configure
+For an approved rollout, build assets, run the additive migrations, configure
 persistent image storage and the optional publishing token, then restart queue
 workers. No content is seeded automatically and no scheduler is required to make
 scheduled posts visible. The source changes alone do not configure live tokens or

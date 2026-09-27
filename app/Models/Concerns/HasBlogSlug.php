@@ -4,6 +4,7 @@ namespace App\Models\Concerns;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostSlugRedirect;
 use Illuminate\Support\Str;
 
 trait HasBlogSlug
@@ -46,6 +47,8 @@ trait HasBlogSlug
             }
         }
 
-        return false;
+        return PostSlugRedirect::query()->where('slug', $slug)
+            ->when($excludeId && static::class === Post::class, fn ($query) => $query->where('post_id', '!=', $excludeId))
+            ->exists();
     }
 }

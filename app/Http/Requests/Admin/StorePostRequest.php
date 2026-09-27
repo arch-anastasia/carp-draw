@@ -23,7 +23,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:200'],
-            'slug' => ['nullable', 'string', 'max:200'],
+            'slug' => ['nullable', 'string', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'max:200'],
             'target_keyword' => ['nullable', 'string', 'max:200'],
             'secondary_keywords' => ['nullable', 'array'],
             'secondary_keywords.*' => ['string', 'max:200'],
@@ -46,6 +46,7 @@ class StorePostRequest extends FormRequest
                 [new HasFaqSection],
             )],
             'cover_image_path' => ['nullable', 'string', 'max:255'],
+            'cover_image_alt' => ['sometimes', 'nullable', 'string', 'max:500'],
             'meta_title' => ['nullable', 'string', 'max:255'],
             'meta_description' => ['nullable', 'string', 'max:300'],
             'audience' => ['nullable', 'string', 'max:100'],
@@ -72,6 +73,10 @@ class StorePostRequest extends FormRequest
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator): void {
+            if ($validator->errors()->isNotEmpty()) {
+                return;
+            }
+
             $slug = trim((string) $this->input('slug'));
 
             if ($slug !== '' && Post::blogSlugTaken($slug)) {

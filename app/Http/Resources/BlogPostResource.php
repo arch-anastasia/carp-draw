@@ -40,6 +40,7 @@ class BlogPostResource extends JsonResource
             'url' => $post->url(),
             'status' => self::status($post),
             'published_at' => $post->published_at?->toIso8601String(),
+            'dated_at' => $post->dated_at?->toIso8601String(),
             'killed_at' => $post->killed_at?->toIso8601String(),
             'killed_reason' => $post->killed_reason,
 

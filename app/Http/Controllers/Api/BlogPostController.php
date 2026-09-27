@@ -16,11 +16,20 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class BlogPostController extends Controller
 {
     public function index(Request $request): AnonymousResourceCollection
     {
+        $request->validate([
+            'status' => ['nullable', Rule::in(['published', 'scheduled', 'draft', 'killed'])],
+            'search' => ['nullable', 'string', 'max:500'],
+            'keyword' => ['nullable', 'string', 'max:200'],
+            'category' => ['nullable', 'string', 'max:200'],
+            'per_page' => ['nullable', 'integer', 'min:1'],
+        ]);
         $status = (string) $request->query('status', '');
         $search = trim((string) $request->query('search', ''));
         $category = trim((string) $request->query('category', ''));
@@ -82,9 +91,12 @@ class BlogPostController extends Controller
 
     public function store(StoreBlogPostRequest $request): JsonResponse
     {
-        $blogPost = Post::query()->create($this->attributes($request));
+        $blogPost = DB::transaction(function () use ($request): Post {
+            $post = Post::query()->create($this->attributes($request));
+            $this->syncRelations($post, $request);
 
-        $this->syncRelations($blogPost, $request);
+            return $post;
+        });
 
         return (new BlogPostResource($blogPost->load(['authors', 'categories', 'cover'])))
             ->response()
@@ -93,9 +105,10 @@ class BlogPostController extends Controller
 
     public function update(UpdateBlogPostRequest $request, Post $blogPost): BlogPostResource
     {
-        $blogPost->update($this->attributes($request));
-
-        $this->syncRelations($blogPost, $request);
+        DB::transaction(function () use ($request, $blogPost): void {
+            $blogPost->update($this->attributes($request));
+            $this->syncRelations($blogPost, $request);
+        });
 
         return new BlogPostResource($blogPost->load(['authors', 'categories', 'cover']));
     }

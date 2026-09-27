@@ -125,6 +125,7 @@ export interface SavePayload {
     dated_at?: string | null
     body?: string
     cover_image_path?: string | null
+    cover_image_alt?: string | null
     meta_title?: string | null
     meta_description?: string | null
     audience?: string | null

@@ -26,6 +26,10 @@ class PublishPostRequest extends FormRequest
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator): void {
+            if ($validator->errors()->isNotEmpty()) {
+                return;
+            }
+
             if ($this->route('post')?->isKilled()) {
                 $validator->errors()->add('published_at', 'This post is killed. Un-kill it before publishing.');
             }

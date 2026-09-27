@@ -22,7 +22,7 @@
         }
 
         if (! empty($step['image'])) {
-            $entry['image'] = config('app.url').$step['image'];
+            $entry['image'] = app(\App\Services\CanonicalUrl::class)->pin($step['image']);
         }
 
         $stepList[] = $entry;
@@ -35,7 +35,7 @@
         'name' => $name,
         'description' => $description,
         'totalTime' => $totalTime,
-        'image' => $image ? config('app.url').$image : null,
+        'image' => $image ? app(\App\Services\CanonicalUrl::class)->pin($image) : null,
         'step' => $stepList,
     ]);
 @endphp

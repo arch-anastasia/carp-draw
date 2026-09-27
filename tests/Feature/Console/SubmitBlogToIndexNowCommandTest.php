@@ -28,6 +28,7 @@ class SubmitBlogToIndexNowCommandTest extends TestCase
         Post::factory()->draft()->create();
         Post::factory()->scheduled()->create();
 
+        Queue::fake(); // Observe the command, not fixture publication notifications.
         $this->artisan('blog:indexnow')
             ->expectsOutputToContain('Queued 2 URL(s).')
             ->assertSuccessful();
@@ -47,6 +48,7 @@ class SubmitBlogToIndexNowCommandTest extends TestCase
         $wanted = Post::factory()->count(2)->create();
         Post::factory()->create();
 
+        Queue::fake(); // Observe the command, not fixture publication notifications.
         $this->artisan('blog:indexnow', ['slugs' => $wanted->pluck('slug')->all()])
             ->assertSuccessful();
 
@@ -60,6 +62,7 @@ class SubmitBlogToIndexNowCommandTest extends TestCase
         config()->set('blog.indexnow.key', null);
         config()->set('blog.indexnow.enabled', false);
 
+        Queue::fake(); // Observe the command, not fixture publication notifications.
         $this->artisan('blog:indexnow', ['--dry-run' => true])
             ->expectsOutput($post->url())
             ->expectsOutput('Would queue 1 URL(s).')
@@ -74,6 +77,7 @@ class SubmitBlogToIndexNowCommandTest extends TestCase
         config()->set('blog.indexnow.key', null);
         config()->set('blog.indexnow.enabled', false);
 
+        Queue::fake(); // Observe the command, not fixture publication notifications.
         $this->artisan('blog:indexnow')
             ->expectsOutput('INDEXNOW_KEY is not set. No URLs were queued.')
             ->assertFailed();
@@ -86,6 +90,7 @@ class SubmitBlogToIndexNowCommandTest extends TestCase
         $published = Post::factory()->create();
         $draft = Post::factory()->draft()->create();
 
+        Queue::fake(); // Observe the command, not fixture publication notifications.
         $this->artisan('blog:indexnow', [
             'slugs' => [$published->slug, $draft->slug, 'missing-post'],
         ])

@@ -16,6 +16,7 @@
 <header><h1 @if($editable) data-blog-editor-title @endif>{{ $post->title }}</h1><p>{{ $post->excerpt }}</p><x-blog.byline :authors="$post->byline()" :published-at="$post->published_at" :updated-at="$post->displayedUpdatedAt()" :updated-is-explicit="$post->dated_at !== null" :reading-minutes="$post->reading_minutes" /></header>
 <x-blog.article-cta />
 @if ($post->coverImageUrl())<figure class="blog-cover"><img src="{{ $post->coverImageUrl() }}" alt="{{ $post->cover?->alt ?? '' }}" @if($post->cover?->width) width="{{ $post->cover->width }}" height="{{ $post->cover->height }}" @endif fetchpriority="high" @if($editable) data-blog-editor-cover @endif></figure>@endif
+@if ($editable)<div data-blog-editor-cover-empty @if($post->coverImageUrl()) hidden @endif class="blog-preview">Use the editor's Search and social panel to add a cover image.</div>@endif
 <div class="blog-article-layout"><aside><x-blog.table-of-contents :items="$post->outline()" /></aside><div>
 <div class="blog-prose" data-article-body @if($editable) data-blog-editor-body @endif>{!! $editable ? $post->editableBody() : $post->renderedBody() !!}</div>
 <x-blog.faq :items="$faq" :editable="$editable" />

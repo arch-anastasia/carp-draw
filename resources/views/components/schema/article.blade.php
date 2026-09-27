@@ -17,11 +17,12 @@
 
     $organization = [
         '@type' => 'Organization',
+        '@id' => $canonical->schemaId('organization'),
         'name' => config('branding.name', config('app.name')),
         'url' => config('app.url'),
         'logo' => [
             '@type' => 'ImageObject',
-            'url' => config('app.url').'/favicon.svg',
+            'url' => $canonical->origin().'/brand/carpdraw-logo-orange.png',
         ],
     ];
 
@@ -42,7 +43,8 @@
     $people = collect($authors ?? [])->filter()->map(fn ($person): array => array_filter([
         '@type' => 'Person',
         'name' => $person->name,
-        'url' => $canonical->pin($person->authorUrl()),
+        '@id' => $person->profile_is_published ? $canonical->pin($person->authorUrl()).'#person' : null,
+        'url' => $person->profile_is_published ? $canonical->pin($person->authorUrl()) : null,
         'jobTitle' => $person->roleLine(),
         'description' => $person->bio,
         'image' => $canonical->pin($person->avatarUrl()),
