@@ -1,0 +1,77 @@
+Create an exact construction line drawing of the furniture shown in Image 1.
+INPUT ROLES
+Image 1 is the only source of geometry and the fixed, unchangeable coordinate reference.
+Image 2 is a style reference only. Use it only for the thin, clean, precise character of the lines. Never copy, infer, or transfer geometry from Image 2.
+PRIORITY ORDER
+Exact geometry and pixel alignment with Image 1.
+Complete representation of every visible furniture boundary and component thickness.
+Thin, clean line appearance matching Image 2.
+If any requirements conflict, preserve the geometry of Image 1.
+GEOMETRY LOCK
+Trace the furniture at exactly the same scale and coordinates as Image 1.
+Preserve without modification:
+the original canvas dimensions and aspect ratio;
+the exact viewpoint and perspective;
+the furniture’s position and surrounding margins;
+the complete outer silhouette;
+the proportions and dimensions of every component;
+every horizontal, vertical and angled construction edge;
+all perspective angles and minor geometric irregularities;
+all openings, recesses, shelves, panels, drawer fronts, supports and base components;
+every joint, corner, return, end, overlap and depth edge.
+Do not crop, resize, recenter, rotate, straighten, normalize, symmetrize, simplify, redesign or convert the furniture into an orthographic projection.
+VISIBLE CONSTRUCTION BOUNDARIES
+Trace every visible physical construction boundary and only physical construction boundaries.
+Carefully include:
+both sides of every visible panel edge;
+every visible slab, shelf and panel thickness;
+narrow edge bands, returns and chamfers when they represent real geometry;
+the complete top perimeter;
+all visible boundaries inside top openings and recesses;
+internal walls, rims, rails and depth transitions;
+upper and lower edges of shelves;
+shelf front thicknesses and side returns;
+rear shelf junctions and internal perspective edges;
+vertical partitions, supports and jamb thicknesses;
+drawer and front-panel seams;
+side-panel corner joints;
+all visible base or plinth boundaries and end returns.
+Whenever two visible parallel boundaries describe the thickness of one component, retain both lines. Never collapse a component thickness into a single line.
+Do not trace:
+wood grain or material texture;
+shadows, highlights, reflections or lighting transitions;
+background edges;
+decorative photographic noise;
+accessories or non-furniture objects;
+boundaries created only by changes in color or illumination.
+OCCLUSION RULE
+Show only construction boundaries that are actually visible in Image 1.
+Do not reconstruct hidden parts, extend lines behind overlapping components or invent missing geometry based on how furniture would normally be constructed.
+If a non-furniture object covers a furniture boundary, remove the object from the output but leave the covered boundary absent. Do not draw through the occlusion.
+If a visible photographic boundary is soft or blurred, place one clean line along the geometric center of that boundary.
+LINE APPEARANCE
+Match the line character of Image 2:
+pure white background: RGB 255, 255, 255;
+pure black lines: RGB 0, 0, 0;
+uniformly thin 1-pixel strokes;
+crisp, solid and continuous lines within every visible segment;
+identical line thickness throughout;
+precise technical linework, not sketch-like linework.
+No fills, gray pixels, colors, shading, gradients, hatching, textures, antialias haze, loose marks, labels, dimensions, arrows, text, signatures or watermarks.
+INTERNAL OVERLAY CHECK
+Before producing the final output, internally overlay the drawing on Image 1 at exactly the same scale and coordinates.
+Verify individually:
+the complete outer silhouette;
+the top perimeter and every top recess;
+all major horizontal edges;
+all vertical supports and partitions;
+all angled perspective edges;
+every opening and shelf plane;
+every visible component thickness;
+all drawer and panel seams;
+every joint, return and corner;
+the complete base or plinth.
+Correct every displaced line. Target a maximum deviation of 1 pixel from the corresponding visible boundary in Image 1.
+FINAL OUTPUT
+Return only one final PNG image.
+Use exactly the same pixel dimensions and aspect ratio as Image 1. Do not provide explanations, previews, alternative versions, borders, captions or additional content.

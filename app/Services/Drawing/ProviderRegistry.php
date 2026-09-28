@@ -22,6 +22,7 @@ class ProviderRegistry
      */
     private const IMAGE_PROVIDERS = [
         'fake' => FakeImageProvider::class,
+        'openrouter' => OpenRouterImageProvider::class,
         'gemini' => GeminiImageProvider::class,
         'openai' => GptImageProvider::class,
     ];

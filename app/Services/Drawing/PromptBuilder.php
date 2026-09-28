@@ -125,7 +125,7 @@ class PromptBuilder
         $depth = $settings['depth'] ?? null;
 
         if (! $width || ! $height) {
-            return 'Derive plausible overall dimensions from the image and annotate them.';
+            return 'No verified overall dimensions were supplied. Leave dimensions unlabelled; do not estimate measurements from the photo.';
         }
 
         $size = "{$width} × {$height}".($depth ? " × {$depth}" : '');

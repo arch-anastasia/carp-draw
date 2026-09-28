@@ -289,7 +289,7 @@ describe('Workflow review and submission', () => {
         expect(body.get('depth')).toBeNull()
         // The untouched default must be a value the server's closed list
         // accepts — the first option of the mode's select.
-        expect(body.get('style')).toBe('clean orthographic set')
+        expect(body.get('style')).toBe('furniture four views')
         expect(body.get('file')).toBeInstanceOf(File)
 
         expect(wrapper.text()).toContain('Preparing your result')
@@ -406,7 +406,7 @@ describe('Workflow review and submission', () => {
         expect(image.attributes('alt')).toBe('Generated technical drawing')
         expect(wrapper.text()).toContain('Drawing concept ready')
         expect(wrapper.text()).toContain(
-            'Your technical sheet structure is prepared for review and export.'
+            'Review the generated concept against your source photo. Only your supplied overall dimensions are verified; this image is not an editable 3D model or a manufacturing drawing.'
         )
 
         const saveLink = wrapper.findAll('a').find((link) => {

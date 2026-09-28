@@ -89,6 +89,13 @@ return [
         'max_input_edge' => (int) env('DRAWING_MAX_INPUT_EDGE', 1024),
 
         'drivers' => [
+            'openrouter' => [
+                'production' => true,
+                'requires_key' => true,
+                'key' => env('OPENROUTER_API_KEY'),
+                'model' => env('OPENROUTER_IMAGE_MODEL', 'google/gemini-3-pro-image-preview'),
+                'timeout' => (int) env('OPENROUTER_TIMEOUT', 60),
+            ],
             'fake' => [
                 'production' => false,
                 'requires_key' => false,
@@ -135,6 +142,17 @@ return [
             .'detail dimensions near the object and overall dimensions farther out, axis-aligned, never duplicated.',
 
         'standards' => [
+            'furniture four views' => 'Create a CONCEPT drawing sheet from the supplied furniture photo. '
+                .'Use exactly four views: Front upper left, Left side upper right, Top lower left, Isometric lower right. '
+                .'The three orthographic views must share one scale and aligned proportions. '
+                .'Isometric is a smaller overview. Keep all dimension labels outside the silhouette and readable. '
+                .'Use only the supplied overall measurements. Never invent internal dimensions, material thicknesses, '
+                .'hidden joints or hardware. Do not claim photogrammetry, corrected perspective or pixel measurements '
+                .'without calculations. Unknown dimensions remain unlabelled. Preserve the visible panel and drawer layout. '
+                .'Remove room objects and accessories without changing the furniture design. '
+                .'Use white surfaces, thin black visible outlines and light grey dashed hidden edges. '
+                .'Do not invent a logo or fill unknown title-block fields. Label the sheet CONCEPT — NOT FOR MANUFACTURE. '
+                .'Return a single image sheet, not a claim of an editable 3D model.',
             'clean orthographic set' => 'Produce a clean orthographic drawing set: front view, side view and top (plan) view arranged on one sheet.',
             'fabrication sheet' => 'Produce a fabrication sheet: orthographic views with every dimension a workshop needs to build the piece, including material thicknesses.',
             'assembly overview' => 'Produce an assembly overview: an exploded or separated orthographic layout showing how the parts relate, with reference callouts.',

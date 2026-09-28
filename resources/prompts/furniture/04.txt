@@ -1,0 +1,53 @@
+Create a complete, editable 3D furniture model from the attached images and dimensions.
+Furniture type: TV cabinet with four visible fronts; drawer function is an assumption.
+Overall dimensions in the closed position:
+Width: 1800 mm.
+Depth: 400 mm.
+Height: 600 mm.
+By default, these dimensions apply to the entire assembly, including protruding handles and other permanent components. Exceptions: none.
+Additional known dimensions, materials, and requirements: none.
+Use of reference inputs
+The original photograph defines the furniture’s appearance: component proportions, silhouette, element placement, rounded edges, materials, and texture direction.
+The line drawing, if provided, helps identify visible construction boundaries, joints, thicknesses, and component positions. If it conflicts with the photograph, treat the photograph as the more reliable source of visible geometry.
+Use images containing object selections only to identify which components belong to the furniture. Do not transfer selection overlays, labels, or graphical annotations into the model.
+Follow this order of priority:
+explicitly supplied dimensions;
+visible geometry in the original photographs;
+the line drawing;
+construction assumptions for hidden parts.
+Do not treat dimensions estimated from a perspective image as exact measurements.
+Exterior geometry
+Preserve the recognizable construction and all visible components: casing, fronts, bases, legs, tabletops, shelves, handles, projections, and recesses, as appropriate to the furniture type.
+Represent visible thicknesses, gaps, rounded edges, bevels, front-panel placement, and the relationships between components. Do not substitute a similar generic product or improve the design without being asked.
+Create a geometrically coherent, fully three-dimensional model that can be inspected from every direction. Do not distort the model to match a single viewpoint.
+Complete interior construction
+Model the interior as a logical construction of a real furniture piece.
+For cabinet furniture, include side panels, a top, a bottom, a back panel, and necessary internal supports. Each drawer must have a separate front and a complete drawer box with side walls, front and rear walls, and a bottom.
+Include doors, shelves, partitions, frames, and other elements according to the furniture type, visible construction, and intended function. Do not add unsupported exterior sections, fronts, drawers, or decorative elements.
+Where the internal construction is hidden, independently choose a simple, plausible solution. Use reasonable thicknesses, clearances, and component connections while preserving the exterior appearance and specified overall dimensions.
+Do not stop because internal dimensions are unknown. Record the selected values as assumptions. Do not present them as dimensions reliably recovered from the photograph.
+Do not add complex hardware or hidden mechanisms unnecessarily.
+Model structure and editability
+Create actual solid geometry with real thicknesses. Construction components must be separate, clearly named objects organized into logical groups.
+Make drawers and doors movable where present. All components of a drawer must move together; doors must rotate around the correct axis.
+Provide functional clearances. Check for unintended intersections in the closed position and during the demonstration opening movement.
+Use parameter-driven construction through a reproducible script. Store the main dimensions, thicknesses, radii, gaps, and movement distances in a separate parameter file.
+Materials
+Reproduce the materials, colors, gloss levels, and wood-grain direction from the photograph as faithfully as the available references allow.
+Apply materials to actual model surfaces. Do not substitute photographs on flat planes for geometry. Exclude the surrounding room, accessories, and unrelated objects.
+Verification
+Check the actual overall dimensions of the closed assembly, measurement units, thicknesses, and component geometry.
+Compare the model with the source image using a suitable perspective camera. Adjust the camera independently of the geometry. If the supplied dimensions and the image cannot be fully reconciled, preserve the supplied dimensions and briefly report the remaining differences.
+Verify that the exported model opens correctly and preserves scale, materials, component structure, and movement of movable parts.
+Do not claim accurate hidden dimensions or manufacturing readiness without sufficient supporting information.
+Deliverables
+Provide:
+an editable Blender model in .blend format;
+a .glb model with materials and separate components;
+a reproducible construction script;
+a parameter file and dimension table with the statuses “supplied,” “estimated from image,” “assumed,” or “calculated”;
+one final render;
+an interactive 3D preview of this same model, with rotation, zoom, and controls for drawers or doors where present;
+a complete archive containing the model and supporting files.
+Keep all comparisons and intermediate images internal. In the final response, briefly state what was created and verified, and list the main assumptions.
+Perform the modeling and deliver the completed files. A description alone, an unexecuted script, or an image instead of a 3D model is insufficient.

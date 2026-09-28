@@ -57,7 +57,7 @@ const workflowCopy: Record<WorkflowMode, WorkflowCopy> = {
         subtitle: 'A single, clear view of the object works best.',
         prompt: 'Drop, paste or click to upload a product photo',
         resultTitle: 'Drawing concept ready',
-        resultCopy: 'Your technical sheet structure is prepared for review and export.',
+        resultCopy: 'Review the generated concept against your source photo. Only your supplied overall dimensions are verified; this image is not an editable 3D model or a manufacturing drawing.',
         steps: ['Upload', 'Measure', 'Review', 'Result'],
         accept: '.jpg,.jpeg,.png,.webp,.heic,.heif,image/*',
         formats: 'JPG, PNG, HEIC or WebP · up to 15 MB',
@@ -113,7 +113,7 @@ const depthValue = ref('')
 // Each mode's select must open on a value the server's closed list accepts —
 // an out-of-list placeholder default 422s every untouched-default submission.
 const defaultStyles: Record<WorkflowMode, string> = {
-    drawing: 'clean orthographic set',
+    drawing: 'furniture four views',
     modelDrawing: 'front side and plan views',
     specification: 'manufacturing specification',
 }
@@ -556,6 +556,9 @@ onBeforeUnmount(() => {
                                 <div class="form-field">
                                     <label for="drawing-style">Drawing standard</label>
                                     <select id="drawing-style" v-model="style">
+                                        <option value="furniture four views">
+                                            Furniture · four views (concept)
+                                        </option>
                                         <option value="clean orthographic set">
                                             Clean orthographic set
                                         </option>

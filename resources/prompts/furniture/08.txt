@@ -1,0 +1,12 @@
+Preserve the existing model geometry, camera projections, framing, scale, linework and dimensions. Keep all dimension labels rounded to whole millimetres.
+Export the four configured scenes—Front, Top, Side and Axonometric—as four separate high-resolution PNG images.
+Use a pure white background and consistent resolution. Keep the complete furniture and all dimensions visible, without cropping.
+Exclude interface elements, view titles, captions, borders and watermarks. Do not regenerate or redesign the drawings.
+Name the files Front.png, Top.png, Side.png and Axonometric.png. Return only the four final files.
+Export the four configured scenes—Front, Top, Side and Axonometric—as four separate high-resolution PNG images that visually match the existing 3D model viewer.
+Treat the viewer’s current appearance as the reference. Preserve geometry, cameras, framing, proportions, visible and hidden edges, line weights, dash patterns, dimension placement, font, arrowheads and colors.
+Render directly at the final output resolution. Render the model and all dimension annotations at the same resolution. Keep annotations vector-based until finalrasterization. Never enlarge a low-resolution screenshot or combine sharp model lines with a low-resolution annotation layer.
+Scale line widths, dash lengths, text and arrowheads consistently with the output resolution, so their appearance matches the viewer when compared at the same displayed size.
+Keep every dimension rounded to whole millimetres. Use a pure white, opaque background. Include the complete furniture and all dimensions, without interface elements, view titles, captions, borders or watermarks.
+Before delivery, compare each export against its corresponding viewer scene and correct any differences in framing, line appearance or annotation clarity.
+Return only Front.png, Top.png, Side.png and Axonometric.png.

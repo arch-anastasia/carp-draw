@@ -1,0 +1,83 @@
+Using the supplied 3D furniture model, create consistent technical dimensioning for exactly four views: front, top, side and axonometric.
+Work within the existing model or viewer. Do not export images, PDFs, CAD files or other separate deliverables.
+MODEL AND MEASUREMENTS
+Preserve the model’s geometry, construction, proportions, components and existing construction linework.
+Use only verified dimensions supplied by the user or measurements obtained directly from the exact model geometry.
+Never estimate measurements from screen pixels or invent missing dimensions.
+Keep dimension attachment points connected to the actual geometry.
+Apply numerical rounding only to displayed dimension labels. Do not round or modify model coordinates, component sizes or attachment points.
+REQUIRED VIEWS
+Create exactly four dimensioned views:
+Front: true orthographic projection, perpendicular to the front elevation.
+Top: true orthographic projection, perpendicular to the horizontal plane.
+Side: true orthographic projection, perpendicular to the side elevation. Use the left side unless another side is specified.
+Axonometric: parallel projection with no perspective distortion. Use a standard isometric orientation showing the front, side and top.
+Keep the three principal orthographic views aligned with the model’s axes. Use the same model scale and consistent graphic styling across all four views.
+Do not add view titles or labels inside the drawings.
+DIMENSION CONTENT
+Every view must include its relevant overall dimensions:
+Front: overall width and height.
+Top: overall width and depth.
+Side: overall depth and height.
+Axonometric: overall width, depth and height, aligned with the corresponding projected model axes.
+Add relevant component dimensions where they can be obtained reliably from the model: drawer fronts, doors, openings, shelves, partitions, panels, plinths, body sections, thicknesses, recesses and overhangs.
+Keep the drawings readable. Show each measurement only once within a view. Repeat overall dimensions across views when necessary for each view to be understood independently.
+DIMENSION PLACEMENT
+For front, top and side views:
+Place horizontal dimensions above the furniture.
+Place vertical dimensions to the left.
+Use the bottom or right only when there is no clear, technically correct alternative.
+For the axonometric view:
+Place dimensions outside the projected furniture contour.
+Keep each dimension line parallel to the projected axis it measures.
+Show the actual model measurement, not its shortened projected length.
+Keep dimension numbers horizontally readable.
+Place component and detail dimensions closest to the object, grouped dimensions farther away and overall dimensions outermost.
+Maintain consistent spacing between parallel dimension chains.
+DIMENSION CONNECTION AND READABILITY
+Anchor extension lines to the exact geometric points being measured.
+Leave a small visible gap between the furniture and the start of each extension line.
+Extend extension lines only slightly beyond the dimension line.
+Centre each number on its dimension line.
+Mask the dimension line behind the number where needed.
+Keep numbers outside the furniture contour.
+Prevent numbers from overlapping visible edges, hidden edges, other numbers or extension lines.
+Prevent dimension lines from crossing one another or obscuring construction details.
+Avoid unnecessary extension-line crossings.
+If space is insufficient, move arrowheads outside the measured span while keeping the number clearly associated with that dimension.
+NUMERICAL FORMAT
+Display all measurements in millimetres.
+Round every displayed dimension to the nearest whole millimetre.
+Round values ending in 0.5 upward.
+Show integers only, with no decimal places, decimal separators or trailing “.0”.
+Examples: 208.4 → 208; 472.7 → 473; 333.9 → 334.
+Apply this rule to every overall and component dimension in all four views.
+Round each label independently from the original precise measurement. Do not calculate overall dimensions by adding rounded labels.
+Do not add “mm” after every number.
+Do not add unnecessary prefixes, symbols or notes.
+GRAPHIC STYLE
+Use a clean white technical drawing style:
+Pure white background and furniture surfaces.
+Solid black visible construction edges.
+Thin light-gray dashed hidden edges.
+Thin solid light-gray dimension and extension lines.
+Light-gray arrowheads matching the dimension lines.
+Medium-to-dark-gray dimension numbers.
+No textures, colors, shading, gradients, reflections, ambient shadows or cast shadows.
+Keep dimension graphics visually subordinate to the furniture outlines.
+Use consistent screen-space line widths, text size, font, arrowhead size and spacing across all four views. Keep all numbers horizontally readable.
+COMPOSITION
+Keep the complete furniture and every dimension chain inside each view, with sufficient surrounding white space.
+Centre the complete drawing composition, including its dimensions. Do not stretch, distort or crop the furniture.
+Do not add captions, view names, borders, title blocks, axes, grids, watermarks or decorative elements inside the drawings.
+FINAL CHECK
+Before presenting the updated model or viewer, verify that:
+Exactly four views are available and all four contain dimensions.
+All cameras use parallel projection with no perspective distortion.
+Every measurement comes from verified data or exact model geometry.
+Every displayed dimension is correctly rounded to a whole millimetre.
+Model geometry and dimension attachment points remain unchanged.
+Overall dimensions are outermost.
+No numbers overlap geometry, lines or other annotations.
+All four views use consistent scale and graphic styling.
+No files have been exported.
