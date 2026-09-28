@@ -1,0 +1,46 @@
+name: Deploy Production
+
+# Push to main -> SSH into the production server and run
+# /srv/deploy/deploy.sh, which pulls main, rebuilds the images on the server,
+# runs migrations, rolls the containers and checks the homepage returns 200.
+# Tests are not re-run here: they already ran on the pull request.
+#
+# The SSH key in PRODUCTION_SSH_KEY is pinned on the server with
+# `command="/srv/deploy/deploy.sh"` in root's authorized_keys, so it can run
+# the deploy script and nothing else. Runs on the self-hosted `carpdraw`
+# runner because GitHub-hosted runners are blocked on this account.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Never two deploy.sh runs at once, and never one cancelled halfway through a
+# migration. A newer push waits; GitHub keeps only the newest waiting run.
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to production
+    runs-on: [self-hosted, carpdraw]
+    environment: production
+    timeout-minutes: 30
+    steps:
+      - name: Run deploy.sh on the server
+        env:
+          SSH_KEY: ${{ secrets.PRODUCTION_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.PRODUCTION_KNOWN_HOSTS }}
+          HOST: ${{ secrets.PRODUCTION_HOST }}
+        run: |
+          set -euo pipefail
+          dir=$(mktemp -d)
+          trap 'rm -rf "$dir"' EXIT
+          printf '%s\n' "$SSH_KEY" > "$dir/key"
+          printf '%s\n' "$KNOWN_HOSTS" > "$dir/known_hosts"
+          chmod 600 "$dir/key"
+          ssh -i "$dir/key" -o IdentitiesOnly=yes \
+            -o UserKnownHostsFile="$dir/known_hosts" -o StrictHostKeyChecking=yes \
+            -o ServerAliveInterval=30 \
+            root@"$HOST"
