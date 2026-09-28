@@ -41,11 +41,23 @@ class WorkflowTest extends TestCase
             ->assertInertia(fn ($page) => $page->where('mode', 'specification'));
     }
 
+    public function test_photo_to_model_has_its_own_page_without_spending_credits(): void
+    {
+        $user = User::factory()->create();
+        $before = $user->creditBalance();
+        $this->get('/app/photo-to-model')->assertRedirect('/signin');
+        $this->actingAs($user)->get('/app/photo-to-model')
+            ->assertOk()
+            ->assertInertia(fn ($page) => $page->component('Workflow/PhotoToModel'));
+        $this->assertSame($before, $user->fresh()->creditBalance());
+        $this->assertDatabaseCount('projects', 0);
+    }
+
     public function test_legacy_routes_redirect(): void
     {
         $user = User::factory()->create();
 
-        $this->actingAs($user)->get('/app/photo-to-3d')->assertRedirect('/app/create-specification');
+        $this->actingAs($user)->get('/app/photo-to-3d')->assertRedirect('/app/photo-to-model');
         $this->actingAs($user)->get('/app/drawing-to-photo')->assertRedirect('/app/model-to-drawing');
     }
 

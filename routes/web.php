@@ -23,13 +23,14 @@ Route::middleware('auth')->group(function () {
         // The three workflows are one page with a pinned mode.
         Route::get('/photo-to-drawing', [WorkflowController::class, 'show'])
             ->defaults('mode', 'drawing')->name('workflow.drawing');
+        Route::inertia('/photo-to-model', 'Workflow/PhotoToModel')->name('workflow.photo-model');
         Route::get('/model-to-drawing', [WorkflowController::class, 'show'])
             ->defaults('mode', 'model_drawing')->name('workflow.model');
         Route::get('/create-specification', [WorkflowController::class, 'show'])
             ->defaults('mode', 'specification')->name('workflow.specification');
 
         // Legacy routes from the preview build.
-        Route::redirect('/photo-to-3d', '/app/create-specification');
+        Route::redirect('/photo-to-3d', '/app/photo-to-model');
         Route::redirect('/drawing-to-photo', '/app/model-to-drawing');
 
         // Submitting a run spends credits and calls a provider — throttled

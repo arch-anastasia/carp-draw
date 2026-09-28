@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { Link } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
-import { ArrowRight, Box, FileSpreadsheet, Sparkles } from 'lucide-vue-next'
+import { ArrowRight, Box, Scan, Sparkles } from 'lucide-vue-next'
 import AppLayout from '@/Layouts/AppLayout.vue'
 import type { ProjectCard } from '@/types/projects'
 
@@ -20,20 +20,20 @@ const creationModes = [
         label: 'PHOTO / 01',
     },
     {
+        href: route('workflow.photo-model'),
+        title: 'Photo to Model',
+        copy: 'Create a model from a product photo.',
+        icon: Box,
+        image: '/examples/example-bunk.webp',
+        label: 'PHOTO / 02',
+    },
+    {
         href: route('workflow.model'),
         title: '3D Model to Drawing',
         copy: 'Upload a 3D model and prepare clear orthographic drawing views.',
-        icon: Box,
+        icon: Scan,
         image: '/examples/step-drawing.webp',
-        label: 'MODEL / 02',
-    },
-    {
-        href: route('workflow.specification'),
-        title: 'Create Specification',
-        copy: 'Organize dimensions, materials, notes and outputs in one specification.',
-        icon: FileSpreadsheet,
-        image: '/examples/create-specification-text-workflow-v2.webp',
-        label: 'SPEC / 03',
+        label: 'MODEL / 03',
     },
 ]
 

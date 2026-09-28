@@ -8,7 +8,7 @@ import {
     Coins,
     Folder,
     Home,
-    FileSpreadsheet,
+    Scan,
     LogOut,
     Menu,
     PanelLeftClose,
@@ -32,20 +32,21 @@ const navItems = [
         icon: Sparkles,
     },
     {
-        href: '/app/model-to-drawing',
-        label: '3D Model to Drawing',
+        href: '/app/photo-to-model',
+        label: 'Photo to Model',
         icon: Box,
     },
     {
-        href: '/app/create-specification',
-        label: 'Create Specification',
-        icon: FileSpreadsheet,
+        href: '/app/model-to-drawing',
+        label: '3D Model to Drawing',
+        icon: Scan,
     },
 ]
 
 const pathLabels: Record<string, string> = {
     '/app': 'Home',
     '/app/photo-to-drawing': 'Photo to Drawing',
+    '/app/photo-to-model': 'Photo to Model',
     '/app/model-to-drawing': '3D Model to Drawing',
     '/app/create-specification': 'Create Specification',
     '/app/projects': 'Projects',
