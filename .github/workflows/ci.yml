@@ -10,9 +10,20 @@ on:
     branches: [main]
   workflow_call:
 
+# Runs on the self-hosted Hetzner runner `hetzner-ci-carpdraw` (label
+# `carpdraw`), on the same box as HairstyleAtlas's runner. GitHub-hosted
+# runners are blocked account-wide by a billing issue, so jobs on
+# ubuntu-latest never started.
+#
+# A newer commit on the same ref cancels the run testing the one it replaced,
+# so an abandoned run does not hold the single runner.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, carpdraw]
 
     steps:
       - uses: actions/checkout@v4
@@ -61,7 +72,7 @@ jobs:
           OPENAI_API_KEY: ''
 
   larastan:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, carpdraw]
 
     steps:
       - uses: actions/checkout@v4
