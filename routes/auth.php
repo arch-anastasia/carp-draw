@@ -29,7 +29,9 @@ Route::middleware('guest')->group(function () {
         ->name('signin.email');
 
     // Legacy paths people type by hand
-    Route::get('/signup', fn () => redirect()->route('signin'))->name('register');
+    Route::get('/signup', [AuthController::class, 'show'])->name('register');
+    Route::post('/signup', [AuthController::class, 'register'])
+        ->middleware('throttle:5,1')->name('register.store');
     Route::get('/login', fn () => redirect()->route('signin'))->name('login');
 
     // OAuth sign-in (Google, Apple). The controller 404s unknown or

@@ -48,26 +48,8 @@
                     <span></span>
                 </div>
             @endif
-            <form action="{{ route('signin.email') }}" method="post" novalidate data-auth-email-form>
-                <div class="form-field">
-                    <label for="auth-email">Email</label>
-                    <div class="input-with-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        <input
-                            id="auth-email"
-                            type="email"
-                            name="email"
-                            autocomplete="email"
-                            placeholder="you@example.com"
-                            aria-invalid="false"
-                            required
-                        >
-                    </div>
-                </div>
-                <p id="auth-error" class="error-text" role="alert" data-auth-error hidden style="display: none"></p>
-                <button class="primary-button auth-submit" type="submit">Continue with email</button>
-            </form>
-            <p class="auth-message" role="status" data-auth-message hidden style="display: none"></p>
+            <a class="primary-button auth-submit" href="{{ route('register') }}">Create account</a>
+            <p class="auth-forgot">Already have an account? <a href="{{ route('signin') }}">Sign in</a></p>
             <div class="auth-secure">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole" aria-hidden="true"><circle cx="12" cy="16" r="1"/><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
                 Your data stays private.

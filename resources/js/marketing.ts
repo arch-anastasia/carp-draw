@@ -174,12 +174,12 @@ function initAuthModal(): void {
         return
     }
 
-    const emailInput = modal.querySelector<HTMLInputElement>('#auth-email')
+    const firstAction = modal.querySelector<HTMLElement>('.auth-submit')
 
     const openModal = (): void => {
         show(modal)
         document.body.classList.add('modal-open')
-        emailInput?.focus()
+        firstAction?.focus()
     }
 
     const closeModal = (): void => {

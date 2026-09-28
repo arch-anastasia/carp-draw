@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\CheckEmailRequest;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use App\Notifications\MagicLinkNotification;
 use App\Notifications\SetPasswordNotification;
@@ -13,6 +14,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -27,6 +29,7 @@ class AuthController extends Controller
     {
         return Inertia::render('Auth/SignIn', [
             'email' => $request->query('email', ''),
+            'registering' => $request->routeIs('register'),
             /*
              * Membership and order come from config; whether a listed
              * provider is actually offered comes from its credentials, so a
@@ -38,6 +41,23 @@ class AuthController extends Controller
                 fn (string $provider) => (bool) config("services.{$provider}.client_id"),
             )),
         ]);
+    }
+
+    public function register(RegisterRequest $request): RedirectResponse
+    {
+        $data = $request->validated();
+        $user = DB::transaction(fn () => User::create([
+            'name' => '',
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'has_password' => true,
+        ]));
+
+        event(new Registered($user));
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        return redirect()->route('workspace');
     }
 
     /**

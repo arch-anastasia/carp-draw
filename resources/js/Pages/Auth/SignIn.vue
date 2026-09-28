@@ -1,113 +1,28 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { Head, Link, useForm, usePage } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
 import { ArrowRight, LockKeyhole, Mail } from 'lucide-vue-next'
 import TechnicalVisual from '@/Components/Workflow/TechnicalVisual.vue'
 
-const props = defineProps<{
-    socialProviders: string[]
-}>()
-
+const props = defineProps<{ socialProviders: string[]; email?: string; registering?: boolean }>()
 const page = usePage()
 const flash = computed(() => page.props.flash)
-
-const step = ref<'email' | 'password'>('email')
-const checking = ref(false)
-const clientError = ref('')
-const message = ref('')
-
-const form = useForm({
-    email: '',
-    password: '',
-})
-
+const form = useForm({ email: props.email ?? '', password: '', password_confirmation: '' })
 const hasGoogle = computed(() => props.socialProviders.includes('google'))
 const hasApple = computed(() => props.socialProviders.includes('apple'))
-
-const errorText = computed(
-    () => clientError.value || form.errors.email || form.errors.password || ''
-)
-
-const getXsrfToken = (): string =>
-    decodeURIComponent(
-        document.cookie
-            .split('; ')
-            .find((row) => row.startsWith('XSRF-TOKEN='))
-            ?.split('=')[1] ?? ''
-    )
-
-const postJson = async (url: string, body: Record<string, string>) =>
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'X-XSRF-TOKEN': getXsrfToken(),
-        },
-        body: JSON.stringify(body),
-    })
-
-const sendEmailLink = async (email: string) => {
-    const response = await postJson(route('signin.email'), { email })
-    if (!response.ok) {
-        clientError.value = 'An error occurred. Please try again.'
-        return
-    }
-    message.value = `A secure sign-in link has been sent to ${email}.`
-}
-
-const checkEmail = async () => {
-    if (checking.value) return
-    const cleanEmail = form.email.trim()
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
-        clientError.value = 'Enter a valid email address.'
-        message.value = ''
-        return
-    }
-    clientError.value = ''
-    message.value = ''
-    checking.value = true
-    try {
-        const response = await postJson(route('signin.check-email'), { email: cleanEmail })
-        const data = (await response.json()) as {
-            exists?: boolean
-            hasPassword?: boolean
-            errors?: Record<string, string[]>
-        }
-        if (!response.ok) {
-            clientError.value = data.errors?.email?.[0] ?? 'An error occurred. Please try again.'
-            return
-        }
-        if (data.hasPassword) {
-            step.value = 'password'
-        } else {
-            await sendEmailLink(cleanEmail)
-        }
-    } catch {
-        clientError.value = 'A network error occurred. Please try again.'
-    } finally {
-        checking.value = false
-    }
-}
-
-const submitLogin = () => {
-    clientError.value = ''
-    form.post(route('login.attempt'))
-}
-
+const errorText = computed(() => form.errors.email || form.errors.password || form.errors.password_confirmation || '')
 const handleSubmit = () => {
-    if (step.value === 'email') {
-        void checkEmail()
-    } else {
-        submitLogin()
-    }
+    form.transform((data) => ({ ...data, email: data.email.trim().toLowerCase() }))
+        .post(route(props.registering ? 'register.store' : 'login.attempt'), {
+            onFinish: () => form.reset('password', 'password_confirmation'),
+        })
 }
 </script>
 
 <template>
     <div class="auth-page">
-        <Head title="Sign in" />
+        <Head :title="registering ? 'Create account' : 'Sign in'" />
         <section class="auth-dialog" aria-labelledby="auth-title">
             <div class="auth-visual">
                 <TechnicalVisual label="CARPDRAW / A3" />
@@ -119,8 +34,8 @@ const handleSubmit = () => {
             </div>
             <div class="auth-form-panel">
                 <div class="auth-mark" aria-hidden="true">CD</div>
-                <h2 id="auth-title">Welcome to CarpDraw AI</h2>
-                <p>Sign in to create your first technical concept.</p>
+                <h2 id="auth-title">{{ registering ? 'Create your account' : 'Welcome back' }}</h2>
+                <p>{{ registering ? 'Start creating technical concepts. No email link required.' : 'Sign in with your email and password.' }}</p>
                 <p v-if="flash.error" class="error-text" role="alert">
                     {{ flash.error }}
                 </p>
@@ -165,7 +80,7 @@ const handleSubmit = () => {
                             />
                         </div>
                     </div>
-                    <div v-if="step === 'password'" class="form-field">
+                    <div class="form-field">
                         <label for="auth-password">Password</label>
                         <div class="input-with-icon">
                             <LockKeyhole :size="18" aria-hidden="true" />
@@ -173,11 +88,20 @@ const handleSubmit = () => {
                                 id="auth-password"
                                 v-model="form.password"
                                 type="password"
-                                autocomplete="current-password"
+                                :autocomplete="registering ? 'new-password' : 'current-password'"
                                 placeholder="Your password"
                                 required
                             />
                         </div>
+                    </div>
+                    <div v-if="registering" class="form-field">
+                        <label for="auth-password-confirmation">Confirm password</label>
+                        <div class="input-with-icon">
+                            <LockKeyhole :size="18" aria-hidden="true" />
+                            <input id="auth-password-confirmation" v-model="form.password_confirmation"
+                                type="password" autocomplete="new-password" placeholder="Repeat your password" required />
+                        </div>
+                        <small>Use at least 8 characters.</small>
                     </div>
                     <p v-if="errorText" id="auth-error" class="error-text" role="alert">
                         {{ errorText }}
@@ -185,16 +109,19 @@ const handleSubmit = () => {
                     <button
                         class="primary-button auth-submit"
                         type="submit"
-                        :disabled="checking || form.processing"
+                        :disabled="form.processing"
                     >
-                        {{ step === 'email' ? 'Continue' : 'Sign in' }}
+                        {{ form.processing ? 'Please wait…' : registering ? 'Create account' : 'Sign in' }}
                     </button>
-                    <p v-if="step === 'password'" class="auth-forgot">
+                    <p v-if="!registering" class="auth-forgot">
                         <Link :href="route('password.request')">Forgot password?</Link>
                     </p>
                 </form>
-                <p v-if="message" class="auth-message" role="status">
-                    {{ message }}
+                <p class="auth-forgot">
+                    {{ registering ? 'Already have an account?' : 'New to CarpDraw?' }}
+                    <Link :href="route(registering ? 'signin' : 'register')" :key="registering ? 'signin' : 'register'">
+                        {{ registering ? 'Sign in' : 'Create account' }}
+                    </Link>
                 </p>
                 <div class="auth-secure">
                     <LockKeyhole :size="14" aria-hidden="true" />
