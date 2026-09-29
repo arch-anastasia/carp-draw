@@ -83,7 +83,9 @@ class ImageIngestor
             imagedestroy($source);
 
             $path = $directory.'/'.$base.'.webp';
-            $this->disk()->put($path, $webp);
+            if ($webp === '' || ! $this->disk()->put($path, $webp)) {
+                throw new RuntimeException('Could not store the image.');
+            }
 
             return $this->disk()->url($path);
         }
@@ -99,7 +101,9 @@ class ImageIngestor
         }
 
         $path = $directory.'/'.$base.'.'.$extension;
-        $this->disk()->put($path, $contents);
+        if (! $this->disk()->put($path, $contents)) {
+            throw new RuntimeException('Could not store the image.');
+        }
 
         return $this->disk()->url($path);
     }

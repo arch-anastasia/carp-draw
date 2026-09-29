@@ -84,14 +84,13 @@ class AddSecurityHeaders
             $connectSrc[] = 'ws://localhost:5173';
         }
 
-        /*
-         * No browser analytics or browser Sentry ships in the bundle today —
-         * analytics (config/analytics.php) is server-side PostHog only. When
-         * a client snippet is added, this is where its hosts (and any
-         * 'unsafe-inline' its loader needs) get appended, gated on the same
-         * config switches — never before, because every relaxation here
-         * weakens the script-src 'self' baseline for nothing.
-         */
+        $browserDsn = (string) config('sentry.browser.dsn');
+        if ($browserDsn !== '' && parse_url($browserDsn, PHP_URL_SCHEME) === 'https') {
+            $host = parse_url($browserDsn, PHP_URL_HOST);
+            if (is_string($host) && $host !== '') {
+                $connectSrc[] = 'https://'.$host;
+            }
+        }
 
         $directives = [
             "default-src 'self'",

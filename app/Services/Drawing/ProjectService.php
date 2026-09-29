@@ -8,6 +8,7 @@ use App\Jobs\GenerateDrawing;
 use App\Models\Project;
 use App\Models\Subscription;
 use App\Models\User;
+use App\Services\Storage\PrivateDiskGuard;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -40,10 +41,16 @@ class ProjectService
      */
     public function availableCredits(User $user): int
     {
-        $this->openingGrantIfDue($user);
-        $this->rolloverIfDue($user);
+        return DB::transaction(function () use ($user) {
+            // Reload under the account lock. A stale model must not grant the
+            // same monthly window again after another request already spent it.
+            $locked = User::query()->whereKey($user->id)->lockForUpdate()->firstOrFail();
+            $this->openingGrantIfDue($locked);
+            $this->rolloverIfDue($locked);
+            $user->setRawAttributes($locked->getAttributes(), true);
 
-        return max(0, $this->ledger->balanceFor($user));
+            return max(0, $this->ledger->balanceFor($locked));
+        });
     }
 
     /**
@@ -100,17 +107,21 @@ class ProjectService
 
         $projectId = (string) Str::uuid7();
         $sourcePath = "drawings/{$user->id}/{$projectId}/source.{$extension}";
-        $disk = Storage::disk((string) config('drawing.provider.disk'));
+        $diskName = (string) config('drawing.provider.disk');
+        app(PrivateDiskGuard::class)->assertPrivate($diskName);
+        $disk = Storage::disk($diskName);
 
         try {
-            return DB::transaction(function () use ($user, $mode, $file, $settings, $cost, $projectId, $sourcePath, $disk) {
+            return DB::transaction(function () use ($user, $mode, $file, $settings, $cost, $projectId, $sourcePath, $disk, $diskName) {
                 User::query()->whereKey($user->id)->lockForUpdate()->firstOrFail();
 
                 if ($this->ledger->balanceFor($user) < $cost) {
                     throw DrawingFailed::permanent('insufficient_credits', 'Not enough credits for this creation.');
                 }
 
-                $disk->put($sourcePath, (string) file_get_contents($file->getRealPath()));
+                if (! $disk->put($sourcePath, (string) file_get_contents($file->getRealPath()))) {
+                    throw DrawingFailed::permanent('storage_failed', 'The upload could not be saved. Your credits are untouched.');
+                }
 
                 $project = Project::query()->create([
                     'id' => $projectId,
@@ -118,6 +129,7 @@ class ProjectService
                     'title' => $this->titleFor($mode, $file, $settings),
                     'workflow' => $mode,
                     'status' => ProjectStatus::Queued,
+                    'storage_disk' => $diskName,
                     'source_path' => $sourcePath,
                     'source_filename' => (string) $file->getClientOriginalName(),
                     'settings' => $settings,
@@ -252,7 +264,7 @@ class ProjectService
             return;
         }
 
-        if ($startedAt->copy()->addMonth()->isFuture()) {
+        if ($startedAt->copy()->addMonthNoOverflow()->isFuture()) {
             return;
         }
 
@@ -265,8 +277,8 @@ class ProjectService
          */
         $anchor = $startedAt->copy();
 
-        while ($anchor->copy()->addMonth()->isPast()) {
-            $anchor = $anchor->addMonth();
+        while ($anchor->copy()->addMonthNoOverflow()->lessThanOrEqualTo(now())) {
+            $anchor = $anchor->addMonthNoOverflow();
         }
 
         $this->ledger->rollOver($user, $this->allowanceFor($user), $anchor);

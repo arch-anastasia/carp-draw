@@ -1,0 +1,171 @@
+{
+  "upstream": "https://github.com/ohnysko/hairstyleatlas.com",
+  "upstream_commit": "be5f472",
+  "carpdraw_base": "1d6a07f",
+  "imports": {
+    "app/Http/Middleware/CollapseHtmlWhitespace.php": {
+      "source_sha256": "e28e6822d398a7761e577bdf6bddb5fb92a6054be7a085913b3543c6dd3022b8"
+    },
+    "config/performance.php": {
+      "source_sha256": "789513fcdd3e05e60d5d6ecd73352831c8d9ab01fccb9cd1a135d8203df0eb78"
+    },
+    "tests/Unit/CollapseHtmlWhitespaceTest.php": {
+      "source_sha256": "4dfce64ee84552f6e5597f4786556f5f847b29484c5f9c940876e0b9c6ff7f11"
+    },
+    "app/Console/Commands/BillingCheckCommand.php": {
+      "source_sha256": "58aff265b8899c06b9768a60cdd42e54f95ca161ae7f61001cb418623668858d"
+    },
+    "tests/Feature/Console/BillingCheckCommandTest.php": {
+      "source_sha256": "e8107118073e110940b0f080bbf87961e27f23ba563a54f30d50b61295e440d2"
+    },
+    "tests/Support/RecordingErrorReporter.php": {
+      "source_sha256": "8fa724c721aa487d1afda0db8fd8dc5fc867f5dbeb5ef6070c6232f358b9b5ab"
+    },
+    "app/Services/Backup/OffsiteBackupArchive.php": {
+      "source_sha256": "587e63da3e97f0e925d5d68ab099224561f721ad8673a797905571513f6d105d"
+    },
+    "app/Console/Commands/BackupSyncR2Command.php": {
+      "source_sha256": "ec717293c0b11d153eac95250e113c695249b437b6212e8f0ec8cbe34c147b15"
+    },
+    "app/Console/Commands/BackupFetchR2Command.php": {
+      "source_sha256": "a733ad73a805b996a5da7130f62024e27e1a00ea3c422bbbf29a24b642806816"
+    },
+    "config/backup.php": {
+      "source_sha256": "bd941e2d45f888c8b1a53f26c328d6bb4907da09030731b08bd923201f79901d"
+    },
+    "tests/Feature/Console/BackupSyncR2CommandTest.php": {
+      "source_sha256": "b3ae6727c39643d0667b18f779d02129740ee554b01561e1222c3eb6e76eed8e"
+    },
+    "tests/Feature/Console/BackupFetchR2CommandTest.php": {
+      "source_sha256": "28f6fcb0be46c6af1a104649bf1156363ff28019bfacba9bd0e2a03cf3c99539"
+    },
+    "resources/js/plugins/inertiaRequests.ts": {
+      "source_sha256": "f2c0eaf6dac937668fb3807ebfc594d8e14a950f8cb566a691468935ad152278"
+    },
+    "resources/js/plugins/preloadError.ts": {
+      "source_sha256": "39b7ff507556c8618bd6dc0b991bc971d833f032634999a4d2d1628a78c1447b"
+    },
+    "resources/js/plugins/errorReporter.ts": {
+      "source_sha256": "c26112aad6f6f63bb6b2372cfdd555c42173362d30125018d50a43e02e4006e4"
+    },
+    "resources/js/plugins/sentry.ts": {
+      "source_sha256": "45769a4965b0ee0f7b41edaa1dbea4bd3e497c432454c703f3fc811c1404e964"
+    },
+    "resources/js/__tests__/inertiaRequests.test.ts": {
+      "source_sha256": "0e599f2f2baec8d66e9dc52feabcfdc129c1349af681007a794a40f69184d169"
+    },
+    "resources/js/__tests__/preloadError.test.ts": {
+      "source_sha256": "e2d7358e13b964970392dee358b6237bcf693254eba91e5223f22d08ea7c88df"
+    },
+    "resources/js/__tests__/errorReporter.test.ts": {
+      "source_sha256": "917567d425d02237a917bfa802cbe18bc0950091b7c998e8eb9b39e5b03e351a"
+    },
+    "resources/js/__tests__/support/blockedStorage.ts": {
+      "source_sha256": "8ddfe6bed32b736fd5e0ddc6aafb49679f2829ab7094c32bcce8ea268cf0706a"
+    },
+    "app/Services/SubscriptionService.php": {
+      "source_path": "app/Services/SubscriptionService.php",
+      "source_sha256": "52be7204d7f136f575573dae77f5ffcc0848dac666d3bf20bef66dca126265c1",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Services/StripePricingService.php": {
+      "source_path": "app/Services/StripePricingService.php",
+      "source_sha256": "14f75cb412dba9cf2af60c9b21a0659be41e78e36987a604525cafdafd949cd5",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Listeners/StripeEventListener.php": {
+      "source_path": "app/Listeners/StripeEventListener.php",
+      "source_sha256": "5a16309d6b8da2a497ca91a13230add0a5cbfd96b0d0a69b3f211d4b4184e937",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Services/ErrorReporter.php": {
+      "source_path": "app/Services/ErrorReporter.php",
+      "source_sha256": "bb6c99ea8d7a1d662ecd9b940d34d587f5079864a99e8840b229134ad25ebd05",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Services/CanonicalUrl.php": {
+      "source_path": "app/Services/CanonicalUrl.php",
+      "source_sha256": "7fd3fabc8dd9d7bc2f35edcb56e1ac1908ccba6bf6bc6c3e02f229fb4cf726fe",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Models/Post.php": {
+      "source_path": "app/Models/Post.php",
+      "source_sha256": "431d127cd98e623ef545613f665cb11cb1077dd6b51335f5d6e528fe28d2e3c9",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Models/Media.php": {
+      "source_path": "app/Models/Media.php",
+      "source_sha256": "1d57c446c8bd1addfc0df9891b8ef709e24b40b12afeff6a0a9de0ac4ef9ea66",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Services/Ingest/ImageIngestor.php": {
+      "source_path": "app/Services/Ingest/ImageIngestor.php",
+      "source_sha256": "0ffae8e80a87905f30b58deaa95d1af18d2c8d91ad8a41196f7035dbecf690ef",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Http/Middleware/AddSecurityHeaders.php": {
+      "source_path": "app/Http/Middleware/AddSecurityHeaders.php",
+      "source_sha256": "b527eade0c8280f3dc08ac5891508cb21d623f3daed3fd33cff53050a8c98e64",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Http/Controllers/Api/BlogPostController.php": {
+      "source_path": "app/Http/Controllers/Api/BlogPostController.php",
+      "source_sha256": "c98694558bd3e67d52434edbc5b565e79fb2ac6e535f84306694f060392209a9",
+      "strategy": "Reviewed shared foundation; retain CarpDraw domain adapters and stronger existing fixes. See ha-foundation.md."
+    },
+    "app/Services/Drawing/CreditLedger.php": {
+      "source_path": "app/Services/Rendering/CreditLedger.php",
+      "source_sha256": "92cf60cd95a1ec430e76cc29bd7fdd137c179666a67190bd520c2ecd1bb48f0b",
+      "strategy": "Retain CarpDraw project adapter and transactional refund improvements."
+    }
+  },
+  "protected": {
+    "config/branding.php": "1f7fa3f1251e3a0905e03f30b4bf3b82391d5f42db6a3efc1aed52b527216c87",
+    "config/stripe.php": "4b4598df80535d550fe6dd870c7561f38ce421f3152928e8046d877abe2b063f",
+    "public/brand/carpdraw-logo-orange.png": "a7fcc9f9b2088e62719c0edbdbae81bda1abd897ef36b932ef9b8d3211c7a4db",
+    "public/brand/carpdraw-logo.png": "b6a5fc5ba94b630b353581a6045801381763ddb5e607fd106427880e9401ce02",
+    "resources/css/app.css": "448a107173112d6edb91cdec8740438d6b6a5f736282ef9505ca96425c894a6d",
+    "resources/css/blog.css": "805efa160ce5c3e85b8286fe16d962898cfbc156f95e961ede0a576c4277902c",
+    "resources/css/carpdraw.css": "763e22ccfa72209bd3a11b37281e184fb54c352e5bb2281173b34c91a4c1fa02",
+    "resources/css/marketing.css": "3acbe9f0a3647ade4d83ebb038854ba3c08072f35d5882e25c3a1ffe713f6773",
+    "resources/js/Layouts/AdminLayout.vue": "b7f8c2e6735344217d53d548f08e8283ccf409085283a30eb3bb5f37aaf60723",
+    "resources/js/Layouts/AppLayout.vue": "b91770fe3b4a3d00367fa28db56ffd816cdb2b6932bcb1df0322366ccf502241",
+    "resources/js/Pages/Admin/Blog/Authors/Create.vue": "73d4e3bd3d8322dfd37fdc2fe4dd720b0fe0283de30f48b965c22ea503f76363",
+    "resources/js/Pages/Admin/Blog/Authors/Edit.vue": "c4378b5f19495d36563b0bfc24236cd6373a32ff3f5d01bfb626a55f15c566de",
+    "resources/js/Pages/Admin/Blog/Authors/Index.vue": "cf24058e295c78a2bab3851d8e2ce519a0abba05ef68a6becc4662cc5f37d438",
+    "resources/js/Pages/Admin/Blog/Categories/Create.vue": "7c9533b4adc36e1ab107aa0eaba674dbb1549f1995b07b4778ee7d8e07c3b047",
+    "resources/js/Pages/Admin/Blog/Categories/Edit.vue": "e4311f21b46b1112ce85280a55b17ddaa168fd8a7334c6d40667d41042bab324",
+    "resources/js/Pages/Admin/Blog/Categories/Index.vue": "ef2ce9b707be568717ec2da635debe50a455ea395b544e9ae004f3d22f7eadd9",
+    "resources/js/Pages/Admin/Blog/Posts/Create.vue": "d20ee68b62988bd0e68a031f054b82f24c9a226bf1185f112328bdfc55f94c2b",
+    "resources/js/Pages/Admin/Blog/Posts/Edit.vue": "a2fa1149a4c8febed3d7c2ccacf11ca3bcb2fccbbf1f22cb05b0025fdefc478d",
+    "resources/js/Pages/Admin/Blog/Posts/Index.vue": "1e73f97690e3ce704da2be160a159657b86f9f46c6476d41a7e3986e7c57b8b8",
+    "resources/js/Pages/Admin/Blog/Revisions/Diff.vue": "d7cfad724d288f534e53fe740afeccf601363ca1715e6543ee07e2712a875b8b",
+    "resources/js/Pages/Admin/Blog/Revisions/Edit.vue": "65a216741c5d8a3a2903730ae38bc191056d30f245a38d1eeb95bbbd795605e5",
+    "resources/js/Pages/Admin/Users.vue": "6618b580a953fe15516c9f84697986a4018bd3114ccd6a401a881dcc57acc742",
+    "resources/js/Pages/App/Home.vue": "d1c7473464debed1313869c6b093f82b29089e28c8a90573350eb11eccedfcb9",
+    "resources/js/Pages/App/Plans.vue": "b1811c37b55d30bafc4d8127debc7d2072fc6489704190646188fc73d52e1729",
+    "resources/js/Pages/App/Projects.vue": "4dc21ad11d576aa8b382e3a7c43e07eb7ec48e247ce4eb6f6e18316152e2cf26",
+    "resources/js/Pages/App/Settings.vue": "b9ef3c4754e588c6b5e93f6cfb146420623643e7740d66a26f10f47269873fae",
+    "resources/js/Pages/Auth/ForgotPassword.vue": "11f64709e3b7f03e97b14af176f244d1aaadc547c616924f0cdc56c6b2eb5d04",
+    "resources/js/Pages/Auth/ResetPassword.vue": "20bb2f495f358d7c5ac28d41d13b9ca6edc690f15e8859b758963080a8fd068d",
+    "resources/js/Pages/Auth/SetPassword.vue": "84967a8e5968f4b8e4af5d7ff5f4bf6fe941ac578d22ed14e5062f31c7acd83c",
+    "resources/js/Pages/Auth/SetPasswordExpired.vue": "1c337c9752e3771d0d7c671dcd0c2ac1820c8d120163c95e80a9feff9c1c0eec",
+    "resources/js/Pages/Auth/SignIn.vue": "434af93862df900d4e8e8c41198158bdcc5614ca50289ec62c3bcbc9aa1a8b92",
+    "resources/js/Pages/Error.vue": "0105c1919ab566e248aace3bd3cfbaf857a7682abdcc86f3230f83988a40744e",
+    "resources/js/Pages/Workflow/PhotoToModel.vue": "ede2e6f67b1306426de9ae99f8f04d2197b608d1ca1bbcdff0bcb4d0cb5c2271",
+    "resources/js/Pages/Workflow/Show.vue": "d1725298b65bfd4e31fe1fd1707ee896107d0c2ae77ea90b105da6cb56360192",
+    "resources/views/components/brand/logo.blade.php": "f9d2c90fea5976f45398181d5a18539cb4087a49d912ebb63c3d721a0a72222d",
+    "resources/views/components/marketing/auth-modal.blade.php": "d53cb47e3774702d19ceb3bcc94dc33c18a1714c11ec42268d5549ca481f61c1",
+    "resources/views/components/marketing/faq.blade.php": "d40fdd70a1635c15a1a2a617ed14b5608bd032018a5e2c7a64fa7f2d25eae3a6",
+    "resources/views/components/marketing/footer.blade.php": "b841ee0b1cac9ea3fdf3f1981dee61e210d341660c0098842c12aa0137cfa1b7",
+    "resources/views/components/marketing/header.blade.php": "10e320c18680ce77ebe845d0e41fdf09c4537dd94eb3b8d144f0081b49baecec",
+    "resources/views/marketing/blog/author.blade.php": "48cf2f936994b24682c5ff7c22d31037f2299b61863b483c9bd5a9dd543b8e23",
+    "resources/views/marketing/blog/authors.blade.php": "75c928cfa4198bb96abdc0b8a61f0ccb820dfd7f4008b738044be135d35bda4a",
+    "resources/views/marketing/blog/category.blade.php": "08dc51953dbcef965f225a372497b5cd1b00a4550060bc8d997994092c977339",
+    "resources/views/marketing/blog/index.blade.php": "d4dbdb58ca7a3723aa5c1f0c0f5afc35879bd4b4c197263b31251edb958e732a",
+    "resources/views/marketing/blog/post.blade.php": "e9c1ff627f96a991708c1ff76bb5a356a8c726cc5f78bad182a69607c815effe",
+    "resources/views/marketing/contact.blade.php": "b4bb6d1788c1c46c8f4af67590caa66941348beef2cb0dcd998eb64b0999c131",
+    "resources/views/marketing/home.blade.php": "8c4058aef88a795c3026ea0724bf9a6dd17508c7cdcb19c9261961113d43edc2",
+    "resources/views/marketing/privacy.blade.php": "b760b854894e53994a77c424a4803956f386205f2917bc10549c84a64e6ecf9c"
+  }
+}

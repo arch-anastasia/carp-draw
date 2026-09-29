@@ -170,8 +170,12 @@ class Post extends Model
 
             $previouslyPublished = ! $justCreated && ($post->getOriginal('published_at')?->lessThanOrEqualTo(now()) ?? false);
 
-            if ((! $previouslyPublished || $post->wasChanged('slug')) && $post->isPublished()) {
-                SubmitPostToIndexNow::dispatch($post->url())->afterCommit();
+            if ($post->published_at !== null && (! $previouslyPublished || $post->wasChanged('slug') || $post->published_at->isFuture())) {
+                // The worker rechecks visibility: postponed, killed and renamed
+                // articles must not announce an obsolete public URL.
+                SubmitPostToIndexNow::dispatch($post->url())
+                    ->delay($post->published_at->isFuture() ? $post->published_at : null)
+                    ->afterCommit();
             }
         });
     }

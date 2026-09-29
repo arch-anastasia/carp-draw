@@ -5,6 +5,7 @@ namespace Tests;
 use App\Models\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 abstract class TestCase extends BaseTestCase
@@ -15,6 +16,7 @@ abstract class TestCase extends BaseTestCase
 
         // Throttle counters must not leak 429s between tests.
         Cache::clear();
+        Http::preventStrayRequests();
     }
 
     /**

@@ -3,6 +3,7 @@
 use App\Http\Controllers\HealthController;
 use App\Http\Middleware\AddSecurityHeaders;
 use App\Http\Middleware\AnonymousOnly;
+use App\Http\Middleware\CollapseHtmlWhitespace;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\PinUrlRoot;
@@ -64,6 +65,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->web(append: [
+            CollapseHtmlWhitespace::class,
             HandleInertiaRequests::class,
             AddSecurityHeaders::class,
         ]);

@@ -36,6 +36,7 @@
         <env name="DRAWING_PROVIDER" value="fake"/>
         <env name="GEMINI_API_KEY" value=""/>
         <env name="OPENAI_API_KEY" value=""/>
+        <env name="OPENROUTER_API_KEY" value=""/>
         <env name="DRAWING_DISK" value="local"/>
         <!-- Credit figures pinned: they mirror the marketing promise. -->
         <env name="DRAWING_FREE_CREDITS" value="12"/>

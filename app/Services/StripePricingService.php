@@ -94,8 +94,10 @@ class StripePricingService
         }
 
         foreach (config('stripe.plans', []) as $plan) {
-            if (! empty($plan['price_id'])) {
-                Cache::forget($this->cacheKey($plan['price_id']));
+            foreach (['price_id', 'yearly_price_id'] as $field) {
+                if (! empty($plan[$field])) {
+                    Cache::forget($this->cacheKey($plan[$field]));
+                }
             }
         }
     }

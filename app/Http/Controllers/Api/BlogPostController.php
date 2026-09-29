@@ -154,7 +154,14 @@ class BlogPostController extends Controller
                 ? $request->safe()->string('cover_image_alt')->toString()
                 : null;
 
-            $attributes['cover_media_id'] = Media::forUrl($request->safe()->string('cover_image')->toString(), $alt)?->id;
+            $media = Media::forUrl($request->safe()->string('cover_image')->toString(), $alt);
+
+            // An explicit null/empty alt clears it; omission preserves it.
+            if ($media !== null && $request->safe()->has('cover_image_alt')) {
+                $media->forceFill(['alt' => filled($alt) ? trim($alt) : null])->save();
+            }
+
+            $attributes['cover_media_id'] = $media?->id;
         }
 
         /*

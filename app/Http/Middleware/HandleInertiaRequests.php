@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\User;
+use App\Support\BrowserTelemetry;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -35,6 +36,7 @@ class HandleInertiaRequests extends Middleware
 
         return [
             ...parent::share($request),
+            'sentry' => BrowserTelemetry::config(),
             'auth' => [
                 'user' => $user ? [
                     'id' => $user->id,

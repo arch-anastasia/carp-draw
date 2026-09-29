@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Storage;
  * @property string $title
  * @property WorkflowMode $workflow
  * @property ProjectStatus $status
+ * @property string|null $storage_disk
  * @property string|null $source_path
  * @property string|null $source_filename
  * @property string|null $output_path
@@ -54,6 +55,7 @@ class Project extends Model
         'workflow',
         'status',
         'source_path',
+        'storage_disk',
         'source_filename',
         'output_path',
         'output_format',
@@ -103,7 +105,7 @@ class Project extends Model
      */
     public function disk(): string
     {
-        return (string) config('drawing.provider.disk');
+        return $this->storage_disk ?? (string) config('drawing.provider.legacy_disk', 'local');
     }
 
     /**

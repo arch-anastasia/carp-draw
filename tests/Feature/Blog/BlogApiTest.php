@@ -605,10 +605,10 @@ class BlogApiTest extends TestCase
         Queue::assertPushed(SubmitPostToIndexNow::class, 1);
 
         $scheduled = Post::factory()->scheduled()->create();
-        Queue::assertPushed(SubmitPostToIndexNow::class, 1);
+        Queue::assertPushed(SubmitPostToIndexNow::class, 2);
 
         $scheduled->update(['published_at' => now()->subMinute()]);
-        Queue::assertPushed(SubmitPostToIndexNow::class, 2);
+        Queue::assertPushed(SubmitPostToIndexNow::class, 3);
     }
 
     public function test_indexnow_job_posts_the_public_url(): void

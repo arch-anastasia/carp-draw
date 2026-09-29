@@ -81,6 +81,10 @@ return [
         // Private disk generated outputs and sources are stored on.
         'disk' => env('DRAWING_DISK', 'local'),
 
+        // Existing rows predate per-project disk tracking. Never repoint them
+        // when enabling R2 for new uploads.
+        'legacy_disk' => env('DRAWING_LEGACY_DISK', 'local'),
+
         // Seconds the generation job may run. Invariant when queue is redis:
         // provider timeout < job timeout < worker --timeout < retry_after.
         'job_timeout' => (int) env('DRAWING_JOB_TIMEOUT', 75),

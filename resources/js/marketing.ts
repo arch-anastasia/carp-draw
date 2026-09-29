@@ -1,3 +1,5 @@
+import { bootBrowserFoundation, markBrowserReady } from './plugins/browserFoundation'
+import type { SentryConfig } from './types/analytics'
 import { initImageGalleries, initYoutubeFacades, initArticleOutline } from './blog/media'
 /**
  * CarpDraw marketing bundle.
@@ -8,6 +10,9 @@ import { initImageGalleries, initYoutubeFacades, initArticleOutline } from './bl
  * no-ops when a page has none of a feature's hooks, and init() is idempotent:
  * elements are marked once bound, so a second pass only picks up new markup.
  */
+
+// Observe optional chunk failures even before DOMContentLoaded.
+bootBrowserFoundation()
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -559,6 +564,10 @@ function initContactForm(): void {
 }
 
 function init(): void {
+    const telemetry = document.querySelector<HTMLMetaElement>('meta[name="browser-telemetry"]')?.content
+    let config: SentryConfig | undefined
+    try { config = telemetry ? JSON.parse(telemetry) as SentryConfig : undefined } catch { /* Optional configuration. */ }
+    bootBrowserFoundation(config)
     /*
      * Each feature wires independently: a page missing a feature's hooks is
      * the normal case and costs nothing, and a feature that throws must not
@@ -583,6 +592,7 @@ function init(): void {
             console.error(`carpdraw marketing: ${name} failed to initialise`, error)
         }
     })
+    markBrowserReady()
 }
 
 if (document.readyState === 'loading') {

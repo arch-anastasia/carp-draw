@@ -68,6 +68,7 @@ class CreditLedger
             $locked = User::query()->whereKey($user->id)->lockForUpdate()->firstOrFail();
 
             $movements = CreditTransaction::query()
+                ->where('user_id', $locked->id)
                 ->where('project_id', $project->id)
                 ->whereIn('type', [CreditTransactionType::Spend, CreditTransactionType::Refund])
                 ->sum('amount');
@@ -96,11 +97,15 @@ class CreditLedger
      */
     public function grantInitialAllowance(User $user, int $amount): ?CreditTransaction
     {
-        if ($amount <= 0 || $this->hasLedger($user)) {
-            return null;
-        }
+        return DB::transaction(function () use ($user, $amount) {
+            $locked = User::query()->whereKey($user->id)->lockForUpdate()->firstOrFail();
 
-        return $this->record($user, CreditTransactionType::Grant, $amount, null, 'Free allowance');
+            if ($amount <= 0 || $this->hasLedger($locked)) {
+                return null;
+            }
+
+            return $this->write($locked, CreditTransactionType::Grant, $amount, null, 'Free allowance');
+        });
     }
 
     /**
