@@ -73,10 +73,17 @@ class CarpDrawBlogSeoTest extends TestCase
             $this->get($url)->assertOk()->assertSee('noindex, follow');
         }
         $this->get('/blog?page=2')->assertStatus(301)->assertRedirect('/blog');
-        $this->get($post->url())->assertOk()
+        $response = $this->get($post->url())->assertOk()
             ->assertSee('"@type":"Article"', false)->assertSee('"@type":"FAQPage"', false)
             ->assertSee('"@type":"HowTo"', false)->assertSee('"@type":"BreadcrumbList"', false)
             ->assertSee('index, follow, max-image-preview:large')->assertSee($post->url());
+
+        preg_match_all('~<script type="application/ld\+json">(.*?)</script>~s', $response->getContent(), $scripts);
+        $this->assertNotEmpty($scripts[1]);
+        foreach ($scripts[1] as $json) {
+            $schema = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+            $this->assertSame('https://schema.org', $schema['@context'] ?? null);
+        }
     }
 
     public function test_api_preview_canonical_uses_the_configured_host(): void
