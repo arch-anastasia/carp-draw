@@ -153,7 +153,7 @@
     "resources/js/Pages/Auth/SignIn.vue": "434af93862df900d4e8e8c41198158bdcc5614ca50289ec62c3bcbc9aa1a8b92",
     "resources/js/Pages/Error.vue": "0105c1919ab566e248aace3bd3cfbaf857a7682abdcc86f3230f83988a40744e",
     "resources/js/Pages/Workflow/PhotoToModel.vue": "ede2e6f67b1306426de9ae99f8f04d2197b608d1ca1bbcdff0bcb4d0cb5c2271",
-    "resources/js/Pages/Workflow/Show.vue": "d1725298b65bfd4e31fe1fd1707ee896107d0c2ae77ea90b105da6cb56360192",
+    "resources/js/Pages/Workflow/Show.vue": "b590b88069545bf9389f947df16a1e96eaec29b8b0736544d310cd957cf2dd6a",
     "resources/views/components/brand/logo.blade.php": "f9d2c90fea5976f45398181d5a18539cb4087a49d912ebb63c3d721a0a72222d",
     "resources/views/components/marketing/auth-modal.blade.php": "d53cb47e3774702d19ceb3bcc94dc33c18a1714c11ec42268d5549ca481f61c1",
     "resources/views/components/marketing/faq.blade.php": "d40fdd70a1635c15a1a2a617ed14b5608bd032018a5e2c7a64fa7f2d25eae3a6",

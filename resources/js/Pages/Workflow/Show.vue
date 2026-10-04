@@ -54,7 +54,7 @@ const workflowCopy: Record<WorkflowMode, WorkflowCopy> = {
     drawing: {
         newLabel: 'New drawing',
         title: 'Upload a product photo',
-        subtitle: 'A single, clear view of the object works best.',
+        subtitle: 'For best results, upload a clear photo showing the whole piece of furniture, with no parts cut off.',
         prompt: 'Drop, paste or click to upload a product photo',
         resultTitle: 'Drawing concept ready',
         resultCopy: 'Review the generated concept against your source photo. Only your supplied overall dimensions are verified; this image is not an editable 3D model or a manufacturing drawing.',

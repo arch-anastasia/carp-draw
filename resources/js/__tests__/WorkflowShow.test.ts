@@ -124,7 +124,7 @@ describe('Workflow upload stage', () => {
         expect(wrapper.text()).toContain('New drawing')
         expect(wrapper.text()).toContain('Step 01 · Source')
         expect(wrapper.text()).toContain('Upload a product photo')
-        expect(wrapper.text()).toContain('A single, clear view of the object works best.')
+        expect(wrapper.text()).toContain('For best results, upload a clear photo showing the whole piece of furniture, with no parts cut off.')
         expect(wrapper.text()).toContain('Drop, paste or click to upload a product photo')
         expect(wrapper.text()).toContain('JPG, PNG, HEIC or WebP · up to 15 MB')
         expect(wrapper.text()).toContain('Measure')
