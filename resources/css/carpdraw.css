@@ -246,6 +246,10 @@ textarea,
   display: block;
   width: 100%;
   height: auto;
+  /* Preserve the original artwork; exclude the trailing .ai at x=1194. */
+  aspect-ratio: 1194 / 257;
+  object-fit: cover;
+  object-position: left;
 }
 
 .technical-visual {
@@ -3497,8 +3501,10 @@ textarea,
   display: block;
   width: clamp(96px, 10vw, 142px);
   height: auto;
-  max-height: 27px;
-  object-fit: contain;
+  max-width: 125px;
+  aspect-ratio: 1194 / 257;
+  object-fit: cover;
+  object-position: left;
 }
 
 .example-card figcaption {

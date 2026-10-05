@@ -18,8 +18,8 @@ withDefaults(
     <a
         :class="['brand-logo', { 'brand-logo--compact': compact }]"
         :href="href"
-        aria-label="CarpDraw AI home"
+        aria-label="CarpDraw home"
     >
-        <img src="/brand/carpdraw-logo-orange.png" alt="CarpDraw AI" width="1396" height="257" />
+        <img src="/brand/carpdraw-logo-orange.png" alt="CarpDraw" width="1396" height="257" />
     </a>
 </template>
