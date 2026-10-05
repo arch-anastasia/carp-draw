@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { Head, Link, useForm, usePage } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
 import { ArrowRight, LockKeyhole, Mail } from 'lucide-vue-next'
+import BrandLogo from '@/Components/Brand/BrandLogo.vue'
 import TechnicalVisual from '@/Components/Workflow/TechnicalVisual.vue'
 
 const props = defineProps<{ socialProviders: string[]; email?: string; registering?: boolean }>()
@@ -33,7 +34,7 @@ const handleSubmit = () => {
                 </div>
             </div>
             <div class="auth-form-panel">
-                <div class="auth-mark" aria-hidden="true">CD</div>
+                <BrandLogo class="auth-brand" />
                 <h2 id="auth-title">{{ registering ? 'Create your account' : 'Welcome back' }}</h2>
                 <p>{{ registering ? 'Start creating technical concepts. No email link required.' : 'Sign in with your email and password.' }}</p>
                 <p v-if="flash.error" class="error-text" role="alert">

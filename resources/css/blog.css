@@ -3,7 +3,7 @@
   --color-base-200: #f1f1f1;
   --color-base-300: #dddddd;
   --color-base-content: #010101;
-  --color-primary: #333333;
+  --color-primary: #a84800;
   --color-primary-content: #ffffff;
   --color-error: #c83d4d;
   --color-success: #168454;
@@ -1476,7 +1476,7 @@
     }
 
 
-:root { --radius-box: 0.625rem; --color-warning: #333333; --color-warning-content: #ffffff; }
+:root { --radius-box: 0.625rem; --color-warning: #a84800; --color-warning-content: #ffffff; }
 
     .outline-scroll {
         --outline-fade-top: 0px;

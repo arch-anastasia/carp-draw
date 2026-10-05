@@ -35,9 +35,11 @@
   --muted: #666666;
   --line: #dddddd;
   --panel: #f1f1f1;
-  --accent: #333333;
-  --accent-dark: #171717;
-  --blue: var(--accent);
+  --accent: #f5820b;
+  --accent-dark: #a84800;
+  --accent-soft: #fff4e8;
+  --accent-border: #f7d4ad;
+  --blue: var(--accent-dark);
   --blue-dark: var(--accent-dark);
   --success: #168454;
   --danger: #c83d4d;
@@ -49,13 +51,13 @@
  * injected them on <body>); every downstream var() reference is unchanged.
  * --orange and --surface were referenced but never defined in the original
  * (documented bug) — defined here so the three broken rules work as designed.
- * --blue stays misnamed on purpose: it aliases the neutral accent and the
+ * --blue stays misnamed on purpose: it aliases the readable accent and the
  * classes above/below depend on the name.
  */
 :root {
   --font-interface-sans: 'InterVariable', Inter, Arial, Helvetica, sans-serif;
   --font-interface-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --orange: var(--accent);
+  --orange: var(--accent-dark);
   --surface: #f3f5f7;
 }
 
@@ -102,7 +104,7 @@ textarea,
 }
 
 :focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--accent-dark);
   outline-offset: 3px;
 }
 
@@ -193,15 +195,15 @@ textarea,
 }
 
 .primary-button {
-  background: var(--foreground);
-  color: #fff;
+  background: var(--accent);
+  color: #171717;
   box-shadow: 0 10px 24px rgba(1, 1, 1, 0.12);
 }
 
 .primary-button:hover {
   transform: translateY(-2px);
-  background: var(--blue);
-  box-shadow: 0 14px 30px rgba(51, 51, 51, 0.24);
+  background: #e57400;
+  box-shadow: 0 14px 30px rgba(245, 130, 11, 0.2);
 }
 
 .secondary-button {
@@ -244,14 +246,26 @@ textarea,
   flex: 0 0 auto;
 }
 
-.brand-logo img {
+/* Display the supplied artwork without its outer whitespace; no bitmap edits. */
+.brand-wordmark {
   display: block;
+  position: relative;
   width: 100%;
+  aspect-ratio: 4 / 1;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+}
+
+.brand-wordmark img {
+  position: absolute;
+  display: block;
+  width: 133.333333%;
+  max-width: none;
   height: auto;
-  /* Preserve the original artwork; exclude the trailing .ai at x=1194. */
-  aspect-ratio: 1194 / 257;
-  object-fit: cover;
-  object-position: left;
+  aspect-ratio: auto;
+  object-fit: fill;
+  left: -16.666667%;
+  top: -46.666667%;
 }
 
 .technical-visual {
@@ -376,7 +390,7 @@ textarea,
 .form-field textarea:focus,
 .form-field select:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(51, 51, 51, 0.1);
+  box-shadow: 0 0 0 4px rgba(245, 130, 11, 0.12);
 }
 
 .error-text {
@@ -614,6 +628,11 @@ textarea,
   padding: 68px clamp(34px, 5vw, 70px) 46px;
 }
 
+.auth-brand {
+  width: 196px;
+  margin: 0 auto 24px;
+}
+
 .auth-mark {
   display: grid;
   place-items: center;
@@ -695,7 +714,7 @@ textarea,
 .auth-message {
   border-radius: 12px;
   padding: 10px 12px;
-  background: #edf5ff;
+  background: var(--accent-soft);
   color: var(--blue-dark) !important;
   font-size: 0.82rem;
 }
@@ -1190,7 +1209,7 @@ textarea,
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #edf3fb;
+  background: var(--accent-soft);
   color: var(--blue);
   font-weight: 700;
 }
@@ -1291,7 +1310,7 @@ textarea,
   border-radius: 30px;
   padding: clamp(32px, 5vw, 62px);
   background:
-    radial-gradient(circle at 75% 0%, rgba(51, 51, 51, 0.13), transparent 36%),
+    radial-gradient(circle at 75% 0%, rgba(245, 130, 11, 0.09), transparent 36%),
     #f7faff;
 }
 
@@ -1303,7 +1322,7 @@ textarea,
   border-radius: 18px;
   background: #fff;
   color: var(--blue);
-  box-shadow: 0 8px 30px rgba(51, 51, 51, 0.1);
+  box-shadow: 0 8px 30px rgba(245, 130, 11, 0.12);
 }
 
 .final-cta h2 {
@@ -1731,8 +1750,8 @@ textarea,
 
 .app-nav-group a:hover,
 .app-nav-group a.is-active {
-  background: #fff;
-  color: var(--foreground);
+  background: var(--accent-soft);
+  color: var(--accent-dark);
   box-shadow: 0 4px 16px rgba(1, 1, 1, 0.035);
 }
 
@@ -1935,7 +1954,7 @@ textarea,
 
 .creation-card:hover {
   transform: translateY(-3px);
-  border-color: #b9cce6;
+  border-color: var(--accent-border);
   box-shadow: 0 14px 40px rgba(1, 1, 1, 0.07);
 }
 
@@ -1976,7 +1995,7 @@ textarea,
   border-radius: 23px;
   padding: 27px 30px;
   background:
-    linear-gradient(90deg, #fff 0%, #fff 54%, rgba(51, 51, 51, 0.08) 100%);
+    linear-gradient(90deg, #fff 0%, #fff 54%, rgba(245, 130, 11, 0.06) 100%);
 }
 
 .try-banner div {
@@ -2309,7 +2328,7 @@ textarea,
 }
 
 .measurement-canvas:focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--accent-dark);
   outline-offset: 3px;
 }
 
@@ -2932,7 +2951,7 @@ textarea,
   margin: 24px auto 0;
   border-radius: 14px;
   padding: 13px 16px;
-  background: #edf5ff;
+  background: var(--accent-soft);
   color: var(--blue-dark);
   text-align: center;
   font-size: 0.83rem;
@@ -3495,14 +3514,8 @@ textarea,
   background: #fff;
 }
 
-.drawing-sheet-footer img {
-  display: block;
-  width: clamp(96px, 10vw, 142px);
-  height: auto;
-  max-width: 125px;
-  aspect-ratio: 1194 / 257;
-  object-fit: cover;
-  object-position: left;
+.drawing-sheet-footer .brand-wordmark {
+  width: clamp(80px, 9vw, 108px);
 }
 
 .example-card figcaption {

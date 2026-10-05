@@ -22,7 +22,7 @@
         'url' => config('app.url'),
         'logo' => [
             '@type' => 'ImageObject',
-            'url' => $canonical->origin().'/brand/carpdraw-logo-orange.png',
+            'url' => $canonical->origin().'/brand/carpdraw-cube-logo.jpg',
         ],
     ];
 

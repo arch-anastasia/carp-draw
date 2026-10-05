@@ -20,6 +20,6 @@ withDefaults(
         :href="href"
         aria-label="CarpDraw home"
     >
-        <img src="/brand/carpdraw-logo-orange.png" alt="CarpDraw" width="1396" height="257" />
+        <span class="brand-wordmark"><img src="/brand/carpdraw-cube-logo.jpg" alt="CarpDraw" width="1280" height="476" /></span>
     </a>
 </template>

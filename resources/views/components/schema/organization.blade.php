@@ -9,7 +9,7 @@
         'name' => config('branding.name'),
         'logo' => [
             '@type' => 'ImageObject',
-            'url' => $canonical->origin().'/brand/carpdraw-logo-orange.png',
+            'url' => $canonical->origin().'/brand/carpdraw-cube-logo.jpg',
         ],
         'email' => config('branding.support_email'),
         'contactPoint' => config('branding.support_email') ? [

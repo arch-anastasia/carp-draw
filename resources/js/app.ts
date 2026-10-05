@@ -28,6 +28,6 @@ createInertiaApp({
         markBrowserReady()
     },
     progress: {
-        color: '#333333',
+        color: '#f5820b',
     },
 })

@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="auth-form-panel">
-            <div class="auth-mark" aria-hidden="true">CD</div>
+            <x-brand.logo class="auth-brand" />
             <h2 id="auth-title">Welcome to CarpDraw AI</h2>
             <p>Sign in to create your first technical concept.</p>
             @if (count($providers))

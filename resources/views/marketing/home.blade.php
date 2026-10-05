@@ -227,7 +227,7 @@
                                     <div class="drawing-sheet">
                                         <img class="drawing-sheet-art" src="{{ $example['drawing'] }}" alt="{{ $example['drawingAlt'] }}" loading="lazy" decoding="async">
                                         <div class="drawing-sheet-footer" aria-hidden="true">
-                                            <img src="/brand/carpdraw-logo-orange.png" alt="">
+                                            <span class="brand-wordmark"><img src="/brand/carpdraw-cube-logo.jpg" alt="" width="1280" height="476"></span>
                                         </div>
                                     </div>
                                 </figure>
