@@ -35,8 +35,10 @@
   --muted: #666666;
   --line: #dddddd;
   --panel: #f1f1f1;
-  --blue: #ff8004;
-  --blue-dark: #b95600;
+  --accent: #333333;
+  --accent-dark: #171717;
+  --blue: var(--accent);
+  --blue-dark: var(--accent-dark);
   --success: #168454;
   --danger: #c83d4d;
   --shadow: 0 18px 60px rgba(1, 1, 1, 0.1);
@@ -47,13 +49,13 @@
  * injected them on <body>); every downstream var() reference is unchanged.
  * --orange and --surface were referenced but never defined in the original
  * (documented bug) — defined here so the three broken rules work as designed.
- * --blue stays misnamed on purpose: it is the orange brand accent and the
+ * --blue stays misnamed on purpose: it aliases the neutral accent and the
  * classes above/below depend on the name.
  */
 :root {
   --font-interface-sans: 'InterVariable', Inter, Arial, Helvetica, sans-serif;
   --font-interface-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --orange: #ff8004;
+  --orange: var(--accent);
   --surface: #f3f5f7;
 }
 
@@ -100,7 +102,7 @@ textarea,
 }
 
 :focus-visible {
-  outline: 3px solid rgba(255, 128, 4, 0.32);
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -199,7 +201,7 @@ textarea,
 .primary-button:hover {
   transform: translateY(-2px);
   background: var(--blue);
-  box-shadow: 0 14px 30px rgba(255, 128, 4, 0.24);
+  box-shadow: 0 14px 30px rgba(51, 51, 51, 0.24);
 }
 
 .secondary-button {
@@ -259,8 +261,8 @@ textarea,
   border: 1px solid var(--line);
   border-radius: 24px;
   background:
-    linear-gradient(rgba(255, 128, 4, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 128, 4, 0.055) 1px, transparent 1px),
+    linear-gradient(rgba(51, 51, 51, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 51, 51, 0.055) 1px, transparent 1px),
     #fafbfc;
   background-size: 32px 32px;
 }
@@ -374,7 +376,7 @@ textarea,
 .form-field textarea:focus,
 .form-field select:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(255, 128, 4, 0.1);
+  box-shadow: 0 0 0 4px rgba(51, 51, 51, 0.1);
 }
 
 .error-text {
@@ -718,7 +720,7 @@ textarea,
 
 .hero-orbit {
   position: absolute;
-  border: 1px solid rgba(255, 128, 4, 0.14);
+  border: 1px solid rgba(51, 51, 51, 0.14);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -1293,7 +1295,7 @@ textarea,
   border-radius: 30px;
   padding: clamp(32px, 5vw, 62px);
   background:
-    radial-gradient(circle at 75% 0%, rgba(255, 128, 4, 0.13), transparent 36%),
+    radial-gradient(circle at 75% 0%, rgba(51, 51, 51, 0.13), transparent 36%),
     #f7faff;
 }
 
@@ -1305,7 +1307,7 @@ textarea,
   border-radius: 18px;
   background: #fff;
   color: var(--blue);
-  box-shadow: 0 8px 30px rgba(255, 128, 4, 0.1);
+  box-shadow: 0 8px 30px rgba(51, 51, 51, 0.1);
 }
 
 .final-cta h2 {
@@ -1978,7 +1980,7 @@ textarea,
   border-radius: 23px;
   padding: 27px 30px;
   background:
-    linear-gradient(90deg, #fff 0%, #fff 54%, rgba(255, 128, 4, 0.08) 100%);
+    linear-gradient(90deg, #fff 0%, #fff 54%, rgba(51, 51, 51, 0.08) 100%);
 }
 
 .try-banner div {
@@ -2311,7 +2313,7 @@ textarea,
 }
 
 .measurement-canvas:focus-visible {
-  outline: 3px solid rgba(255, 128, 4, 0.32);
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -2326,7 +2328,7 @@ textarea,
 }
 
 .lasso-selection {
-  fill: rgba(255, 128, 4, 0.14);
+  fill: rgba(51, 51, 51, 0.14);
   stroke: var(--blue);
   stroke-width: 2;
   stroke-linecap: round;
@@ -2544,10 +2546,10 @@ textarea,
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 12px;
-  border: 1px solid #f1c99f;
+  border: 1px solid #dddddd;
   border-radius: 10px;
   padding: 13px;
-  background: #fff8f1;
+  background: #f5f5f5;
 }
 
 .selection-guidance > span {
@@ -2596,8 +2598,8 @@ textarea,
   overflow: hidden;
   border-radius: 20px;
   background:
-    linear-gradient(rgba(255, 128, 4, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 128, 4, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(51, 51, 51, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 51, 51, 0.04) 1px, transparent 1px),
     #f7f8fa;
   background-size: 28px 28px;
 }
@@ -3940,10 +3942,10 @@ textarea,
 
 .new-folder-form {
   margin-top: 14px;
-  border: 1px solid #f3c595;
+  border: 1px solid #dddddd;
   border-radius: 9px;
   padding: 11px;
-  background: #fff8f1;
+  background: #f5f5f5;
 }
 
 .new-folder-form > label,
@@ -3997,7 +3999,7 @@ textarea,
 
 .new-folder-form > p {
   margin: 7px 0 0;
-  color: #a84322;
+  color: var(--danger);
   font-size: 0.68rem;
 }
 
