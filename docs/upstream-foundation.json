@@ -126,7 +126,7 @@
     "public/brand/carpdraw-logo.png": "b6a5fc5ba94b630b353581a6045801381763ddb5e607fd106427880e9401ce02",
     "resources/css/app.css": "448a107173112d6edb91cdec8740438d6b6a5f736282ef9505ca96425c894a6d",
     "resources/css/blog.css": "49efa769b183f8a94617d57b1186de6d9baa52979cf88dad5ad3e7d33403148b",
-    "resources/css/carpdraw.css": "67864df55d2975b31fff3cbce0150aca0788c622a1cfee42b54e6237d9eac996",
+    "resources/css/carpdraw.css": "fee83d637dd67e84f3f58161ad92cb0df94a2a2089bd0cd7373e58044b2c1c02",
     "resources/css/marketing.css": "3acbe9f0a3647ade4d83ebb038854ba3c08072f35d5882e25c3a1ffe713f6773",
     "resources/js/Layouts/AdminLayout.vue": "b7f8c2e6735344217d53d548f08e8283ccf409085283a30eb3bb5f37aaf60723",
     "resources/js/Layouts/AppLayout.vue": "b91770fe3b4a3d00367fa28db56ffd816cdb2b6932bcb1df0322366ccf502241",
@@ -142,7 +142,7 @@
     "resources/js/Pages/Admin/Blog/Revisions/Diff.vue": "d7cfad724d288f534e53fe740afeccf601363ca1715e6543ee07e2712a875b8b",
     "resources/js/Pages/Admin/Blog/Revisions/Edit.vue": "65a216741c5d8a3a2903730ae38bc191056d30f245a38d1eeb95bbbd795605e5",
     "resources/js/Pages/Admin/Users.vue": "6618b580a953fe15516c9f84697986a4018bd3114ccd6a401a881dcc57acc742",
-    "resources/js/Pages/App/Home.vue": "d1c7473464debed1313869c6b093f82b29089e28c8a90573350eb11eccedfcb9",
+    "resources/js/Pages/App/Home.vue": "6f87469cd21ccc95452d12baeffa3d3f3ad4b17a12a3474717505f21af0c1823",
     "resources/js/Pages/App/Plans.vue": "b1811c37b55d30bafc4d8127debc7d2072fc6489704190646188fc73d52e1729",
     "resources/js/Pages/App/Projects.vue": "4dc21ad11d576aa8b382e3a7c43e07eb7ec48e247ce4eb6f6e18316152e2cf26",
     "resources/js/Pages/App/Settings.vue": "b9ef3c4754e588c6b5e93f6cfb146420623643e7740d66a26f10f47269873fae",
@@ -165,7 +165,7 @@
     "resources/views/marketing/blog/index.blade.php": "d4dbdb58ca7a3723aa5c1f0c0f5afc35879bd4b4c197263b31251edb958e732a",
     "resources/views/marketing/blog/post.blade.php": "e9c1ff627f96a991708c1ff76bb5a356a8c726cc5f78bad182a69607c815effe",
     "resources/views/marketing/contact.blade.php": "b4bb6d1788c1c46c8f4af67590caa66941348beef2cb0dcd998eb64b0999c131",
-    "resources/views/marketing/home.blade.php": "8c4058aef88a795c3026ea0724bf9a6dd17508c7cdcb19c9261961113d43edc2",
+    "resources/views/marketing/home.blade.php": "a70312f5b55660523e5f45908ef751d7b45ea71f33705df4d350659b926dd6f4",
     "resources/views/marketing/privacy.blade.php": "b760b854894e53994a77c424a4803956f386205f2917bc10549c84a64e6ecf9c"
   }
 }

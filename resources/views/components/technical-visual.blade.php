@@ -12,5 +12,4 @@
     <span class="tech-line three"></span>
     <span class="tech-dot one"></span>
     <span class="tech-dot two"></span>
-    <span class="tech-label">{{ $label }}</span>
 </div>

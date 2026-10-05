@@ -16,6 +16,5 @@ withDefaults(
         <span class="tech-line three" />
         <span class="tech-dot one" />
         <span class="tech-dot two" />
-        <span class="tech-label">{{ label }}</span>
     </div>
 </template>

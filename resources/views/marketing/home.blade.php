@@ -7,28 +7,22 @@
     $steps = [
         [
             'number' => '01',
-            'icon' => 'scan-line',
             'title' => 'Upload your reference',
             'copy' => 'Add a clear product photo, hand sketch or project image. The guided workspace keeps the source and technical decisions together.',
-            'label' => 'INPUT / PHOTO',
             'image' => '/examples/shelving-interior.webp',
             'alt' => 'Interior reference image for a fitted shelving project',
         ],
         [
             'number' => '02',
-            'icon' => 'ruler',
             'title' => 'Define scale and intent',
             'copy' => 'Set one reliable measurement, select the drawing views and clarify what the workshop or project team needs to receive.',
-            'label' => 'MEASURE / MM',
             'image' => '/examples/shelving-measurement.webp',
             'alt' => 'Interior shelving reference with guided dimension controls',
         ],
         [
             'number' => '03',
-            'icon' => 'file-spreadsheet',
             'title' => 'Review the technical output',
             'copy' => 'Check dimensions, notes and views before preparing a drawing set or a structured product specification.',
-            'label' => 'OUTPUT / DRAWING',
             'image' => '/examples/shelving-technical-sheet.webp',
             'alt' => 'Completed technical drawing and specification for custom shelving',
         ],
@@ -136,12 +130,7 @@
 <x-layouts.marketing>
     <main id="main-content">
         <section class="hero-section">
-            <div class="hero-orbit hero-orbit-one"></div>
-            <div class="hero-orbit hero-orbit-two"></div>
             <div class="container-shell hero-inner">
-                <div class="hero-kicker">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>AI-assisted technical documentation
-                </div>
                 <h1 class="display-title">From a reference to a clear technical drawing.</h1>
                 <p class="hero-copy">CarpDraw AI helps furniture, interior and product teams create drawing concepts from photos and 3D models, then organize the result into a practical specification.</p>
                 <div class="hero-actions">
@@ -166,16 +155,8 @@
                         >
                             <source src="/video/carpdraw-workflow.mp4" type="video/mp4">
                         </video>
-                        <span>CarpDraw workflow animation</span>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="trusted-strip" aria-label="Designed for">
-            <div class="container-shell">
-                <p>Designed for practical product teams</p>
-                <div><span>Furniture studios</span><span>Interior teams</span><span>Independent makers</span><span>Fabrication teams</span><span>Design educators</span></div>
             </div>
         </section>
 
@@ -214,17 +195,10 @@
                             <div class="step-copy">
                                 <div class="step-index">
                                     <span>{{ $step['number'] }}</span>
-                                    @if ($step['icon'] === 'scan-line')
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan-line" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg>
-                                    @elseif ($step['icon'] === 'ruler')
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ruler" aria-hidden="true"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
-                                    @else
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-spreadsheet" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h2"/><path d="M14 13h2"/><path d="M8 17h2"/><path d="M14 17h2"/></svg>
-                                    @endif
                                 </div>
                                 <h3>{{ $step['title'] }}</h3><p>{{ $step['copy'] }}</p>
                             </div>
-                            <div class="step-image"><img src="{{ $step['image'] }}" alt="{{ $step['alt'] }}"><span>{{ $step['label'] }}</span></div>
+                            <div class="step-image"><img src="{{ $step['image'] }}" alt="{{ $step['alt'] }}"></div>
                         </article>
                     @endforeach
                 </div>
@@ -248,7 +222,6 @@
                             <div class="example-pair-media">
                                 <figure class="example-card example-card--photo">
                                     <img src="{{ $example['photo'] }}" alt="{{ $example['photoAlt'] }}" loading="lazy" decoding="async" style="object-position: {{ $example['photoPosition'] }}">
-                                    <figcaption><span>REFERENCE PHOTO</span><strong>{{ $example['title'] }}</strong></figcaption>
                                 </figure>
                                 <figure class="example-card example-card--drawing">
                                     <div class="drawing-sheet">
@@ -257,7 +230,6 @@
                                             <img src="/brand/carpdraw-logo-orange.png" alt="">
                                         </div>
                                     </div>
-                                    <figcaption><span>TECHNICAL DRAWING</span><strong>Measured views</strong></figcaption>
                                 </figure>
                             </div>
                         </article>

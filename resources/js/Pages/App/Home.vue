@@ -17,7 +17,6 @@ const creationModes = [
         copy: 'Turn a product photo or sketch into a structured technical drawing.',
         icon: Sparkles,
         image: '/examples/step-photo.webp',
-        label: 'PHOTO / 01',
     },
     {
         href: route('workflow.photo-model'),
@@ -25,7 +24,6 @@ const creationModes = [
         copy: 'Create a model from a product photo.',
         icon: Box,
         image: '/examples/example-bunk.webp',
-        label: 'PHOTO / 02',
     },
     {
         href: route('workflow.model'),
@@ -33,7 +31,6 @@ const creationModes = [
         copy: 'Upload a 3D model and prepare clear orthographic drawing views.',
         icon: Scan,
         image: '/examples/step-drawing.webp',
-        label: 'MODEL / 03',
     },
 ]
 
@@ -74,7 +71,6 @@ const projectImage = (project: ProjectCard) =>
                     </div>
                     <div class="creation-image">
                         <img :src="mode.image" alt="" />
-                        <span>{{ mode.label }}</span>
                     </div>
                     <p>{{ mode.copy }}</p>
                 </Link>

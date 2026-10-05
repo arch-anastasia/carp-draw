@@ -1023,16 +1023,12 @@ textarea,
 }
 
 .step-index {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   color: var(--blue);
-  font-family: var(--font-interface-mono);
-  font-size: 0.82rem;
+  font-family: var(--font-interface-sans);
 }
 
 .step-index > span {
-  font-size: 1.64rem;
+  font-size: 3rem;
   line-height: 1;
 }
 
