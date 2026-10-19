@@ -134,6 +134,8 @@ jobs:
           done
           npm run test:e2e
       - name: Browser artifacts
+        # Diagnostic uploads are optional; test failures above still fail the job.
+        continue-on-error: true
         if: always()
         uses: actions/upload-artifact@v4
         with:

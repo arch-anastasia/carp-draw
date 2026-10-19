@@ -6,8 +6,8 @@
 @php
     $faqItems = [
         [
-            'question' => 'How does CarpDraw AI turn a photo into a drawing?',
-            'answer' => 'Upload a clear photo, set at least one known measurement and choose the output views. The interface then prepares a structured drawing concept with dimensions and export options.',
+            'question' => 'How do I get started?',
+            'answer' => 'Start with a clear photo showing the whole piece of furniture, with no parts cut off. Add at least one known measurement and choose the views you need. Check the available options in the workspace before starting a project.',
         ],
         [
             'question' => 'Which image and 3D formats can I upload?',
@@ -18,8 +18,8 @@
             'answer' => 'Yes. High-contrast hand sketches and scanned line drawings work well as a starting point, especially when one reliable dimension is provided.',
         ],
         [
-            'question' => 'What can I create in the workspace?',
-            'answer' => 'The workspace includes Photo to Drawing, 3D Model to Drawing and Create Specification. Production PDF, DXF and DWG generation requires a CAD processing backend.',
+            'question' => 'Are the drawings ready for manufacturing?',
+            'answer' => 'Treat drawings as concepts for review, not verified manufacturing plans. Check all measurements, materials and construction details with your maker. The site is a product preview; production PDF, DXF and DWG exports are not available yet.',
         ],
         [
             'question' => 'Do I need previous CAD experience?',

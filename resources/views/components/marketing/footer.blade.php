@@ -68,7 +68,7 @@
             </nav>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 CarpDraw AI. Independent interface concept.</p>
+            <p>© {{ date('Y') }} CarpDraw. All rights reserved.</p>
             <p>Designed for makers, studios and product teams.</p>
         </div>
     </div>

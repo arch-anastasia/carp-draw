@@ -17,7 +17,7 @@ class MarketingPagesTest extends TestCase
     {
         $this->get('/')
             ->assertOk()
-            ->assertSee('From a reference to a clear technical drawing.', escape: false)
+            ->assertSee('From furniture photos to drawing concepts.', escape: false)
             ->assertSee('3D Model to Drawing')
             ->assertSee('Create Specification')
             ->assertSee('rel="canonical"', escape: false);

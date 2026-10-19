@@ -38,14 +38,14 @@
                 </div>
             </div>
             <a class="nav-link" href="/#workflow">Workflow</a>
-            <a class="nav-link" href="{{ route('billing.index') }}">Pricing</a>
+            <a class="nav-link" href="/#examples">Examples</a>
             <a class="nav-link" href="{{ route('marketing.blog.index') }}">Journal</a>
             <a class="nav-link" href="{{ route('marketing.contact') }}">Contact</a>
         </nav>
         <div class="public-actions">
             @guest
                 <button class="text-button header-sign-in" type="button" data-auth-open>Sign in</button>
-                <a class="primary-button header-cta" href="{{ route('workspace') }}">Start free</a>
+                <a class="primary-button header-cta" href="{{ route('workspace') }}">Explore workspace</a>
             @else
                 <a class="primary-button header-cta" href="{{ route('workspace') }}">Open workspace</a>
             @endguest
@@ -66,7 +66,8 @@
         <a href="{{ route('workflow.model') }}">3D Model to Drawing</a>
         <a href="{{ route('workflow.specification') }}">Create Specification</a>
         <a href="/#workflow">Workflow</a>
-        <a href="{{ route('billing.index') }}">Pricing</a>
+        <a href="/#examples">Examples</a>
+        <a href="{{ route('marketing.blog.index') }}">Journal</a>
         <a href="{{ route('marketing.contact') }}">Contact</a>
         @guest
             <button type="button" data-auth-open>Sign in</button>
