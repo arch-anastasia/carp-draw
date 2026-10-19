@@ -126,7 +126,7 @@
     "public/brand/carpdraw-logo.png": "b6a5fc5ba94b630b353581a6045801381763ddb5e607fd106427880e9401ce02",
     "resources/css/app.css": "448a107173112d6edb91cdec8740438d6b6a5f736282ef9505ca96425c894a6d",
     "resources/css/blog.css": "5cc1942e93e69dca134b6ace4ba0db0176e683f96decdd573dd69cc8352f00e1",
-    "resources/css/carpdraw.css": "3e7f5aacdfd1fe3683bcb2d0dea9f93edd738dadc598cc0ce51f81c72bdab396",
+    "resources/css/carpdraw.css": "893f091607db7ddf61975634e1787ee65e8e3bfa9db82fb477ab06286d02b29b",
     "resources/css/marketing.css": "3acbe9f0a3647ade4d83ebb038854ba3c08072f35d5882e25c3a1ffe713f6773",
     "resources/js/Layouts/AdminLayout.vue": "b7f8c2e6735344217d53d548f08e8283ccf409085283a30eb3bb5f37aaf60723",
     "resources/js/Layouts/AppLayout.vue": "b91770fe3b4a3d00367fa28db56ffd816cdb2b6932bcb1df0322366ccf502241",
@@ -165,7 +165,7 @@
     "resources/views/marketing/blog/index.blade.php": "d4dbdb58ca7a3723aa5c1f0c0f5afc35879bd4b4c197263b31251edb958e732a",
     "resources/views/marketing/blog/post.blade.php": "e9c1ff627f96a991708c1ff76bb5a356a8c726cc5f78bad182a69607c815effe",
     "resources/views/marketing/contact.blade.php": "b4bb6d1788c1c46c8f4af67590caa66941348beef2cb0dcd998eb64b0999c131",
-    "resources/views/marketing/home.blade.php": "8ee727f26e1d696b3690be244299e878cbec7fa3b6edc670da203a6c6f1c8f08",
+    "resources/views/marketing/home.blade.php": "66b6ff7793ce4ab87d400e13a73e65519f95f379bfde7dcd631a985f02ab3436",
     "resources/views/marketing/privacy.blade.php": "b760b854894e53994a77c424a4803956f386205f2917bc10549c84a64e6ecf9c"
   }
 }
