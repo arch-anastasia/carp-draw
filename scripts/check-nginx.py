@@ -30,7 +30,7 @@ with tempfile.TemporaryDirectory(prefix='carpdraw-nginx-') as directory:
     temp.chmod(0o755)
     compose = {
         'services': {
-            'app': {'image': 'php:8.4-fpm-alpine', 'volumes': [f'{public}:/var/www/html/public:ro']},
+            'app': {'image': 'php:8.4.27-fpm-alpine', 'volumes': [f'{public}:/var/www/html/public:ro']},
             'nginx': {
                 'image': 'nginx:alpine', 'depends_on': ['app'],
                 'ports': ['127.0.0.1::80'],

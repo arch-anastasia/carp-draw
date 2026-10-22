@@ -72,6 +72,9 @@ jobs:
           php-version: '8.4'
           extensions: mbstring, pdo_sqlite, pdo_pgsql, gd, intl
           coverage: none
+        env:
+          # Self-hosted runner keeps its PHP; force the latest patch (>= 8.4.27, PHP2Shell CVE).
+          update: true
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
