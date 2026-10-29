@@ -1,0 +1,25 @@
+# Local OS/editor noise
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Local configuration and credentials; examples must contain no real secrets.
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.json
+secrets/
+.aws/
+
+# Keep private working material outside version control.
+private/
+.codex/
+
+# Add technology-specific output rules only after inspecting the actual code.
+# Ignore rules do not detect arbitrary secrets or remove already tracked files.

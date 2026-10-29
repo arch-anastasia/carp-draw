@@ -1,0 +1,30 @@
+# CarpDraw
+
+CarpDraw is an early exploration of AI-assisted creation and work with digital models for furniture, architectural components, parts, and fittings. The intended users, useful workflows, and output requirements are still being discovered.
+
+A working showcase has been reported, but we have not inspected it or its source code. This workspace establishes the project's local documentation and operating foundations. It does not establish product or production readiness; the frontend, backend, and deployment architecture remain unknown.
+
+## Start here
+
+- [Project map](PROJECT.md): current focus, roadmap, open questions, sustainability, and collaboration.
+- [Shared memory](MEMORY.md): dated decisions, findings, evidence, rationale, and unresolved follow-up.
+- [Handover checklist](docs/HANDOVER.md): ownership, access, and technical discovery, including progress without source access.
+- [Codex instructions](AGENTS.md): how to work in this repository.
+
+## Working with Codex
+
+Open this folder as the project workspace and begin with a bounded request, for example: “Read PROJECT.md and help me prepare a walkthrough of the existing showcase.” Codex uses repository [AGENTS.md instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
+
+For an intentional project review, invoke `$project-review`. The [local skill](.agents/skills/project-review/SKILL.md) proposes evidence-based updates and leaves strategic decisions to people. Its invocation policy follows the [official skill format](https://learn.chatgpt.com/docs/build-skills). If the new skill is not visible, restart Codex in this workspace.
+
+Ask in any language. Live replies follow your current language until you switch; repository records and commit messages remain in English. Each collaborator's conversation language is independent.
+
+## Viewing and editing the plan
+
+Open [PROJECT.md](PROJECT.md) to read Current Focus, then Roadmap. It is an ordinary Markdown file with a Mermaid diagram, so the plan is available without asking Codex. You can also ask: “Show the current scope, dates, blockers, and decisions awaiting us.”
+
+Edit the Markdown directly in the app's file editor or your preferred text editor, then save. The desktop app also supports selecting content and asking for a focused revision through annotations; see [working with files](https://learn.chatgpt.com/docs/artifacts-viewer) and [in-app editing](https://learn.chatgpt.com/docs/changelog). Keep dates consistent between milestone text and the diagram, and label unapproved ideas Proposed. Saving a file and committing it to Git are separate steps.
+
+After manual edits, ask: “Review my PROJECT.md changes, synchronize the shared memory, and commit them in English.” Include the reason for consequential changes so the journal can preserve it. Codex checks the diff, records the evidence and decision authority, and asks only where a consequential ambiguity remains. You can also ask it to propose an edit first.
+
+New work starts from PROJECT.md and MEMORY.md. Codex records project findings and decisions and commits completed changes locally; personal chats are supplementary. Collaborators share this recorded context when they use the same repository revision. No remote synchronization exists yet, and no product build or test commands are known. Creating a remote or pushing requires explicit authorization.
