@@ -1,6 +1,6 @@
 # CarpDraw — Project Map
 
-Planning baseline: **October 29, 2026**. Last updated: **October 29, 2026**.
+Planning baseline: **October 29, 2026**. Last updated: **November 5, 2026**.
 
 This is a living map: keep the current focus small, replace uncertainty with evidence, and revise dates when learning changes the work. [MEMORY.md](MEMORY.md) preserves the decisions, findings, and rationale behind this current view; [README.md](README.md#viewing-and-editing-the-plan) explains how to read and edit it.
 
@@ -10,9 +10,9 @@ This is a living map: keep the current focus small, replace uncertainty with evi
 | --- | --- |
 | Active milestone | **M0 — Foundations**, target November 6, 2026; in progress. |
 | Primary outcome | A shared, evidence-labelled starting point that a new collaborator can understand without reconstructing private conversations. |
-| Next concrete action | With the source integrated, prepare a controlled local reproduction proposal from the [intake findings](docs/source-intake-2026-10-29.md), and continue the founder walkthrough and account/deployment handover. Installs, external access and service startup remain separately authorized. |
-| Main blocker | Source has arrived, but runtime reproduction, production configuration/access, ownership evidence and showcase observation remain missing. |
-| Most important recent discovery | The source is a Laravel/Vue application with billing, private uploads and queued image generation. Static review found useful safeguards, unavailable 3D workflows, and generation/queue failure risks; runtime behavior remains unverified. |
+| Next concrete action | Use the [verified localhost environment](README.md#local-development) for iterative changes and workflow testing; continue the founder walkthrough and account/deployment handover. Investigate the outstanding generation failure boundaries before connecting paid providers. |
+| Main blocker | Local fake-provider execution is available. Production configuration/access, ownership evidence, live-provider validation and the founder showcase walkthrough remain missing. |
+| Most important recent discovery | The local build, 270 PHP tests, 161 frontend tests and PHPStan pass. A browser upload completed through the database queue with a sample result. Real AI output, unavailable 3D workflows and generation/queue failure risks remain separate validation work. |
 
 ## Vision
 
@@ -33,10 +33,10 @@ Use these labels throughout: **Verified** — direct evidence; **Reported** — 
 | Verified | The initial local folder was empty and was not a Git repository. No product implementation was available to inspect. | Local directory inspection and Git status, October 29, 2026. |
 | Verified | Local documentation, shared memory, and one explicit project-review skill exist; Git is initialized on `main`, with no remote. | File inspection and Git status/remote checks, October 29, 2026; see [memory](MEMORY.md). M0's shared review and showcase evidence remain outstanding. |
 | Reported | The founder, an architect, developed an experimental showcase with AI-assisted tools and another developer's help. | Technical partner's bootstrap brief, October 29, 2026; walkthrough pending. |
-| Reported | The previous developer configured an environment that may be complex; there is no established project-owned GitHub repository. | Same brief; account and dependency inventory pending. |
+| Reported / Verified | The previous developer's environment still needs handover. The technical partner has identified a newly created GitHub destination; a read-only Git check succeeds and advertises no branches or tags. | User report and Git check, November 5, 2026; [CD-018](MEMORY.md#cd-018). Repository visibility and write access remain unverified; no local remote or push yet. |
 | Verified | The technical partner supplied a Git bundle on October 29. Its included history passes integrity checks: 71 commits across refs; main at `c0f2b8d`. It was inspected in isolation, then integrated at this repository root with its main ancestry and the existing governance history preserved. | [Source intake](docs/source-intake-2026-10-29.md); [CD-014](MEMORY.md#cd-014) and [CD-015](MEMORY.md#cd-015). Receipt/import does not verify ownership or account access. |
 | Unknown | Showcase behavior, completeness, quality, reliability, and real user value. | Observe a real task and retain permitted evidence. A showcase is not a production-ready MVP. |
-| Verified / Unknown | Static frontend/backend structure and configuration are inspected; running behavior, deployment environment, account ownership and actual costs remain Unknown. | [Source intake](docs/source-intake-2026-10-29.md) and [handover](docs/HANDOVER.md). Source documentation's production claims remain Reported. |
+| Verified / Unknown | Static structure and local SQLite/fake-provider behavior are inspected and exercised; live-provider behavior, deployment environment, account ownership and actual costs remain Unknown. | [Source intake](docs/source-intake-2026-10-29.md) and [handover](docs/HANDOVER.md). Source documentation's production claims remain Reported. |
 
 **Showcase record to complete:** access location or owner-held reference: Unknown; walkthrough date/observer: pending; intended task and input: Unknown; observed steps and output: Unknown; failure/recovery behavior: Unknown; manual assistance and repeatability: Unknown. Record only observed behavior as Verified; keep explanations of hidden implementation Reported or Unknown. Keep private access links and user data outside Git.
 
@@ -120,19 +120,19 @@ Begin with a founder walkthrough and a small number of relevant conversations. K
 
 ## Technical Readiness
 
-Static source structure was inspected on October 29, 2026 at bundle main `c0f2b8d`; see the [source intake report](docs/source-intake-2026-10-29.md). This verifies code/configuration presence, not execution or production readiness. Runtime validation and operational ownership remain open. The [handover checklist](docs/HANDOVER.md) carries collection detail.
+Static source structure was inspected on October 29, 2026 at bundle main `c0f2b8d`; see the [source intake report](docs/source-intake-2026-10-29.md). This verifies code/configuration presence, not execution or production readiness. Local SQLite/fake-provider execution was subsequently verified on October 29; see [CD-016](MEMORY.md#cd-016) and the [restart instructions](README.md#local-development). Live integrations and operational ownership remain open. The [handover checklist](docs/HANDOVER.md) carries collection detail.
 
 | Area | Status | Evidence needed |
 | --- | --- | --- |
-| Frontend | Verified source; runtime Unknown | Vue/TypeScript/Inertia workspace and Blade marketing. Build, browser behavior, accessibility and hosting need verification. |
-| Backend | Verified source; runtime Unknown | Laravel 12 monolith, controllers/services, auth, billing, queues and migrations. Reproduce critical flows and failure boundaries. |
+| Frontend | Verified local build and browser smoke check | TypeScript/Vite build, 161 tests and HMR pass. Broader browser/accessibility coverage and hosting remain open. |
+| Backend | Verified local runtime and test baseline | SQLite migrations, 270 PHP tests and PHPStan pass; browser sign-in and queued sample generation succeed. Reproduce remaining failure boundaries and live integration behavior. |
 | AI inference and providers | Verified adapters; live behavior Unknown | Gemini/OpenAI/OpenRouter plus fake image providers. Real adapters accept raster inputs; configured 3D formats are rejected. Validate contracts, output quality, quotas, retention and cost. |
-| Data and storage | Verified configuration; operations Unknown | SQLite local defaults; PostgreSQL/Redis container configuration; private project storage and optional R2. Verify deployed access, deletion races, backups and restores. |
+| Data and storage | Verified local SQLite and private files; production operations Unknown | Browser upload persisted source/output; queue drained with no failures. PostgreSQL/Redis, R2, deletion races, backups and restores remain unverified. |
 | Infrastructure | Partially described; ownership Unknown | Docker and service configuration exist; production accounts, DNS, permissions, billing owners and external dependencies need handover. |
 | Deployment | Incomplete handover | Inherited workflows are retained as inactive templates under `.github/workflows-disabled/`. They reference a self-hosted runner and an absent server-side deploy script; production Compose/Nginx are described as external. Configure new CI and verify deployment/rollback before enabling. |
 | Security | Preliminary offline checks passed; assessment incomplete | No matching credential tokens or unsafe Git/archive paths detected. Review dependency advisories, credentials, access boundaries, asset rights and actual deployment. |
 | Observability | Verified integration code; operation Unknown | Sentry/PostHog/error reporting code exists. Provider request/usage metadata is not persisted by the reviewed generation job; responder and live diagnostic access are unknown. |
-| Testing | Suites present; not executed | PHP, Vitest, Playwright, concurrency, queue and backup checks supplied. No PHP/Composer on the inspected PATH; no dependencies installed. Runtime results and coverage remain unverified. |
+| Testing | Local PHP/Vitest/build/static checks passed | See [CD-016](MEMORY.md#cd-016). Full Playwright, PostgreSQL concurrency, Redis roundtrip and backup checks remain unexecuted; local smoke testing does not establish production readiness. |
 | Operational costs | Unknown | Credit accounting exists, but repeated paid generation after storage failure is possible. Measure attempts, accepted results, retries, infrastructure and maintenance; establish a spend boundary. |
 
 ### Infrastructure evolution
@@ -209,6 +209,7 @@ No commitments or deadlines: other design/construction object categories; experi
 
 | Date | Decision / status | Memory reference |
 | --- | --- | --- |
+| October 29, 2026 | Localhost development requested and reproduced with SQLite, fake generation and hot reload. Locked installs, build, tests and browser smoke checks passed; live services and publication remain separate. | [CD-016](MEMORY.md#cd-016) |
 | October 29, 2026 | The technical partner authorized root integration, preservation of both histories and all supplied refs locally, retention of governance, and inactive inherited workflows. GitHub publication remains a separate, unrequested action. | [CD-015](MEMORY.md#cd-015) |
 | October 29, 2026 | Source bundle received and reviewed offline. Controlled local import is recommended; runtime, deployment and publication are not cleared. Milestone windows and strategic choices remain unchanged. | [CD-014](MEMORY.md#cd-014) |
 | October 29, 2026 | Use executive summaries and senior operational manager judgment for management topics; principal software lead judgment for technical topics — authorized by the technical partner. | [CD-010](MEMORY.md#cd-010) |

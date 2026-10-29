@@ -16,18 +16,24 @@ Use one row per actual component/account as it becomes known; these rows are dis
 
 | Area | Access / verification status | Owner / authorizer | Evidence reference and date | Gap / next action |
 | --- | --- | --- | --- | --- |
-| Source and history | Verified receipt and static inspection; runtime not reproduced | Technical partner supplied the bundle; upstream custodian/rights remain Unknown | [October 29 source intake](source-intake-2026-10-29.md), main `c0f2b8d`, 71 commits across included refs | Root integration is complete; confirm provenance/rights and prepare controlled reproduction. See [CD-015](../MEMORY.md#cd-015). |
+| Source and history | Verified receipt, static inspection and local fake-provider runtime | Technical partner supplied the bundle; upstream custodian/rights remain Unknown | [October 29 source intake](source-intake-2026-10-29.md), main `c0f2b8d`, 71 commits across included refs | Root integration and local reproduction are complete; confirm provenance/rights and collect live-service evidence. See [CD-015](../MEMORY.md#cd-015) and [CD-016](../MEMORY.md#cd-016). |
 | Showcase | Reported to exist; observation pending | Unknown; ask founder | Same brief; no walkthrough yet | Arrange permitted observation and clarify what can be recorded. |
 | Services and deployment | Source configuration inspected; live setup/access Unknown | Unknown | Deployment workflow depends on an absent server-side script; source docs describe separate production Compose/Nginx | Obtain sanitized server configuration, runner/protection details, rollback instructions and account/billing owners. |
 | Data and assets | Unknown | Unknown | None | Establish provenance, access rules, and permitted samples. |
 
-Current next contact: **Unknown — founder and technical partner to agree**. Current accessible scenario: **Scenario B — Partial Access**: the supplied application source/history is available for inspection, while runtime reproduction and production/account configuration remain missing. A description relayed by the founder is Reported until observed or otherwise directly supported.
+Current next contact: **Unknown — founder and technical partner to agree**. Current accessible scenario: **Scenario B — Partial Access**: the supplied application source/history is available for inspection, and a local SQLite/fake-provider environment runs, while production/account configuration and live-provider evidence remain missing. A description relayed by the founder is Reported until observed or otherwise directly supported.
 
 ### Source intake record — October 29, 2026
 
-Git integrity, all-history path checks, bounded credential/archive checks and non-executing syntax checks passed. The [report](source-intake-2026-10-29.md) records the bundle hash, coverage, source structure and risks. No application code, install, container, migration or workflow was run. The subsequent authorized root import preserves original source history and this repository's operating rules. Inherited workflows are inactive templates under `.github/workflows-disabled/`; enabling them requires a reviewed CI/deployment configuration. PHP/Composer setup and dependency downloads require a separately approved execution plan.
+Git integrity, all-history path checks, bounded credential/archive checks and non-executing syntax checks passed. The [report](source-intake-2026-10-29.md) records the bundle hash, coverage, source structure and risks. No application code, install, container, migration or workflow was run. The subsequent authorized root import preserves original source history and this repository's operating rules. Inherited workflows are inactive templates under `.github/workflows-disabled/`; enabling them requires a reviewed CI/deployment configuration. The later scoped localhost request and installation approvals enabled the reproduction below; the intake itself authorized no execution.
 
 The source contains 3D/CAD workflow claims beyond the real image providers' accepted formats, retry/cancellation risks, and inherited subscription policy. Keep these visible during the walkthrough; source presence does not demonstrate functionality, rights, accepted product scope, or production control.
+
+### Local reproduction record — October 29, 2026
+
+**Verified:** The technical partner requested localhost development for testing ongoing changes. Scoped tool approvals covered Homebrew PHP, Composer/npm dependency downloads and loopback listeners. Native PHP 8.4.26, Composer 2.11.0, Node 24.15.0 and npm 11.12.1 run the existing lockfiles with SQLite, a database queue, log mail and the fake provider. Local data and configuration are ignored. The [README](../README.md#local-development) records setup, startup, shutdown, PHP upload-limit configuration, commands and validation limits.
+
+The build, 270 PHP tests, 161 Vitest tests and PHPStan passed. A browser smoke run exercised sign-in, a bundled photo upload, database-queue completion and a saved sample output; credits moved from 12 to 8, with zero pending/failed jobs. Both listeners bind to loopback, and HMR reacted to a file change. No real inference, production service, remote publication or deployment was tested. Full Playwright, PostgreSQL/Redis, backup/restore and a second-developer reproduction remain outstanding. See [CD-016](../MEMORY.md#cd-016).
 
 ## Ownership and permissions
 
@@ -67,8 +73,8 @@ The source contains 3D/CAD workflow claims beyond the real image providers' acce
 ## Reproducibility
 
 - [ ] Record dependency and tooling versions, supported local environment, acquisition sources, and all required assets/configuration.
-- [ ] Recover local setup instructions and environment-variable names with explanations and secret-free examples; mark external dependencies that prevent standalone operation.
-- [ ] Record actual build, test, and run commands, expected results, known failures, and any migrations or seed data. Distinguish safe local commands from production or billable operations.
+- [x] Recover local setup instructions and environment-variable names with explanations and secret-free examples; mark external dependencies that prevent standalone operation. Verified for the SQLite/fake-provider profile, October 29; see README. Live integration configuration remains open.
+- [x] Record actual build, test, and run commands, expected results, known failures, and any migrations or seed data. Verified for the local profile, October 29; see the reproduction record and README. Production and billable operations remain separate.
 - [ ] Identify undocumented manual steps and operator-only knowledge. Ask another authorized developer to repeat the setup in an isolated environment; record date, version/commit, result, and remaining gaps.
 
 ## Security

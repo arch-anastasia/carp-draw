@@ -1,6 +1,6 @@
 # CarpDraw source intake — October 29, 2026
 
-This report records the pre-import inspection. The subsequent authorized root integration is recorded in [CD-015](../MEMORY.md#cd-015); its validation does not change the runtime limitations below.
+This report records the pre-import inspection. The subsequent authorized root integration is recorded in [CD-015](../MEMORY.md#cd-015); its validation did not change the runtime limitations at intake. The later authorized local reproduction and its bounded runtime evidence are recorded in [CD-016](../MEMORY.md#cd-016); this report remains the historical pre-import baseline.
 
 ## Assessment
 

@@ -2,7 +2,7 @@
 
 CarpDraw is an early exploration of AI-assisted creation and work with digital models for furniture, architectural components, parts, and fittings. The intended users, useful workflows, and output requirements are still being discovered.
 
-A working showcase has been reported. On October 29, 2026, a supplied source bundle was inspected offline: it contains a Laravel/Vue application with queued image generation, billing and operational tooling. See the [source intake report](docs/source-intake-2026-10-29.md) for verified findings and gaps. The application is now integrated at this repository root with both the original source history and our project records preserved. Application execution, showcase behavior and production readiness remain unverified.
+A working showcase has been reported. On October 29, 2026, a supplied source bundle was inspected offline: it contains a Laravel/Vue application with queued image generation, billing and operational tooling. See the [source intake report](docs/source-intake-2026-10-29.md) for verified findings and gaps. The application is now integrated at this repository root with both the original source history and our project records preserved. Local execution with SQLite and the fake drawing provider is verified as of October 29, 2026; see [local development](#local-development). The original showcase, live integrations and production readiness remain unverified.
 
 ## Start here
 
@@ -28,7 +28,7 @@ Edit the Markdown directly in the app's file editor or your preferred text edito
 
 After manual edits, ask: “Review my PROJECT.md changes, synchronize the shared memory, and commit them in English.” Include the reason for consequential changes so the journal can preserve it. Codex checks the diff, records the evidence and decision authority, and asks only where a consequential ambiguity remains. You can also ask it to propose an edit first.
 
-New work starts from PROJECT.md and MEMORY.md. Codex saves durable decisions, constraints, and material findings, then batches memory with related substantive work in local commits. Routine answers and unaccepted daily suggestions do not need a journal entry or commit. Eligible memory saves need no separate confirmation; a memory-only commit can wait if it would trigger sandbox approval. Personal chats are supplementary. Collaborators share recorded context when they use the same repository revision. No remote synchronization exists yet. The application commands below come from the inspected source; dependency installation, builds and runtime behavior have not yet been verified locally.
+New work starts from PROJECT.md and MEMORY.md. Codex saves durable decisions, constraints, and material findings, then batches memory with related substantive work in local commits. Routine answers and unaccepted daily suggestions do not need a journal entry or commit. Eligible memory saves need no separate confirmation; a memory-only commit can wait if it would trigger sandbox approval. Personal chats are supplementary. Collaborators share recorded context when they use the same repository revision. No remote synchronization exists yet. The local setup below has been exercised with the locked dependencies; [CD-016](MEMORY.md#cd-016) records the results and limits.
 
 Routine reversible repository work is authorized within the requested task. Outside-repo access, internet use, and sensitive or externally visible actions require scoped approval unless already authorized. Codex's actual sandbox can still protect Git and agent settings; repository instructions do not override it. The [proposed permission configuration](docs/codex-permissions.proposed.toml) is available to review but is not installed. Creating a remote or pushing requires explicit authorization.
 
@@ -59,22 +59,65 @@ The following technical notes are adapted from the received source. Commands des
   (`credit_transactions`, balance = SUM(amount)); uploads and generated sheets
   on a private disk
 
-## Documented local setup (not yet reproduced)
+## Local development
 
-Requires PHP/Composer, Node/npm and dependency downloads. `composer setup` generates a local key and runs migrations against the configured database; inspect `.env` and isolate the database first.
+Verified on October 29, 2026: macOS arm64, PHP **8.4.26**, Composer **2.11.0**, Node **24.15.0**, npm **11.12.1**, and the existing lockfiles. Use PHP 8.4 for this lockfile: some locked packages require it even though the root manifest says PHP 8.2+. No application dependency versions were changed. The current checkout already has dependencies, an ignored `.env`, an application key and a migrated SQLite database.
+
+### Start or restart this checkout
+
+Run from the repository root. On this Mac, PHP was installed with Homebrew and Composer is an ignored local PHAR at `private/tools/composer.phar`. In each PHP terminal, set these **session-only** variables:
 
 ```bash
-composer setup      # install, .env, key, migrate (sqlite), npm install + build
-composer dev        # serve + queue + logs + vite, concurrently
+export PATH="/opt/homebrew/opt/php@8.4/bin:$PATH"
+export PHP_INI_SCAN_DIR=":$PWD/docker/php"
 ```
 
-Open http://localhost:8000. Sign in with any email — with `MAIL_MAILER=log`
-the secure sign-in link lands in `storage/logs/laravel.log`.
+The leading colon preserves PHP's default additional configuration directory. The repository's existing `docker/php/php.ini` supplies 64 MB upload/post limits and 256 MB memory, avoiding Homebrew PHP's 2 MB upload default. No shell profile or system PHP configuration needs editing.
 
-The default `DRAWING_PROVIDER=fake` runs the whole pipeline (upload → credits →
-queued job → result) with bundled sample sheets, so nothing costs money. Switch
-to `gemini` or `openai` with a real API key for live generation. The registry
-refuses stand-in providers in production.
+Keep these commands running in three terminals:
+
+```bash
+# Terminal 1 — application, bound only to loopback
+php artisan serve --host=127.0.0.1 --port=8000 --tries=1 --no-reload
+
+# Terminal 2 — database queue, loading current application code for every job
+php artisan queue:listen --sleep=1 --tries=3 --timeout=80
+
+# Terminal 3 — Vite, loopback-only on port 5173
+npm run dev
+```
+
+Open [CarpDraw](http://localhost:8000). Vite applies frontend changes automatically; ordinary PHP changes apply on the next request. Restart the PHP server and queue listener after changing `.env` or PHP configuration. `--no-reload` keeps the PHP configuration environment available to Artisan's child server; it does not disable Vite updates. Stop each process with **Ctrl+C**. Port conflicts fail explicitly; stop the previous instance instead of letting the app silently move to another port. Keep Vite's advertised host `localhost:5173` aligned with the existing local Content Security Policy.
+
+Use [Create account](http://localhost:8000/signup) to make a local account with an email and password. Local email goes to the ignored `storage/logs/laravel.log`; no email is delivered. The browser smoke check also leaves a synthetic local tester and one saved sample drawing in this checkout's disposable database.
+
+The development profile uses SQLite, database sessions/cache/queues, private local files, `DRAWING_PROVIDER=fake`, and `MAIL_MAILER=log`. Provider, Stripe, OAuth, telemetry and publishing credentials remain empty; backups, billing checks and PostHog remain disabled. Fake generation returns a **bundled sample**, not a drawing inferred from the uploaded object. Paid AI, real billing, OAuth, object storage and production behavior need separate configuration and validation.
+
+The explicit three-process setup uses installed tools only. The inherited `composer dev` helper invokes an undeclared `npx concurrently` package; it is not the verified startup path.
+
+### Prepare a fresh checkout
+
+Install PHP 8.4 with SQLite, GD, mbstring and the extensions required by Composer, Composer 2, and a Vite-compatible Node release (verified above). Acquire dependencies from the existing lockfiles. On this machine, substitute `php private/tools/composer.phar` for `composer`; that PHAR was obtained using the official Composer installer after verifying its SHA-384 checksum.
+
+```bash
+# Fresh checkout only; preserve an existing .env and application key.
+test -f .env || cp .env.example .env
+composer install --prefer-dist --no-interaction
+npm ci --no-audit --no-fund
+# Only generate a key when APP_KEY is empty.
+php artisan key:generate
+touch database/database.sqlite
+php artisan migrate --no-interaction
+npm run build
+```
+
+Before migrating, verify `.env` uses `APP_ENV=local`, `APP_URL=http://localhost:8000`, `DB_CONNECTION=sqlite`, the fake provider, log mail, and empty live credentials. Do not set a production `DB_URL` or database path. `.env`, SQLite data, uploads, logs, dependencies and compiled assets are ignored. Avoid `migrate:fresh` unless deliberately discarding local data. These scoped instructions do not authorize production or remote operations.
+
+### Verified checks and limits
+
+`npm run build` and TypeScript passed; all **161 Vitest tests** and **270 PHP tests (1,373 assertions)** passed; PHPStan reported no errors. Vite configuration lint and dirty-file Pint checks passed. Browser testing verified homepage rendering, sign-in, navigation, upload → database queue → sample output, private file existence, and credits changing from 12 to 8. No failed jobs or browser console errors were observed, and a source-file touch triggered a Vite HMR update. Both listening ports were verified on `127.0.0.1` only.
+
+The build emits three font-resolution warnings; the referenced fonts exist under `public/fonts` and loaded successfully in the browser. Dependency installation reported upstream deprecation notices; no dependency advisory audit was performed. The full Playwright suite, PostgreSQL/Redis checks, backup rehearsal, paid providers and deployment remain unexecuted. This is a development environment, not production-readiness evidence.
 
 ## Supplied Docker development setup
 
