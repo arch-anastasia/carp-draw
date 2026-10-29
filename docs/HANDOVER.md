@@ -1,6 +1,6 @@
 # CarpDraw — Ownership and Technical Handover
 
-Baseline: October 29, 2026. The showcase and development history are reported in the [project map](../PROJECT.md); source, services, and ownership have not been independently inspected. Use this checklist to recover understanding and legitimate control, even when access is limited.
+Baseline: October 29, 2026. A user-supplied source bundle has been inspected offline; see the [source intake report](source-intake-2026-10-29.md). The showcase, actual services and ownership remain unverified. Use this checklist to recover understanding and legitimate control, even when access is limited.
 
 ## How to use this checklist
 
@@ -16,12 +16,18 @@ Use one row per actual component/account as it becomes known; these rows are dis
 
 | Area | Access / verification status | Owner / authorizer | Evidence reference and date | Gap / next action |
 | --- | --- | --- | --- | --- |
-| Source and history | Reported unavailable to technical partner | Unknown | Bootstrap brief, October 29, 2026; no source receipt | Agree rights, custodian, and authorized delivery scope. |
+| Source and history | Verified receipt and static inspection; runtime not reproduced | Technical partner supplied the bundle; upstream custodian/rights remain Unknown | [October 29 source intake](source-intake-2026-10-29.md), main `c0f2b8d`, 71 commits across included refs | Confirm provenance/rights; prepare controlled reproduction and deliberate integration with this workspace. |
 | Showcase | Reported to exist; observation pending | Unknown; ask founder | Same brief; no walkthrough yet | Arrange permitted observation and clarify what can be recorded. |
-| Services and deployment | Unknown | Unknown | None | Ask custodian for inventory and account/billing owners. |
+| Services and deployment | Source configuration inspected; live setup/access Unknown | Unknown | Deployment workflow depends on an absent server-side script; source docs describe separate production Compose/Nginx | Obtain sanitized server configuration, runner/protection details, rollback instructions and account/billing owners. |
 | Data and assets | Unknown | Unknown | None | Establish provenance, access rules, and permitted samples. |
 
-Current next contact: **Unknown — founder and technical partner to agree**. Current accessible scenario: **Unknown**; plan without source access until a legitimate handover changes this. A description relayed by the founder is Reported until observed or otherwise directly supported.
+Current next contact: **Unknown — founder and technical partner to agree**. Current accessible scenario: **Scenario B — Partial Access**: the supplied application source/history is available for inspection, while runtime reproduction and production/account configuration remain missing. A description relayed by the founder is Reported until observed or otherwise directly supported.
+
+### Source intake record — October 29, 2026
+
+Git integrity, all-history path checks, bounded credential/archive checks and non-executing syntax checks passed. The [report](source-intake-2026-10-29.md) records the bundle hash, coverage, source structure and risks. No application code, install, container, migration or workflow was run. Retain original source history; do not enable inherited deployment workflows or copy source instructions over this repository's operating rules during import. PHP/Composer setup and dependency downloads require a separately approved execution plan.
+
+The source contains 3D/CAD workflow claims beyond the real image providers' accepted formats, retry/cancellation risks, and inherited subscription policy. Keep these visible during the walkthrough; source presence does not demonstrate functionality, rights, accepted product scope, or production control.
 
 ## Ownership and permissions
 

@@ -2,13 +2,14 @@
 
 CarpDraw is an early exploration of AI-assisted creation and work with digital models for furniture, architectural components, parts, and fittings. The intended users, useful workflows, and output requirements are still being discovered.
 
-A working showcase has been reported, but we have not inspected it or its source code. This workspace establishes the project's local documentation and operating foundations. It does not establish product or production readiness; the frontend, backend, and deployment architecture remain unknown.
+A working showcase has been reported. On October 29, 2026, a supplied source bundle was inspected offline: it contains a Laravel/Vue application with queued image generation, billing and operational tooling. See the [source intake report](docs/source-intake-2026-10-29.md) for verified findings and gaps. The code has not been merged into this documentation workspace or run here; showcase behavior and production readiness remain unverified.
 
 ## Start here
 
 - [Project map](PROJECT.md): current focus, roadmap, open questions, sustainability, and collaboration.
 - [Shared memory](MEMORY.md): dated decisions, findings, evidence, rationale, and unresolved follow-up.
 - [Handover checklist](docs/HANDOVER.md): ownership, access, and technical discovery, including progress without source access.
+- [Source intake report](docs/source-intake-2026-10-29.md): bundle integrity, import recommendation, preliminary architecture and operational risks.
 - [Codex instructions](AGENTS.md): how to work in this repository.
 
 ## Working with Codex
@@ -27,6 +28,6 @@ Edit the Markdown directly in the app's file editor or your preferred text edito
 
 After manual edits, ask: “Review my PROJECT.md changes, synchronize the shared memory, and commit them in English.” Include the reason for consequential changes so the journal can preserve it. Codex checks the diff, records the evidence and decision authority, and asks only where a consequential ambiguity remains. You can also ask it to propose an edit first.
 
-New work starts from PROJECT.md and MEMORY.md. Codex saves durable decisions, constraints, and material findings, then batches memory with related substantive work in local commits. Routine answers and unaccepted daily suggestions do not need a journal entry or commit. Eligible memory saves need no separate confirmation; a memory-only commit can wait if it would trigger sandbox approval. Personal chats are supplementary. Collaborators share recorded context when they use the same repository revision. No remote synchronization exists yet, and no product build or test commands are known.
+New work starts from PROJECT.md and MEMORY.md. Codex saves durable decisions, constraints, and material findings, then batches memory with related substantive work in local commits. Routine answers and unaccepted daily suggestions do not need a journal entry or commit. Eligible memory saves need no separate confirmation; a memory-only commit can wait if it would trigger sandbox approval. Personal chats are supplementary. Collaborators share recorded context when they use the same repository revision. No remote synchronization exists yet. Build/test commands exist in the received source, but installation and execution have not been verified or authorized by this intake review.
 
 Routine reversible repository work is authorized within the requested task. Outside-repo access, internet use, and sensitive or externally visible actions require scoped approval unless already authorized. Codex's actual sandbox can still protect Git and agent settings; repository instructions do not override it. The [proposed permission configuration](docs/codex-permissions.proposed.toml) is available to review but is not installed. Creating a remote or pushing requires explicit authorization.
