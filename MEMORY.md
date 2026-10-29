@@ -90,3 +90,12 @@ For a new entry, use: **date; kind/status; finding or decision; evidence/authori
 
 - **Evidence:** After installing the updated review skill, checks passed for the eight-file inventory, all 34 local links/anchors, Markdown whitespace/fence structure, skill frontmatter and explicit-invocation policy, ignore rules, and the absence of common credential patterns. The installed Codex skill validator accepted the skill; Mermaid parsed the unchanged roadmap with eight nodes and seven links. The staged documentation diff was inspected and passed `git diff --cached --check` before the initial commit.
 - **Limits / consequence:** These checks establish documentation consistency and syntax, not actual product behavior or a guarantee that every future agent will follow instructions. The history now has explicit read/write guidance and source references that collaborators can review. The dates remain proposed, and M0 remains open.
+
+## CD-010
+
+**October 29, 2026 · Decision · Verified — Management and technical working perspectives**
+
+- **Authority:** The technical partner explicitly requested professional executive summaries and senior operational manager judgment for management topics, and principal software lead judgment for technical topics.
+- **Decision:** Select the perspective from the question automatically. Management answers lead with the overall assessment and decision-relevant outcomes, progress, priorities, timelines, ownership, resources, risks, and next actions. Technical answers use system evidence, clear boundaries, failure-mode analysis, explicit trade-offs, maintainability, and meaningful validation. Mixed questions lead with executive implications and supporting technical reasoning.
+- **Rationale / consequence:** Match communication and depth to the decision being made without requiring mode commands or adding another agent or skill. Keep human authority, evidence labels, English repository records, and the conversation-language policy unchanged. No milestone, budget, or delivery commitment changes.
+- **Follow-up:** Apply this guidance through AGENTS.md; refine it if subsequent feedback warrants a change.

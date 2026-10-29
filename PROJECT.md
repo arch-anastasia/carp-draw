@@ -205,6 +205,7 @@ No commitments or deadlines: other design/construction object categories; experi
 
 | Date | Decision / status | Memory reference |
 | --- | --- | --- |
+| October 29, 2026 | Use executive summaries and senior operational manager judgment for management topics; principal software lead judgment for technical topics — authorized by the technical partner. | [CD-010](MEMORY.md#cd-010) |
 | October 29, 2026 | Maintain repository memory and local English commits — authorized by the technical partner. | [CD-006](MEMORY.md#cd-006) |
 | October 29, 2026 | Accept multilingual prompts and match live replies; retain English repository records — authorized by the technical partner. | [CD-007](MEMORY.md#cd-007) |
 | October 29, 2026 | Keep the workspace minimal, architecture undecided, and remote operations explicitly authorized — bootstrap constraints. | [CD-003](MEMORY.md#cd-003) |
