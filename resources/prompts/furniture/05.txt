@@ -1,0 +1,90 @@
+Create an accurate, editable 3D model of the furniture item using the attached photographs, line drawings, and specified overall dimensions.
+This stage covers the 3D model and its interactive presentation only. Do not create orthographic views, drawing sheets, dimension annotations, or PNG/SVG technical drawings. These will be requested in a separate step.
+SOURCE DATA
+Furniture type: {{FURNITURE TYPE}}
+Overall width: {{WIDTH}} mm
+Overall depth: {{DEPTH}} mm
+Overall height: {{HEIGHT}} mm
+Additional known dimensions:
+{{DIMENSION LIST OR “NONE”}}
+GEOMETRY REQUIREMENTS
+Identify the furniture object and separate it from the background, room setting, decorations, and accessories.
+Include only the furniture and its permanent components.
+Build the model at a true 1:1 scale. Use millimetres for modeling parameters.
+Use the following coordinate system:
+X — width;
+Y — depth;
+Z — height.
+Treat the explicitly specified overall dimensions as authoritative.
+Preserve the source furniture’s silhouette, component proportions, arrangement, thicknesses, rounded edges, gaps, and joints.
+Reproduce all visible components that belong to the furniture, including the carcass, panels, fronts, doors, drawers, shelves, niches, partitions, plinth, frames, guides, grooves, and integrated lighting where present.
+Do not add exterior handles, hardware, compartments, or decorative elements that are not supported by the source images.
+Use the photographs and line drawings to estimate component proportions. Do not present estimates from perspective images as exact measurements.
+Create every structural component as a separate, clearly named object organized into logical groups.
+Create actual three-dimensional geometry with real thicknesses. Do not substitute photographs on flat planes for structural geometry.
+Do not distort the model to match a single camera viewpoint.
+INTERIOR CONSTRUCTION
+Create a complete, plausible interior appropriate to the furniture type.
+For cabinet furniture, include the necessary side panels, top, bottom, back panel, and internal supports.
+Each drawer must contain:
+a separate drawer front;
+two side walls;
+a front wall;
+a rear wall;
+a bottom.
+Where hidden construction is necessary to complete the model, independently choose the simplest reasonable solution. Preserve the visible exterior and specified overall dimensions.
+Use sensible thicknesses, clearances, and component connections. Document all unavoidable assumptions separately.
+Do not stop solely because hidden dimensions are unknown. Do not claim that assumed internal dimensions were accurately recovered from the photographs.
+Avoid unnecessary complex hardware and unsupported mechanisms.
+MOVABLE COMPONENTS
+Make drawers and doors movable where present.
+All components of a drawer must move together. Doors must rotate around the appropriate hinge axis.
+Provide functional clearances and check for unintended intersections in the closed position and during the demonstrated opening movement.
+VISUAL STYLE
+Use a clean white technical line-drawing style:
+background: pure white #FFFFFF;
+surfaces: white, without textures or gradients;
+visible edges: solid dark lines #111111;
+hidden edges: light-grey dashed lines #888888;
+visible lines must be thin and consistently weighted;
+hidden lines must be lighter and thinner than visible lines;
+shadows disabled by default;
+lighting must not produce tonal shading on the white surfaces.
+For the interactive viewer:
+visible-line width: 0.8 px;
+hidden-line width: 0.6 px;
+hidden-line dash pattern: 6/5 px;
+hidden-edge display enabled by default;
+shadows disabled by default;
+separate controls for hidden edges and shadows;
+rotation and zoom controls;
+controls for opening drawers or doors where present.
+Determine visible and hidden edges from the actual geometry and current camera position. Do not display triangulation lines across flat surfaces.
+EXPORTS
+Provide:
+A standalone interactive HTML preview of the actual model.
+A GLB model with separately named components and materials.
+An OBJ and MTL pair.
+An editable parametric model, such as OpenSCAD or a Blender model accompanied by a reproducible construction script and parameter file.
+A JSON manifest containing the overall dimensions, component list, units, and documented assumptions.
+A ZIP archive containing all final files.
+The full technical line style, including camera-dependent hidden edges, must work in the interactive HTML viewer. If an exchange format cannot preserve a display feature, retain the correct geometry and document that limitation.
+Do not export orthographic views, dimensioned drawings, drawing sheets, or PNG/SVG technical drawings at this stage.
+FINAL VERIFICATION
+Before delivery, verify:
+the overall bounding dimensions in the closed position;
+true 1:1 physical scale and correct units;
+correspondence with the supplied photographs and line drawings;
+preservation of the exterior geometry and component arrangement;
+real component thicknesses and valid solid geometry;
+absence of unintended component intersections;
+correct movement of drawers and doors;
+correct distinction between visible and hidden edges;
+consistent line weights and hidden-line dash pattern;
+white surfaces without textures or tonal shading;
+hidden edges enabled and shadows disabled by default;
+successful reopening of the exported model with its scale and component structure preserved;
+correct operation of the interactive viewer.
+Keep intermediate images and diagnostic comparisons internal.
+After completing the work, show the interactive 3D preview and provide links to the HTML, GLB, OBJ/MTL, editable parametric model, and complete ZIP archive.
+Perform the modeling and provide the completed files. A description, an unexecuted script, or a static image alone is not sufficient.

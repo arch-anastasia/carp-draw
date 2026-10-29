@@ -10,7 +10,7 @@ This is a living map: keep the current focus small, replace uncertainty with evi
 | --- | --- |
 | Active milestone | **M0 — Foundations**, target November 6, 2026; in progress. |
 | Primary outcome | A shared, evidence-labelled starting point that a new collaborator can understand without reconstructing private conversations. |
-| Next concrete action | Review the [source intake findings](docs/source-intake-2026-10-29.md), prepare a controlled local reproduction proposal, and continue the founder walkthrough and account/deployment handover. Installs, external access and service startup remain separately authorized. |
+| Next concrete action | With the source integrated, prepare a controlled local reproduction proposal from the [intake findings](docs/source-intake-2026-10-29.md), and continue the founder walkthrough and account/deployment handover. Installs, external access and service startup remain separately authorized. |
 | Main blocker | Source has arrived, but runtime reproduction, production configuration/access, ownership evidence and showcase observation remain missing. |
 | Most important recent discovery | The source is a Laravel/Vue application with billing, private uploads and queued image generation. Static review found useful safeguards, unavailable 3D workflows, and generation/queue failure risks; runtime behavior remains unverified. |
 
@@ -34,7 +34,7 @@ Use these labels throughout: **Verified** — direct evidence; **Reported** — 
 | Verified | Local documentation, shared memory, and one explicit project-review skill exist; Git is initialized on `main`, with no remote. | File inspection and Git status/remote checks, October 29, 2026; see [memory](MEMORY.md). M0's shared review and showcase evidence remain outstanding. |
 | Reported | The founder, an architect, developed an experimental showcase with AI-assisted tools and another developer's help. | Technical partner's bootstrap brief, October 29, 2026; walkthrough pending. |
 | Reported | The previous developer configured an environment that may be complex; there is no established project-owned GitHub repository. | Same brief; account and dependency inventory pending. |
-| Verified | The technical partner supplied a Git bundle on October 29. Its included history passes integrity checks: 71 commits across refs; main at `c0f2b8d`. It was inspected in an isolated temporary repository, not merged into this workspace. | [Source intake](docs/source-intake-2026-10-29.md); [CD-014](MEMORY.md#cd-014). Receipt does not verify ownership or account access. |
+| Verified | The technical partner supplied a Git bundle on October 29. Its included history passes integrity checks: 71 commits across refs; main at `c0f2b8d`. It was inspected in isolation, then integrated at this repository root with its main ancestry and the existing governance history preserved. | [Source intake](docs/source-intake-2026-10-29.md); [CD-014](MEMORY.md#cd-014) and [CD-015](MEMORY.md#cd-015). Receipt/import does not verify ownership or account access. |
 | Unknown | Showcase behavior, completeness, quality, reliability, and real user value. | Observe a real task and retain permitted evidence. A showcase is not a production-ready MVP. |
 | Verified / Unknown | Static frontend/backend structure and configuration are inspected; running behavior, deployment environment, account ownership and actual costs remain Unknown. | [Source intake](docs/source-intake-2026-10-29.md) and [handover](docs/HANDOVER.md). Source documentation's production claims remain Reported. |
 
@@ -129,7 +129,7 @@ Static source structure was inspected on October 29, 2026 at bundle main `c0f2b8
 | AI inference and providers | Verified adapters; live behavior Unknown | Gemini/OpenAI/OpenRouter plus fake image providers. Real adapters accept raster inputs; configured 3D formats are rejected. Validate contracts, output quality, quotas, retention and cost. |
 | Data and storage | Verified configuration; operations Unknown | SQLite local defaults; PostgreSQL/Redis container configuration; private project storage and optional R2. Verify deployed access, deletion races, backups and restores. |
 | Infrastructure | Partially described; ownership Unknown | Docker and service configuration exist; production accounts, DNS, permissions, billing owners and external dependencies need handover. |
-| Deployment | Incomplete handover | Workflow references a self-hosted runner and an absent server-side deploy script. Production Compose/Nginx are described as external. Obtain configuration and verify rollback/protections. |
+| Deployment | Incomplete handover | Inherited workflows are retained as inactive templates under `.github/workflows-disabled/`. They reference a self-hosted runner and an absent server-side deploy script; production Compose/Nginx are described as external. Configure new CI and verify deployment/rollback before enabling. |
 | Security | Preliminary offline checks passed; assessment incomplete | No matching credential tokens or unsafe Git/archive paths detected. Review dependency advisories, credentials, access boundaries, asset rights and actual deployment. |
 | Observability | Verified integration code; operation Unknown | Sentry/PostHog/error reporting code exists. Provider request/usage metadata is not persisted by the reviewed generation job; responder and live diagnostic access are unknown. |
 | Testing | Suites present; not executed | PHP, Vitest, Playwright, concurrency, queue and backup checks supplied. No PHP/Composer on the inspected PATH; no dependencies installed. Runtime results and coverage remain unverified. |
@@ -209,6 +209,7 @@ No commitments or deadlines: other design/construction object categories; experi
 
 | Date | Decision / status | Memory reference |
 | --- | --- | --- |
+| October 29, 2026 | The technical partner authorized root integration, preservation of both histories and all supplied refs locally, retention of governance, and inactive inherited workflows. GitHub publication remains a separate, unrequested action. | [CD-015](MEMORY.md#cd-015) |
 | October 29, 2026 | Source bundle received and reviewed offline. Controlled local import is recommended; runtime, deployment and publication are not cleared. Milestone windows and strategic choices remain unchanged. | [CD-014](MEMORY.md#cd-014) |
 | October 29, 2026 | Use executive summaries and senior operational manager judgment for management topics; principal software lead judgment for technical topics — authorized by the technical partner. | [CD-010](MEMORY.md#cd-010) |
 | October 29, 2026 | Save durable shared memory selectively; batch local English commits with substantive work; require scoped approval for external access and sensitive actions. Keep the permission proposal inactive — authorized by the technical partner. | [CD-012](MEMORY.md#cd-012), [CD-013](MEMORY.md#cd-013); recording frequency supersedes [CD-006](MEMORY.md#cd-006) |

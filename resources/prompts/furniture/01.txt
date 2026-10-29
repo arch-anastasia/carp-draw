@@ -1,0 +1,98 @@
+Use case: geometry-faithful furniture extraction
+Output: one final image of the furniture on a pure white background
+INPUT ROLES
+Image 1 is the original source photograph and the sole source of truth for the furniture’s geometry, proportions, perspective, position, materials, texture, and lighting.
+Image 2 only indicates approximately which complete furniture assembly must be extracted.
+Use Image 2 only to identify the selected object.
+Never copy Image 2’s border, tint, crop, scale, proportions, resolution, or framing.
+PRIMARY REQUEST
+Extract the complete dark grey four-front TV cabinet assembly selected in Image 2.
+Return exactly one final image containing only the furniture on a uniform pure white background (#FFFFFF).
+This is an edit of Image 1, not a redesign or generation of a similar furniture product.
+GEOMETRY LOCK
+Preserve the furniture exactly as it appears in Image 1:
+same camera viewpoint;
+same projective perspective;
+same outer silhouette;
+same position and scale within the canvas;
+same width-to-height proportions;
+same module count;
+same structural spacing;
+same board thicknesses;
+same rails, supports, niches, ledges, panels, platforms, and ladder;
+same seams, joints, angles, edge positions, and real asymmetries.
+Every structural edge, corner, joint, and visible boundary must remain in its original pixel-relative position.
+Do not rotate, straighten, symmetrize, beautify, simplify, flatten, resize disproportionately, recenter, zoom, crop, extend, or reframe the furniture.
+Do not turn it into a similar or improved furniture design.
+VISIBLE-SURFACE LOCK
+Preserve all unobstructed furniture surfaces directly from Image 1.
+Do not regenerate visible cabinet panels unnecessarily.
+Preserve:
+original dark grey finish;
+original grain pattern and direction;
+original surface texture;
+original highlights and shadows on the furniture;
+original construction imperfections.
+REMOVE
+Remove completely:
+mattresses;
+pillows;
+blankets, sheets, and all bedding;
+lamps and removable lamp hardware;
+books and loose objects;
+walls, ceiling, floor, rug, adjacent cabinetry, and all room elements;
+selection borders, translucent fills, marks, labels, and overlays.
+Do not remove any furniture surface merely because an excluded object touches or covers it.
+OCCLUSION RECONSTRUCTION
+Reconstruct only furniture parts genuinely hidden behind the removed objects.
+Continue the nearest visible planes, edges, seams, surface finish, board thicknesses, and perspective lines.
+Keep all surrounding visible boundaries fixed in their original positions.
+Use the simplest reconstruction supported by the source image.
+Do not invent new boards, shelves, modules, drawers, doors, rails, openings, legs, handles, hardware, trim, or decoration.
+If a hidden detail is uncertain, extend the nearest visible surface conservatively without changing any visible geometry.
+CANVAS AND PROPORTION LOCK
+Preserve Image 1’s original landscape orientation and exact 1130:773 aspect ratio.
+Keep the furniture at the same relative position and scale within the canvas.
+If the output resolution differs from Image 1, scale the entire canvas uniformly. Never stretch, compress, crop, pad, or change the furniture’s proportions.
+BACKGROUND
+Use a completely uniform pure white background:
+RGB 255, 255, 255;
+no transparency;
+no checkerboard;
+no gradient;
+no room fragments;
+no floor line;
+no horizon;
+no cast shadow;
+no studio backdrop texture.
+OUTPUT CONTRACT
+Return exactly one final image only.
+The final image must contain:
+one complete furniture assembly;
+original source geometry and proportions;
+reconstructed hidden structural surfaces;
+a clean solid white background.
+Do not return alternatives, variants, previews, comparisons, explanatory panels, captions, text, labels, borders, or watermarks.
+Before returning the image, verify that the furniture silhouette, perspective, structural edges, position, and width-to-height proportions still match Image 1.
+STRICT DELIVERY RULE
+Perform all generation, editing, iteration, comparison, quality control, and verification internally.
+Do not display, attach, render, or return:
+intermediate generations;
+drafts or previews;
+rejected versions;
+before-and-after comparisons;
+diagnostic images;
+progress images;
+source or reference images.
+Do not expose any image while the work is still in progress.
+After completing all checks, select the single best final result and return exactly one final image only.
+The final response must contain:
+exactly one image;
+no explanatory text;
+no captions;
+no file links;
+no filenames;
+no headings;
+no comments;
+no additional attachments.
+Any intermediate image shown to the user counts as a failure of the output contract.

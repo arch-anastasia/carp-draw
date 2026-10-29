@@ -1,0 +1,96 @@
+{
+  "name": "White Technical Furniture",
+  "version": "1.0.0",
+  "units": {
+    "model": "millimetres",
+    "viewer": "css-pixels",
+    "export": "drawing-units"
+  },
+  "background": "#ffffff",
+  "surfaces": {
+    "color": "#ffffff",
+    "metallic": 0.0,
+    "roughness": 1.0,
+    "emissive": [0.1, 0.1, 0.1],
+    "shading": false
+  },
+  "viewer": {
+    "objectLine": {
+      "color": "#111111",
+      "width": 0.8,
+      "lineCap": "butt",
+      "lineJoin": "miter"
+    },
+    "hiddenLine": {
+      "enabled": true,
+      "color": "rgba(120,120,120,0.72)",
+      "width": 0.6,
+      "dash": [6, 5],
+      "depthTolerance": 0.0025
+    },
+    "dimension": {
+      "lineColor": "#777777",
+      "lineWidth": 0.55,
+      "textColor": "#333333",
+      "arrowColor": "#666666",
+      "font": "550 16px Segoe UI, Arial, sans-serif",
+      "fontSize": 16,
+      "arrowLength": 8.5,
+      "arrowWing": 4.0,
+      "textPaddingX": 6,
+      "textMaskHeight": 22
+    },
+    "shadows": {
+      "enabled": false,
+      "direction": "right-down",
+      "broad": {"offsetX": 19, "offsetY": 22, "blur": 13, "opacity": 0.17},
+      "contact": {"offsetX": 7, "offsetY": 9, "blur": 4, "opacity": 0.1}
+    },
+    "orthographicViews": {
+      "front": {"axis": "-Y", "up": "+Z"},
+      "top": {"axis": "+Z", "frontAt": "bottom"},
+      "left": {"axis": "-X", "up": "+Z"}
+    }
+  },
+  "export": {
+    "maxRasterDimension": 4000,
+    "objectLine": {"color": "#111111", "width": 1.8},
+    "hiddenLine": {"color": "#888888", "width": 1.05, "dash": [9, 7]},
+    "dimension": {
+      "lineColor": "#777777",
+      "lineWidth": 0.9,
+      "textColor": "#333333",
+      "arrowColor": "#555555",
+      "fontFamily": "Arial, sans-serif",
+      "fontWeight": 500,
+      "fontSize": 34,
+      "arrowLength": 13,
+      "arrowWing": 4.6,
+      "textMaskWidth": 88,
+      "textMaskHeight": 40
+    },
+    "svg": {"lineCap": "square", "lineJoin": "miter", "nonScalingStroke": true}
+  },
+  "dimensionLayout": {
+    "preferredSides": ["top", "left"],
+    "detailNearObject": true,
+    "overallFartherFromObject": true,
+    "groupByConstructionElement": true,
+    "deduplicateDimensions": true,
+    "axisAligned": true,
+    "outsideObjectContour": true,
+    "avoidIntersections": true,
+    "viewerOffsets": {
+      "firstDetail": 43,
+      "nextDetail": 91,
+      "overall": 147,
+      "verticalDetail": 53,
+      "verticalOverall": 116
+    },
+    "exportOffsets": {
+      "rowGap": 60,
+      "extensionOvershoot": 8,
+      "extensionGapBetweenRows": 8
+    }
+  }
+}

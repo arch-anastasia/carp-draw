@@ -1,0 +1,750 @@
+{
+  "model": "Tumba cabinet — corrected reconstruction v2",
+  "units": "millimetres",
+  "overallEnvelope": {
+    "width": 1800,
+    "depth": 600,
+    "height": 800
+  },
+  "documentedDimensions": {
+    "mainModuleWidth": 1150,
+    "rightModuleWidth": 650,
+    "panelThickness": 20,
+    "upperPanelHeight": 160,
+    "openNicheVisualBand": 315,
+    "upperDrawerFrontHeight": 146,
+    "lowerDrawerFrontHeight": 136,
+    "plinthHeight": 35,
+    "plinthSideInset": 60,
+    "shelfThickness": 10,
+    "topRecessOuterWidth": 320,
+    "topRecessOuterDepth": 540,
+    "topRecessInnerWidth": 280,
+    "topRecessInnerDepth": 500
+  },
+  "sources": [
+    "Изображение Codex 21 авг. 2026 г., 20_51_08.png",
+    "codex-clipboard-97a97fde-9ed8-4ac8-8627-7460992e7f1c.png",
+    "codex-clipboard-ff45843a-00ae-4c45-8c66-516144fddf12.png",
+    "tumba-orthographic-three-views-no-labels.svg"
+  ],
+  "geometryNotes": [
+    "The 1150/650 mm module split is derived from the corrected orthographic projection.",
+    "The upper recessed guide/light assembly runs along depth, not across the cavity.",
+    "No handles are modeled because none are visible in the supplied references."
+  ],
+  "assumptions": [
+    "Overall envelope and visible orthographic proportions are treated as authoritative.",
+    "Hidden drawer construction, hinges, runners, rear build-up, and manufacturing clearances are inferred or omitted.",
+    "The model is suitable for visualization and dimensional development; hidden construction requires fabrication drawings."
+  ],
+  "coordinateSystem": {
+    "sourceAndOpenSCAD": "X width, Y depth with front at 0, Z height",
+    "OBJAndGLB": "X width, Y height, Z depth with front at 0; units metres"
+  },
+  "parts": [
+    {
+      "name": "plinth",
+      "material": "BrownEdge",
+      "minimumMm": [
+        60,
+        50,
+        0
+      ],
+      "maximumMm": [
+        1740,
+        560,
+        35
+      ],
+      "sizeMm": [
+        1680,
+        510,
+        35
+      ]
+    },
+    {
+      "name": "left_side_panel",
+      "material": "BrownLeather",
+      "minimumMm": [
+        0,
+        0,
+        35
+      ],
+      "maximumMm": [
+        20,
+        600,
+        800
+      ],
+      "sizeMm": [
+        20,
+        600,
+        765
+      ]
+    },
+    {
+      "name": "right_side_panel",
+      "material": "BrownLeather",
+      "minimumMm": [
+        1780,
+        0,
+        35
+      ],
+      "maximumMm": [
+        1800,
+        600,
+        800
+      ],
+      "sizeMm": [
+        20,
+        600,
+        765
+      ]
+    },
+    {
+      "name": "rear_panel",
+      "material": "DarkInterior",
+      "minimumMm": [
+        20,
+        580,
+        35
+      ],
+      "maximumMm": [
+        1780,
+        600,
+        780
+      ],
+      "sizeMm": [
+        1760,
+        20,
+        745
+      ]
+    },
+    {
+      "name": "module_divider",
+      "material": "BrownEdge",
+      "minimumMm": [
+        1130,
+        20,
+        35
+      ],
+      "maximumMm": [
+        1150,
+        580,
+        780
+      ],
+      "sizeMm": [
+        20,
+        560,
+        745
+      ]
+    },
+    {
+      "name": "main_bottom_panel",
+      "material": "BrownEdge",
+      "minimumMm": [
+        20,
+        20,
+        35
+      ],
+      "maximumMm": [
+        1130,
+        580,
+        55
+      ],
+      "sizeMm": [
+        1110,
+        560,
+        20
+      ]
+    },
+    {
+      "name": "right_bottom_panel",
+      "material": "BrownEdge",
+      "minimumMm": [
+        1150,
+        20,
+        35
+      ],
+      "maximumMm": [
+        1780,
+        580,
+        55
+      ],
+      "sizeMm": [
+        630,
+        560,
+        20
+      ]
+    },
+    {
+      "name": "upper_front_panel",
+      "material": "BrownLeather",
+      "minimumMm": [
+        20,
+        0,
+        640
+      ],
+      "maximumMm": [
+        1130,
+        20,
+        800
+      ],
+      "sizeMm": [
+        1110,
+        20,
+        160
+      ]
+    },
+    {
+      "name": "upper_drawer_front",
+      "material": "BrownLeather",
+      "minimumMm": [
+        20,
+        0,
+        177
+      ],
+      "maximumMm": [
+        1130,
+        20,
+        323
+      ],
+      "sizeMm": [
+        1110,
+        20,
+        146
+      ]
+    },
+    {
+      "name": "lower_drawer_front",
+      "material": "BrownLeather",
+      "minimumMm": [
+        20,
+        0,
+        37
+      ],
+      "maximumMm": [
+        1130,
+        20,
+        173
+      ],
+      "sizeMm": [
+        1110,
+        20,
+        136
+      ]
+    },
+    {
+      "name": "right_full_height_door",
+      "material": "BrownLeather",
+      "minimumMm": [
+        1150,
+        0,
+        35
+      ],
+      "maximumMm": [
+        1780,
+        20,
+        800
+      ],
+      "sizeMm": [
+        630,
+        20,
+        765
+      ]
+    },
+    {
+      "name": "upper_drawer_box",
+      "material": "DarkInterior",
+      "minimumMm": [
+        40,
+        22,
+        185
+      ],
+      "maximumMm": [
+        1110,
+        550,
+        315
+      ],
+      "sizeMm": [
+        1070,
+        528,
+        130
+      ]
+    },
+    {
+      "name": "lower_drawer_box",
+      "material": "DarkInterior",
+      "minimumMm": [
+        40,
+        22,
+        45
+      ],
+      "maximumMm": [
+        1110,
+        550,
+        165
+      ],
+      "sizeMm": [
+        1070,
+        528,
+        120
+      ]
+    },
+    {
+      "name": "niche_ceiling",
+      "material": "InteriorBronze",
+      "minimumMm": [
+        20,
+        20,
+        620
+      ],
+      "maximumMm": [
+        1130,
+        580,
+        640
+      ],
+      "sizeMm": [
+        1110,
+        560,
+        20
+      ]
+    },
+    {
+      "name": "niche_floor",
+      "material": "InteriorBronze",
+      "minimumMm": [
+        20,
+        20,
+        325
+      ],
+      "maximumMm": [
+        1130,
+        580,
+        345
+      ],
+      "sizeMm": [
+        1110,
+        560,
+        20
+      ]
+    },
+    {
+      "name": "niche_back_lining",
+      "material": "InteriorBronze",
+      "minimumMm": [
+        20,
+        570,
+        325
+      ],
+      "maximumMm": [
+        1130,
+        580,
+        640
+      ],
+      "sizeMm": [
+        1110,
+        10,
+        315
+      ]
+    },
+    {
+      "name": "niche_shelf",
+      "material": "InteriorBronze",
+      "minimumMm": [
+        30,
+        18,
+        475
+      ],
+      "maximumMm": [
+        1120,
+        570,
+        485
+      ],
+      "sizeMm": [
+        1090,
+        552,
+        10
+      ]
+    },
+    {
+      "name": "niche_shelf_front_edge",
+      "material": "BronzeMetal",
+      "minimumMm": [
+        30,
+        12,
+        475
+      ],
+      "maximumMm": [
+        1120,
+        22,
+        485
+      ],
+      "sizeMm": [
+        1090,
+        10,
+        10
+      ]
+    },
+    {
+      "name": "niche_upper_trim",
+      "material": "BronzeMetal",
+      "minimumMm": [
+        30,
+        12,
+        622
+      ],
+      "maximumMm": [
+        1120,
+        24,
+        632
+      ],
+      "sizeMm": [
+        1090,
+        12,
+        10
+      ]
+    },
+    {
+      "name": "niche_light_strip",
+      "material": "WarmLight",
+      "minimumMm": [
+        40,
+        20,
+        624
+      ],
+      "maximumMm": [
+        1110,
+        26,
+        629
+      ],
+      "sizeMm": [
+        1070,
+        6,
+        5
+      ]
+    },
+    {
+      "name": "top_front_rim",
+      "material": "BrownEdge",
+      "minimumMm": [
+        0,
+        0,
+        780
+      ],
+      "maximumMm": [
+        1800,
+        20,
+        800
+      ],
+      "sizeMm": [
+        1800,
+        20,
+        20
+      ]
+    },
+    {
+      "name": "top_back_rim",
+      "material": "BrownEdge",
+      "minimumMm": [
+        0,
+        580,
+        780
+      ],
+      "maximumMm": [
+        1800,
+        600,
+        800
+      ],
+      "sizeMm": [
+        1800,
+        20,
+        20
+      ]
+    },
+    {
+      "name": "top_left_rim",
+      "material": "BrownEdge",
+      "minimumMm": [
+        0,
+        20,
+        780
+      ],
+      "maximumMm": [
+        20,
+        580,
+        800
+      ],
+      "sizeMm": [
+        20,
+        560,
+        20
+      ]
+    },
+    {
+      "name": "top_right_rim",
+      "material": "BrownEdge",
+      "minimumMm": [
+        1780,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1800,
+        580,
+        800
+      ],
+      "sizeMm": [
+        20,
+        560,
+        20
+      ]
+    },
+    {
+      "name": "main_top_surface",
+      "material": "BrownLeather",
+      "minimumMm": [
+        20,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1150,
+        580,
+        798
+      ],
+      "sizeMm": [
+        1130,
+        560,
+        18
+      ]
+    },
+    {
+      "name": "right_top_surface",
+      "material": "BrownLeather",
+      "minimumMm": [
+        1500,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1780,
+        580,
+        798
+      ],
+      "sizeMm": [
+        280,
+        560,
+        18
+      ]
+    },
+    {
+      "name": "cavity_left_rim",
+      "material": "BrownLeather",
+      "minimumMm": [
+        1150,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1180,
+        580,
+        798
+      ],
+      "sizeMm": [
+        30,
+        560,
+        18
+      ]
+    },
+    {
+      "name": "cavity_front_rim",
+      "material": "BrownLeather",
+      "minimumMm": [
+        1180,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1500,
+        30,
+        798
+      ],
+      "sizeMm": [
+        320,
+        10,
+        18
+      ]
+    },
+    {
+      "name": "cavity_back_rim",
+      "material": "BrownLeather",
+      "minimumMm": [
+        1180,
+        570,
+        780
+      ],
+      "maximumMm": [
+        1500,
+        580,
+        798
+      ],
+      "sizeMm": [
+        320,
+        10,
+        18
+      ]
+    },
+    {
+      "name": "cavity_floor",
+      "material": "InteriorBronze",
+      "minimumMm": [
+        1180,
+        30,
+        690
+      ],
+      "maximumMm": [
+        1500,
+        570,
+        710
+      ],
+      "sizeMm": [
+        320,
+        540,
+        20
+      ]
+    },
+    {
+      "name": "cavity_left_wall",
+      "material": "InteriorBronze",
+      "minimumMm": [
+        1180,
+        30,
+        710
+      ],
+      "maximumMm": [
+        1200,
+        570,
+        780
+      ],
+      "sizeMm": [
+        20,
+        540,
+        70
+      ]
+    },
+    {
+      "name": "cavity_right_wall",
+      "material": "InteriorBronze",
+      "minimumMm": [
+        1480,
+        30,
+        710
+      ],
+      "maximumMm": [
+        1500,
+        570,
+        780
+      ],
+      "sizeMm": [
+        20,
+        540,
+        70
+      ]
+    },
+    {
+      "name": "cavity_front_wall",
+      "material": "InteriorBronze",
+      "minimumMm": [
+        1200,
+        30,
+        710
+      ],
+      "maximumMm": [
+        1480,
+        50,
+        780
+      ],
+      "sizeMm": [
+        280,
+        20,
+        70
+      ]
+    },
+    {
+      "name": "cavity_back_wall",
+      "material": "InteriorBronze",
+      "minimumMm": [
+        1200,
+        550,
+        710
+      ],
+      "maximumMm": [
+        1480,
+        570,
+        780
+      ],
+      "sizeMm": [
+        280,
+        20,
+        70
+      ]
+    },
+    {
+      "name": "cavity_longitudinal_guide",
+      "material": "BronzeMetal",
+      "minimumMm": [
+        1478,
+        50,
+        752
+      ],
+      "maximumMm": [
+        1488,
+        550,
+        766
+      ],
+      "sizeMm": [
+        10,
+        500,
+        14
+      ]
+    },
+    {
+      "name": "cavity_inner_rail",
+      "material": "BronzeMetal",
+      "minimumMm": [
+        1488,
+        50,
+        738
+      ],
+      "maximumMm": [
+        1496,
+        550,
+        752
+      ],
+      "sizeMm": [
+        8,
+        500,
+        14
+      ]
+    },
+    {
+      "name": "cavity_light_bar",
+      "material": "WarmLight",
+      "minimumMm": [
+        1492,
+        60,
+        754
+      ],
+      "maximumMm": [
+        1500,
+        540,
+        762
+      ],
+      "sizeMm": [
+        8,
+        480,
+        8
+      ]
+    }
+  ]
+}

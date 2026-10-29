@@ -16,7 +16,7 @@ Use one row per actual component/account as it becomes known; these rows are dis
 
 | Area | Access / verification status | Owner / authorizer | Evidence reference and date | Gap / next action |
 | --- | --- | --- | --- | --- |
-| Source and history | Verified receipt and static inspection; runtime not reproduced | Technical partner supplied the bundle; upstream custodian/rights remain Unknown | [October 29 source intake](source-intake-2026-10-29.md), main `c0f2b8d`, 71 commits across included refs | Confirm provenance/rights; prepare controlled reproduction and deliberate integration with this workspace. |
+| Source and history | Verified receipt and static inspection; runtime not reproduced | Technical partner supplied the bundle; upstream custodian/rights remain Unknown | [October 29 source intake](source-intake-2026-10-29.md), main `c0f2b8d`, 71 commits across included refs | Root integration is complete; confirm provenance/rights and prepare controlled reproduction. See [CD-015](../MEMORY.md#cd-015). |
 | Showcase | Reported to exist; observation pending | Unknown; ask founder | Same brief; no walkthrough yet | Arrange permitted observation and clarify what can be recorded. |
 | Services and deployment | Source configuration inspected; live setup/access Unknown | Unknown | Deployment workflow depends on an absent server-side script; source docs describe separate production Compose/Nginx | Obtain sanitized server configuration, runner/protection details, rollback instructions and account/billing owners. |
 | Data and assets | Unknown | Unknown | None | Establish provenance, access rules, and permitted samples. |
@@ -25,7 +25,7 @@ Current next contact: **Unknown — founder and technical partner to agree**. Cu
 
 ### Source intake record — October 29, 2026
 
-Git integrity, all-history path checks, bounded credential/archive checks and non-executing syntax checks passed. The [report](source-intake-2026-10-29.md) records the bundle hash, coverage, source structure and risks. No application code, install, container, migration or workflow was run. Retain original source history; do not enable inherited deployment workflows or copy source instructions over this repository's operating rules during import. PHP/Composer setup and dependency downloads require a separately approved execution plan.
+Git integrity, all-history path checks, bounded credential/archive checks and non-executing syntax checks passed. The [report](source-intake-2026-10-29.md) records the bundle hash, coverage, source structure and risks. No application code, install, container, migration or workflow was run. The subsequent authorized root import preserves original source history and this repository's operating rules. Inherited workflows are inactive templates under `.github/workflows-disabled/`; enabling them requires a reviewed CI/deployment configuration. PHP/Composer setup and dependency downloads require a separately approved execution plan.
 
 The source contains 3D/CAD workflow claims beyond the real image providers' accepted formats, retry/cancellation risks, and inherited subscription policy. Keep these visible during the walkthrough; source presence does not demonstrate functionality, rights, accepted product scope, or production control.
 

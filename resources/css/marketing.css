@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+/* Marketing pages are server-rendered Blade. Exclude the Inertia application
+   tree so this entry does not ship authenticated-app utilities. */
+@source '../views/**/*.blade.php';
+@source '../js/marketing.ts';
+@source '../js/blog/**/*.ts';
+@source not '../js/**/*.vue';
+@source not '../js/app.ts';
+
+/* CarpDraw design system (fonts, tokens, all semantic component classes) */
+@import './carpdraw.css';
+
+@import './blog.css';

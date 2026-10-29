@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1700" viewBox="0 0 2000 1700">
+  <title>Orthographic top and front views of the cabinet</title>
+  <desc>Clean orthographic top and front drawings of a cabinet without dimension annotations.</desc>
+  <defs>
+    <style>
+      .object { fill: none; stroke: #111; stroke-width: 2; stroke-linecap: square; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="2000" height="1700" fill="#fff"/>
+
+  <!-- TOP VIEW: scale 0.85 px per mm; cabinet 1800 x 600 mm -->
+
+  <g id="top-view" aria-label="Top view">
+    <!-- Overall top outline -->
+    <rect class="object" x="235" y="160" width="1530" height="510"/>
+
+    <!-- Continuous narrow top rim -->
+    <rect class="object" x="252" y="177" width="1496" height="476"/>
+
+    <!-- Main module / right module division: 1300 + 500 mm -->
+    <line class="object" x1="1340" y1="160" x2="1340" y2="670"/>
+
+    <!-- Recessed tray/cavity in the right 500 mm module -->
+    <rect class="object" x="1366" y="186" width="374" height="459"/>
+    <line class="object" x1="1366" y1="230" x2="1740" y2="230"/>
+    <line class="object" x1="1366" y1="250" x2="1740" y2="250"/>
+
+  </g>
+
+  <!-- FRONT VIEW: scale 0.85 px per mm; cabinet 1800 x 800 mm -->
+
+  <g id="front-view" aria-label="Front view">
+    <!-- Main carcass, 765 mm high above a 35 mm recessed plinth -->
+    <rect class="object" x="235" y="940" width="1530" height="650.25"/>
+
+    <!-- Right full-height door, nominal width 500 mm -->
+    <line class="object" x1="1340" y1="940" x2="1340" y2="1590.25"/>
+
+    <!-- Left front return and right frame around open/drawer module -->
+    <line class="object" x1="252" y1="940" x2="252" y2="1590.25"/>
+    <line class="object" x1="1323" y1="1076" x2="1323" y2="1343.75"/>
+
+    <!-- Upper front panel: 160 mm high -->
+    <line class="object" x1="252" y1="1076" x2="1340" y2="1076"/>
+
+    <!-- Open central compartment: 315 mm high -->
+    <line class="object" x1="252" y1="1343.75" x2="1340" y2="1343.75"/>
+
+    <!-- Thin shelf centred in the open compartment -->
+    <line class="object" x1="252" y1="1208" x2="1323" y2="1208"/>
+    <line class="object" x1="252" y1="1216.5" x2="1323" y2="1216.5"/>
+
+    <!-- Two lower drawer fronts: 150 mm and 140 mm high -->
+    <line class="object" x1="252" y1="1471.25" x2="1340" y2="1471.25"/>
+
+    <!-- Recessed plinth/toe-kick: 35 mm high, 60 mm inset at each end -->
+    <rect class="object" x="286" y="1590.25" width="1428" height="29.75"/>
+
+  </g>
+</svg>

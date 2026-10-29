@@ -1,0 +1,11 @@
+Using the existing 3D furniture model, configure three orthographic views: front, top, and left side.
+Align the cameras precisely with the model’s principal axes, without perspective distortion.
+Preserve the existing geometry, dimensions, component positions, and closed assembly state.
+Maintain the same viewing scale across all three views.
+Keep the complete furniture visible with clean margins.
+Use a pure white background and white surfaces without textures, shading, or shadows.
+Show visible construction edges as thin, solid dark lines (#111111).
+Show hidden construction edges as thinner, light-grey dashed lines (#888888).
+Exclude mesh triangulation lines.
+Do not add view names, titles, captions, dimensions, numbers, letters, axis indicators, arrows, legends, or borders to the views.
+Configure and display the views within the existing viewer only. Do not export or generate additional files.

@@ -1,0 +1,149 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+# One complete job on the shared runner; no duplicate branch + PR runs.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: [self-hosted, carpdraw]
+    timeout-minutes: 30
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: carpdraw_ci
+          POSTGRES_USER: carpdraw_ci
+          POSTGRES_PASSWORD: ci-only-password
+        ports:
+          - 5432/tcp
+        options: >-
+          --health-cmd "pg_isready -U carpdraw_ci"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379/tcp
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      REDIS_CLIENT: predis
+      REDIS_HOST: 127.0.0.1
+      APP_ENV: testing
+      DRAWING_PROVIDER: fake
+      GEMINI_API_KEY: ''
+      OPENAI_API_KEY: ''
+      OPENROUTER_API_KEY: ''
+      STRIPE_SECRET: ''
+      SENTRY_LARAVEL_DSN: ''
+      SENTRY_BROWSER_DSN: ''
+      POSTHOG_ENABLED: 'false'
+      MAIL_MAILER: array
+      CACHE_STORE: array
+      QUEUE_CONNECTION: sync
+      DB_CONNECTION: pgsql
+      DB_HOST: 127.0.0.1
+      DB_DATABASE: carpdraw_ci
+      DB_USERNAME: carpdraw_ci
+      DB_PASSWORD: ci-only-password
+
+    steps:
+      # The job.services context is available inside steps, not job-level env.
+      - name: Discover isolated service ports
+        run: |
+          echo "DB_PORT=${{ job.services.postgres.ports['5432'] }}" >> "$GITHUB_ENV"
+          echo "REDIS_PORT=${{ job.services.redis.ports['6379'] }}" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - name: Validate workflows
+        run: scripts/check-workflows.sh
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, pdo_sqlite, pdo_pgsql, gd, intl
+          coverage: none
+        env:
+          # Self-hosted runner keeps its PHP; force the latest patch (>= 8.4.27, PHP2Shell CVE).
+          update: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: |
+          composer install --no-interaction --prefer-dist
+          npm ci
+          cp .env.example .env
+          php artisan key:generate
+      - name: Protect CarpDraw presentation
+        run: npm run upstream:check
+      - name: Build and typecheck
+        run: npm run build
+      - name: Style and static analysis
+        run: |
+          vendor/bin/pint --test
+          npx eslint resources/js --quiet
+          vendor/bin/phpstan analyse --no-progress --memory-limit=1G
+      - name: JavaScript tests
+        run: npm test
+      - name: PHPUnit against production database engine
+        run: php artisan test --compact
+      - name: Concurrent credit spending
+        run: php tests/credit-concurrency.php
+      - name: Redis delayed publication and worker round trip
+        run: php tests/queue-roundtrip.php
+      - name: Verified backup and isolated restore rehearsal
+        env:
+          TEST_POSTGRES_CONTAINER: ${{ job.services.postgres.id }}
+          TEST_PG_USER: carpdraw_ci
+          TEST_PG_PASSWORD: ci-only-password
+        run: scripts/check-backup.sh
+      - name: SQLite compatibility
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ':memory:'
+        run: php artisan test --compact
+      - name: Nginx routing and cache regression
+        run: python3 scripts/check-nginx.py
+      - name: Desktop and mobile browser checks
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ${{ github.workspace }}/database/e2e.sqlite
+          APP_URL: http://127.0.0.1:18086
+          E2E_BASE_URL: http://127.0.0.1:18086
+          SESSION_DRIVER: file
+          BLOG_API_TOKEN: e2e-ci-only
+        run: |
+          npx playwright install --with-deps chromium
+          touch database/e2e.sqlite
+          php artisan migrate --force
+          php tests/e2e/seed.php
+          php artisan serve --host=127.0.0.1 --port=18086 > /tmp/carpdraw-ci-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for _ in $(seq 1 30); do
+            if curl --max-time 2 --fail --silent "$APP_URL/up" > /dev/null; then break; fi
+            sleep 1
+          done
+          npm run test:e2e
+      - name: Browser artifacts
+        # Diagnostic uploads are optional; test failures above still fail the job.
+        continue-on-error: true
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-checks
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7

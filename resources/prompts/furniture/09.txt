@@ -1,0 +1,117 @@
+TASK
+Compose the provided technical views of a furniture object on a single drawing sheet while maintaining professional drafting standards, correct proportions, clear dimensions, and a visually balanced layout.
+SOURCE MATERIALS
+The original drawing frame and title block.
+Main view — front elevation.
+Top view — plan.
+Left-side view — left elevation.
+Axonometric view.
+Overall and internal dimensions of the object.
+Information for completing the title block.
+MAIN FRAME RULE
+Use the supplied frame and title block as an entirely unmodified background.
+It is strictly prohibited to:
+redraw the frame;
+change its dimensions or proportions;
+modify the thickness, colour, or position of its lines;
+rebuild or alter the title-block cells;
+move or modify the logo;
+crop, stretch, or scale the original frame;
+cover any frame lines with white shapes or other elements.
+Only the technical views may be placed within the empty drawing area, and text values may be added inside the existing title-block cells.
+VIEW LAYOUT
+Arrange the four views in a compact two-column composition:
+upper left — FRONT ELEVATION;
+upper right — LEFT ELEVATION;
+lower left — TOP VIEW;
+lower right — AXONOMETRIC VIEW.
+The FRONT ELEVATION must be the main compositional element. Position it first and give it the most prominent location.
+Place the TOP VIEW directly below the front elevation, maintaining projection alignment and the same horizontal position.
+Place the LEFT ELEVATION to the right of the front elevation.
+Place the AXONOMETRIC VIEW below the left elevation.
+Shift the entire group of views slightly downward relative to the geometric centre of the available drawing area.
+SPACING RULES
+Distribute the views evenly and compactly.
+The distance between adjacent views must not be greater than the distance from the outermost views to the nearest sheet border.
+Do not leave an excessively large empty area in the centre of the sheet.
+At the same time:
+views must not touch one another;
+dimension chains from adjacent views must not intersect;
+sufficient clear space must remain around each view;
+vertical spacing between the upper and lower rows must appear visually balanced;
+lower views and captions must not be placed too close to the title block;
+no element may extend beyond the usable drawing area.
+SCALE
+Use the same scale for all orthographic views:
+FRONT ELEVATION;
+LEFT ELEVATION;
+TOP VIEW.
+Preserve the true proportions of the object and the aspect ratio of every view. Do not stretch any view independently in the horizontal or vertical direction.
+Use the largest standard drawing scale that allows all views, dimensions, and captions to fit comfortably on the sheet.
+The axonometric view may use a smaller scale if it appears too large at the orthographic scale. It must remain visually secondary to the orthographic views and must not dominate the composition.
+VIEW CAPTIONS
+Use the following titles:
+FRONT ELEVATIONLEFT ELEVATIONTOP VIEWAXONOMETRIC VIEW
+The captions must:
+be positioned below the corresponding views;
+be aligned with the left edge of each view;
+have sufficient spacing from the drawing;
+use a regular, non-bold font;
+use the same text height throughout;
+remain visually smaller than the dimension numerals;
+not include scale information;
+not intersect dimension or extension lines.
+DIMENSIONING RULES
+Apply dimensions according to professional technical-drawing standards.
+Mandatory requirements:
+show each dimension only once;
+place dimension lines primarily outside the object outline;
+place smaller dimensions closer to the object;
+place larger and overall dimensions farther from the object;
+prevent dimension and extension lines from intersecting;
+dimensions must not obstruct the geometry of the object;
+group dimensions belonging to the same construction element;
+connect every dimension to a specific edge, part, or feature;
+whenever possible, place dimensions on only two sides of each view;
+align dimensions with the principal axes;
+in the axonometric view, dimension lines must be parallel to the corresponding object edges and axes;
+dimension lines and numerals must be lighter or thinner than the object lines;
+visible outlines must remain the strongest and most prominent lines;
+hidden edges must be shown using thin, light dashed lines.
+GRAPHIC STYLE
+Use a clean white technical-drawing style:
+pure white background;
+no shadows;
+no perspective distortion in orthographic views;
+no materials, textures, or coloured fills;
+no decorative elements;
+no accessories or surrounding objects;
+thin, sharp object lines with consistent line weight;
+dimension lines thinner and lighter than object lines;
+hidden edges represented by light dashed lines;
+consistent graphic density and contrast across all views.
+TITLE BLOCK
+Do not modify the structure of the original title block. Add information only within its existing empty fields.
+Use a clean font proportional to the size of each cell. Text must not touch cell borders or overlap the original field labels.
+Example information:
+Type of documentation: GENERAL ARRANGEMENTType of object: DISPLAY CABINETName of project: HORIZON RESIDENCEName of room: LIVING ROOMFloor: 04
+SPECIFICATION
+Do not add a specification, parts list, or any additional tables to the sheet.
+FINAL QUALITY CHECK
+Before export, confirm that:
+The original frame and title block remain completely unchanged.
+All orthographic views use the same scale.
+The axonometric view is smaller than the orthographic views.
+Every view preserves its original proportions.
+The views form a compact composition without excessive empty space in the centre.
+The spacing between views does not exceed the spacing between the views and the frame.
+Captions are placed below the views, left-aligned, and set in a regular font.
+Dimensions do not intersect the object, other dimensions, or captions.
+No element overlaps the frame or title block.
+The sheet appears evenly filled, professionally balanced, and easy to read.
+FINAL OUTPUT
+Prepare one drawing sheet using the original format and proportions of the supplied frame.
+Export:
+one full-resolution PNG;
+one single-page PDF in the corresponding standard sheet format.
+Do not modify the geometry of the technical views, the original frame, the title block, or the logo.

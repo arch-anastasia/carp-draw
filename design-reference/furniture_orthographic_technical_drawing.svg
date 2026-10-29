@@ -1,0 +1,279 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3360" height="2376" viewBox="0 0 3360 2376">
+  <defs>
+    <pattern id="sectionHatch" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="18" stroke="#777" stroke-width="2"/>
+    </pattern>
+    <style>
+      .bg{fill:#fff}.border{fill:none;stroke:#111;stroke-width:4}
+      .heavy{fill:none;stroke:#0b0b0b;stroke-width:7;stroke-linecap:square;stroke-linejoin:miter}
+      .med{fill:none;stroke:#151515;stroke-width:4;stroke-linecap:square;stroke-linejoin:miter}
+      .thin{fill:none;stroke:#343434;stroke-width:2.2;stroke-linecap:square;stroke-linejoin:miter}
+      .hidden{fill:none;stroke:#555;stroke-width:2.2;stroke-dasharray:15 10}
+      .center{fill:none;stroke:#777;stroke-width:1.8;stroke-dasharray:28 8 6 8}
+      .dim{fill:none;stroke:#444;stroke-width:2.2}
+      .cut{fill:url(#sectionHatch);stroke:#0b0b0b;stroke-width:5}
+      .title{font:700 33px Arial,Helvetica,sans-serif;letter-spacing:4px;fill:#111}
+      .view{font:700 29px Arial,Helvetica,sans-serif;letter-spacing:3px;fill:#111}
+      .txt{font:22px Arial,Helvetica,sans-serif;letter-spacing:1.6px;fill:#222}
+      .small{font:18px Arial,Helvetica,sans-serif;letter-spacing:1.2px;fill:#333}
+      .dimtxt{font:22px Arial,Helvetica,sans-serif;letter-spacing:1px;fill:#222}
+      .note{font:700 18px Arial,Helvetica,sans-serif;letter-spacing:1.1px;fill:#222}
+      .sectionmark{font:700 25px Arial,Helvetica,sans-serif;fill:#111}
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="3360" height="2376"/>
+  <rect class="border" x="64" y="64" width="3232" height="2248"/>
+  <rect class="thin" x="84" y="84" width="3192" height="2208"/>
+
+  <!-- SHEET HEADER -->
+  <text class="title" x="130" y="145">FURNITURE ORTHOGRAPHIC TECHNICAL DRAWING</text>
+  <text class="txt" x="3230" y="145" text-anchor="end">SHEET A-01</text>
+  <line class="med" x1="110" y1="175" x2="3250" y2="175"/>
+
+  <!-- FRONT ELEVATION: 1800 W x 800 H, SCALE GRAPHIC 0.95 PX/MM -->
+  <g id="front-elevation">
+    <text class="view" x="1155" y="250" text-anchor="middle">FRONT ELEVATION</text>
+
+    <!-- overall carcass and recessed plinth -->
+    <rect class="heavy" x="300" y="360" width="1710" height="712.5"/>
+    <path class="heavy" d="M348 1072.5 L348 1120 L1962 1120 L1962 1072.5"/>
+    <line class="thin" x1="300" y1="1072.5" x2="2010" y2="1072.5"/>
+
+    <!-- top and end panel thicknesses, estimated from visible double lines -->
+    <line class="med" x1="300" y1="377" x2="2010" y2="377"/>
+    <line class="med" x1="317" y1="377" x2="317" y2="1072.5"/>
+    <line class="med" x1="1993" y1="377" x2="1993" y2="1072.5"/>
+
+    <!-- left bay fascia / upper fixed panel -->
+    <rect class="med" x="317" y="377" width="1218" height="145"/>
+
+    <!-- open niche and shelf -->
+    <rect class="med" x="317" y="522" width="1218" height="171"/>
+    <rect class="med" x="317" y="607" width="1218" height="17"/>
+    <line class="thin" x1="317" y1="522" x2="1535" y2="522"/>
+
+    <!-- three lower drawer fronts -->
+    <rect class="med" x="317" y="693" width="1218" height="379.5"/>
+    <line class="med" x1="317" y1="819.5" x2="1535" y2="819.5"/>
+    <line class="med" x1="317" y1="946" x2="1535" y2="946"/>
+
+    <!-- right full-height door -->
+    <rect class="med" x="1535" y="377" width="458" height="695.5"/>
+    <line class="thin" x1="1542" y1="384" x2="1986" y2="384"/>
+    <line class="thin" x1="1986" y1="384" x2="1986" y2="1065"/>
+
+    <!-- center line through principal right door -->
+    <line class="center" x1="1764" y1="330" x2="1764" y2="1100"/>
+
+    <!-- callouts -->
+    <path class="thin" d="M755 445 L620 315 L470 315"/>
+    <text class="small" x="460" y="304" text-anchor="start">UPPER FIXED PANEL / RAIL</text>
+    <text class="small" x="460" y="327" text-anchor="start">FUNCTION NOT CONFIRMED</text>
+
+    <path class="thin" d="M1050 615 L1145 560 L1285 560"/>
+    <text class="small" x="1295" y="566">FIXED SHELF — OBSERVED</text>
+
+    <path class="thin" d="M920 949 L1040 1010 L1255 1010"/>
+    <text class="small" x="1265" y="1016">3 DRAWER FRONTS — OBSERVED</text>
+
+    <path class="thin" d="M1765 720 L1880 655 L2080 655"/>
+    <text class="small" x="2090" y="648">FULL-HEIGHT DOOR / PANEL</text>
+    <text class="small" x="2090" y="671">NO HANDLE VISIBLE</text>
+
+    <path class="thin" d="M1220 1117 L1325 1160 L1510 1160"/>
+    <text class="small" x="1520" y="1167">RECESSED PLINTH ≈50</text>
+
+    <!-- overall width dimension -->
+    <line class="dim" x1="300" y1="360" x2="300" y2="278"/>
+    <line class="dim" x1="2010" y1="360" x2="2010" y2="278"/>
+    <line class="dim" x1="300" y1="292" x2="2010" y2="292"/>
+    <path class="dim" d="M291 301 L309 283 M2001 301 L2019 283"/>
+    <rect class="bg" x="1088" y="273" width="134" height="38"/>
+    <text class="dimtxt" x="1155" y="301" text-anchor="middle">1800</text>
+
+    <!-- width chain: approximate left/right bays -->
+    <line class="dim" x1="300" y1="337" x2="2010" y2="337"/>
+    <line class="dim" x1="1535" y1="337" x2="1535" y2="360"/>
+    <path class="dim" d="M291 346 L309 328 M1526 346 L1544 328 M2001 346 L2019 328"/>
+    <rect class="bg" x="852" y="319" width="132" height="35"/>
+    <text class="dimtxt" x="918" y="345" text-anchor="middle">≈1300</text>
+    <rect class="bg" x="1698" y="319" width="132" height="35"/>
+    <text class="dimtxt" x="1764" y="345" text-anchor="middle">≈500</text>
+
+    <!-- overall height dimension -->
+    <line class="dim" x1="300" y1="360" x2="192" y2="360"/>
+    <line class="dim" x1="348" y1="1120" x2="192" y2="1120"/>
+    <line class="dim" x1="210" y1="360" x2="210" y2="1120"/>
+    <path class="dim" d="M201 351 L219 369 M201 1111 L219 1129"/>
+    <rect class="bg" x="174" y="710" width="72" height="60"/>
+    <text class="dimtxt" x="210" y="748" text-anchor="middle" transform="rotate(-90 210 748)">800</text>
+
+    <!-- vertical component chain -->
+    <line class="dim" x1="256" y1="360" x2="256" y2="1120"/>
+    <line class="dim" x1="256" y1="522" x2="300" y2="522"/>
+    <line class="dim" x1="256" y1="693" x2="300" y2="693"/>
+    <line class="dim" x1="256" y1="1072.5" x2="300" y2="1072.5"/>
+    <path class="dim" d="M247 351 L265 369 M247 513 L265 531 M247 684 L265 702 M247 1063.5 L265 1081.5 M247 1111 L265 1129"/>
+    <text class="small" x="247" y="451" text-anchor="end">≈170</text>
+    <text class="small" x="247" y="614" text-anchor="end">≈180</text>
+    <text class="small" x="247" y="892" text-anchor="end">≈400</text>
+    <text class="small" x="247" y="1103" text-anchor="end">≈50</text>
+
+    <!-- panel thickness local dimension -->
+    <line class="dim" x1="2024" y1="360" x2="2080" y2="360"/>
+    <line class="dim" x1="2024" y1="377" x2="2080" y2="377"/>
+    <line class="dim" x1="2058" y1="360" x2="2058" y2="377"/>
+    <path class="dim" d="M2049 351 L2067 369 M2049 368 L2067 386"/>
+    <text class="small" x="2088" y="374">≈18 TYP.</text>
+  </g>
+
+  <!-- SECTION A-A: RIGHT-SIDE ORTHOGRAPHIC SECTION THROUGH LEFT BAY -->
+  <g id="section-aa">
+    <text class="view" x="2730" y="250" text-anchor="middle">SECTION A–A</text>
+    <text class="small" x="2730" y="281" text-anchor="middle">THROUGH LEFT BAY</text>
+
+    <!-- depth x height: 600 x 800 -->
+    <rect class="heavy" x="2445" y="360" width="570" height="760"/>
+    <!-- cut top, rear, front lower edge, bottom -->
+    <rect class="cut" x="2445" y="360" width="570" height="17"/>
+    <rect class="cut" x="2998" y="377" width="17" height="695.5"/>
+    <rect class="cut" x="2445" y="1055.5" width="570" height="17"/>
+    <!-- front fascia section -->
+    <rect class="cut" x="2445" y="377" width="18" height="145"/>
+    <!-- fixed shelf -->
+    <rect class="cut" x="2463" y="607" width="535" height="17"/>
+    <!-- niche opening -->
+    <line class="med" x1="2463" y1="522" x2="2998" y2="522"/>
+    <line class="thin" x1="2463" y1="693" x2="2998" y2="693"/>
+
+    <!-- three assumed drawer boxes and runners behind observed fronts -->
+    <rect class="med" x="2445" y="693" width="18" height="126.5"/>
+    <rect class="med" x="2445" y="819.5" width="18" height="126.5"/>
+    <rect class="med" x="2445" y="946" width="18" height="109.5"/>
+    <path class="hidden" d="M2463 716 L2962 716 L2962 794 L2484 794 M2463 843 L2962 843 L2962 921 L2484 921 M2463 969 L2962 969 L2962 1038 L2484 1038"/>
+    <line class="hidden" x1="2484" y1="800" x2="2948" y2="800"/>
+    <line class="hidden" x1="2484" y1="927" x2="2948" y2="927"/>
+    <line class="hidden" x1="2484" y1="1044" x2="2948" y2="1044"/>
+
+    <!-- recessed plinth -->
+    <path class="heavy" d="M2493 1072.5 L2493 1120 L2967 1120 L2967 1072.5"/>
+    <line class="center" x1="2730" y1="330" x2="2730" y2="1144"/>
+
+    <!-- depth dimension -->
+    <line class="dim" x1="2445" y1="360" x2="2445" y2="300"/>
+    <line class="dim" x1="3015" y1="360" x2="3015" y2="300"/>
+    <line class="dim" x1="2445" y1="316" x2="3015" y2="316"/>
+    <path class="dim" d="M2436 325 L2454 307 M3006 325 L3024 307"/>
+    <rect class="bg" x="2670" y="297" width="120" height="38"/>
+    <text class="dimtxt" x="2730" y="325" text-anchor="middle">600</text>
+
+    <!-- height dimension -->
+    <line class="dim" x1="3015" y1="360" x2="3095" y2="360"/>
+    <line class="dim" x1="2967" y1="1120" x2="3095" y2="1120"/>
+    <line class="dim" x1="3075" y1="360" x2="3075" y2="1120"/>
+    <path class="dim" d="M3066 351 L3084 369 M3066 1111 L3084 1129"/>
+    <rect class="bg" x="3039" y="710" width="72" height="60"/>
+    <text class="dimtxt" x="3075" y="748" text-anchor="middle" transform="rotate(-90 3075 748)">800</text>
+
+    <!-- front recess dimension -->
+    <line class="dim" x1="2445" y1="1165" x2="2493" y2="1165"/>
+    <line class="dim" x1="2445" y1="1120" x2="2445" y2="1180"/>
+    <line class="dim" x1="2493" y1="1120" x2="2493" y2="1180"/>
+    <path class="dim" d="M2436 1174 L2454 1156 M2484 1174 L2502 1156"/>
+    <text class="small" x="2469" y="1207" text-anchor="middle">≈50</text>
+
+    <!-- section callouts -->
+    <path class="thin" d="M2725 615 L2810 540 L2910 540"/>
+    <text class="small" x="2918" y="546">SHELF ≈18</text>
+    <path class="thin" d="M2915 847 L2840 775 L2725 775"/>
+    <text class="small" x="2715" y="768" text-anchor="end">DRAWER BOXES / RUNNERS</text>
+    <text class="note" x="2715" y="791" text-anchor="end">ASSUMED — VERIFY ON SITE</text>
+    <path class="thin" d="M3006 1030 L3100 995 L3190 995"/>
+    <text class="small" x="3198" y="1001">REAR PANEL ≈18</text>
+  </g>
+
+  <!-- PLAN VIEW, PRECISELY ALIGNED WITH FRONT ELEVATION -->
+  <g id="plan-view">
+    <text class="view" x="1155" y="1332" text-anchor="middle">PLAN VIEW</text>
+    <text class="small" x="1155" y="1363" text-anchor="middle">TOP / INTERNAL APERTURE SET-OUT APPROXIMATE</text>
+
+    <!-- 1800 x 600 -->
+    <rect class="heavy" x="300" y="1435" width="1710" height="570"/>
+    <rect class="med" x="317" y="1452" width="1676" height="536"/>
+    <line class="med" x1="1535" y1="1435" x2="1535" y2="2005"/>
+
+    <!-- observed top openings reconstructed from perspective; dashed because set-out is uncertain -->
+    <rect class="hidden" x="1125" y="1495" width="390" height="230"/>
+    <rect class="hidden" x="1575" y="1495" width="378" height="230"/>
+    <line class="hidden" x1="1575" y1="1552" x2="1953" y2="1552"/>
+    <text class="small" x="1320" y="1588" text-anchor="middle">APERTURE 1</text>
+    <text class="small" x="1764" y="1588" text-anchor="middle">APERTURE 2</text>
+
+    <!-- front/back labels -->
+    <text class="small" x="1155" y="1410" text-anchor="middle">REAR</text>
+    <text class="small" x="1155" y="2042" text-anchor="middle">FRONT</text>
+
+    <!-- section line A-A through informative part of left bay -->
+    <line class="center" x1="900" y1="1390" x2="900" y2="2050"/>
+    <path d="M900 1435 L880 1473 L920 1473 Z" fill="#111"/>
+    <path d="M900 2005 L880 1967 L920 1967 Z" fill="#111"/>
+    <circle cx="900" cy="1370" r="28" fill="#fff" stroke="#111" stroke-width="4"/>
+    <circle cx="900" cy="2070" r="28" fill="#fff" stroke="#111" stroke-width="4"/>
+    <text class="sectionmark" x="900" y="1379" text-anchor="middle">A</text>
+    <text class="sectionmark" x="900" y="2079" text-anchor="middle">A</text>
+
+    <!-- callout to apertures -->
+    <path class="thin" d="M1785 1725 L2150 1640 L2325 1640"/>
+    <text class="small" x="2335" y="1634">TOP APERTURES VISIBLE IN SOURCE</text>
+    <text class="note" x="2335" y="1658">SET-OUT ASSUMED — VERIFY ON SITE</text>
+
+    <!-- overall depth dimension -->
+    <line class="dim" x1="300" y1="1435" x2="205" y2="1435"/>
+    <line class="dim" x1="300" y1="2005" x2="205" y2="2005"/>
+    <line class="dim" x1="225" y1="1435" x2="225" y2="2005"/>
+    <path class="dim" d="M216 1426 L234 1444 M216 1996 L234 2014"/>
+    <rect class="bg" x="189" y="1692" width="72" height="60"/>
+    <text class="dimtxt" x="225" y="1730" text-anchor="middle" transform="rotate(-90 225 1730)">600</text>
+
+    <!-- overall width dimension below plan -->
+    <line class="dim" x1="300" y1="2005" x2="300" y2="2145"/>
+    <line class="dim" x1="2010" y1="2005" x2="2010" y2="2145"/>
+    <line class="dim" x1="300" y1="2125" x2="2010" y2="2125"/>
+    <path class="dim" d="M291 2134 L309 2116 M2001 2134 L2019 2116"/>
+    <rect class="bg" x="1088" y="2106" width="134" height="38"/>
+    <text class="dimtxt" x="1155" y="2134" text-anchor="middle">1800</text>
+
+    <!-- bay width chain under plan -->
+    <line class="dim" x1="300" y1="2176" x2="2010" y2="2176"/>
+    <line class="dim" x1="300" y1="2145" x2="300" y2="2190"/>
+    <line class="dim" x1="1535" y1="2005" x2="1535" y2="2190"/>
+    <line class="dim" x1="2010" y1="2145" x2="2010" y2="2190"/>
+    <path class="dim" d="M291 2185 L309 2167 M1526 2185 L1544 2167 M2001 2185 L2019 2167"/>
+    <rect class="bg" x="852" y="2158" width="132" height="35"/>
+    <text class="dimtxt" x="918" y="2184" text-anchor="middle">≈1300</text>
+    <rect class="bg" x="1698" y="2158" width="132" height="35"/>
+    <text class="dimtxt" x="1764" y="2184" text-anchor="middle">≈500</text>
+  </g>
+
+  <!-- GENERAL NOTES / TITLE BLOCK -->
+  <g id="notes-block">
+    <rect class="med" x="2220" y="1785" width="1010" height="415"/>
+    <line class="thin" x1="2220" y1="1885" x2="3230" y2="1885"/>
+    <line class="thin" x1="2220" y1="2100" x2="3230" y2="2100"/>
+    <line class="thin" x1="2830" y1="2100" x2="2830" y2="2200"/>
+    <text class="view" x="2250" y="1830">GENERAL NOTES</text>
+    <text class="small" x="2250" y="1860">ALL DIMENSIONS IN MILLIMETRES. DO NOT SCALE FROM DRAWING.</text>
+    <text class="small" x="2250" y="1925">1. VERIFIED OVERALL ENVELOPE: 1800 W × 800 H × 600 D.</text>
+    <text class="small" x="2250" y="1960">2. ≈ DENOTES A PROPORTIONAL ESTIMATE FROM THE SOURCE IMAGE.</text>
+    <text class="small" x="2250" y="1995">3. DASHED LINEWORK DENOTES HIDDEN OR INFERRED CONSTRUCTION.</text>
+    <text class="small" x="2250" y="2030">4. PANEL THICKNESS, PLINTH RECESS, HARDWARE AND TOP APERTURE</text>
+    <text class="small" x="2280" y="2062">SET-OUT ARE ASSUMED — VERIFY ON SITE BEFORE FABRICATION.</text>
+    <text class="note" x="2250" y="2140">NTS — SECONDARY DIMENSIONS TO BE VERIFIED</text>
+    <text class="small" x="2250" y="2170">ORTHOGRAPHIC PROJECTION • CONCEPT / SURVEY DRAWING</text>
+    <text class="note" x="2860" y="2138">DRAWING: A-01</text>
+    <text class="small" x="2860" y="2170">REV: 01</text>
+  </g>
+
+  <text class="small" x="130" y="2270">SOURCE: USER-SUPPLIED FURNITURE REFERENCE IMAGE • NO HIDDEN CONSTRUCTION CONFIRMED</text>
+</svg>

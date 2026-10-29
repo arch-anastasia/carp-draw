@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2100" viewBox="0 0 2400 2100">
+  <title>Dimensioned orthographic cabinet drawing</title>
+  <desc>Orthographic top and front views with grouped non-crossing dimensions in millimetres.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="4.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 9 4.5 L 0 9 Z" fill="#087bc1"/>
+    </marker>
+    <marker id="arrow-small" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#087bc1"/>
+    </marker>
+    <style>
+      .object { fill: none; stroke: #111; stroke-width: 2; stroke-linecap: square; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }
+      .dimension { fill: none; stroke: #087bc1; stroke-width: 1.7; stroke-linecap: square; vector-effect: non-scaling-stroke; }
+      .extension { fill: none; stroke: #087bc1; stroke-width: 1.25; stroke-linecap: square; vector-effect: non-scaling-stroke; }
+      .arrowed { marker-start: url(#arrow); marker-end: url(#arrow); }
+      .arrowed-small { marker-start: url(#arrow-small); marker-end: url(#arrow-small); }
+      .dim-text { fill: #087bc1; stroke: #fff; stroke-width: 12; paint-order: stroke fill; font-family: Arial, sans-serif; font-size: 27px; font-weight: 500; text-anchor: middle; }
+      .dim-text-small { fill: #087bc1; stroke: #fff; stroke-width: 10; paint-order: stroke fill; font-family: Arial, sans-serif; font-size: 23px; font-weight: 500; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="2400" height="2100" fill="#fff"/>
+
+  <!-- TOP VIEW. Scale: 0.8 drawing units per millimetre. -->
+  <g id="top-view" aria-label="Top orthographic view">
+    <rect class="object" x="400" y="300" width="1440" height="480"/>
+    <rect class="object" x="416" y="316" width="1408" height="448"/>
+
+    <!-- Division between the 1300 mm main module and 500 mm right module -->
+    <line class="object" x1="1440" y1="300" x2="1440" y2="780"/>
+
+    <!-- 440 x 540 mm upper cavity, inset 30 mm in the right module -->
+    <rect class="object" x="1464" y="324" width="352" height="432"/>
+    <line class="object" x1="1464" y1="364" x2="1816" y2="364"/>
+    <line class="object" x1="1464" y1="384" x2="1816" y2="384"/>
+
+    <!-- 20 mm perimeter rim: smallest dimension closest to the contour -->
+    <line class="extension" x1="400" y1="300" x2="400" y2="270"/>
+    <line class="extension" x1="416" y1="316" x2="416" y2="270"/>
+    <line class="dimension arrowed-small" x1="400" y1="276" x2="416" y2="276"/>
+    <text class="dim-text-small" x="408" y="259">20</text>
+
+    <!-- Right-module grouped horizontal dimensions -->
+    <line class="extension" x1="1440" y1="300" x2="1440" y2="244"/>
+    <line class="extension" x1="1464" y1="324" x2="1464" y2="205"/>
+    <line class="extension" x1="1816" y1="324" x2="1816" y2="205"/>
+    <line class="dimension arrowed-small" x1="1440" y1="248" x2="1464" y2="248"/>
+    <text class="dim-text-small" x="1452" y="230">2×30</text>
+    <line class="dimension arrowed" x1="1464" y1="214" x2="1816" y2="214"/>
+    <text class="dim-text" x="1640" y="204">440</text>
+
+    <!-- Overall depth 600 mm, shown only on the top view -->
+    <line class="extension" x1="400" y1="300" x2="205" y2="300"/>
+    <line class="extension" x1="400" y1="780" x2="205" y2="780"/>
+    <line class="dimension arrowed" x1="230" y1="300" x2="230" y2="780"/>
+    <text class="dim-text" x="218" y="540" transform="rotate(-90 218 540)">600</text>
+
+    <!-- Vertical dimension group for the upper cavity and rear cross rail -->
+    <line class="extension" x1="1840" y1="300" x2="1900" y2="300"/>
+    <line class="extension" x1="1816" y1="324" x2="2005" y2="324"/>
+    <line class="extension" x1="1816" y1="364" x2="1900" y2="364"/>
+    <line class="extension" x1="1816" y1="384" x2="1900" y2="384"/>
+    <line class="extension" x1="1816" y1="756" x2="2005" y2="756"/>
+
+    <line class="dimension arrowed-small" x1="1880" y1="300" x2="1880" y2="324"/>
+    <text class="dim-text-small" x="1920" y="320">2×30</text>
+
+    <line class="dimension arrowed-small" x1="1880" y1="324" x2="1880" y2="364"/>
+    <text class="dim-text-small" x="1912" y="351">50</text>
+
+    <line class="dimension arrowed-small" x1="1880" y1="364" x2="1880" y2="384"/>
+    <text class="dim-text-small" x="1912" y="385">25</text>
+
+    <line class="dimension arrowed" x1="1980" y1="324" x2="1980" y2="756"/>
+    <text class="dim-text" x="1968" y="540" transform="rotate(-90 1968 540)">540</text>
+  </g>
+
+  <!-- FRONT VIEW. Scale: 0.8 drawing units per millimetre. -->
+  <g id="front-view" aria-label="Front orthographic view">
+    <!-- Main body: 765 mm above a 35 mm plinth -->
+    <rect class="object" x="400" y="1150" width="1440" height="612"/>
+    <line class="object" x1="1440" y1="1150" x2="1440" y2="1762"/>
+    <line class="object" x1="416" y1="1150" x2="416" y2="1762"/>
+    <line class="object" x1="1424" y1="1278" x2="1424" y2="1530"/>
+
+    <!-- Vertical façade divisions -->
+    <line class="object" x1="416" y1="1278" x2="1440" y2="1278"/>
+    <line class="object" x1="416" y1="1530" x2="1440" y2="1530"/>
+    <line class="object" x1="416" y1="1650" x2="1440" y2="1650"/>
+
+    <!-- 10 mm shelf in the open niche -->
+    <line class="object" x1="416" y1="1402" x2="1424" y2="1402"/>
+    <line class="object" x1="416" y1="1410" x2="1424" y2="1410"/>
+
+    <!-- Recessed 35 mm plinth -->
+    <rect class="object" x="448" y="1762" width="1344" height="28"/>
+
+    <!-- 20 mm visible left return and 20 mm right frame -->
+    <line class="extension" x1="400" y1="1150" x2="400" y2="1105"/>
+    <line class="extension" x1="416" y1="1150" x2="416" y2="1105"/>
+    <line class="dimension arrowed-small" x1="400" y1="1115" x2="416" y2="1115"/>
+    <text class="dim-text-small" x="408" y="1096">20</text>
+
+    <line class="extension" x1="1424" y1="1150" x2="1424" y2="1105"/>
+    <line class="extension" x1="1440" y1="1150" x2="1440" y2="1105"/>
+    <line class="dimension arrowed-small" x1="1424" y1="1115" x2="1440" y2="1115"/>
+    <text class="dim-text-small" x="1432" y="1096">20</text>
+
+    <!-- Vertical construction chain: grouped at the left of the façade -->
+    <line class="extension" x1="400" y1="1150" x2="285" y2="1150"/>
+    <line class="extension" x1="400" y1="1278" x2="285" y2="1278"/>
+    <line class="extension" x1="400" y1="1530" x2="285" y2="1530"/>
+    <line class="extension" x1="400" y1="1650" x2="285" y2="1650"/>
+    <line class="extension" x1="400" y1="1762" x2="285" y2="1762"/>
+    <line class="extension" x1="448" y1="1790" x2="285" y2="1790"/>
+
+    <line class="dimension arrowed" x1="300" y1="1150" x2="300" y2="1278"/>
+    <text class="dim-text" x="288" y="1214" transform="rotate(-90 288 1214)">160</text>
+
+    <line class="dimension arrowed" x1="300" y1="1278" x2="300" y2="1530"/>
+    <text class="dim-text" x="288" y="1404" transform="rotate(-90 288 1404)">315</text>
+
+    <line class="dimension arrowed" x1="300" y1="1530" x2="300" y2="1650"/>
+    <text class="dim-text" x="288" y="1590" transform="rotate(-90 288 1590)">150</text>
+
+    <line class="dimension arrowed" x1="300" y1="1650" x2="300" y2="1762"/>
+    <text class="dim-text" x="288" y="1706" transform="rotate(-90 288 1706)">140</text>
+
+    <line class="dimension arrowed-small" x1="300" y1="1762" x2="300" y2="1790"/>
+    <text class="dim-text-small" x="263" y="1784">35</text>
+
+    <!-- Overall height 800 mm: largest dimension farthest from the contour -->
+    <line class="extension" x1="400" y1="1150" x2="145" y2="1150"/>
+    <line class="extension" x1="448" y1="1790" x2="145" y2="1790"/>
+    <line class="dimension arrowed" x1="170" y1="1150" x2="170" y2="1790"/>
+    <text class="dim-text" x="158" y="1470" transform="rotate(-90 158 1470)">800</text>
+
+    <!-- Shelf dimensions grouped beside the open niche -->
+    <line class="extension" x1="1840" y1="1278" x2="1995" y2="1278"/>
+    <line class="extension" x1="1840" y1="1402" x2="1995" y2="1402"/>
+    <line class="extension" x1="1840" y1="1410" x2="1905" y2="1410"/>
+
+    <line class="dimension arrowed" x1="1970" y1="1278" x2="1970" y2="1402"/>
+    <text class="dim-text" x="1958" y="1340" transform="rotate(-90 1958 1340)">155</text>
+
+    <line class="dimension arrowed-small" x1="1880" y1="1402" x2="1880" y2="1410"/>
+    <text class="dim-text-small" x="1914" y="1415">10</text>
+
+    <!-- Plinth inset: shown once as a symmetrical pair -->
+    <line class="extension" x1="400" y1="1762" x2="400" y2="1845"/>
+    <line class="extension" x1="448" y1="1790" x2="448" y2="1845"/>
+    <line class="dimension arrowed-small" x1="400" y1="1830" x2="448" y2="1830"/>
+    <text class="dim-text-small" x="424" y="1813">2×60</text>
+
+    <!-- Module-width chain closer to the object -->
+    <line class="extension" x1="400" y1="1790" x2="400" y2="2020"/>
+    <line class="extension" x1="1440" y1="1762" x2="1440" y2="1915"/>
+    <line class="extension" x1="1840" y1="1762" x2="1840" y2="2020"/>
+
+    <line class="dimension arrowed" x1="400" y1="1900" x2="1440" y2="1900"/>
+    <text class="dim-text" x="920" y="1890">1300</text>
+
+    <line class="dimension arrowed" x1="1440" y1="1900" x2="1840" y2="1900"/>
+    <text class="dim-text" x="1640" y="1890">500</text>
+
+    <!-- Overall width 1800 mm: largest dimension farthest from the contour -->
+    <line class="dimension arrowed" x1="400" y1="1990" x2="1840" y2="1990"/>
+    <text class="dim-text" x="1120" y="1980">1800</text>
+  </g>
+</svg>

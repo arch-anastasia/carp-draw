@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+  <title>Cabinet orthographic drawing dimensioned to GOST principles</title>
+  <desc>Front view above and top view below in direct projection. Dimensions are in millimetres and are applied from common bases without closed dimension chains.</desc>
+  <defs>
+    <marker id="dim-arrow" markerWidth="2.8" markerHeight="1.4" refX="1.4" refY="0.7" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 2.8 0.7 L 0 1.4 Z" fill="#111"/>
+    </marker>
+    <style>
+      .visible { fill: none; stroke: #111; stroke-width: 0.5; stroke-linecap: square; stroke-linejoin: miter; }
+      .dim { fill: none; stroke: #111; stroke-width: 0.25; stroke-linecap: square; }
+      .arrows { marker-start: url(#dim-arrow); marker-end: url(#dim-arrow); }
+      .arrow-end { marker-end: url(#dim-arrow); }
+      .num { fill: #111; stroke: #fff; stroke-width: 1.4; paint-order: stroke fill; font-family: "Arial Narrow", Arial, sans-serif; font-size: 3.5px; font-weight: 400; text-anchor: middle; }
+      .small-num { fill: #111; stroke: #fff; stroke-width: 1.2; paint-order: stroke fill; font-family: "Arial Narrow", Arial, sans-serif; font-size: 3.5px; font-weight: 400; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="420" height="297" fill="#fff"/>
+
+  <!-- FRONT VIEW, scale 1:10. Main view is above; the top view is below in direct projection. -->
+  <g id="front-view" aria-label="Front view">
+    <!-- Visible outlines -->
+    <rect class="visible" x="100" y="40" width="180" height="76.5"/>
+    <line class="visible" x1="230" y1="40" x2="230" y2="116.5"/>
+    <line class="visible" x1="102" y1="40" x2="102" y2="116.5"/>
+    <line class="visible" x1="228" y1="56" x2="228" y2="87.5"/>
+    <line class="visible" x1="102" y1="56" x2="230" y2="56"/>
+    <line class="visible" x1="102" y1="87.5" x2="230" y2="87.5"/>
+    <line class="visible" x1="102" y1="102.5" x2="230" y2="102.5"/>
+    <line class="visible" x1="102" y1="71.5" x2="228" y2="71.5"/>
+    <line class="visible" x1="102" y1="72.5" x2="228" y2="72.5"/>
+    <rect class="visible" x="106" y="116.5" width="168" height="3.5"/>
+
+    <!-- Widths from the right functional module and the overall envelope. Smaller dimension is nearer. -->
+    <line class="dim" x1="230" y1="40" x2="230" y2="28"/>
+    <line class="dim" x1="280" y1="40" x2="280" y2="21"/>
+    <line class="dim" x1="100" y1="40" x2="100" y2="21"/>
+    <line class="dim arrows" x1="230" y1="30" x2="280" y2="30"/>
+    <text class="num" x="255" y="28.7">500</text>
+    <line class="dim arrows" x1="100" y1="23" x2="280" y2="23"/>
+    <text class="num" x="190" y="21.7">1800</text>
+
+    <!-- Vertical coordinates from the floor datum. Nearest/smallest first; larger values farther away. -->
+    <line class="dim" x1="106" y1="120" x2="60" y2="120"/>
+    <line class="dim" x1="100" y1="116.5" x2="88" y2="116.5"/>
+    <line class="dim" x1="100" y1="102.5" x2="81" y2="102.5"/>
+    <line class="dim" x1="100" y1="87.5" x2="74" y2="87.5"/>
+    <line class="dim" x1="100" y1="56" x2="67" y2="56"/>
+    <line class="dim" x1="100" y1="40" x2="60" y2="40"/>
+
+    <!-- 35 mm: arrows moved outside because the measured interval is too short -->
+    <line class="dim arrow-end" x1="90" y1="112.5" x2="90" y2="116.5"/>
+    <line class="dim arrow-end" x1="90" y1="124" x2="90" y2="120"/>
+    <text class="small-num" x="92.5" y="119.5">35</text>
+
+    <line class="dim arrows" x1="83" y1="102.5" x2="83" y2="120"/>
+    <text class="num" x="81.7" y="111.25" transform="rotate(-90 81.7 111.25)">175</text>
+
+    <line class="dim arrows" x1="76" y1="87.5" x2="76" y2="120"/>
+    <text class="num" x="74.7" y="103.75" transform="rotate(-90 74.7 103.75)">325</text>
+
+    <line class="dim arrows" x1="69" y1="56" x2="69" y2="120"/>
+    <text class="num" x="67.7" y="88" transform="rotate(-90 67.7 88)">640</text>
+
+    <line class="dim arrows" x1="62" y1="40" x2="62" y2="120"/>
+    <text class="num" x="60.7" y="80" transform="rotate(-90 60.7 80)">800</text>
+
+    <!-- Shelf: grouped with the open niche. Dimension lines are placed in the clear door field. -->
+    <line class="dim" x1="228" y1="71.5" x2="248" y2="71.5"/>
+    <line class="dim" x1="228" y1="72.5" x2="248" y2="72.5"/>
+    <line class="dim" x1="228" y1="87.5" x2="243" y2="87.5"/>
+    <line class="dim arrows" x1="240" y1="72.5" x2="240" y2="87.5"/>
+    <text class="num" x="238.7" y="80" transform="rotate(-90 238.7 80)">150</text>
+    <line class="dim arrow-end" x1="246" y1="68" x2="246" y2="71.5"/>
+    <line class="dim arrow-end" x1="246" y1="76" x2="246" y2="72.5"/>
+    <text class="small-num" x="248.5" y="73.1">10</text>
+
+    <!-- Left plinth inset, shown once for the symmetric plinth placement -->
+    <line class="dim" x1="100" y1="116.5" x2="100" y2="132"/>
+    <line class="dim" x1="106" y1="116.5" x2="106" y2="132"/>
+    <line class="dim arrows" x1="100" y1="130" x2="106" y2="130"/>
+    <text class="num" x="103" y="128.7">60</text>
+  </g>
+
+  <!-- TOP VIEW, directly below the front view, scale 1:10. -->
+  <g id="top-view" aria-label="Top view">
+    <!-- Visible outlines -->
+    <rect class="visible" x="100" y="205" width="180" height="60"/>
+    <rect class="visible" x="102" y="207" width="176" height="56"/>
+    <line class="visible" x1="230" y1="205" x2="230" y2="265"/>
+    <rect class="visible" x="233" y="208" width="44" height="54"/>
+    <line class="visible" x1="233" y1="213" x2="277" y2="213"/>
+    <line class="visible" x1="233" y1="215.5" x2="277" y2="215.5"/>
+
+    <!-- Overall depth, shown only on the top view -->
+    <line class="dim" x1="100" y1="205" x2="88" y2="205"/>
+    <line class="dim" x1="100" y1="265" x2="88" y2="265"/>
+    <line class="dim arrows" x1="90" y1="205" x2="90" y2="265"/>
+    <text class="num" x="88.7" y="235" transform="rotate(-90 88.7 235)">600</text>
+
+    <!-- 20 mm perimeter rim. Arrows are outside the short interval. -->
+    <line class="dim" x1="100" y1="205" x2="100" y2="193"/>
+    <line class="dim" x1="102" y1="207" x2="102" y2="193"/>
+    <line class="dim arrow-end" x1="96" y1="195" x2="100" y2="195"/>
+    <line class="dim arrow-end" x1="106" y1="195" x2="102" y2="195"/>
+    <text class="small-num" x="101" y="192.8" text-anchor="middle">20</text>
+
+    <!-- Upper cavity: its width and left-hand coordinate from the cabinet datum -->
+    <line class="dim" x1="233" y1="262" x2="233" y2="284"/>
+    <line class="dim" x1="277" y1="262" x2="277" y2="277"/>
+    <line class="dim" x1="100" y1="265" x2="100" y2="284"/>
+    <line class="dim arrows" x1="233" y1="275" x2="277" y2="275"/>
+    <text class="num" x="255" y="273.7">440</text>
+    <line class="dim arrows" x1="100" y1="282" x2="233" y2="282"/>
+    <text class="num" x="166.5" y="280.7">1330</text>
+
+    <!-- Cavity depth, front margin and rear cross-rail position grouped on the right -->
+    <line class="dim" x1="277" y1="208" x2="299" y2="208"/>
+    <line class="dim" x1="277" y1="213" x2="292" y2="213"/>
+    <line class="dim" x1="277" y1="215.5" x2="292" y2="215.5"/>
+    <line class="dim" x1="277" y1="262" x2="299" y2="262"/>
+    <line class="dim" x1="280" y1="265" x2="292" y2="265"/>
+
+    <line class="dim arrows" x1="290" y1="208" x2="290" y2="213"/>
+    <text class="small-num" x="293" y="211.3">50</text>
+
+    <line class="dim arrow-end" x1="290" y1="219.5" x2="290" y2="215.5"/>
+    <line class="dim arrow-end" x1="290" y1="209" x2="290" y2="213"/>
+    <text class="small-num" x="293" y="215.5">25</text>
+
+    <line class="dim arrow-end" x1="290" y1="258" x2="290" y2="262"/>
+    <line class="dim arrow-end" x1="290" y1="269" x2="290" y2="265"/>
+    <text class="small-num" x="293" y="264.5">30</text>
+
+    <line class="dim arrows" x1="297" y1="208" x2="297" y2="262"/>
+    <text class="num" x="295.7" y="235" transform="rotate(-90 295.7 235)">540</text>
+  </g>
+</svg>

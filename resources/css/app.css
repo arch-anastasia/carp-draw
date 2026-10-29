@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+/* Content sources for the Inertia bundle */
+@source '../views/**/*.blade.php';
+@source '../js/**/*.vue';
+@source '../js/**/*.ts';
+
+/* CarpDraw design system (fonts, tokens, all semantic component classes) */
+@import './carpdraw.css';
+
+@import './blog.css';

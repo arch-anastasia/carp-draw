@@ -21,5 +21,28 @@ secrets/
 private/
 .codex/
 
-# Add technology-specific output rules only after inspecting the actual code.
+# Application build, dependency, runtime and editor outputs.
 # Ignore rules do not detect arbitrary secrets or remove already tracked files.
+
+*.log
+.phpactor.json
+.phpunit.result.cache
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+/auth.json
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/pail
+/vendor
+Homestead.json
+Homestead.yaml
+Thumbs.db
+/database/*.sqlite
+/playwright-report/
+/test-results/

@@ -1,0 +1,5975 @@
+{
+  "model": "Tumba cabinet — white technical line style",
+  "units": "millimetres",
+  "overallFurnitureEnvelope": {
+    "width": 1800,
+    "depth": 600,
+    "height": 800
+  },
+  "style": {
+    "surface": "matte warm white",
+    "line": "dark technical contour geometry",
+    "lineThicknessMm": 1.4,
+    "note": "Line geometry projects 0.7 mm beyond some nominal faces for reliable visibility in 3D viewers."
+  },
+  "basePartCount": 37,
+  "lineElementCount": 360,
+  "sourceModel": "../tumba_3d/tumba_3d_model.glb",
+  "parts": [
+    {
+      "name": "plinth",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        60,
+        50,
+        0
+      ],
+      "maximumMm": [
+        1740,
+        560,
+        35
+      ]
+    },
+    {
+      "name": "left_side_panel",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        0,
+        0,
+        35
+      ],
+      "maximumMm": [
+        20,
+        600,
+        800
+      ]
+    },
+    {
+      "name": "right_side_panel",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1780,
+        0,
+        35
+      ],
+      "maximumMm": [
+        1800,
+        600,
+        800
+      ]
+    },
+    {
+      "name": "rear_panel",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        20,
+        580,
+        35
+      ],
+      "maximumMm": [
+        1780,
+        600,
+        780
+      ]
+    },
+    {
+      "name": "module_divider",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1280,
+        20,
+        35
+      ],
+      "maximumMm": [
+        1300,
+        580,
+        780
+      ]
+    },
+    {
+      "name": "main_bottom_panel",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        20,
+        20,
+        35
+      ],
+      "maximumMm": [
+        1280,
+        580,
+        55
+      ]
+    },
+    {
+      "name": "right_bottom_panel",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1300,
+        20,
+        35
+      ],
+      "maximumMm": [
+        1780,
+        580,
+        55
+      ]
+    },
+    {
+      "name": "upper_front_panel",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        20,
+        0,
+        640
+      ],
+      "maximumMm": [
+        1280,
+        20,
+        800
+      ]
+    },
+    {
+      "name": "upper_drawer_front",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        20,
+        0,
+        177
+      ],
+      "maximumMm": [
+        1280,
+        20,
+        323
+      ]
+    },
+    {
+      "name": "lower_drawer_front",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        20,
+        0,
+        37
+      ],
+      "maximumMm": [
+        1280,
+        20,
+        173
+      ]
+    },
+    {
+      "name": "right_full_height_door",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1304,
+        0,
+        39
+      ],
+      "maximumMm": [
+        1778,
+        20,
+        796
+      ]
+    },
+    {
+      "name": "upper_drawer_box",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        40,
+        22,
+        185
+      ],
+      "maximumMm": [
+        1260,
+        550,
+        315
+      ]
+    },
+    {
+      "name": "lower_drawer_box",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        40,
+        22,
+        45
+      ],
+      "maximumMm": [
+        1260,
+        550,
+        165
+      ]
+    },
+    {
+      "name": "niche_ceiling",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        20,
+        20,
+        620
+      ],
+      "maximumMm": [
+        1280,
+        580,
+        640
+      ]
+    },
+    {
+      "name": "niche_floor",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        20,
+        20,
+        325
+      ],
+      "maximumMm": [
+        1280,
+        580,
+        345
+      ]
+    },
+    {
+      "name": "niche_back_lining",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        20,
+        570,
+        325
+      ],
+      "maximumMm": [
+        1280,
+        580,
+        640
+      ]
+    },
+    {
+      "name": "niche_shelf",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        30,
+        18,
+        475
+      ],
+      "maximumMm": [
+        1270,
+        570,
+        485
+      ]
+    },
+    {
+      "name": "niche_shelf_front_edge",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        30,
+        12,
+        475
+      ],
+      "maximumMm": [
+        1270,
+        22,
+        485
+      ]
+    },
+    {
+      "name": "niche_upper_trim",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        30,
+        12,
+        622
+      ],
+      "maximumMm": [
+        1270,
+        24,
+        632
+      ]
+    },
+    {
+      "name": "niche_light_strip",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        40,
+        20,
+        624
+      ],
+      "maximumMm": [
+        1260,
+        26,
+        629
+      ]
+    },
+    {
+      "name": "top_front_rim",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        0,
+        0,
+        780
+      ],
+      "maximumMm": [
+        1800,
+        20,
+        800
+      ]
+    },
+    {
+      "name": "top_back_rim",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        0,
+        580,
+        780
+      ],
+      "maximumMm": [
+        1800,
+        600,
+        800
+      ]
+    },
+    {
+      "name": "top_left_rim",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        0,
+        20,
+        780
+      ],
+      "maximumMm": [
+        20,
+        580,
+        800
+      ]
+    },
+    {
+      "name": "top_right_rim",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1780,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1800,
+        580,
+        800
+      ]
+    },
+    {
+      "name": "main_top_surface",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        20,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1300,
+        580,
+        798
+      ]
+    },
+    {
+      "name": "cavity_left_rim",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1300,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1330,
+        580,
+        798
+      ]
+    },
+    {
+      "name": "cavity_right_rim",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1770,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1780,
+        580,
+        798
+      ]
+    },
+    {
+      "name": "cavity_front_rim",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1330,
+        20,
+        780
+      ],
+      "maximumMm": [
+        1770,
+        30,
+        798
+      ]
+    },
+    {
+      "name": "cavity_back_rim",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1330,
+        570,
+        780
+      ],
+      "maximumMm": [
+        1770,
+        580,
+        798
+      ]
+    },
+    {
+      "name": "cavity_floor",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1330,
+        30,
+        690
+      ],
+      "maximumMm": [
+        1770,
+        570,
+        710
+      ]
+    },
+    {
+      "name": "cavity_left_wall",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1330,
+        30,
+        710
+      ],
+      "maximumMm": [
+        1350,
+        570,
+        780
+      ]
+    },
+    {
+      "name": "cavity_right_wall",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1750,
+        30,
+        710
+      ],
+      "maximumMm": [
+        1770,
+        570,
+        780
+      ]
+    },
+    {
+      "name": "cavity_front_wall",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1350,
+        30,
+        710
+      ],
+      "maximumMm": [
+        1750,
+        50,
+        780
+      ]
+    },
+    {
+      "name": "cavity_back_wall",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1350,
+        550,
+        710
+      ],
+      "maximumMm": [
+        1750,
+        570,
+        780
+      ]
+    },
+    {
+      "name": "cavity_rear_rail",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1350,
+        515,
+        752
+      ],
+      "maximumMm": [
+        1750,
+        525,
+        766
+      ]
+    },
+    {
+      "name": "cavity_inner_rail",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1350,
+        490,
+        738
+      ],
+      "maximumMm": [
+        1750,
+        500,
+        752
+      ]
+    },
+    {
+      "name": "cavity_light_bar",
+      "type": "surface",
+      "material": "WhiteMatte",
+      "minimumMm": [
+        1360,
+        503,
+        754
+      ],
+      "maximumMm": [
+        1740,
+        511,
+        762
+      ]
+    },
+    {
+      "name": "line_0001",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        -0.7,
+        35
+      ],
+      "maximumMm": [
+        0.7,
+        0.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0002",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        0,
+        34.3
+      ],
+      "maximumMm": [
+        0.7,
+        600,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0003",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        -0.7,
+        34.3
+      ],
+      "maximumMm": [
+        20,
+        0.7,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0004",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        -0.7,
+        780
+      ],
+      "maximumMm": [
+        0.7,
+        0.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0005",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        0,
+        779.3
+      ],
+      "maximumMm": [
+        0.7,
+        20,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0006",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        -0.7,
+        779.3
+      ],
+      "maximumMm": [
+        1800,
+        0.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0007",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        0,
+        799.3
+      ],
+      "maximumMm": [
+        0.7,
+        20,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0008",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        0,
+        799.3
+      ],
+      "maximumMm": [
+        0.7,
+        600,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0009",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        -0.7,
+        799.3
+      ],
+      "maximumMm": [
+        20,
+        0.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0010",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        -0.7,
+        799.3
+      ],
+      "maximumMm": [
+        1800,
+        0.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0011",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        19.3,
+        780
+      ],
+      "maximumMm": [
+        0.7,
+        20.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0012",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        0.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0013",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        19.3,
+        779.3
+      ],
+      "maximumMm": [
+        20,
+        20.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0014",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        19.3,
+        779.3
+      ],
+      "maximumMm": [
+        1800,
+        20.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0015",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        20,
+        799.3
+      ],
+      "maximumMm": [
+        0.7,
+        580,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0016",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        19.3,
+        799.3
+      ],
+      "maximumMm": [
+        20,
+        20.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0017",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        19.3,
+        799.3
+      ],
+      "maximumMm": [
+        1800,
+        20.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0018",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        579.3,
+        780
+      ],
+      "maximumMm": [
+        0.7,
+        580.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0019",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        580,
+        779.3
+      ],
+      "maximumMm": [
+        0.7,
+        600,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0020",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        579.3,
+        779.3
+      ],
+      "maximumMm": [
+        20,
+        580.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0021",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        579.3,
+        779.3
+      ],
+      "maximumMm": [
+        1800,
+        580.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0022",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        580,
+        799.3
+      ],
+      "maximumMm": [
+        0.7,
+        600,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0023",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        579.3,
+        799.3
+      ],
+      "maximumMm": [
+        20,
+        580.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0024",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        579.3,
+        799.3
+      ],
+      "maximumMm": [
+        1800,
+        580.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0025",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        599.3,
+        35
+      ],
+      "maximumMm": [
+        0.7,
+        600.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0026",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        599.3,
+        34.3
+      ],
+      "maximumMm": [
+        20,
+        600.7,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0027",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        -0.7,
+        599.3,
+        780
+      ],
+      "maximumMm": [
+        0.7,
+        600.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0028",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        599.3,
+        779.3
+      ],
+      "maximumMm": [
+        1800,
+        600.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0029",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        599.3,
+        799.3
+      ],
+      "maximumMm": [
+        20,
+        600.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0030",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        0,
+        599.3,
+        799.3
+      ],
+      "maximumMm": [
+        1800,
+        600.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0031",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        -0.7,
+        35
+      ],
+      "maximumMm": [
+        20.7,
+        0.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0032",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        0,
+        34.3
+      ],
+      "maximumMm": [
+        20.7,
+        600,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0033",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        -0.7,
+        37
+      ],
+      "maximumMm": [
+        20.7,
+        0.7,
+        173
+      ]
+    },
+    {
+      "name": "line_0034",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        0,
+        36.3
+      ],
+      "maximumMm": [
+        20.7,
+        20,
+        37.7
+      ]
+    },
+    {
+      "name": "line_0035",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        -0.7,
+        36.3
+      ],
+      "maximumMm": [
+        1280,
+        0.7,
+        37.7
+      ]
+    },
+    {
+      "name": "line_0036",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        0,
+        172.3
+      ],
+      "maximumMm": [
+        20.7,
+        20,
+        173.7
+      ]
+    },
+    {
+      "name": "line_0037",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        -0.7,
+        172.3
+      ],
+      "maximumMm": [
+        1280,
+        0.7,
+        173.7
+      ]
+    },
+    {
+      "name": "line_0038",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        -0.7,
+        177
+      ],
+      "maximumMm": [
+        20.7,
+        0.7,
+        323
+      ]
+    },
+    {
+      "name": "line_0039",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        0,
+        176.3
+      ],
+      "maximumMm": [
+        20.7,
+        20,
+        177.7
+      ]
+    },
+    {
+      "name": "line_0040",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        -0.7,
+        176.3
+      ],
+      "maximumMm": [
+        1280,
+        0.7,
+        177.7
+      ]
+    },
+    {
+      "name": "line_0041",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        0,
+        322.3
+      ],
+      "maximumMm": [
+        20.7,
+        20,
+        323.7
+      ]
+    },
+    {
+      "name": "line_0042",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        -0.7,
+        322.3
+      ],
+      "maximumMm": [
+        1280,
+        0.7,
+        323.7
+      ]
+    },
+    {
+      "name": "line_0043",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        -0.7,
+        640
+      ],
+      "maximumMm": [
+        20.7,
+        0.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0044",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        0,
+        639.3
+      ],
+      "maximumMm": [
+        20.7,
+        20,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0045",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        -0.7,
+        639.3
+      ],
+      "maximumMm": [
+        1280,
+        0.7,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0046",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        0,
+        799.3
+      ],
+      "maximumMm": [
+        20.7,
+        20,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0047",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        0,
+        799.3
+      ],
+      "maximumMm": [
+        20.7,
+        600,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0048",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        -0.7,
+        799.3
+      ],
+      "maximumMm": [
+        1280,
+        0.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0049",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        19.3,
+        37
+      ],
+      "maximumMm": [
+        20.7,
+        20.7,
+        173
+      ]
+    },
+    {
+      "name": "line_0050",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        36.3
+      ],
+      "maximumMm": [
+        1280,
+        20.7,
+        37.7
+      ]
+    },
+    {
+      "name": "line_0051",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        172.3
+      ],
+      "maximumMm": [
+        1280,
+        20.7,
+        173.7
+      ]
+    },
+    {
+      "name": "line_0052",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        19.3,
+        177
+      ],
+      "maximumMm": [
+        20.7,
+        20.7,
+        323
+      ]
+    },
+    {
+      "name": "line_0053",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        176.3
+      ],
+      "maximumMm": [
+        1280,
+        20.7,
+        177.7
+      ]
+    },
+    {
+      "name": "line_0054",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        322.3
+      ],
+      "maximumMm": [
+        1280,
+        20.7,
+        323.7
+      ]
+    },
+    {
+      "name": "line_0055",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        19.3,
+        325
+      ],
+      "maximumMm": [
+        20.7,
+        20.7,
+        345
+      ]
+    },
+    {
+      "name": "line_0056",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        20,
+        324.3
+      ],
+      "maximumMm": [
+        20.7,
+        580,
+        325.7
+      ]
+    },
+    {
+      "name": "line_0057",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        324.3
+      ],
+      "maximumMm": [
+        1280,
+        20.7,
+        325.7
+      ]
+    },
+    {
+      "name": "line_0058",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        20,
+        344.3
+      ],
+      "maximumMm": [
+        20.7,
+        580,
+        345.7
+      ]
+    },
+    {
+      "name": "line_0059",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        344.3
+      ],
+      "maximumMm": [
+        1280,
+        20.7,
+        345.7
+      ]
+    },
+    {
+      "name": "line_0060",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        19.3,
+        620
+      ],
+      "maximumMm": [
+        20.7,
+        20.7,
+        640
+      ]
+    },
+    {
+      "name": "line_0061",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        20,
+        619.3
+      ],
+      "maximumMm": [
+        20.7,
+        580,
+        620.7
+      ]
+    },
+    {
+      "name": "line_0062",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        619.3
+      ],
+      "maximumMm": [
+        1280,
+        20.7,
+        620.7
+      ]
+    },
+    {
+      "name": "line_0063",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        19.3,
+        640
+      ],
+      "maximumMm": [
+        20.7,
+        20.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0064",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        20,
+        639.3
+      ],
+      "maximumMm": [
+        20.7,
+        580,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0065",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        639.3
+      ],
+      "maximumMm": [
+        1280,
+        20.7,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0066",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        19.3,
+        780
+      ],
+      "maximumMm": [
+        20.7,
+        20.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0067",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        19.3,
+        780
+      ],
+      "maximumMm": [
+        20.7,
+        20.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0068",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        20.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0069",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        779.3
+      ],
+      "maximumMm": [
+        1300,
+        20.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0070",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        20,
+        797.3
+      ],
+      "maximumMm": [
+        20.7,
+        580,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0071",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        797.3
+      ],
+      "maximumMm": [
+        1300,
+        20.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0072",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        20,
+        799.3
+      ],
+      "maximumMm": [
+        20.7,
+        580,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0073",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        19.3,
+        799.3
+      ],
+      "maximumMm": [
+        1280,
+        20.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0074",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        569.3,
+        325
+      ],
+      "maximumMm": [
+        20.7,
+        570.7,
+        640
+      ]
+    },
+    {
+      "name": "line_0075",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        570,
+        324.3
+      ],
+      "maximumMm": [
+        20.7,
+        580,
+        325.7
+      ]
+    },
+    {
+      "name": "line_0076",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        569.3,
+        324.3
+      ],
+      "maximumMm": [
+        1280,
+        570.7,
+        325.7
+      ]
+    },
+    {
+      "name": "line_0077",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        570,
+        639.3
+      ],
+      "maximumMm": [
+        20.7,
+        580,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0078",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        569.3,
+        639.3
+      ],
+      "maximumMm": [
+        1280,
+        570.7,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0079",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        579.3,
+        325
+      ],
+      "maximumMm": [
+        20.7,
+        580.7,
+        345
+      ]
+    },
+    {
+      "name": "line_0080",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        579.3,
+        325
+      ],
+      "maximumMm": [
+        20.7,
+        580.7,
+        640
+      ]
+    },
+    {
+      "name": "line_0081",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        579.3,
+        324.3
+      ],
+      "maximumMm": [
+        1280,
+        580.7,
+        325.7
+      ]
+    },
+    {
+      "name": "line_0082",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        579.3,
+        344.3
+      ],
+      "maximumMm": [
+        1280,
+        580.7,
+        345.7
+      ]
+    },
+    {
+      "name": "line_0083",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        579.3,
+        620
+      ],
+      "maximumMm": [
+        20.7,
+        580.7,
+        640
+      ]
+    },
+    {
+      "name": "line_0084",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        579.3,
+        619.3
+      ],
+      "maximumMm": [
+        1280,
+        580.7,
+        620.7
+      ]
+    },
+    {
+      "name": "line_0085",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        579.3,
+        639.3
+      ],
+      "maximumMm": [
+        1280,
+        580.7,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0086",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        579.3,
+        780
+      ],
+      "maximumMm": [
+        20.7,
+        580.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0087",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        579.3,
+        780
+      ],
+      "maximumMm": [
+        20.7,
+        580.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0088",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        579.3,
+        779.3
+      ],
+      "maximumMm": [
+        1300,
+        580.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0089",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        20,
+        579.3,
+        797.3
+      ],
+      "maximumMm": [
+        1300,
+        580.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0090",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        19.3,
+        599.3,
+        35
+      ],
+      "maximumMm": [
+        20.7,
+        600.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0091",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        11.3,
+        475
+      ],
+      "maximumMm": [
+        30.7,
+        12.7,
+        485
+      ]
+    },
+    {
+      "name": "line_0092",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        12,
+        474.3
+      ],
+      "maximumMm": [
+        30.7,
+        22,
+        475.7
+      ]
+    },
+    {
+      "name": "line_0093",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        11.3,
+        474.3
+      ],
+      "maximumMm": [
+        1270,
+        12.7,
+        475.7
+      ]
+    },
+    {
+      "name": "line_0094",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        12,
+        484.3
+      ],
+      "maximumMm": [
+        30.7,
+        22,
+        485.7
+      ]
+    },
+    {
+      "name": "line_0095",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        11.3,
+        484.3
+      ],
+      "maximumMm": [
+        1270,
+        12.7,
+        485.7
+      ]
+    },
+    {
+      "name": "line_0096",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        11.3,
+        622
+      ],
+      "maximumMm": [
+        30.7,
+        12.7,
+        632
+      ]
+    },
+    {
+      "name": "line_0097",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        12,
+        621.3
+      ],
+      "maximumMm": [
+        30.7,
+        24,
+        622.7
+      ]
+    },
+    {
+      "name": "line_0098",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        11.3,
+        621.3
+      ],
+      "maximumMm": [
+        1270,
+        12.7,
+        622.7
+      ]
+    },
+    {
+      "name": "line_0099",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        12,
+        631.3
+      ],
+      "maximumMm": [
+        30.7,
+        24,
+        632.7
+      ]
+    },
+    {
+      "name": "line_0100",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        11.3,
+        631.3
+      ],
+      "maximumMm": [
+        1270,
+        12.7,
+        632.7
+      ]
+    },
+    {
+      "name": "line_0101",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        17.3,
+        475
+      ],
+      "maximumMm": [
+        30.7,
+        18.7,
+        485
+      ]
+    },
+    {
+      "name": "line_0102",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        18,
+        474.3
+      ],
+      "maximumMm": [
+        30.7,
+        570,
+        475.7
+      ]
+    },
+    {
+      "name": "line_0103",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        17.3,
+        474.3
+      ],
+      "maximumMm": [
+        1270,
+        18.7,
+        475.7
+      ]
+    },
+    {
+      "name": "line_0104",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        18,
+        484.3
+      ],
+      "maximumMm": [
+        30.7,
+        570,
+        485.7
+      ]
+    },
+    {
+      "name": "line_0105",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        17.3,
+        484.3
+      ],
+      "maximumMm": [
+        1270,
+        18.7,
+        485.7
+      ]
+    },
+    {
+      "name": "line_0106",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        21.3,
+        475
+      ],
+      "maximumMm": [
+        30.7,
+        22.7,
+        485
+      ]
+    },
+    {
+      "name": "line_0107",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        21.3,
+        474.3
+      ],
+      "maximumMm": [
+        1270,
+        22.7,
+        475.7
+      ]
+    },
+    {
+      "name": "line_0108",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        21.3,
+        484.3
+      ],
+      "maximumMm": [
+        1270,
+        22.7,
+        485.7
+      ]
+    },
+    {
+      "name": "line_0109",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        23.3,
+        622
+      ],
+      "maximumMm": [
+        30.7,
+        24.7,
+        632
+      ]
+    },
+    {
+      "name": "line_0110",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        23.3,
+        621.3
+      ],
+      "maximumMm": [
+        1270,
+        24.7,
+        622.7
+      ]
+    },
+    {
+      "name": "line_0111",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        23.3,
+        631.3
+      ],
+      "maximumMm": [
+        1270,
+        24.7,
+        632.7
+      ]
+    },
+    {
+      "name": "line_0112",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        29.3,
+        569.3,
+        475
+      ],
+      "maximumMm": [
+        30.7,
+        570.7,
+        485
+      ]
+    },
+    {
+      "name": "line_0113",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        569.3,
+        474.3
+      ],
+      "maximumMm": [
+        1270,
+        570.7,
+        475.7
+      ]
+    },
+    {
+      "name": "line_0114",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        30,
+        569.3,
+        484.3
+      ],
+      "maximumMm": [
+        1270,
+        570.7,
+        485.7
+      ]
+    },
+    {
+      "name": "line_0115",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        39.3,
+        19.3,
+        624
+      ],
+      "maximumMm": [
+        40.7,
+        20.7,
+        629
+      ]
+    },
+    {
+      "name": "line_0116",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        39.3,
+        20,
+        623.3
+      ],
+      "maximumMm": [
+        40.7,
+        26,
+        624.7
+      ]
+    },
+    {
+      "name": "line_0117",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        40,
+        19.3,
+        623.3
+      ],
+      "maximumMm": [
+        1260,
+        20.7,
+        624.7
+      ]
+    },
+    {
+      "name": "line_0118",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        39.3,
+        20,
+        628.3
+      ],
+      "maximumMm": [
+        40.7,
+        26,
+        629.7
+      ]
+    },
+    {
+      "name": "line_0119",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        40,
+        19.3,
+        628.3
+      ],
+      "maximumMm": [
+        1260,
+        20.7,
+        629.7
+      ]
+    },
+    {
+      "name": "line_0120",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        39.3,
+        25.3,
+        624
+      ],
+      "maximumMm": [
+        40.7,
+        26.7,
+        629
+      ]
+    },
+    {
+      "name": "line_0121",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        40,
+        25.3,
+        623.3
+      ],
+      "maximumMm": [
+        1260,
+        26.7,
+        624.7
+      ]
+    },
+    {
+      "name": "line_0122",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        40,
+        25.3,
+        628.3
+      ],
+      "maximumMm": [
+        1260,
+        26.7,
+        629.7
+      ]
+    },
+    {
+      "name": "line_0123",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        59.3,
+        49.3,
+        0
+      ],
+      "maximumMm": [
+        60.7,
+        50.7,
+        35
+      ]
+    },
+    {
+      "name": "line_0124",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        59.3,
+        50,
+        -0.7
+      ],
+      "maximumMm": [
+        60.7,
+        560,
+        0.7
+      ]
+    },
+    {
+      "name": "line_0125",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        60,
+        49.3,
+        -0.7
+      ],
+      "maximumMm": [
+        1740,
+        50.7,
+        0.7
+      ]
+    },
+    {
+      "name": "line_0126",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        59.3,
+        50,
+        34.3
+      ],
+      "maximumMm": [
+        60.7,
+        560,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0127",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        60,
+        49.3,
+        34.3
+      ],
+      "maximumMm": [
+        1740,
+        50.7,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0128",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        59.3,
+        559.3,
+        0
+      ],
+      "maximumMm": [
+        60.7,
+        560.7,
+        35
+      ]
+    },
+    {
+      "name": "line_0129",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        60,
+        559.3,
+        -0.7
+      ],
+      "maximumMm": [
+        1740,
+        560.7,
+        0.7
+      ]
+    },
+    {
+      "name": "line_0130",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        60,
+        559.3,
+        34.3
+      ],
+      "maximumMm": [
+        1740,
+        560.7,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0131",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1259.3,
+        19.3,
+        624
+      ],
+      "maximumMm": [
+        1260.7,
+        20.7,
+        629
+      ]
+    },
+    {
+      "name": "line_0132",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1259.3,
+        20,
+        623.3
+      ],
+      "maximumMm": [
+        1260.7,
+        26,
+        624.7
+      ]
+    },
+    {
+      "name": "line_0133",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1259.3,
+        20,
+        628.3
+      ],
+      "maximumMm": [
+        1260.7,
+        26,
+        629.7
+      ]
+    },
+    {
+      "name": "line_0134",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1259.3,
+        25.3,
+        624
+      ],
+      "maximumMm": [
+        1260.7,
+        26.7,
+        629
+      ]
+    },
+    {
+      "name": "line_0135",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        11.3,
+        475
+      ],
+      "maximumMm": [
+        1270.7,
+        12.7,
+        485
+      ]
+    },
+    {
+      "name": "line_0136",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        12,
+        474.3
+      ],
+      "maximumMm": [
+        1270.7,
+        22,
+        475.7
+      ]
+    },
+    {
+      "name": "line_0137",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        12,
+        484.3
+      ],
+      "maximumMm": [
+        1270.7,
+        22,
+        485.7
+      ]
+    },
+    {
+      "name": "line_0138",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        11.3,
+        622
+      ],
+      "maximumMm": [
+        1270.7,
+        12.7,
+        632
+      ]
+    },
+    {
+      "name": "line_0139",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        12,
+        621.3
+      ],
+      "maximumMm": [
+        1270.7,
+        24,
+        622.7
+      ]
+    },
+    {
+      "name": "line_0140",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        12,
+        631.3
+      ],
+      "maximumMm": [
+        1270.7,
+        24,
+        632.7
+      ]
+    },
+    {
+      "name": "line_0141",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        17.3,
+        475
+      ],
+      "maximumMm": [
+        1270.7,
+        18.7,
+        485
+      ]
+    },
+    {
+      "name": "line_0142",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        18,
+        474.3
+      ],
+      "maximumMm": [
+        1270.7,
+        570,
+        475.7
+      ]
+    },
+    {
+      "name": "line_0143",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        18,
+        484.3
+      ],
+      "maximumMm": [
+        1270.7,
+        570,
+        485.7
+      ]
+    },
+    {
+      "name": "line_0144",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        21.3,
+        475
+      ],
+      "maximumMm": [
+        1270.7,
+        22.7,
+        485
+      ]
+    },
+    {
+      "name": "line_0145",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        23.3,
+        622
+      ],
+      "maximumMm": [
+        1270.7,
+        24.7,
+        632
+      ]
+    },
+    {
+      "name": "line_0146",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1269.3,
+        569.3,
+        475
+      ],
+      "maximumMm": [
+        1270.7,
+        570.7,
+        485
+      ]
+    },
+    {
+      "name": "line_0147",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        -0.7,
+        37
+      ],
+      "maximumMm": [
+        1280.7,
+        0.7,
+        173
+      ]
+    },
+    {
+      "name": "line_0148",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        0,
+        36.3
+      ],
+      "maximumMm": [
+        1280.7,
+        20,
+        37.7
+      ]
+    },
+    {
+      "name": "line_0149",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        0,
+        172.3
+      ],
+      "maximumMm": [
+        1280.7,
+        20,
+        173.7
+      ]
+    },
+    {
+      "name": "line_0150",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        -0.7,
+        177
+      ],
+      "maximumMm": [
+        1280.7,
+        0.7,
+        323
+      ]
+    },
+    {
+      "name": "line_0151",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        0,
+        176.3
+      ],
+      "maximumMm": [
+        1280.7,
+        20,
+        177.7
+      ]
+    },
+    {
+      "name": "line_0152",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        0,
+        322.3
+      ],
+      "maximumMm": [
+        1280.7,
+        20,
+        323.7
+      ]
+    },
+    {
+      "name": "line_0153",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        -0.7,
+        640
+      ],
+      "maximumMm": [
+        1280.7,
+        0.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0154",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        0,
+        639.3
+      ],
+      "maximumMm": [
+        1280.7,
+        20,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0155",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        0,
+        799.3
+      ],
+      "maximumMm": [
+        1280.7,
+        20,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0156",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        19.3,
+        35
+      ],
+      "maximumMm": [
+        1280.7,
+        20.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0157",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        20,
+        34.3
+      ],
+      "maximumMm": [
+        1280.7,
+        580,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0158",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1280,
+        19.3,
+        34.3
+      ],
+      "maximumMm": [
+        1300,
+        20.7,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0159",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        19.3,
+        37
+      ],
+      "maximumMm": [
+        1280.7,
+        20.7,
+        173
+      ]
+    },
+    {
+      "name": "line_0160",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        19.3,
+        177
+      ],
+      "maximumMm": [
+        1280.7,
+        20.7,
+        323
+      ]
+    },
+    {
+      "name": "line_0161",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        19.3,
+        325
+      ],
+      "maximumMm": [
+        1280.7,
+        20.7,
+        345
+      ]
+    },
+    {
+      "name": "line_0162",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        20,
+        324.3
+      ],
+      "maximumMm": [
+        1280.7,
+        580,
+        325.7
+      ]
+    },
+    {
+      "name": "line_0163",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        20,
+        344.3
+      ],
+      "maximumMm": [
+        1280.7,
+        580,
+        345.7
+      ]
+    },
+    {
+      "name": "line_0164",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        19.3,
+        620
+      ],
+      "maximumMm": [
+        1280.7,
+        20.7,
+        640
+      ]
+    },
+    {
+      "name": "line_0165",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        20,
+        619.3
+      ],
+      "maximumMm": [
+        1280.7,
+        580,
+        620.7
+      ]
+    },
+    {
+      "name": "line_0166",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        19.3,
+        640
+      ],
+      "maximumMm": [
+        1280.7,
+        20.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0167",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        20,
+        639.3
+      ],
+      "maximumMm": [
+        1280.7,
+        580,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0168",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        1280.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0169",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1280,
+        19.3,
+        779.3
+      ],
+      "maximumMm": [
+        1300,
+        20.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0170",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        569.3,
+        325
+      ],
+      "maximumMm": [
+        1280.7,
+        570.7,
+        640
+      ]
+    },
+    {
+      "name": "line_0171",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        570,
+        324.3
+      ],
+      "maximumMm": [
+        1280.7,
+        580,
+        325.7
+      ]
+    },
+    {
+      "name": "line_0172",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        570,
+        639.3
+      ],
+      "maximumMm": [
+        1280.7,
+        580,
+        640.7
+      ]
+    },
+    {
+      "name": "line_0173",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        579.3,
+        35
+      ],
+      "maximumMm": [
+        1280.7,
+        580.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0174",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1280,
+        579.3,
+        34.3
+      ],
+      "maximumMm": [
+        1300,
+        580.7,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0175",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        579.3,
+        325
+      ],
+      "maximumMm": [
+        1280.7,
+        580.7,
+        345
+      ]
+    },
+    {
+      "name": "line_0176",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        579.3,
+        325
+      ],
+      "maximumMm": [
+        1280.7,
+        580.7,
+        640
+      ]
+    },
+    {
+      "name": "line_0177",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1279.3,
+        579.3,
+        620
+      ],
+      "maximumMm": [
+        1280.7,
+        580.7,
+        640
+      ]
+    },
+    {
+      "name": "line_0178",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1280,
+        579.3,
+        779.3
+      ],
+      "maximumMm": [
+        1300,
+        580.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0179",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1299.3,
+        19.3,
+        35
+      ],
+      "maximumMm": [
+        1300.7,
+        20.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0180",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1299.3,
+        20,
+        34.3
+      ],
+      "maximumMm": [
+        1300.7,
+        580,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0181",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1299.3,
+        19.3,
+        780
+      ],
+      "maximumMm": [
+        1300.7,
+        20.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0182",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1299.3,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        1300.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0183",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1300,
+        19.3,
+        779.3
+      ],
+      "maximumMm": [
+        1330,
+        20.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0184",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1299.3,
+        20,
+        797.3
+      ],
+      "maximumMm": [
+        1300.7,
+        580,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0185",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1300,
+        19.3,
+        797.3
+      ],
+      "maximumMm": [
+        1330,
+        20.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0186",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1299.3,
+        579.3,
+        35
+      ],
+      "maximumMm": [
+        1300.7,
+        580.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0187",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1299.3,
+        579.3,
+        780
+      ],
+      "maximumMm": [
+        1300.7,
+        580.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0188",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1300,
+        579.3,
+        779.3
+      ],
+      "maximumMm": [
+        1330,
+        580.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0189",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1300,
+        579.3,
+        797.3
+      ],
+      "maximumMm": [
+        1330,
+        580.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0190",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1303.3,
+        -0.7,
+        39
+      ],
+      "maximumMm": [
+        1304.7,
+        0.7,
+        796
+      ]
+    },
+    {
+      "name": "line_0191",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1303.3,
+        0,
+        38.3
+      ],
+      "maximumMm": [
+        1304.7,
+        20,
+        39.7
+      ]
+    },
+    {
+      "name": "line_0192",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1304,
+        -0.7,
+        38.3
+      ],
+      "maximumMm": [
+        1778,
+        0.7,
+        39.7
+      ]
+    },
+    {
+      "name": "line_0193",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1303.3,
+        0,
+        795.3
+      ],
+      "maximumMm": [
+        1304.7,
+        20,
+        796.7
+      ]
+    },
+    {
+      "name": "line_0194",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1304,
+        -0.7,
+        795.3
+      ],
+      "maximumMm": [
+        1778,
+        0.7,
+        796.7
+      ]
+    },
+    {
+      "name": "line_0195",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1303.3,
+        19.3,
+        39
+      ],
+      "maximumMm": [
+        1304.7,
+        20.7,
+        796
+      ]
+    },
+    {
+      "name": "line_0196",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1304,
+        19.3,
+        38.3
+      ],
+      "maximumMm": [
+        1778,
+        20.7,
+        39.7
+      ]
+    },
+    {
+      "name": "line_0197",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1304,
+        19.3,
+        795.3
+      ],
+      "maximumMm": [
+        1778,
+        20.7,
+        796.7
+      ]
+    },
+    {
+      "name": "line_0198",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        19.3,
+        780
+      ],
+      "maximumMm": [
+        1330.7,
+        20.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0199",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        1330.7,
+        30,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0200",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        1330.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0201",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        19.3,
+        779.3
+      ],
+      "maximumMm": [
+        1770,
+        20.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0202",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        20,
+        797.3
+      ],
+      "maximumMm": [
+        1330.7,
+        30,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0203",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        20,
+        797.3
+      ],
+      "maximumMm": [
+        1330.7,
+        580,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0204",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        19.3,
+        797.3
+      ],
+      "maximumMm": [
+        1770,
+        20.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0205",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        29.3,
+        690
+      ],
+      "maximumMm": [
+        1330.7,
+        30.7,
+        710
+      ]
+    },
+    {
+      "name": "line_0206",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        30,
+        689.3
+      ],
+      "maximumMm": [
+        1330.7,
+        570,
+        690.7
+      ]
+    },
+    {
+      "name": "line_0207",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        29.3,
+        689.3
+      ],
+      "maximumMm": [
+        1770,
+        30.7,
+        690.7
+      ]
+    },
+    {
+      "name": "line_0208",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        29.3,
+        710
+      ],
+      "maximumMm": [
+        1330.7,
+        30.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0209",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        30,
+        709.3
+      ],
+      "maximumMm": [
+        1330.7,
+        570,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0210",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        29.3,
+        709.3
+      ],
+      "maximumMm": [
+        1350,
+        30.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0211",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        29.3,
+        709.3
+      ],
+      "maximumMm": [
+        1770,
+        30.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0212",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        29.3,
+        780
+      ],
+      "maximumMm": [
+        1330.7,
+        30.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0213",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        30,
+        779.3
+      ],
+      "maximumMm": [
+        1330.7,
+        570,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0214",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        29.3,
+        779.3
+      ],
+      "maximumMm": [
+        1350,
+        30.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0215",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        29.3,
+        779.3
+      ],
+      "maximumMm": [
+        1770,
+        30.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0216",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        29.3,
+        797.3
+      ],
+      "maximumMm": [
+        1770,
+        30.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0217",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        569.3,
+        690
+      ],
+      "maximumMm": [
+        1330.7,
+        570.7,
+        710
+      ]
+    },
+    {
+      "name": "line_0218",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        569.3,
+        689.3
+      ],
+      "maximumMm": [
+        1770,
+        570.7,
+        690.7
+      ]
+    },
+    {
+      "name": "line_0219",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        569.3,
+        710
+      ],
+      "maximumMm": [
+        1330.7,
+        570.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0220",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        569.3,
+        709.3
+      ],
+      "maximumMm": [
+        1350,
+        570.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0221",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        569.3,
+        709.3
+      ],
+      "maximumMm": [
+        1770,
+        570.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0222",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        569.3,
+        780
+      ],
+      "maximumMm": [
+        1330.7,
+        570.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0223",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        570,
+        779.3
+      ],
+      "maximumMm": [
+        1330.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0224",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        569.3,
+        779.3
+      ],
+      "maximumMm": [
+        1350,
+        570.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0225",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        569.3,
+        779.3
+      ],
+      "maximumMm": [
+        1770,
+        570.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0226",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        570,
+        797.3
+      ],
+      "maximumMm": [
+        1330.7,
+        580,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0227",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        569.3,
+        797.3
+      ],
+      "maximumMm": [
+        1770,
+        570.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0228",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1329.3,
+        579.3,
+        780
+      ],
+      "maximumMm": [
+        1330.7,
+        580.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0229",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        579.3,
+        779.3
+      ],
+      "maximumMm": [
+        1770,
+        580.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0230",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1330,
+        579.3,
+        797.3
+      ],
+      "maximumMm": [
+        1770,
+        580.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0231",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        29.3,
+        710
+      ],
+      "maximumMm": [
+        1350.7,
+        30.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0232",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        30,
+        709.3
+      ],
+      "maximumMm": [
+        1350.7,
+        50,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0233",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        30,
+        709.3
+      ],
+      "maximumMm": [
+        1350.7,
+        570,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0234",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        29.3,
+        709.3
+      ],
+      "maximumMm": [
+        1750,
+        30.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0235",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        30,
+        779.3
+      ],
+      "maximumMm": [
+        1350.7,
+        50,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0236",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        30,
+        779.3
+      ],
+      "maximumMm": [
+        1350.7,
+        570,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0237",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        29.3,
+        779.3
+      ],
+      "maximumMm": [
+        1750,
+        30.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0238",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        49.3,
+        710
+      ],
+      "maximumMm": [
+        1350.7,
+        50.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0239",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        49.3,
+        709.3
+      ],
+      "maximumMm": [
+        1750,
+        50.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0240",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        49.3,
+        779.3
+      ],
+      "maximumMm": [
+        1750,
+        50.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0241",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        489.3,
+        738
+      ],
+      "maximumMm": [
+        1350.7,
+        490.7,
+        752
+      ]
+    },
+    {
+      "name": "line_0242",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        490,
+        737.3
+      ],
+      "maximumMm": [
+        1350.7,
+        500,
+        738.7
+      ]
+    },
+    {
+      "name": "line_0243",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        489.3,
+        737.3
+      ],
+      "maximumMm": [
+        1750,
+        490.7,
+        738.7
+      ]
+    },
+    {
+      "name": "line_0244",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        490,
+        751.3
+      ],
+      "maximumMm": [
+        1350.7,
+        500,
+        752.7
+      ]
+    },
+    {
+      "name": "line_0245",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        489.3,
+        751.3
+      ],
+      "maximumMm": [
+        1750,
+        490.7,
+        752.7
+      ]
+    },
+    {
+      "name": "line_0246",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        499.3,
+        738
+      ],
+      "maximumMm": [
+        1350.7,
+        500.7,
+        752
+      ]
+    },
+    {
+      "name": "line_0247",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        499.3,
+        737.3
+      ],
+      "maximumMm": [
+        1750,
+        500.7,
+        738.7
+      ]
+    },
+    {
+      "name": "line_0248",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        499.3,
+        751.3
+      ],
+      "maximumMm": [
+        1750,
+        500.7,
+        752.7
+      ]
+    },
+    {
+      "name": "line_0249",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        514.3,
+        752
+      ],
+      "maximumMm": [
+        1350.7,
+        515.7,
+        766
+      ]
+    },
+    {
+      "name": "line_0250",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        515,
+        751.3
+      ],
+      "maximumMm": [
+        1350.7,
+        525,
+        752.7
+      ]
+    },
+    {
+      "name": "line_0251",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        514.3,
+        751.3
+      ],
+      "maximumMm": [
+        1750,
+        515.7,
+        752.7
+      ]
+    },
+    {
+      "name": "line_0252",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        515,
+        765.3
+      ],
+      "maximumMm": [
+        1350.7,
+        525,
+        766.7
+      ]
+    },
+    {
+      "name": "line_0253",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        514.3,
+        765.3
+      ],
+      "maximumMm": [
+        1750,
+        515.7,
+        766.7
+      ]
+    },
+    {
+      "name": "line_0254",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        524.3,
+        752
+      ],
+      "maximumMm": [
+        1350.7,
+        525.7,
+        766
+      ]
+    },
+    {
+      "name": "line_0255",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        524.3,
+        751.3
+      ],
+      "maximumMm": [
+        1750,
+        525.7,
+        752.7
+      ]
+    },
+    {
+      "name": "line_0256",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        524.3,
+        765.3
+      ],
+      "maximumMm": [
+        1750,
+        525.7,
+        766.7
+      ]
+    },
+    {
+      "name": "line_0257",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        549.3,
+        710
+      ],
+      "maximumMm": [
+        1350.7,
+        550.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0258",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        550,
+        709.3
+      ],
+      "maximumMm": [
+        1350.7,
+        570,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0259",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        549.3,
+        709.3
+      ],
+      "maximumMm": [
+        1750,
+        550.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0260",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        550,
+        779.3
+      ],
+      "maximumMm": [
+        1350.7,
+        570,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0261",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        549.3,
+        779.3
+      ],
+      "maximumMm": [
+        1750,
+        550.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0262",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1349.3,
+        569.3,
+        710
+      ],
+      "maximumMm": [
+        1350.7,
+        570.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0263",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        569.3,
+        709.3
+      ],
+      "maximumMm": [
+        1750,
+        570.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0264",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1350,
+        569.3,
+        779.3
+      ],
+      "maximumMm": [
+        1750,
+        570.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0265",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1359.3,
+        502.3,
+        754
+      ],
+      "maximumMm": [
+        1360.7,
+        503.7,
+        762
+      ]
+    },
+    {
+      "name": "line_0266",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1359.3,
+        503,
+        753.3
+      ],
+      "maximumMm": [
+        1360.7,
+        511,
+        754.7
+      ]
+    },
+    {
+      "name": "line_0267",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1360,
+        502.3,
+        753.3
+      ],
+      "maximumMm": [
+        1740,
+        503.7,
+        754.7
+      ]
+    },
+    {
+      "name": "line_0268",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1359.3,
+        503,
+        761.3
+      ],
+      "maximumMm": [
+        1360.7,
+        511,
+        762.7
+      ]
+    },
+    {
+      "name": "line_0269",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1360,
+        502.3,
+        761.3
+      ],
+      "maximumMm": [
+        1740,
+        503.7,
+        762.7
+      ]
+    },
+    {
+      "name": "line_0270",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1359.3,
+        510.3,
+        754
+      ],
+      "maximumMm": [
+        1360.7,
+        511.7,
+        762
+      ]
+    },
+    {
+      "name": "line_0271",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1360,
+        510.3,
+        753.3
+      ],
+      "maximumMm": [
+        1740,
+        511.7,
+        754.7
+      ]
+    },
+    {
+      "name": "line_0272",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1360,
+        510.3,
+        761.3
+      ],
+      "maximumMm": [
+        1740,
+        511.7,
+        762.7
+      ]
+    },
+    {
+      "name": "line_0273",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1739.3,
+        49.3,
+        0
+      ],
+      "maximumMm": [
+        1740.7,
+        50.7,
+        35
+      ]
+    },
+    {
+      "name": "line_0274",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1739.3,
+        50,
+        -0.7
+      ],
+      "maximumMm": [
+        1740.7,
+        560,
+        0.7
+      ]
+    },
+    {
+      "name": "line_0275",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1739.3,
+        50,
+        34.3
+      ],
+      "maximumMm": [
+        1740.7,
+        560,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0276",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1739.3,
+        502.3,
+        754
+      ],
+      "maximumMm": [
+        1740.7,
+        503.7,
+        762
+      ]
+    },
+    {
+      "name": "line_0277",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1739.3,
+        503,
+        753.3
+      ],
+      "maximumMm": [
+        1740.7,
+        511,
+        754.7
+      ]
+    },
+    {
+      "name": "line_0278",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1739.3,
+        503,
+        761.3
+      ],
+      "maximumMm": [
+        1740.7,
+        511,
+        762.7
+      ]
+    },
+    {
+      "name": "line_0279",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1739.3,
+        510.3,
+        754
+      ],
+      "maximumMm": [
+        1740.7,
+        511.7,
+        762
+      ]
+    },
+    {
+      "name": "line_0280",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1739.3,
+        559.3,
+        0
+      ],
+      "maximumMm": [
+        1740.7,
+        560.7,
+        35
+      ]
+    },
+    {
+      "name": "line_0281",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        29.3,
+        710
+      ],
+      "maximumMm": [
+        1750.7,
+        30.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0282",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        30,
+        709.3
+      ],
+      "maximumMm": [
+        1750.7,
+        50,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0283",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        30,
+        709.3
+      ],
+      "maximumMm": [
+        1750.7,
+        570,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0284",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1750,
+        29.3,
+        709.3
+      ],
+      "maximumMm": [
+        1770,
+        30.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0285",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        30,
+        779.3
+      ],
+      "maximumMm": [
+        1750.7,
+        50,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0286",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        30,
+        779.3
+      ],
+      "maximumMm": [
+        1750.7,
+        570,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0287",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1750,
+        29.3,
+        779.3
+      ],
+      "maximumMm": [
+        1770,
+        30.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0288",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        49.3,
+        710
+      ],
+      "maximumMm": [
+        1750.7,
+        50.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0289",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        489.3,
+        738
+      ],
+      "maximumMm": [
+        1750.7,
+        490.7,
+        752
+      ]
+    },
+    {
+      "name": "line_0290",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        490,
+        737.3
+      ],
+      "maximumMm": [
+        1750.7,
+        500,
+        738.7
+      ]
+    },
+    {
+      "name": "line_0291",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        490,
+        751.3
+      ],
+      "maximumMm": [
+        1750.7,
+        500,
+        752.7
+      ]
+    },
+    {
+      "name": "line_0292",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        499.3,
+        738
+      ],
+      "maximumMm": [
+        1750.7,
+        500.7,
+        752
+      ]
+    },
+    {
+      "name": "line_0293",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        514.3,
+        752
+      ],
+      "maximumMm": [
+        1750.7,
+        515.7,
+        766
+      ]
+    },
+    {
+      "name": "line_0294",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        515,
+        751.3
+      ],
+      "maximumMm": [
+        1750.7,
+        525,
+        752.7
+      ]
+    },
+    {
+      "name": "line_0295",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        515,
+        765.3
+      ],
+      "maximumMm": [
+        1750.7,
+        525,
+        766.7
+      ]
+    },
+    {
+      "name": "line_0296",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        524.3,
+        752
+      ],
+      "maximumMm": [
+        1750.7,
+        525.7,
+        766
+      ]
+    },
+    {
+      "name": "line_0297",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        549.3,
+        710
+      ],
+      "maximumMm": [
+        1750.7,
+        550.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0298",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        550,
+        709.3
+      ],
+      "maximumMm": [
+        1750.7,
+        570,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0299",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        550,
+        779.3
+      ],
+      "maximumMm": [
+        1750.7,
+        570,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0300",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1749.3,
+        569.3,
+        710
+      ],
+      "maximumMm": [
+        1750.7,
+        570.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0301",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1750,
+        569.3,
+        709.3
+      ],
+      "maximumMm": [
+        1770,
+        570.7,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0302",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1750,
+        569.3,
+        779.3
+      ],
+      "maximumMm": [
+        1770,
+        570.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0303",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        19.3,
+        780
+      ],
+      "maximumMm": [
+        1770.7,
+        20.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0304",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        1770.7,
+        30,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0305",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        1770.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0306",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1770,
+        19.3,
+        779.3
+      ],
+      "maximumMm": [
+        1780,
+        20.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0307",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        20,
+        797.3
+      ],
+      "maximumMm": [
+        1770.7,
+        30,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0308",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        20,
+        797.3
+      ],
+      "maximumMm": [
+        1770.7,
+        580,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0309",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1770,
+        19.3,
+        797.3
+      ],
+      "maximumMm": [
+        1780,
+        20.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0310",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        29.3,
+        690
+      ],
+      "maximumMm": [
+        1770.7,
+        30.7,
+        710
+      ]
+    },
+    {
+      "name": "line_0311",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        30,
+        689.3
+      ],
+      "maximumMm": [
+        1770.7,
+        570,
+        690.7
+      ]
+    },
+    {
+      "name": "line_0312",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        29.3,
+        710
+      ],
+      "maximumMm": [
+        1770.7,
+        30.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0313",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        30,
+        709.3
+      ],
+      "maximumMm": [
+        1770.7,
+        570,
+        710.7
+      ]
+    },
+    {
+      "name": "line_0314",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        29.3,
+        780
+      ],
+      "maximumMm": [
+        1770.7,
+        30.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0315",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        30,
+        779.3
+      ],
+      "maximumMm": [
+        1770.7,
+        570,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0316",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        569.3,
+        690
+      ],
+      "maximumMm": [
+        1770.7,
+        570.7,
+        710
+      ]
+    },
+    {
+      "name": "line_0317",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        569.3,
+        710
+      ],
+      "maximumMm": [
+        1770.7,
+        570.7,
+        780
+      ]
+    },
+    {
+      "name": "line_0318",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        569.3,
+        780
+      ],
+      "maximumMm": [
+        1770.7,
+        570.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0319",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        570,
+        779.3
+      ],
+      "maximumMm": [
+        1770.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0320",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        570,
+        797.3
+      ],
+      "maximumMm": [
+        1770.7,
+        580,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0321",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1769.3,
+        579.3,
+        780
+      ],
+      "maximumMm": [
+        1770.7,
+        580.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0322",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1770,
+        579.3,
+        779.3
+      ],
+      "maximumMm": [
+        1780,
+        580.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0323",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1770,
+        579.3,
+        797.3
+      ],
+      "maximumMm": [
+        1780,
+        580.7,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0324",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1777.3,
+        -0.7,
+        39
+      ],
+      "maximumMm": [
+        1778.7,
+        0.7,
+        796
+      ]
+    },
+    {
+      "name": "line_0325",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1777.3,
+        0,
+        38.3
+      ],
+      "maximumMm": [
+        1778.7,
+        20,
+        39.7
+      ]
+    },
+    {
+      "name": "line_0326",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1777.3,
+        0,
+        795.3
+      ],
+      "maximumMm": [
+        1778.7,
+        20,
+        796.7
+      ]
+    },
+    {
+      "name": "line_0327",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1777.3,
+        19.3,
+        39
+      ],
+      "maximumMm": [
+        1778.7,
+        20.7,
+        796
+      ]
+    },
+    {
+      "name": "line_0328",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        -0.7,
+        35
+      ],
+      "maximumMm": [
+        1780.7,
+        0.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0329",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        0,
+        34.3
+      ],
+      "maximumMm": [
+        1780.7,
+        600,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0330",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1780,
+        -0.7,
+        34.3
+      ],
+      "maximumMm": [
+        1800,
+        0.7,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0331",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        0,
+        799.3
+      ],
+      "maximumMm": [
+        1780.7,
+        600,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0332",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1780,
+        -0.7,
+        799.3
+      ],
+      "maximumMm": [
+        1800,
+        0.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0333",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        19.3,
+        780
+      ],
+      "maximumMm": [
+        1780.7,
+        20.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0334",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        19.3,
+        780
+      ],
+      "maximumMm": [
+        1780.7,
+        20.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0335",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        1780.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0336",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1780,
+        19.3,
+        779.3
+      ],
+      "maximumMm": [
+        1800,
+        20.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0337",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        20,
+        797.3
+      ],
+      "maximumMm": [
+        1780.7,
+        580,
+        798.7
+      ]
+    },
+    {
+      "name": "line_0338",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        20,
+        799.3
+      ],
+      "maximumMm": [
+        1780.7,
+        580,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0339",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1780,
+        19.3,
+        799.3
+      ],
+      "maximumMm": [
+        1800,
+        20.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0340",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        579.3,
+        780
+      ],
+      "maximumMm": [
+        1780.7,
+        580.7,
+        798
+      ]
+    },
+    {
+      "name": "line_0341",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        579.3,
+        780
+      ],
+      "maximumMm": [
+        1780.7,
+        580.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0342",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1780,
+        579.3,
+        779.3
+      ],
+      "maximumMm": [
+        1800,
+        580.7,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0343",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1780,
+        579.3,
+        799.3
+      ],
+      "maximumMm": [
+        1800,
+        580.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0344",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1779.3,
+        599.3,
+        35
+      ],
+      "maximumMm": [
+        1780.7,
+        600.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0345",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1780,
+        599.3,
+        34.3
+      ],
+      "maximumMm": [
+        1800,
+        600.7,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0346",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1780,
+        599.3,
+        799.3
+      ],
+      "maximumMm": [
+        1800,
+        600.7,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0347",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        -0.7,
+        35
+      ],
+      "maximumMm": [
+        1800.7,
+        0.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0348",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        0,
+        34.3
+      ],
+      "maximumMm": [
+        1800.7,
+        600,
+        35.7
+      ]
+    },
+    {
+      "name": "line_0349",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        -0.7,
+        780
+      ],
+      "maximumMm": [
+        1800.7,
+        0.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0350",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        0,
+        779.3
+      ],
+      "maximumMm": [
+        1800.7,
+        20,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0351",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        0,
+        799.3
+      ],
+      "maximumMm": [
+        1800.7,
+        20,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0352",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        0,
+        799.3
+      ],
+      "maximumMm": [
+        1800.7,
+        600,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0353",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        19.3,
+        780
+      ],
+      "maximumMm": [
+        1800.7,
+        20.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0354",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        20,
+        779.3
+      ],
+      "maximumMm": [
+        1800.7,
+        580,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0355",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        20,
+        799.3
+      ],
+      "maximumMm": [
+        1800.7,
+        580,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0356",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        579.3,
+        780
+      ],
+      "maximumMm": [
+        1800.7,
+        580.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0357",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        580,
+        779.3
+      ],
+      "maximumMm": [
+        1800.7,
+        600,
+        780.7
+      ]
+    },
+    {
+      "name": "line_0358",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        580,
+        799.3
+      ],
+      "maximumMm": [
+        1800.7,
+        600,
+        800.7
+      ]
+    },
+    {
+      "name": "line_0359",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        599.3,
+        35
+      ],
+      "maximumMm": [
+        1800.7,
+        600.7,
+        800
+      ]
+    },
+    {
+      "name": "line_0360",
+      "type": "line",
+      "material": "LineDark",
+      "minimumMm": [
+        1799.3,
+        599.3,
+        780
+      ],
+      "maximumMm": [
+        1800.7,
+        600.7,
+        800
+      ]
+    }
+  ]
+}

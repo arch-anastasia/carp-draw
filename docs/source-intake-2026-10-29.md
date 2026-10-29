@@ -1,5 +1,7 @@
 # CarpDraw source intake — October 29, 2026
 
+This report records the pre-import inspection. The subsequent authorized root integration is recorded in [CD-015](../MEMORY.md#cd-015); its validation does not change the runtime limitations below.
+
 ## Assessment
 
 **A controlled local import for inspection and development is reasonable. Running the supplied setup, connecting production services, or publishing the full history is not cleared by this review.** No structural Git corruption, unsafe tree paths, or matching credential tokens were detected in the offline checks. This is a preliminary source review, not a malware certification, dependency vulnerability audit, or production-readiness assessment.
