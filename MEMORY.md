@@ -99,3 +99,13 @@ For a new entry, use: **date; kind/status; finding or decision; evidence/authori
 - **Decision:** Select the perspective from the question automatically. Management answers lead with the overall assessment and decision-relevant outcomes, progress, priorities, timelines, ownership, resources, risks, and next actions. Technical answers use system evidence, clear boundaries, failure-mode analysis, explicit trade-offs, maintainability, and meaningful validation. Mixed questions lead with executive implications and supporting technical reasoning.
 - **Rationale / consequence:** Match communication and depth to the decision being made without requiring mode commands or adding another agent or skill. Keep human authority, evidence labels, English repository records, and the conversation-language policy unchanged. No milestone, budget, or delivery commitment changes.
 - **Follow-up:** Apply this guidance through AGENTS.md; refine it if subsequent feedback warrants a change.
+
+## CD-011
+
+**October 29, 2026 · Plan · Proposed — October 30 priorities**
+
+- **Basis:** The technical partner asked what is planned for tomorrow. PROJECT.md and the handover record identify M0's next actions but contain no confirmed October 30 tasks or meetings; calendar availability was not checked.
+- **Proposed outcome:** Founder and technical partner establish a documented starting picture of the showcase and a named next step for authorized handover, supporting M0's November 6 target.
+- **Suggested sequence:** Clarify who controls and can authorize code/account access; walk through one showcase task and record inputs, outputs, failures, and manual assistance; capture the founder's intended user/problem and agree the next action with an owner.
+- **Dependency / fallback:** Founder availability and permitted showcase access are unconfirmed. If a walkthrough is unavailable, capture the founder's account as Reported when available; independently prepare the focused walkthrough questions and handover request for human review.
+- **Status:** This is a recommendation, not an accepted daily commitment or scheduled meeting. No message was sent, no event was created, and no milestone date or scope was changed.
