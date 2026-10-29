@@ -1,0 +1,44 @@
+# PROPOSAL ONLY: this file is not loaded by Codex.
+# Prepared October 29, 2026 for this user's existing CarpDraw checkout.
+# After explicit approval, install as .codex/config.toml in that checkout.
+# The destination is ignored by Git; collaborators choose their own local paths.
+# Global settings stay unchanged. Confirm the effective policy in a fresh chat.
+# Older sandbox_mode settings or host/managed policy may override this profile.
+# Reference: https://learn.chatgpt.com/docs/permissions
+# Reference: https://learn.chatgpt.com/docs/config-file/config-basic
+
+approval_policy = "on-request"
+approvals_reviewer = "user"
+default_permissions = "carpdraw-local"
+web_search = "disabled"
+
+[permissions.carpdraw-local]
+description = "CarpDraw edits and local Git; external access requires approval."
+extends = ":read-only"
+
+[permissions.carpdraw-local.filesystem]
+# Tool/runtime reads remain available; unrelated filesystem access is denied.
+":root" = "deny"
+":minimal" = "read"
+":tmpdir" = "deny"
+":slash_tmp" = "deny"
+
+[permissions.carpdraw-local.filesystem."~/Documents/Personal/CarpDraw"]
+# Use an exact checkout, not every workspace root attached to a chat.
+"." = "write"
+".git" = "write"
+# Ordinary local commits may write Git data; changing hooks/settings is sensitive.
+".git/config" = "read"
+".git/config.worktree" = "read"
+".git/hooks" = "read"
+".agents" = "read"
+".codex" = "read"
+".aws" = "deny"
+
+[permissions.carpdraw-local.network]
+enabled = false
+
+# These rules govern local commands. Browser, connectors, MCP and other hosted
+# tools have separate controls. AGENTS.md requires scoped approval for their use.
+# Native web search is disabled here; approved research needs an explicitly
+# enabled surface. Model/authentication service traffic is outside this policy.
