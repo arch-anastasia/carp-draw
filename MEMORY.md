@@ -205,3 +205,13 @@ For a new entry, use: **date; kind/status; finding or decision; evidence/authori
 | `69b1867` | `1b8d5a1` |
 | `b83dda1` | `d879ee7` |
 | `4df3137` | `3080199` |
+
+## CD-020
+
+**November 5, 2026 · Decision and findings · Verified — First main publication to GitHub**
+
+- **Authority / scope:** After adding the empty origin, the technical partner explicitly instructed Codex to push the whole main branch. The configured fetch and push destination is the previously supplied GitHub repository, `arch-anastasia/carp-draw`. This authorizes main publication and its necessary local tracking setup; it does not authorize force-pushing, other refs, deployment, workflow activation or visibility changes.
+- **Verified execution:** Before upload, the working tree was clean at `2d2dad96105b37e25ee8c4cd17153b062434da43`, with 48 commits reachable from main; the destination advertised no branches or tags. A non-force push created remote main, set its upstream, and an independent Git remote query returned the exact local tip. This record and the current-state documentation refresh follow that verified first upload.
+- **Preservation / validation:** Main includes the original source-main ancestry and corrected local governance/integration history. The 22 bundle archive refs and the pre-email-correction recovery ref remain local. Existing credential/integrity checks remain recorded in CD-018/CD-019; no application code changed, so runtime suites were not repeated. GitHub Actions templates remain inactive.
+- **Limits / follow-up:** Successful Git write/readback establishes publication, not repository visibility, other collaborators’ access, code/asset rights, CI success or production readiness. The earlier browser-access denial remains respected. Confirm intended visibility/permissions and a collaborator clone; continue the existing ownership and runtime-risk follow-ups. No broader publication policy or product strategy is adopted by this upload.
+- **Supersedes:** CD-018/CD-019's pending remote-configuration and first-push status. Their rights, visibility and production-readiness limitations remain open.
