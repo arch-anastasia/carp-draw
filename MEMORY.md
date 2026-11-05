@@ -186,3 +186,22 @@ For a new entry, use: **date; kind/status; finding or decision; evidence/authori
 - **Disclosure checks / limits:** The original all-history intake remains the baseline. Supplemental bounded credential-pattern scanning of the 7 commits and 39 blobs added beyond source main, plus the pending memory text, found no matches. The largest blob reachable from main is approximately 18.7 MB; none exceeds 100 MiB. These checks do not establish absence of all sensitive content, source/asset rights, or production readiness. Existing local test evidence is in CD-016; application checks were not repeated for this publication-readiness assessment.
 - **Unverified / next action:** GitHub browser access was declined at its permission gate, so visibility was not verified. Confirm the intended private visibility and authorize the first upload, then commit the pending records, configure the supplied origin and push only main without force. Archive refs remain local under CD-015's policy. No agent-memory restructuring is needed for that push; source/asset rights and wider publication remain open.
 - **Supersedes:** The current-state assumption that no GitHub destination has been identified. Account ownership, collaborator access and successful publication still require their own evidence.
+
+## CD-019
+
+**November 5, 2026 · Decision and verification · Verified — Repository Git identity correction**
+
+- **Authority / scope:** The technical partner explicitly requested changing the recent commits to the supplied personal Git email. Correct author and committer email on the seven locally authored setup/integration commits and set the repository-local email for subsequent commits. Keep the existing author/committer names; global identity and imported contributors are unchanged.
+- **Baseline / preservation:** The working tree was clean at `4df3137`; the previously pending CD-017/CD-018 and project-map edits were already included in that tip. Their intervening inclusion was observed without inferring who performed it. Each rewritten commit retains its exact tree, message and dates; parent IDs change only to preserve the same local graph. Imported source main `c0f2b8d` and all 22 archive refs retain their original objects.
+- **Recovery / validation:** Retain the original local tip under `refs/backup/carpdraw-before-email-correction-2026-11-05`, outside the namespace of a normal main push. Verify each rewritten object against the prepared metadata-only transformation, check the final source ancestry and archive refs, and commit this record using the corrected repository identity. The application is unchanged; no runtime tests are needed for this metadata correction.
+- **Consequences:** Local commit IDs change. The table below maps pre-correction IDs used in older records to their replacements; earlier records remain historical evidence. No remote or push is performed. The private-visibility/publication follow-up in CD-018 remains open.
+
+| Before | After |
+| --- | --- |
+| `8a55662` | `c40fec5` |
+| `99cc68d` | `1a42b87` |
+| `9e3a651` | `25b066b` |
+| `63bec5b` | `f697df6` |
+| `69b1867` | `1b8d5a1` |
+| `b83dda1` | `d879ee7` |
+| `4df3137` | `3080199` |
